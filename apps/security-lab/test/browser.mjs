@@ -2,13 +2,25 @@ import assert from 'node:assert/strict';
 import { fork } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
-import { chromium } from 'playwright';
+import { existsSync } from 'node:fs';
+import { chromium, firefox, webkit } from 'playwright';
 import { startServer } from '../server.mjs';
 import { checkNonemptyRestore } from './restore-harness.mjs';
+const browserTypes = Object.freeze({ chromium, firefox, webkit });
+const engine = process.env.BROWSER_ENGINE ?? 'chromium';
+if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
+const launchOptions = { headless: true };
+if (engine === 'chromium') {
+  launchOptions.args = ['--no-sandbox'];
+  if (process.env.CHROMIUM_PATH !== undefined) {
+    if (!process.env.CHROMIUM_PATH) throw Error('CHROMIUM_PATH must be a nonempty executable path');
+    launchOptions.executablePath = process.env.CHROMIUM_PATH;
+  } else if (existsSync('/usr/bin/chromium')) launchOptions.executablePath = '/usr/bin/chromium';
+}
 const results = [], hits = [], fixtures = [], browserEvents = [], violations = [];
 const runId = randomUUID();
 await mkdir('apps/security-lab/test-results', { recursive: true });
-const receiverLog = `apps/security-lab/test-results/receiver-${runId}.jsonl`;
+const receiverLog = `apps/security-lab/test-results/receiver-${engine}-${runId}.jsonl`;
 await writeFile(receiverLog, '');
 let receiver, server, origin, receiverOrigin, browser;
 let requests = [];
@@ -26,7 +38,7 @@ try {
   });
   ({ server, origin, requests } = await startServer(0));
 
-  browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
+  browser = await browserTypes[engine].launch(launchOptions);
   const context = await browser.newContext({ acceptDownloads: true });
   context.setDefaultTimeout(4000);
   const page = await context.newPage();
@@ -224,6 +236,6 @@ try {
   const receiverFileHits = (await readFile(receiverLog, 'utf8')).split('\n').filter(Boolean).map(line => JSON.parse(line));
   if (JSON.stringify(receiverFileHits) !== JSON.stringify(hits)) results.push({ name: 'receiver file and IPC evidence agree', result: 'fail' });
   await mkdir('apps/security-lab/test-results', { recursive: true });
-  await writeFile('apps/security-lab/test-results/chromium.json', JSON.stringify({ at: new Date().toISOString(), browserVersion, policy: 'ADR0001-srcdoc', receiverLog, runId, fixtures, browserEvents, violations, results, hits, receiverFileHits, hostRequests: requests }, null, 2));
+  await writeFile(`apps/security-lab/test-results/${engine}.json`, JSON.stringify({ at: new Date().toISOString(), engine, browserVersion, policy: 'ADR0001-srcdoc', receiverLog, runId, fixtures, browserEvents, violations, results, hits, receiverFileHits, hostRequests: requests }, null, 2));
 }
 if (results.some(r => r.result === 'fail')) process.exitCode = 1;

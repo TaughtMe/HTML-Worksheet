@@ -2,7 +2,7 @@
 
 Begrenzter G0-Versuch (S01/S05/S06/S07, Teilmessungen S08/S09), kein freigegebenes Produkt. Ausschließlich synthetische HTML-Dateien und RAM-State benutzen. Keine Persistenz, kein PDF, Service Worker oder Deployment.
 
-Voraussetzung: Node 24, npm 11; für den Browserlauf System-Chromium unter `/usr/bin/chromium` oder `CHROMIUM_PATH`.
+Voraussetzung: Node 24, npm 11 sowie ein bereits vorhandenes Browserbinary für die gewählte Engine. Chromium verwendet zuerst `CHROMIUM_PATH`, sonst ein vorhandenes `/usr/bin/chromium`, sonst das von Playwright verwaltete Binary. Firefox und WebKit verwenden ihre Playwright-Binaries; `CHROMIUM_PATH` gilt dort nicht.
 
 ```sh
 npm ci --ignore-scripts --fetch-retries=0 --fetch-timeout=10000 --cache=/tmp/worksheet-npm-cache
@@ -15,10 +15,13 @@ npm start
 Die Oberfläche liegt unter `http://127.0.0.1:4173`. „Synthetische Demo“ startet den erlaubten Inline-Classic-Script-Korpus. Alternativ Datei wählen und öffnen. „RAM-Snapshot“ bestätigt nur flüchtigen State, „Schließen“ verwirft ihn. Der Server bindet ausschließlich Loopback. `LAB_PORT` wählt einen anderen Port; kein Devserver/HMR und keine externen Laufzeitressourcen.
 
 ```sh
-npm run test:browser
+npm run test:browser # standardmäßig Chromium
+BROWSER_ENGINE=chromium npm run test:browser
+BROWSER_ENGINE=firefox npm run test:browser
+BROWSER_ENGINE=webkit npm run test:browser
 ```
 
-Der Browserlauf startet Host und unabhängigen Receiver auf zufälligen Loopbackports und ein frisches Chromium-Profil. Rohdaten (Requests, Navigationsereignisse, CSP-Konsole, Fixture-SHA-256, Receiverhits, Resultate) stehen anschließend in `apps/security-lab/test-results/chromium.json`. Der Rückgabewert ist bei jedem fehlgeschlagenen Kriterium ungleich null. Insbesondere bleiben Navigationslecks fehlgeschlagene Tests. Die Linux-Testumgebung startet Chromium mit `--no-sandbox`; das HTML-iframe trägt weiterhin exakt `sandbox="allow-scripts"`. Das ist kein Beleg für eine Betriebssystem-Ressourcensandbox.
+Der Browserlauf startet Host und unabhängigen Receiver auf zufälligen Loopbackports und ein frisches Profil der gewählten Engine. `BROWSER_ENGINE` akzeptiert ausschließlich `chromium`, `firefox` oder `webkit`; andere Werte brechen vor dem Serverstart ab. Rohdaten (Requests, Navigationsereignisse, CSP-Konsole, Fixture-SHA-256, Receiverhits, Resultate) stehen anschließend in `apps/security-lab/test-results/<engine>.json`, einschließlich Engine und Browserversion. Der Rückgabewert ist bei jedem fehlgeschlagenen Kriterium ungleich null. Insbesondere bleiben Navigationslecks fehlgeschlagene Tests. Die Linux-Testumgebung startet Chromium mit `--no-sandbox`; Firefox und WebKit erhalten keine Chromium-Argumente; das HTML-iframe trägt weiterhin exakt `sandbox="allow-scripts"`. Das ist kein Beleg für eine Betriebssystem-Ressourcensandbox.
 
 ## Bewusste Teilmenge
 
