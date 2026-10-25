@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "start": "node apps/security-lab/server.mjs",
     "test": "node apps/security-lab/test/run.mjs",
-    "test:browser": "node apps/security-lab/test/browser.mjs"
+    "test:browser": "node apps/security-lab/test/browser.mjs",
+    "test:resources": "node apps/security-lab/test/resources.mjs"
   },
   "dependencies": {
     "parse5": "7.3.0"

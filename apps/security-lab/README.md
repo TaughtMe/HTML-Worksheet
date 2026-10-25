@@ -34,3 +34,18 @@ Der Import unterstützt HTML ohne fremde Frames, SVG/MathML, Templates, Canvas, 
 Header-/Meta-CSP folgen ADR 0001. Der Bootstrap steht vor importierten AST-Inhalten. Fremdes JavaScript teilt trotzdem den Realm mit dem Adapter und kann Port/State fälschen. Hostvalidierung prüft Schema und Zuordnung, keine inhaltliche Ehrlichkeit. Eine nachträgliche Frameentfernung verhindert keine bereits gesendete Navigationsanfrage.
 
 Aktuelle Evidenz und offene Gates: [SECURITY-LAB.md](../../docs/reports/SECURITY-LAB.md).
+
+## Getrennte S10-Ressourcenmessung
+
+Nach `npm run build` auf Linux x64/arm64:
+
+```sh
+npm run test:resources
+# optional mit bereits installiertem Browserbinary:
+BROWSER_ENGINE=firefox npm run test:resources
+BROWSER_ENGINE=webkit npm run test:resources
+```
+
+Dieser separate Harness führt Flood, gepacete Changes, Sitzungswechsel, Endlosschleife und höchstens 64 MiB synthetische Allokation jeweils in einem eigenen Node-Worker mit eigenem BrowserServer aus. Ein externer Supervisor überwacht feste Zeit-/RSS-Budgets und prüft den erfassten Prozessbaum nach dem Cleanup. Danach prüft jeweils ein neuer Browser tatsächliche Demo-Interaktion, RAM-State und Wiederöffnen. Der bestehende 28-Fall-Korpus wird dabei nicht erneut ausgeführt.
+
+Ergebnisse: `apps/security-lab/test-results/resources-<engine>.json`. Exit 0 bedeutet abgeschlossene Messung ohne erfassten Fehler/Risikobefund, **keine DoS-Immunität oder Sicherheitsfreigabe**. Exit 2 bezeichnet eine reproduzierte Risikobeobachtung bei Loop oder vollständig belegter 64-MiB-Allokation (z. B. UI-Stillstand, Crash oder absichtlich extern beendeter, nachweislich gestarteter Loop); unvollständige Allokation und funktionale Fehlschläge bleiben Exit 1; Exit 1 bezeichnet fehlgeschlagene oder unvollständige Messung, insbesondere Budget-/Cleanupfehler. SIGINT/SIGTERM führen zum Cleanup und Exit 130. Aktive Restprozesse stoppen die Folgefälle; Zombieeinträge werden separat ausgewiesen. Messkriterien, feste Budgets und lokale Prüfgrenzen: [S10.md](../../docs/reports/S10.md).
