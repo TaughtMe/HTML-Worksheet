@@ -1,0 +1,1425 @@
+{
+  "at": "2026-10-25T11:30:08.167Z",
+  "engine": "chromium",
+  "browserVersion": "155.0.8059.0",
+  "policy": "ADR0001-srcdoc",
+  "receiverLog": "apps/security-lab/test-results/receiver-chromium-c6eb2adc-6a96-47bb-8005-da9e999e9109.jsonl",
+  "runId": "c6eb2adc-6a96-47bb-8005-da9e999e9109",
+  "fixtures": [
+    {
+      "filename": "synthetic.html",
+      "sha256": "9d448c9824ac4851d5ff5e81dc5d15655febc4a863c2ac77ed2bf75ae98c5856"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "796068a9fc360430fedbf362e0c2d43351616fb6bc1c0d7693cf62104e378007"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "9128c92a7b826cb8de815c8731cdc13c120c05f130a5790cf641b607186d1737"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "c57608b985501e36c9d656d5d169c2955f9e757a18e4555f3550339077a1ec02"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "eddf68639913a3cb8331cdfe7f87559e0beccf2c289c0d90ac4d89b3204004f8"
+    },
+    {
+      "filename": "<img src=x onerror=globalThis.hostXss=1>.html",
+      "sha256": "3b7444ae946322351c525df956a5ab13fb88546479310effe2614059cf0ff076"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "04b04ef2ea12ece84736c380279d20d0a84a3be2816e3488ff675a192a6cdd83"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "5b045e42ff3a12aa979c71be2ae13323f04d7cabbcfd1b876a5e245df14e80a8"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "ae9d4b9371a5e47eda107940af302146f58029d81279e1e835f69256adc2713f"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "6b32b29a3e84c4cfa0988afff6f03269e9284297f8e7759b0278b97e1669044d"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "b17ea995386fce273752c0119fdf1c27fc26788bd7b7b064ced1d00d652ba216"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "47868b68485ea40622de5731a2118291a94369992e6a560cc983b1f1441edacb"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "a1cd3ea2a6f212115bc5de51ff03d799a8d3e77c5fd6d5e3416b63f071390542"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "e4bfb2ab18f8c6a4fe774ecf6550df488c24586deb48a97eeab51dab99ae01db"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "171582438694b354fef4b5471d2a4473209febeea81ce6c142d3e215beba3380"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "099e4099499c86ff34a2b20a54ca698e5e62161a6350eba87d3557bbfb8f8105"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "f6eae686f8c0dea71739e6136bc9d68a6c92a8b1565fb72d5feaf9792d235231"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "3bcd4ccb7247a4e21c43a0895823eb8d4263741fed9c85a944ff3eff53cc5a4e"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "659ee051ec3b0f350a8249b4c50f98b861641f89d27b5bb8e694ad1af8ed85bb"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "7db5b9ed12c560cb7fe5a54a4301513b74452ab84a031c48d51ffa0c230b66a3"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "5adfbf37af37bc67854c7163bbec84f586f2bdc9d4eb1eff622cc710fe7e6181"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "2d6da2c63f630b39c4acb81320aa14e24e555bfdd274ffbf997c0e4d477ca5d7"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "92dc933dbf2931e57fb734cc0ae9a37b81f12136f9d0b9bc127321040563412b"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "3b7444ae946322351c525df956a5ab13fb88546479310effe2614059cf0ff076"
+    }
+  ],
+  "browserEvents": [
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?xhr",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?script",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?link",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?css",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?image",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?background",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?eventsource",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "chrome-error://chromewebdata/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "chrome-error://chromewebdata/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "chrome-error://chromewebdata/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "chrome-error://chromewebdata/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:45313/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:45313/host.js",
+      "method": "GET"
+    }
+  ],
+  "violations": [
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Fetch API cannot load http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109. Refused to connect because it violates the document's Content Security Policy.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?xhr' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?xhr' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?beacon' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?beacon' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Loading the script 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?script' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked.",
+    "Fetching content from 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?link' violates the following Content Security Policy directive: \"default-src 'none'\". The action has been blocked.",
+    "Loading the stylesheet 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?css' violates the following Content Security Policy directive: \"style-src 'nonce-8rFF0667dDT7aFs5znkalCSTILYBdyEc'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked.",
+    "Loading the stylesheet 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?css' violates the following Content Security Policy directive: \"style-src 'unsafe-inline'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked.",
+    "Connecting to 'ws://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'ws://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Loading the image 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?image' violates the following Content Security Policy directive: \"img-src data:\". The action has been blocked.",
+    "Loading the image 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?image' violates the following Content Security Policy directive: \"img-src data:\". The action has been blocked.",
+    "Loading the image 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?background' violates the following Content Security Policy directive: \"img-src data:\". The action has been blocked.",
+    "Loading the image 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?background' violates the following Content Security Policy directive: \"img-src data:\". The action has been blocked.",
+    "Loading media from  'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?video' violates the following Content Security Policy directive: \"default-src 'none'\". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback. The action has been blocked.",
+    "Loading media from  'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?video' violates the following Content Security Policy directive: \"default-src 'none'\". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback. The action has been blocked.",
+    "Framing 'http://127.0.0.1:32965/' violates the following Content Security Policy directive: \"frame-src 'none'\". The request has been blocked.\n",
+    "Framing 'http://127.0.0.1:32965/' violates the following Content Security Policy directive: \"frame-src 'none'\". The request has been blocked.\n",
+    "Loading media from  'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?audio' violates the following Content Security Policy directive: \"default-src 'none'\". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback. The action has been blocked.",
+    "Loading media from  'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?audio' violates the following Content Security Policy directive: \"default-src 'none'\". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback. The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?eventsource' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Connecting to 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?eventsource' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked.",
+    "Loading plugin data from 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?object' violates the following Content Security Policy directive: \"object-src 'none'\". The action has been blocked.",
+    "Loading plugin data from 'http://127.0.0.1:32965/blocked?run=c6eb2adc-6a96-47bb-8005-da9e999e9109?object' violates the following Content Security Policy directive: \"object-src 'none'\". The action has been blocked.",
+    "Executing inline event handler violates the following Content Security Policy directive 'script-src 'nonce-CTld+LQIcHcjAlkp9qpxi+04wIk3S84y''. Either the 'unsafe-inline' keyword, a hash ('sha256-...'), or a nonce ('nonce-...') is required to enable inline execution. Note that hashes do not apply to event handlers, style attributes and javascript: navigations unless the 'unsafe-hashes' keyword is present. The action has been blocked.",
+    "Blocked opening 'http://127.0.0.1:32965/sandbox?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&action=popup' in a new window because the request was made in a sandboxed frame whose 'allow-popups' permission is not set.",
+    "Framing 'http://127.0.0.1:32965/' violates the following Content Security Policy directive: \"frame-src 'none'\". The request has been blocked.\n",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Unsafe attempt to initiate navigation for frame with origin 'http://127.0.0.1:45313' from frame with URL 'about:srcdoc'. The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set.\n",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Unsafe attempt to initiate navigation for frame with origin 'http://127.0.0.1:45313' from frame with URL 'about:srcdoc'. The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set.\n",
+    "Framing 'http://127.0.0.1:32965/' violates the following Content Security Policy directive: \"frame-src 'none'\". The request has been blocked.\n",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Unsafe attempt to initiate navigation for frame with origin 'http://127.0.0.1:45313' from frame with URL 'about:srcdoc'. The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set.\n",
+    "Framing 'http://127.0.0.1:45313/self-navigation?synthetic=1' violates the following Content Security Policy directive: \"frame-src 'none'\". The request has been blocked.\n",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Unsafe attempt to initiate navigation for frame with origin 'http://127.0.0.1:45313' from frame with URL 'about:srcdoc'. The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set.\n",
+    "Blocked form submission to 'http://127.0.0.1:32965/sandbox?' because the form's frame is sandboxed and the 'allow-forms' permission is not set.",
+    "Unsafe attempt to initiate navigation for frame with origin 'http://127.0.0.1:45313' from frame with URL 'about:srcdoc'. The frame attempting navigation of the top-level window is sandboxed, but the flag of 'allow-top-navigation' or 'allow-top-navigation-by-user-activation' is not set.\n"
+  ],
+  "results": [
+    {
+      "name": "independent receiver positive control",
+      "result": "pass",
+      "detail": {
+        "receiverOrigin": "http://127.0.0.1:32965"
+      }
+    },
+    {
+      "name": "host CSP header fresh nonce and strict sources",
+      "result": "pass",
+      "detail": "default-src 'none'; script-src 'nonce-NeD/ipXZi5iyi+fD2mIiUHihgtCRD4fm'; style-src 'nonce-NeD/ipXZi5iyi+fD2mIiUHihgtCRD4fm'; img-src data:; connect-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+    },
+    {
+      "name": "allowed JS and five standard field kinds capture and checkpoint",
+      "result": "pass",
+      "detail": {
+        "revision": 1,
+        "durability": "memory",
+        "state": {
+          "schemaVersion": 1,
+          "fields": [
+            {
+              "id": "area",
+              "kind": "text",
+              "value": "synthetic"
+            },
+            {
+              "id": "check",
+              "kind": "checkbox",
+              "value": true
+            },
+            {
+              "id": "group",
+              "kind": "radio",
+              "value": "r2"
+            },
+            {
+              "id": "many",
+              "kind": "select-many",
+              "value": [
+                "a",
+                "b"
+              ]
+            },
+            {
+              "id": "one",
+              "kind": "select-one",
+              "value": "b"
+            },
+            {
+              "id": "text",
+              "kind": "text",
+              "value": "<b>Antwort</b>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "nonempty restore sets every standard field without synthetic events",
+      "result": "pass",
+      "detail": {
+        "revision": 7,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "restored textarea"
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "<b>synthetic restore</b>"
+          }
+        ],
+        "fixtureSha256": "1a03ec6078939e58c7cd8a34a75b4a8b62ffe2dae4f7395e21b6d98b494acf22",
+        "runnerSha256": "961055ac117a8817e663a4426d84596915a9e732051d394c96c3c2707bfe7fba"
+      }
+    },
+    {
+      "name": "native form reset updates RAM after acknowledged input",
+      "result": "pass"
+    },
+    {
+      "name": "dynamic split radio form ownership becomes incompatible",
+      "result": "pass"
+    },
+    {
+      "name": "import size and invalid UTF8 reject in browser",
+      "result": "pass"
+    },
+    {
+      "name": "host filename XSS remains text",
+      "result": "pass"
+    },
+    {
+      "name": "malformed HTML cannot displace fixed policy bootstrap",
+      "result": "pass"
+    },
+    {
+      "name": "opaque parent DOM and storage isolation; privileged host control",
+      "result": "pass",
+      "detail": "SecurityError,SecurityError,SecurityError"
+    },
+    {
+      "name": "window message spoof cannot change state",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects wrong-version",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects wrong-session",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects oversized",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects object",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects replay",
+      "result": "pass"
+    },
+    {
+      "name": "dynamic network sinks produce no receiver request with positive script control",
+      "result": "pass",
+      "detail": {
+        "cspErrors": 27
+      }
+    },
+    {
+      "name": "eval and inline handlers remain denied with allowed classic script",
+      "result": "pass"
+    },
+    {
+      "name": "trusted popup and blob download instrumentation controls",
+      "result": "pass"
+    },
+    {
+      "name": "sandbox popup blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "popup",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "sandbox external-download-link blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "external-download-link",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "closed · NAVIGATION",
+        "frameUrls": []
+      }
+    },
+    {
+      "name": "sandbox blob-download blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "blob-download",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "sandbox form blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "form",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "sandbox top blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "top",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          ""
+        ]
+      }
+    },
+    {
+      "name": "self navigation blocked before request to receiver",
+      "result": "pass",
+      "detail": {
+        "receiverHits": [],
+        "hostHits": []
+      }
+    },
+    {
+      "name": "self navigation blocked before request to host",
+      "result": "pass",
+      "detail": {
+        "receiverHits": [],
+        "hostHits": []
+      }
+    },
+    {
+      "name": "receiver positive control after attacks",
+      "result": "pass"
+    },
+    {
+      "name": "new session cannot inherit prior RAM state",
+      "result": "pass"
+    }
+  ],
+  "hits": [
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:19.274Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=suite-before&control=02a4adcb-2ad5-4eb3-9628-f2dbc19eb1be",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.360Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-before&control=3c59cf2d-fa4b-4a26-a4f6-ebdd5fb093b3",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:25.478Z",
+      "method": "GET",
+      "url": "/ws-control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-before&control=9e0961ff-0e08-4823-97bd-b0da0227f3cc",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:28.822Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-after&control=65273d27-a456-46aa-8807-866e4a470a2b",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:28.920Z",
+      "method": "GET",
+      "url": "/ws-control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-after&control=d8735f2d-afc3-444a-a88d-c6d3fc7a383c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.443Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-popup-before&control=65977964-4f10-4766-a9c4-44c3bc8d264a",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.762Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-popup-after&control=72b44e53-6273-4ded-b4f2-1dd5d705216e",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.861Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-external-download-link-before&control=1d48c497-abe1-4c6a-b816-0a2e179f5470",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.204Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-external-download-link-after&control=a60fbc02-ecc4-443d-9324-38f7ad151e81",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.297Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-blob-download-before&control=c9be2a59-31a5-4e1c-a170-53da0d40f37b",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.607Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-blob-download-after&control=c7fa0c7e-607f-4340-9a1b-4b669a7e3456",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.708Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-form-before&control=f6872684-eaf5-4f0f-8222-11787d04a10d",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:43.007Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-form-after&control=c18fe943-1854-4bc1-9089-a67b114311d3",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:43.106Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-top-before&control=c705ab5a-030e-4e3d-9d4f-5f2f729b6aef",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:46.392Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-top-after&control=6fa27a11-b32d-4d5a-b71b-78635d640bf2",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:46.486Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-receiver-before&control=46d52bd8-325e-4b08-b38f-d94d17c62727",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:56.723Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-receiver-after&control=24924d7d-a277-4334-8264-d83574b74d0c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:56.825Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-host-before&control=dd4c2476-7fad-43a3-859d-3308ea8491f3",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:07.059Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-host-after&control=246e642b-a0cd-41dc-a4da-cd45fa9f68ff",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:07.158Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=suite-after&control=56f6df43-a753-48e9-99f7-f42ec68427a8",
+      "referer": null
+    }
+  ],
+  "receiverFileHits": [
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:19.274Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=suite-before&control=02a4adcb-2ad5-4eb3-9628-f2dbc19eb1be",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.360Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-before&control=3c59cf2d-fa4b-4a26-a4f6-ebdd5fb093b3",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:25.478Z",
+      "method": "GET",
+      "url": "/ws-control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-before&control=9e0961ff-0e08-4823-97bd-b0da0227f3cc",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:28.822Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-after&control=65273d27-a456-46aa-8807-866e4a470a2b",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:28.920Z",
+      "method": "GET",
+      "url": "/ws-control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=network-after&control=d8735f2d-afc3-444a-a88d-c6d3fc7a383c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.443Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-popup-before&control=65977964-4f10-4766-a9c4-44c3bc8d264a",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.762Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-popup-after&control=72b44e53-6273-4ded-b4f2-1dd5d705216e",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.861Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-external-download-link-before&control=1d48c497-abe1-4c6a-b816-0a2e179f5470",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.204Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-external-download-link-after&control=a60fbc02-ecc4-443d-9324-38f7ad151e81",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.297Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-blob-download-before&control=c9be2a59-31a5-4e1c-a170-53da0d40f37b",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.607Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-blob-download-after&control=c7fa0c7e-607f-4340-9a1b-4b669a7e3456",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.708Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-form-before&control=f6872684-eaf5-4f0f-8222-11787d04a10d",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:43.007Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-form-after&control=c18fe943-1854-4bc1-9089-a67b114311d3",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:43.106Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-top-before&control=c705ab5a-030e-4e3d-9d4f-5f2f729b6aef",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:46.392Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=sandbox-top-after&control=6fa27a11-b32d-4d5a-b71b-78635d640bf2",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:46.486Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-receiver-before&control=46d52bd8-325e-4b08-b38f-d94d17c62727",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:56.723Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-receiver-after&control=24924d7d-a277-4334-8264-d83574b74d0c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:56.825Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-host-before&control=dd4c2476-7fad-43a3-859d-3308ea8491f3",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:07.059Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=navigation-host-after&control=246e642b-a0cd-41dc-a4da-cd45fa9f68ff",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:07.158Z",
+      "method": "GET",
+      "url": "/control?run=c6eb2adc-6a96-47bb-8005-da9e999e9109&case=suite-after&control=56f6df43-a753-48e9-99f7-f42ec68427a8",
+      "referer": null
+    }
+  ],
+  "hostRequests": [
+    {
+      "at": "2026-10-25T11:29:19.361Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:19.396Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:19.490Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:19.500Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:19.524Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:19.532Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:21.002Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:21.011Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.268Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.276Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.990Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.997Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.384Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.391Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.483Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.490Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.630Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.644Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.789Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.799Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.986Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:23.998Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.140Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.153Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.385Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.392Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.618Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.624Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.851Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:24.859Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.085Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.092Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.531Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.539Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:28.975Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:28.984Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:29.502Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:29.509Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:32.917Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:32.927Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:36.356Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:36.363Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:39.761Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:39.772Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:43.163Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:43.173Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:46.544Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:46.554Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:56.882Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:56.888Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:30:07.215Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:30:07.222Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    }
+  ]
+}

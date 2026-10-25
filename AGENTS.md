@@ -31,6 +31,7 @@
 
 - Neue Agenten erhalten standardmäßig nur Auftrag, relevante Dateipfade, Basiscommit und Abnahmekriterien (`fork_turns="none"`), nicht den gesamten Chat. Vorhandene Agenten für fachlich zusammenhängende Folgeaufträge wiederverwenden.
 - Rückmeldungen auf Ergebnis, Commit, ausgeführte Prüfungen und Blocker begrenzen. Rohlogs in Artefakten ablegen; im Chat nur relevante Ausschnitte. Keine zusätzlichen Berichte, wenn ein bestehender Status-/Prüfbericht genügt.
+- Bei einem Kontingentfehler denselben Agenten erneut prüfen und starten. Wird er erneut gesperrt, Auftrag pausieren; keine automatische Übernahme oder Modellersetzung ohne Nutzervorgabe.
 - Modell und Reasoning-Stufe nach Aufgabenrisiko wählen. Routinearbeit Luna low/medium, gewöhnliche Integration Sol medium; high/xhigh nur für entsprechend anspruchsvolle Aufgaben. Ein unabhängiger Review kritischen Codes bleibt verpflichtend.
 - Einmal erfolgreiche Checks für unveränderten Code nicht wiederholen. Nach Dokumentänderungen Links/Whitespace prüfen, nach Codeänderungen die betroffenen Regressionen; vollständigen Satz am Integrationsstand ausführen.
 - Netzwerkoperationen getrennt von lokalen Änderungen ausführen. Kurze Requesttimeouts, keine automatischen Wiederholungen bei Berechtigungsfehlern. Nach dem ersten Blocker Ursache melden; eine fehlende Freigabe ist kein langsamer Download.

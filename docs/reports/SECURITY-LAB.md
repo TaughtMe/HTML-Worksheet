@@ -41,6 +41,22 @@ Das unabhängige [Code- und Methodenreview](PROTOTYPE-REVIEW.md) führte zu Korr
 - Nur synthetisches RAM-Labor; keine Schülerarbeiten, IndexedDB, Arbeitshefte, PDF, PWA-Installation oder Cloudflare-Veröffentlichung.
 - `drag-demo`, persistente Vorlagen-/Instanzentitäten und vollständige normative Bridgegrenzmatrix sind nicht implementiert bzw. abgenommen. Konflikte führen aktuell zu Protokolldiagnose/Kanalabschluss; eigener Konfliktstatus und Erhalt des unbestätigten Kandidaten sind vor Persistenz nachzuholen.
 - Fremdes Skript teilt den Realm mit Adapter/Bootstrap und kann gültigen State fälschen; validiert werden Format und Zuordnung, keine inhaltliche Ehrlichkeit.
-- Offen: Firefox, Playwright-WebKit, reale iPad-/Android-Geräte, Remote-HTTPS/WSS, vollständige X01–X04-/X10-Varianten, künstlich verzögerte Snapshot-/Commitrennen, Ressourcen-/Endlosschleifen-/Allokationstests und Offline-Neustart.
+- Offen: über den unten beschriebenen Teilkorpus hinausgehende Engineprüfungen, reale iPad-/Android-Geräte, Remote-HTTPS/WSS, vollständige X01–X04-/X10-Varianten, künstlich verzögerte Snapshot-/Commitrennen, Ressourcen-/Endlosschleifen-/Allokationstests und Offline-Neustart.
 - Das lokale dynamische Nonce-/No-store-Experiment ist keine statisch gehostete oder offline startbare PWA. S10–S13 und die fehlenden Browsernachweise sind vor G1a erforderlich; G1b verlangt reale Geräte. Ein externer unabhängiger menschlicher Sicherheitsreview bleibt vor Schuleinsatz erforderlich.
-- Die zwölf lokalen Tests und der Browserharness sind wiederholbar. Ein SHA-gepinnter GitHub-CI-Workflow (S02) mit drei Engines ist inzwischen implementiert; tatsächliche Actions-Läufe stehen noch aus. Der oben belegte 28/28-Lauf betrifft den zuvor geprüften Chromiumstand, keine automatisch bestandene Firefox-/WebKit-Abnahme.
+- Die zwölf lokalen Tests und der Browserharness sind wiederholbar. Ein SHA-gepinnter GitHub-CI-Workflow (S02) mit drei Engines ist implementiert. Der nachfolgende Abschnitt dokumentiert den tatsächlich erfolgreichen ersten Matrixlauf; die vollständigen Sicherheitsgates bleiben offen.
+
+## Automatisierter Drei-Engine-Lauf
+
+[GitHub Actions 40188997045](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40188997045), Quellencommit `55214c6317e313e6fad6025b050665dd235667c5`, Ubuntu 24.04/Node 24: Checkjob (Typecheck, zwölf Unit-/Importfälle, Build) sowie alle drei Browserjobs erfolgreich. Der Testkatalog wurde unverändert zwischen den Engines verwendet; keine Erwartungen wurden zum Erreichen eines grünen Ergebnisses gelockert.
+
+| Engine | Beobachtete Version | Einzelresultate | Archivierte Rohdaten |
+|---|---|---|---|
+| Chromium | 155.0.8059.0 | 28/28 bestanden | [Report](evidence/ci-40188997045/chromium.json), [Receiver](evidence/ci-40188997045/chromium-receiver.jsonl) |
+| Firefox | 144.0.2 | 28/28 bestanden | [Report](evidence/ci-40188997045/firefox.json), [Receiver](evidence/ci-40188997045/firefox-receiver.jsonl) |
+| Playwright-WebKit | 26.0 | 28/28 bestanden | [Report](evidence/ci-40188997045/webkit.json), [Receiver](evidence/ci-40188997045/webkit-receiver.jsonl) |
+
+Die Koordination hat alle drei Artefakte über GitHub geladen, ihre ZIP-SHA-256 mit dem jeweiligen GitHub-Artefaktdigest verglichen und vor dem Lesen auf zwei Dateien und maximal 1 MB entpackte Daten begrenzt. Je Engine stimmen unabhängiges JSONL, embedded Receiverdatei und IPC-Hits überein: 18 HTTP-Kontrollen und zwei WebSocket-Upgrades. Alle 28 Fallresultate sind positiv. [Prüfsummenmanifest](evidence/ci-40188997045/manifest.json). Die Rohdateien bleiben im Repository erhalten, während native CI-Artefakte nach sieben Tagen ablaufen.
+
+Die Engineauswahl ist auf chromium/firefox/webkit begrenzt; ein ungültiger Wert wurde lokal als Abbruch vor Serverstart geprüft. CI verwendet minimale Leserechte, gepinnte Action-SHAs, getrennte Jobs und Artefakte, keinen Deployment- oder Secretzugriff. Der Browserjob hängt von erfolgreichen Basistests ab. Pushläufe sind auf main beschränkt; Pull Requests werden geprüft. Dokumentationsfilter vermeiden reine Dokumentationsläufe, wobei GitHub für Pull Requests deren gesamten Diff betrachtet. Ein absichtlich fehlschlagender kompletter CI-Lauf wurde noch nicht durchgeführt; lokale Negativtests und ihre Abbruchcodes sind belegt.
+
+84 erfolgreiche Einzelprüfungen über drei Engines bedeuten nicht 84 unterschiedliche Angriffsklassen. Playwright-WebKit auf Linux ersetzt weiterhin keinen realen iPad-/Safari-Test. Der Korpus bleibt der begrenzte Prototypnachweis; Ressourcenmissbrauch, Offline-Neustart, vollständige Variationsmatrix und Gerätefreigaben fehlen.

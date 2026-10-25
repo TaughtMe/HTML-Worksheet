@@ -19,6 +19,6 @@ Die Plattform soll Vorlagen und persönliche Bearbeitungen trennen, unterstützt
 
 Der erste technische Kern ist in [apps/security-lab](apps/security-lab/README.md) implementiert: lokaler HTML-Import, isolierter Runner und validierte Zustandsübertragung mit ausschließlich synthetischen Daten im Arbeitsspeicher. Installation, Start und Prüfungen sind in der Laboranleitung dokumentiert. Der [Prüfbericht](docs/reports/SECURITY-LAB.md) unterscheidet bestandene Einzeltests von noch offenen Sicherheitsgates.
 
-Es gibt noch keine dauerhafte Antwortspeicherung, Arbeitsheftverwaltung, PDF-Erzeugung, installierbare Offline-PWA oder gehostete Testversion. Firefox, WebKit und reale iPad-/Android-Prüfungen sowie Ressourcen- und Offlineversuche bleiben offen. Die nächsten Phasen beginnen erst nach den zugehörigen Nachweisen.
+Es gibt noch keine dauerhafte Antwortspeicherung, Arbeitsheftverwaltung, PDF-Erzeugung, installierbare Offline-PWA oder gehostete Testversion. Der begrenzte Testkatalog besteht in Chromium, Firefox und Playwright-WebKit. Reale iPad-/Android-Prüfungen, die vollständige Angriffsvariantenmatrix sowie Ressourcen- und Offlineversuche bleiben offen. Die nächsten Phasen beginnen erst nach den zugehörigen Nachweisen.
 
 Keine Schülerdaten, Zugangsdaten oder vertraulichen Unterrichtsmaterialien in dieses Repository aufnehmen. Eine Softwarelizenz ist noch nicht festgelegt; die spätere Abhängigkeitsprüfung ist davon getrennt.
