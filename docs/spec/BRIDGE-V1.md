@@ -26,13 +26,22 @@ JSON-Daten enthalten nur null, boolesche Werte, endliche Zahlen, Strings, Arrays
 | R→H `STATE_CHANGED` | `{changeId,baseRevision,state}` | Nur `active`, ein unbestätigter Change gleichzeitig. Adapter ist sitzungsgebunden. H validiert vollständig und führt später CAS-Commit aus. |
 | H→R `STATE_ACCEPTED` | `{changeId,revision,durability}` | `durability` ist `memory` im Labor oder `committed` nach erfolgreicher DB-Transaktion. Nur bestätigte Revision als neue Basis verwenden. |
 | H→R `STATE_REJECTED` | `{changeId,code}` | `code`: `CONFLICT`, `STORAGE_ERROR`, `READ_ONLY`. Kanal danach schließen; H zeigt Fehler, bewahrt begrenzten ungespeicherten Kandidaten nur im RAM. Kein automatisches Überschreiben. |
-| H→R `REQUEST_STATE` | `{requestId,reason}` | Nur `active`, kein weiterer offener Change/Request; `reason`: `checkpoint`, `close`, `export`. Keine Export-/Dateiberechtigung. |
+| H→R `REQUEST_STATE` | `{requestId,reason}` | Nur `active`, kein H bereits bekannter offener Change/Request; ein noch ungesehener Crossing-Change ist unten geregelt. `reason`: `checkpoint`, `close`, `export`. Keine Export-/Dateiberechtigung. |
 | R→H `STATE_SNAPSHOT` | `{requestId,baseRevision,state}` | Nur passender offener Request; dieselbe Validierung/CAS wie Change, dann `SNAPSHOT_ACCEPTED`. |
 | H→R `SNAPSHOT_ACCEPTED` | `{requestId,revision,durability}` | Identischer State kann dieselbe Revision behalten; Commitgarantie wie oben. |
+| H→R `SNAPSHOT_REJECTED` | `{requestId,code}` | `code`: `CONFLICT`, `STORAGE_ERROR`, `READ_ONLY`. Nur für passenden Snapshot; gleiche Fehleranzeige/RAM-Begrenzung wie STATE_REJECTED, danach Kanal schließen. |
 | R→H `ADAPTER_ERROR` | `{code}` | Nur vor/innerhalb `active`; `code`: `UNSUPPORTED_FIELD`, `AMBIGUOUS_ID`, `RESTORE_FAILED`, `SERIALIZE_FAILED`. H stoppt als inkompatibel, keine freien Fehlermeldungen. |
 | H→R `CLOSE` | `{code}` | Best Effort vor Portschluss; `code`: `USER_CLOSE`, `REPLACED`, `TIMEOUT`, `PROTOCOL`, `NAVIGATION`. Keine Empfangsbestätigung nötig. |
 
 Die einzigen v1-Adapter sind `standard-fields` Version 1 und `drag-demo` Version 1, mit [P06-State-Schemas](DATENVERTRAG-V1.md). Keine freie Adapter-URL, kein dynamisches Plugin. Neue Adapter werden explizit registriert und reviewt.
+
+### Crossing von Request und Change
+
+Ein REQUEST_STATE kann einen bereits von R abgeschickten, bei H noch ungesehenen STATE_CHANGED kreuzen. Das ist allein kein Protokollverstoß. H hält genau einen Request offen und akzeptiert währenddessen höchstens diesen einen Crossing-Change nach den normalen Validierungs-/CAS-Regeln. H bestätigt ihn mit STATE_ACCEPTED oder beendet bei STATE_REJECTED den Kanal; kein zweiter Change wird gequeued.
+
+Beim Empfang von REQUEST_STATE pausiert R weitere STATE_CHANGED. Ist ein Change unbestätigt, wartet R zuerst dessen STATE_ACCEPTED ab, übernimmt dessen Revision und sendet dann genau einen STATE_SNAPSHOT mit dieser neuen Basis und dem jüngsten lokalen State. Ohne offenen Change sendet R den Snapshot unmittelbar. R nimmt automatische Changes erst nach SNAPSHOT_ACCEPTED wieder auf; bei SNAPSHOT_REJECTED endet die Sitzung. H hält den Request bis Snapshotbestätigung oder Kanalabschluss offen.
+
+Die Snapshotfrist bleibt **2 Sekunden ab REQUEST_STATE**, einschließlich eines Crossing-Commit-Wartens, und wird nicht verlängert. Ein legitimer langsamer Commit kann daher zum Timeout führen, obwohl seine separate Commitfrist 5 Sekunden beträgt. H schließt dann ohne Snapshot-Erfolgsbestätigung, versucht offene Transaktionen abzubrechen und meldet den Abschluss als unbestätigt. Eine bereits abgeschlossene/noch erfolgreich abschließende Change-Transaktion darf als tatsächlich lokal bestätigt erfasst werden, wird aber nicht als erfolgreicher Snapshot/Exportabschluss ausgegeben; nach Kanalabschluss kein ACK. Diese bewusst strenge Grenze vermeidet unbegrenztes Warten und Queueing.
 
 ## Größen, Häufigkeit und Zeit
 
@@ -59,4 +68,4 @@ Ein Heartbeat kann Ressourcenstillstand nicht zuverlässig beheben und ist keine
 
 ## Erforderliche Grenztests
 
-TEST-BRIDGE-01/02 müssen Grenzwert und Grenzwert+1 für Bytes/Struktur/Sequenz, fremde/alte Ports, zweite INIT, alte Sitzung, Replay, falsche Phase, Protokoll-/Adapterversion, falsche Payloads, Rate-Burst/Refill/Fenster, Commitfehler, Navigation vor/nach INIT und wiederholtes Öffnen/Schließen prüfen. Ein beliebiger gültiger State darf nur die fest gebundene aktive Instanz ändern; niemals eine URL, einen Download oder einen Host-DOM-Sink auslösen.
+TEST-BRIDGE-01/02 müssen Grenzwert und Grenzwert+1 für Bytes/Struktur/Sequenz, fremde/alte Ports, zweite INIT, alte Sitzung, Replay, falsche Phase, Protokoll-/Adapterversion, falsche Payloads, Rate-Burst/Refill/Fenster, Commitfehler für Change und Snapshot, Crossing mit neuer Snapshot-Basis, langsamen Crossing-Commit mit 2-Sekunden-Timeout, Navigation vor/nach INIT und wiederholtes Öffnen/Schließen prüfen. Ein beliebiger gültiger State darf nur die fest gebundene aktive Instanz ändern; niemals eine URL, einen Download oder einen Host-DOM-Sink auslösen.
