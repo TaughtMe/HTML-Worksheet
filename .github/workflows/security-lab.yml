@@ -7,10 +7,16 @@ on:
     paths-ignore:
       - "docs/**"
       - "**/*.md"
+      - "apps/security-lab/test/baseline*.mjs"
+      - "apps/security-lab/test/tab-recovery*.mjs"
+      - ".github/workflows/tab-recovery.yml"
   pull_request:
     paths-ignore:
       - "docs/**"
       - "**/*.md"
+      - "apps/security-lab/test/baseline*.mjs"
+      - "apps/security-lab/test/tab-recovery*.mjs"
+      - ".github/workflows/tab-recovery.yml"
   workflow_dispatch:
 
 permissions:

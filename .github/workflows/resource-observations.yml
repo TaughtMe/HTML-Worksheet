@@ -9,12 +9,18 @@ on:
       - package.json
       - package-lock.json
       - .github/workflows/resource-observations.yml
+      - '!apps/security-lab/test/baseline*.mjs'
+      - '!apps/security-lab/test/tab-recovery*.mjs'
+      - '!.github/workflows/tab-recovery.yml'
   pull_request:
     paths:
       - apps/security-lab/**
       - package.json
       - package-lock.json
       - .github/workflows/resource-observations.yml
+      - '!apps/security-lab/test/baseline*.mjs'
+      - '!apps/security-lab/test/tab-recovery*.mjs'
+      - '!.github/workflows/tab-recovery.yml'
   workflow_dispatch:
 
 permissions:
