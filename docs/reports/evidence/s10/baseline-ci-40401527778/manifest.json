@@ -1,0 +1,16 @@
+{
+  "actions_run_id": "40401527778",
+  "job_id": "121848328069",
+  "source_commit": "40a4274f16d48e9db78341a220bf19f20bfac268",
+  "source_tree": "e70d2c5e268047a44a0bb6c3532424f2302596c5",
+  "artifact_id": "12688672434",
+  "artifact_entry": "baseline.json",
+  "artifact_zip_sha256": "0bd55563a979c8c3aca975732b36b0f7d85889858db5d55aaf0822fddda8f4f0",
+  "artifact_zip_size_bytes": 507,
+  "raw_file": "baseline.json",
+  "raw_sha256": "54509f97dfea74bfc87458a14ab24b45e0289b02ce6ffde0550512c6d2de956e",
+  "raw_size_bytes": 595,
+  "observed_result": "OIDC_REQUEST_TARGET; context and bundle hash null; no baseline runs started",
+  "node_version": "v24.21.0",
+  "interpretation": "closed before browser start; no context, bundle, or browser observation"
+}
