@@ -1,7 +1,7 @@
 import { fork } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
-import { acquireCIContext, contextFailure, baselineChildEnvironment } from './baseline-context.mjs';
+import { acquireCIContext, contextFailure, contextFailureDetails, baselineChildEnvironment } from './baseline-context.mjs';
 import { ProcessTree } from './resource-process.mjs';
 import { CALIBRATION_RSS_CAP, RESERVE_FLOOR, ADMISSION_HEADROOM, reserveSnapshot, assessReserve, treeMemory } from './baseline-memory.mjs';
 const stages = ['browser-start', 'host-loaded', 'demo-active'], runs = [];
@@ -75,7 +75,7 @@ async function measure(engine, repetition, admission) {
 }
 let refusal = null, bundleHash = null;
 try {
-  try { context = await acquireCIContext(); } catch (error) { refusal = { reason: contextFailure(error) }; }
+  try { context = await acquireCIContext(); } catch (error) { refusal = { reason: contextFailure(error), ...contextFailureDetails(error) }; }
   if (!refusal) {
   const initialReserve = reserveSnapshot(), initialDecision = assessReserve(initialReserve, ADMISSION_HEADROOM, context);
   if (!initialDecision.ok) {

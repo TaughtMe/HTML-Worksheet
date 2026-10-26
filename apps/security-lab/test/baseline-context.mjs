@@ -9,10 +9,19 @@ export const REPOSITORY = 'TaughtMe/HTML-Worksheet';
 export const REPOSITORY_ID = '1432048888';
 export const WORKFLOW = `${REPOSITORY}/.github/workflows/baseline-observation.yml`;
 export const JWKS_URL = `${ISSUER}/.well-known/jwks`;
-const grants = new WeakMap(), runGit = promisify(execFile);
+const grants = new WeakMap(), pathFailures = new WeakMap(), runGit = promisify(execFile);
 class Refusal extends Error {}
 const check = (condition, code) => { if (!condition) throw new Refusal(code); };
 export const contextFailure = error => error instanceof Refusal ? error.message : 'CI_CONTEXT_UNVERIFIED';
+export const contextFailureDetails = error => pathFailures.get(error) ?? null;
+function pathKinds(pathname) {
+  const parts = pathname.split('/', 18).slice(1);
+  if (parts.length > 16) return ['too-many-segments'];
+  const literals = new Set(['_apis', 'distributedtask', 'hubs', 'build', 'plans', 'jobs', 'idtoken']);
+  return parts.map(part => literals.has(part.toLowerCase()) ? part.toLowerCase()
+    : /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(part) ? 'uuid'
+      : /^\d+$/.test(part) ? 'integer' : part === '' ? 'empty' : 'opaque');
+}
 function flatJSON(bytes) {
   const text = new TextDecoder('utf-8', { fatal: true }).decode(bytes), x = JSON.parse(text);
   check(x && Object.getPrototypeOf(x) === Object.prototype && Object.keys(x).length <= 128, 'OIDC_JSON');
@@ -77,10 +86,13 @@ export function tokenRequestURL(source) {
       : host.endsWith('.actions.githubusercontent.com') ? 'OIDC_REQUEST_HOST_OTHER_ACTIONS' : 'OIDC_REQUEST_HOST_UNTRUSTED';
     check(host === 'pipelines.actions.githubusercontent.com' || /^run-actions-[1-9]\d{0,2}-[a-z][a-z0-9-]{0,80}\.actions\.githubusercontent\.com$/.test(host), rejectedHost);
     const uuid = '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}';
-    check(new RegExp(`^/${uuid}/_apis/distributedtask/hubs/build/plans/${uuid}/jobs/${uuid}/idtoken$`, 'i').test(url.pathname), 'OIDC_REQUEST_PATH_UNRECOGNIZED');
+    if (!new RegExp(`^/${uuid}/_apis/distributedtask/hubs/build/plans/${uuid}/jobs/${uuid}/idtoken$`, 'i').test(url.pathname)) {
+      const error = new Refusal('OIDC_REQUEST_PATH_UNRECOGNIZED');
+      pathFailures.set(error, Object.freeze({ pathSegments: Object.freeze(pathKinds(url.pathname)) })); throw error;
+    }
     check([...url.searchParams.keys()].length === 1 && url.searchParams.get('api-version') === '2.0', 'OIDC_REQUEST_QUERY_UNRECOGNIZED');
     url.searchParams.set('audience', AUDIENCE); return url;
-  } catch (error) { throw new Refusal(error instanceof Refusal ? error.message : 'OIDC_REQUEST_PARSE'); }
+  } catch (error) { throw error instanceof Refusal ? error : new Refusal('OIDC_REQUEST_PARSE'); }
 }
 export async function boundedJSON(url, { headers = {}, maxBytes = 131072, fetchImpl = fetch } = {}) {
   const abort = new AbortController(), timer = setTimeout(() => abort.abort(), 5000); let reader;
@@ -131,6 +143,6 @@ export async function acquireCIContext() {
     if (expected.event === 'pull_request') verifyPullRequest(await boundedJSON(`https://api.github.com/repos/${REPOSITORY}/pulls/${expected.prNumber}`, { headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'html-worksheet-baseline-context' } }), expected);
     check(summary.expiresAt > Math.floor(Date.now() / 1000), 'OIDC_VALIDITY');
     const grant = Object.freeze(summary); grants.set(grant, summary.expiresAt); return grant;
-  } catch (error) { throw new Refusal(contextFailure(error)); }
+  } catch (error) { throw error instanceof Refusal ? error : new Refusal(contextFailure(error)); }
 }
 export function validCIContext(grant, now = Math.floor(Date.now() / 1000)) { return !!grant && grants.has(grant) && grants.get(grant) > now; }
