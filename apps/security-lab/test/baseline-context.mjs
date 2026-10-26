@@ -70,13 +70,17 @@ export function verifyToken(token, jwks, expected, now = Math.floor(Date.now() /
 export function tokenRequestURL(source) {
   try {
     const url = new URL(source), host = url.hostname;
-    check(url.protocol === 'https:' && !url.username && !url.password && !url.port && !url.hash, 'OIDC_REQUEST_TARGET');
-    check(host === 'pipelines.actions.githubusercontent.com' || /^run-actions-[1-9]\d{0,2}-[a-z][a-z0-9-]{0,80}\.actions\.githubusercontent\.com$/.test(host), 'OIDC_REQUEST_TARGET');
+    check(url.protocol === 'https:', 'OIDC_REQUEST_TRANSPORT');
+    check(!url.username && !url.password && !url.port && !url.hash, 'OIDC_REQUEST_AUTHORITY');
+    // Diagnostics classify rejected inputs only. They never authorize a new host or expose URL data.
+    const rejectedHost = /^run-actions-[1-9]\d{0,2}-[1-9]\d{0,2}\.actions\.githubusercontent\.com$/.test(host) ? 'OIDC_REQUEST_HOST_NUMERIC_SHARD'
+      : host.endsWith('.actions.githubusercontent.com') ? 'OIDC_REQUEST_HOST_OTHER_ACTIONS' : 'OIDC_REQUEST_HOST_UNTRUSTED';
+    check(host === 'pipelines.actions.githubusercontent.com' || /^run-actions-[1-9]\d{0,2}-[a-z][a-z0-9-]{0,80}\.actions\.githubusercontent\.com$/.test(host), rejectedHost);
     const uuid = '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}';
-    check(new RegExp(`^/${uuid}/_apis/distributedtask/hubs/build/plans/${uuid}/jobs/${uuid}/idtoken$`, 'i').test(url.pathname), 'OIDC_REQUEST_TARGET');
-    check([...url.searchParams.keys()].length === 1 && url.searchParams.get('api-version') === '2.0', 'OIDC_REQUEST_TARGET');
+    check(new RegExp(`^/${uuid}/_apis/distributedtask/hubs/build/plans/${uuid}/jobs/${uuid}/idtoken$`, 'i').test(url.pathname), 'OIDC_REQUEST_PATH_UNRECOGNIZED');
+    check([...url.searchParams.keys()].length === 1 && url.searchParams.get('api-version') === '2.0', 'OIDC_REQUEST_QUERY_UNRECOGNIZED');
     url.searchParams.set('audience', AUDIENCE); return url;
-  } catch (error) { throw new Refusal(error instanceof Refusal ? error.message : 'OIDC_REQUEST_TARGET'); }
+  } catch (error) { throw new Refusal(error instanceof Refusal ? error.message : 'OIDC_REQUEST_PARSE'); }
 }
 export async function boundedJSON(url, { headers = {}, maxBytes = 131072, fetchImpl = fetch } = {}) {
   const abort = new AbortController(), timer = setTimeout(() => abort.abort(), 5000); let reader;

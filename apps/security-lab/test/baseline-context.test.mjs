@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { generateKeyPairSync, sign, constants } from 'node:crypto';
-import { verifyToken, expectedContext, tokenRequestURL, verifyPullRequest, boundedJSON, validCIContext, baselineChildEnvironment, ISSUER, AUDIENCE, REPOSITORY, REPOSITORY_ID, WORKFLOW } from './baseline-context.mjs';
+import { verifyToken, expectedContext, tokenRequestURL, contextFailure, verifyPullRequest, boundedJSON, validCIContext, baselineChildEnvironment, ISSUER, AUDIENCE, REPOSITORY, REPOSITORY_ID, WORKFLOW } from './baseline-context.mjs';
 import { assessReserve, headroomDecision, ADMISSION_HEADROOM } from './baseline-memory.mjs';
 const pair = generateKeyPairSync('rsa', { modulusLength: 2048 }), wrongPair = generateKeyPairSync('rsa', { modulusLength: 2048 });
 const publicJwk = { ...pair.publicKey.export({ format: 'jwk' }), kid: 'test-key', alg: 'RS256', use: 'sig' }, jwks = { keys: [publicJwk] };
@@ -36,6 +36,24 @@ for (const bad of [{ ...pr, head: { repo: { ...repo, id: 2 }, ref: 'feat/securit
 const uuid = 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', endpoint = `https://run-actions-1-azure-eastus.actions.githubusercontent.com/${uuid}/_apis/distributedtask/hubs/build/plans/${uuid}/jobs/${uuid}/idtoken?api-version=2.0`;
 assert.equal(tokenRequestURL(endpoint).searchParams.get('audience'), AUDIENCE); cases++;
 for (const bad of [endpoint.replace('https:', 'http:'), endpoint.replace('run-actions-1-azure-eastus.actions.githubusercontent.com', 'attacker.invalid'), endpoint + '&audience=other', endpoint.replace('/idtoken?', '/other?'), endpoint.replace('https://', 'https://user:password@'), endpoint + '#fragment']) rejected(() => tokenRequestURL(bad));
+// Failure output is a fixed enum, never a hostname, path, query or parser error containing input.
+for (const [source, code] of [
+  [endpoint.replace('https:', 'http:'), 'OIDC_REQUEST_TRANSPORT'],
+  [endpoint.replace('https://', 'https://synthetic-sensitive:password@'), 'OIDC_REQUEST_AUTHORITY'],
+  [endpoint.replace('run-actions-1-azure-eastus', 'run-actions-3-1'), 'OIDC_REQUEST_HOST_NUMERIC_SHARD'],
+  [endpoint.replace('run-actions-1-azure-eastus', 'synthetic-sensitive'), 'OIDC_REQUEST_HOST_OTHER_ACTIONS'],
+  [endpoint.replace('run-actions-1-azure-eastus.actions.githubusercontent.com', 'synthetic-sensitive.invalid'), 'OIDC_REQUEST_HOST_UNTRUSTED'],
+  [endpoint.replace('/idtoken?', '/synthetic-sensitive?'), 'OIDC_REQUEST_PATH_UNRECOGNIZED'],
+  [endpoint + '&synthetic-sensitive=value', 'OIDC_REQUEST_QUERY_UNRECOGNIZED'],
+  ['synthetic-sensitive invalid url', 'OIDC_REQUEST_PARSE']
+]) {
+  assert.throws(() => tokenRequestURL(source), error => {
+    const diagnostic = contextFailure(error);
+    assert.equal(diagnostic, code); assert.equal(diagnostic.includes('synthetic-sensitive'), false);
+    assert.equal(diagnostic.includes('https:'), false); assert.equal(diagnostic.includes('.com'), false);
+    return true;
+  }); cases++;
+}
 const child = baselineChildEnvironment({ PATH: '/usr/bin', HOME: '/tmp/home', ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'synthetic-sensitive', ACTIONS_ID_TOKEN_REQUEST_URL: endpoint, GITHUB_TOKEN: 'synthetic-sensitive', GH_TOKEN: 'synthetic-sensitive', AWS_SECRET_ACCESS_KEY: 'synthetic-sensitive', UNKNOWN_RUNTIME_CREDENTIAL: 'synthetic-sensitive', HTTP_PROXY: 'http://proxy:8080' }, 'chromium');
 assert.equal(child.BROWSER_ENGINE, 'chromium'); assert.equal(Object.values(child).includes('synthetic-sensitive'), false); assert.equal(child.HTTP_PROXY, 'http://proxy:8080'); cases++;
 rejected(() => baselineChildEnvironment({ HTTPS_PROXY: 'https://user:password@proxy' }));
