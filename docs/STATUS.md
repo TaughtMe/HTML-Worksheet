@@ -1,6 +1,6 @@
 # Entwicklungsstand
 
-Stand: 25. Oktober 2026. Dieser Status beschreibt belegte Ergebnisse; der Entwicklungsplan beschreibt Ziel und Reihenfolge.
+Stand: 26. Oktober 2026. Dieser Status beschreibt belegte Ergebnisse; der Entwicklungsplan beschreibt Ziel und Reihenfolge.
 
 | Abschnitt | Status | Evidenz / nächster Schritt |
 |---|---|---|
@@ -12,7 +12,7 @@ Stand: 25. Oktober 2026. Dieser Status beschreibt belegte Ergebnisse; der Entwic
 | P09 / G0 | Begrenzt freigegeben | [Unabhängiges Review](reports/P09-G0.md), Commit `51c367f`; nur lokales Labor mit synthetischem RAM-State |
 | S01, S03–S09 Sicherheitsprototyp | Begrenzter Kern implementiert | Typecheck, Build, 12 Unit-/Importtests und je 28 Fälle in Chromium/Firefox/WebKit bestanden; [Umfang und Grenzen](reports/SECURITY-LAB.md) |
 | S02 CI | Positiver Lauf nachgewiesen | [Actions-Lauf 40219223224](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40219223224) erfolgreich: 12 Unittests und je 28 Browserfälle; absichtlich fehlschlagender Voll-CI-Lauf noch offen |
-| S10 | Drei-Engine-Messlauf mit offenem Verfügbarkeitsbefund | [Bericht und Rohbelege](reports/S10.md): Chromium/Firefox wegen RSS-Budget vor Angriff inconclusive; WebKit-Loop zeigt UI-Stillstand. G1a/S13 offen; keine DoS-Freigabe |
+| S10 | Drei-Engine-Messlauf mit offenem Verfügbarkeitsbefund; Folgechecks inconclusive | [Bericht und Rohbelege](reports/S10.md): Chromium/Firefox wegen RSS-Budget vor Angriff inconclusive; WebKit-Loop zeigt UI-Stillstand. [Baseline-Guard-CI](reports/S10-BASELINE.md) prüft nur Verweigerungs-/Messhilfslogik; Browserkalibrierung bleibt mangels externer Attestation gesperrt. Tab-Recovery-CI erreichte API-Tab-Schließen, aber keine Same-Context-Recovery vor RSS-Stopp; [Rohbeleg](reports/S10-TAB-RECOVERY.md). Standard-CI erfolgreich; Ressourcen-CI weiter rot. G1a/S13 offen; keine DoS-Freigabe |
 | S11 | Designvorbereitung abgeschlossen | ADR-Entwurf [0001](adr/0001-RUNNER-EXPERIMENT.md), Commit `3bd0b37`; keine Implementierung und kein Offline-Nachweis |
 | S12–S13 | Ausstehend | Evidenzbericht und unabhängiger Sicherheitsreview bleiben erforderlich |
 | G1a / G1b | Nicht freigegeben | S10 meldet WebKit-Verfügbarkeitsrisiko; Chromium/Firefox-RSS-Kalibrierung, übrige Versuchsmatrix, Offline und reale Geräte fehlen |
