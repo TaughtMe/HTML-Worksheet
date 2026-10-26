@@ -1,0 +1,75 @@
+name: Baseline Observation
+
+on:
+  pull_request:
+    paths:
+      - apps/security-lab/test/baseline*.mjs
+      - apps/security-lab/test/resource-process.mjs
+      - apps/security-lab/test/resource-config.mjs
+      - apps/security-lab/src/**
+      - apps/security-lab/server.mjs
+      - apps/security-lab/build.mjs
+      - package.json
+      - package-lock.json
+      - .github/workflows/baseline-observation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baseline-observation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  baseline:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.head.repo.full_name == github.repository &&
+       github.event.pull_request.head.ref == 'feat/security-foundation')
+    name: Direct hosted VM baseline observation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out the event commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Build browser test bundle
+        run: npm run build
+      - name: Verify exact checkout and unchanged tracked tree
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain --untracked-files=no)"
+      - name: Run baseline context regression tests
+        run: node apps/security-lab/test/baseline-context.test.mjs
+      - name: Run baseline admission guard tests
+        run: node apps/security-lab/test/baseline.test.mjs
+      - name: Install Chromium and Firefox with system dependencies
+        run: npx playwright install --with-deps chromium firefox
+      - name: Reverify checkout and tracked tree before observation
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test -z "$(git status --porcelain --untracked-files=no)"
+      - name: Run direct baseline observation
+        run: node apps/security-lab/test/baseline.mjs
+      - name: Upload baseline observation report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: baseline-observation
+          path: apps/security-lab/test-results/baseline.json
+          if-no-files-found: warn
+          retention-days: 7

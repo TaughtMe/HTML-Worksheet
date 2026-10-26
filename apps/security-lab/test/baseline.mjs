@@ -1,14 +1,15 @@
 import { fork } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { acquireCIContext, contextFailure, baselineChildEnvironment } from './baseline-context.mjs';
 import { ProcessTree } from './resource-process.mjs';
 import { CALIBRATION_RSS_CAP, RESERVE_FLOOR, ADMISSION_HEADROOM, reserveSnapshot, assessReserve, treeMemory } from './baseline-memory.mjs';
 const stages = ['browser-start', 'host-loaded', 'demo-active'], runs = [];
-let interrupted = null, stopActive;
+let interrupted = null, stopActive, context = null;
 for (const signal of ['SIGINT', 'SIGTERM']) process.once(signal, () => { interrupted = signal; void stopActive?.('interrupted'); });
 async function measure(engine, repetition, admission) {
   const started = performance.now(), events = [], samples = []; let stageIndex = -1, reason = null, healthyComplete = false, cleanupPromise, stageTimer, closeTimer, cleanupTimer;
-  const child = fork(new URL('./baseline-worker.mjs', import.meta.url), [], { detached: true, stdio: ['ignore', 'ignore', 'pipe', 'ipc'], env: { ...process.env, BROWSER_ENGINE: engine }, execArgv: ['--max-old-space-size=128'] });
+  const child = fork(new URL('./baseline-worker.mjs', import.meta.url), [], { detached: true, stdio: ['ignore', 'ignore', 'pipe', 'ipc'], env: baselineChildEnvironment(process.env, engine), execArgv: ['--max-old-space-size=128'] });
   const tree = new ProcessTree(child.pid); let stderr = '', resolveExit;
   const exited = new Promise(resolve => { resolveExit = resolve; });
   child.stderr.on('data', chunk => { stderr = (stderr + chunk.toString()).slice(-8192); });
@@ -28,7 +29,7 @@ async function measure(engine, repetition, admission) {
   stopActive = stop;
   function sample(checkpoint = null) {
     try {
-      const reserve = reserveSnapshot(), approval = assessReserve(reserve, RESERVE_FLOOR), memory = treeMemory(tree);
+      const reserve = reserveSnapshot(), approval = assessReserve(reserve, RESERVE_FLOOR, context), memory = treeMemory(tree);
       samples.push({ elapsedMs: elapsed(), stage: stages[stageIndex] ?? 'worker-startup', checkpoint, reserve, ...memory });
       if (!approval.ok) { void stop(approval.reason); return null; }
       if (reserve.groups.some(group => { const before = admission.groups.find(g => g.path === group.path); return !before || group.oom > before.oom || group.oomKill > before.oomKill; })) { void stop('memory-pressure-event'); return null; }
@@ -74,22 +75,25 @@ async function measure(engine, repetition, admission) {
 }
 let refusal = null, bundleHash = null;
 try {
-  const initialReserve = reserveSnapshot(), initialDecision = assessReserve(initialReserve);
+  try { context = await acquireCIContext(); } catch (error) { refusal = { reason: contextFailure(error) }; }
+  if (!refusal) {
+  const initialReserve = reserveSnapshot(), initialDecision = assessReserve(initialReserve, ADMISSION_HEADROOM, context);
   if (!initialDecision.ok) {
     refusal = { ...initialDecision, reserve: initialReserve }; console.log(`Baseline refused: ${initialDecision.reason}`);
   } else {
   bundleHash = createHash('sha256').update(await readFile('apps/security-lab/dist/host.js')).digest('hex');
   outer: for (const engine of ['chromium', 'firefox']) for (let repetition = 1; repetition <= 3; repetition++) {
     if (interrupted) break outer;
-    const admission = reserveSnapshot(), decision = assessReserve(admission);
+    const admission = reserveSnapshot(), decision = assessReserve(admission, ADMISSION_HEADROOM, context);
     if (!decision.ok) { refusal = { engine, repetition, ...decision, reserve: admission }; console.log(`Baseline refused: ${decision.reason}`); break outer; }
     const result = await measure(engine, repetition, admission); runs.push(result);
     if (result.verdict !== 'measured') break outer;
   }
   }
+  }
 } catch (error) { refusal = { reason: 'setup-error', error: String(error) }; }
 finally {
   await mkdir('apps/security-lab/test-results', { recursive: true });
-  await writeFile('apps/security-lab/test-results/baseline.json', JSON.stringify({ at: new Date().toISOString(), kind: 'healthy-baseline-only', nodeVersion: process.version, bundleHash, noAttackFixtures: true, stages, repetitionsPerEngine: 3, limits: { calibrationRssCapBytes: CALIBRATION_RSS_CAP, admissionHeadroomBytes: ADMISSION_HEADROOM, runtimeReserveFloorBytes: RESERVE_FLOOR, stageMs: 10000, holdMs: 1000 }, interrupted, refusal, runs, automaticProtectionBudget: null }, null, 2));
+  await writeFile('apps/security-lab/test-results/baseline.json', JSON.stringify({ at: new Date().toISOString(), kind: 'healthy-baseline-only', nodeVersion: process.version, context, bundleHash, noAttackFixtures: true, stages, repetitionsPerEngine: 3, limits: { calibrationRssCapBytes: CALIBRATION_RSS_CAP, admissionHeadroomBytes: ADMISSION_HEADROOM, runtimeReserveFloorBytes: RESERVE_FLOOR, stageMs: 10000, holdMs: 1000 }, interrupted, refusal, runs, automaticProtectionBudget: null }, null, 2));
 }
 process.exitCode = interrupted ? 130 : refusal || runs.length !== 6 || runs.some(r => r.verdict !== 'measured') ? 1 : 0;

@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import { validCIContext } from './baseline-context.mjs';
 import { readProcess } from './resource-process.mjs';
 export const CALIBRATION_RSS_CAP = 1280 * 1024 * 1024;
 export const RESERVE_FLOOR = 1024 * 1024 * 1024;
@@ -42,10 +43,19 @@ export function reserveSnapshot(read = file => readFileSync(file, 'utf8')) {
     return { known: false, reason: 'cgroup-namespace-unproven', host, mountRoot, mountPoint, groups, observedOnly: true };
   } catch (error) { return { known: false, reason: 'memory-reserve-unknown', error: String(error) }; }
 }
-export function assessReserve(snapshot, requiredBytes = ADMISSION_HEADROOM) {
-  // No trusted host-namespace/external-hierarchy attestation is implemented. Fail closed unconditionally,
-  // including forged `known: true` snapshots; neither mount '/' nor /proc/1 namespace equality is proof.
-  return { ok: false, reason: snapshot.reason ?? 'cgroup-namespace-unproven', requiredBytes };
+export function headroomDecision(snapshot, requiredBytes = ADMISSION_HEADROOM) {
+  const safe = n => Number.isSafeInteger(n) && n >= 0;
+  if (snapshot.reason !== 'cgroup-namespace-unproven' || snapshot.mountRoot !== '/' || !snapshot.host || !safe(snapshot.host.totalBytes) || !safe(snapshot.host.availableBytes) || snapshot.host.availableBytes > snapshot.host.totalBytes || !Array.isArray(snapshot.groups) || !snapshot.groups.length) return { ok: false, reason: snapshot.reason ?? 'memory-reserve-unknown' };
+  if (snapshot.host.availableBytes < requiredBytes) return { ok: false, reason: 'host-reserve-insufficient' };
+  for (const group of snapshot.groups) {
+    if (!safe(group.currentBytes) || !safe(group.oom) || !safe(group.oomKill) || ![group.maxBytes, group.highBytes].every(limit => limit === null || safe(limit))) return { ok: false, reason: 'memory-reserve-unknown' };
+    for (const limit of [group.maxBytes, group.highBytes]) if (limit !== null && limit - group.currentBytes < requiredBytes) return { ok: false, reason: 'cgroup-reserve-insufficient' };
+  }
+  return { ok: true, requiredBytes, providerAssumption: 'verified GitHub-hosted ubuntu-24.04 guest workflow; not a kernel-hierarchy proof' };
+}
+export function assessReserve(snapshot, requiredBytes = ADMISSION_HEADROOM, context = null) {
+  if (!validCIContext(context)) return { ok: false, reason: 'ci-context-unverified' };
+  return headroomDecision(snapshot, requiredBytes);
 }
 export function treeMemory(tree, { read = file => readFileSync(file, 'utf8'), identity = readProcess } = {}) {
   const { owned } = tree.scan(false), rows = [], skipped = [];

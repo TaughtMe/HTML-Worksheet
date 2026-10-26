@@ -15,10 +15,10 @@ assert.equal(virtualSlash.known, false); assert.equal(virtualSlash.reason, 'cgro
 assert.equal(assessReserve(virtualSlash).ok, false);
 assert.equal(CALIBRATION_RSS_CAP, 1280 * 1024 * 1024); assert.equal(ADMISSION_HEADROOM, CALIBRATION_RSS_CAP + RESERVE_FLOOR);
 // Large visible headroom and a caller-supplied boolean cannot create trustworthy namespace evidence.
-assert.equal(assessReserve({ ...virtualSlash, known: true, reason: undefined }).reason, 'cgroup-namespace-unproven');
+assert.equal(assessReserve({ ...virtualSlash, known: true, reason: undefined }).reason, 'ci-context-unverified');
 files.set('/proc/self/cgroup', '0::/\n');
 assert.equal(assessReserve(reserveSnapshot(read)).ok, false); // A virtual slash membership is not the initial host namespace.
-files.set('/proc/self/mountinfo', '10 9 0:1 /.. /sys/fs/cgroup rw - cgroup2 cgroup rw\n'); assert.equal(assessReserve(reserveSnapshot(read)).reason, 'hidden-cgroup-ancestors');
+files.set('/proc/self/mountinfo', '10 9 0:1 /.. /sys/fs/cgroup rw - cgroup2 cgroup rw\n'); assert.equal(reserveSnapshot(read).reason, 'hidden-cgroup-ancestors');
 files.set('/proc/self/cgroup', '0::/job\n'); files.set('/proc/self/mountinfo', '10 9 0:1 / /sys/fs/cgroup rw - cgroup2 cgroup rw\n'); files.delete('/sys/fs/cgroup/job/memory.current'); assert.equal(assessReserve(reserveSnapshot(read)).ok, false);
 const smaps = 'Rss:                100 kB\nPss:                 60 kB\nPrivate_Clean:       10 kB\nPrivate_Dirty:       20 kB\nPrivate_Hugetlb:      2 kB\n';
 assert.deepEqual(parseSmaps(smaps), { rollupRssBytes: 102400, pssBytes: 61440, privateBytes: 32768 });

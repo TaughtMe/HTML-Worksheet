@@ -45,5 +45,7 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci --ignore-scripts
+      - name: Run baseline context regression tests
+        run: node apps/security-lab/test/baseline-context.test.mjs
       - name: Run baseline admission guard tests
         run: node apps/security-lab/test/baseline.test.mjs
