@@ -11,11 +11,11 @@ Stand: 25. Oktober 2026. Dieser Status beschreibt belegte Ergebnisse; der Entwic
 | P07 Testmatrix | Erledigt | [Testmatrix](spec/TESTMATRIX.md): 32 Anforderungen, 14 Bedrohungen, zehn Experimente zugeordnet |
 | P09 / G0 | Begrenzt freigegeben | [Unabhängiges Review](reports/P09-G0.md), Commit `51c367f`; nur lokales Labor mit synthetischem RAM-State |
 | S01, S03–S09 Sicherheitsprototyp | Begrenzter Kern implementiert | Typecheck, Build, 12 Unit-/Importtests und je 28 Fälle in Chromium/Firefox/WebKit bestanden; [Umfang und Grenzen](reports/SECURITY-LAB.md) |
-| S02 CI | Positiver Lauf nachgewiesen | [Actions-Lauf](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40188997045) erfolgreich; absichtlich fehlschlagender vollständiger CI-Lauf noch offen |
-| S10 | Begrenzter Chromium-Nachweis | [Bericht und Rohbeleg](reports/S10.md): Flood, Refill, Lifecycle und fünf Recoveries bestanden; Loop/Allokation als responsive Beobachtung. Nur Chromium, keine G1a-/DoS-Freigabe; Drei-Engine-Ressourcen-CI vorbereitet, nicht ausgeführt |
+| S02 CI | Positiver Lauf nachgewiesen | [Actions-Lauf 40219223224](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40219223224) erfolgreich: 12 Unittests und je 28 Browserfälle; absichtlich fehlschlagender Voll-CI-Lauf noch offen |
+| S10 | Drei-Engine-Messlauf mit offenem Verfügbarkeitsbefund | [Bericht und Rohbelege](reports/S10.md): Chromium/Firefox wegen RSS-Budget vor Angriff inconclusive; WebKit-Loop zeigt UI-Stillstand. G1a/S13 offen; keine DoS-Freigabe |
 | S11 | Designvorbereitung abgeschlossen | ADR-Entwurf [0001](adr/0001-RUNNER-EXPERIMENT.md), Commit `3bd0b37`; keine Implementierung und kein Offline-Nachweis |
 | S12–S13 | Ausstehend | Evidenzbericht und unabhängiger Sicherheitsreview bleiben erforderlich |
-| G1a / G1b | Nicht freigegeben | Drei-Engine-Teilnachweis vorhanden; volle Versuchsmatrix, Offline-/Ressourcentests und reale Geräte fehlen |
+| G1a / G1b | Nicht freigegeben | S10 meldet WebKit-Verfügbarkeitsrisiko; Chromium/Firefox-RSS-Kalibrierung, übrige Versuchsmatrix, Offline und reale Geräte fehlen |
 | Speicherung, PDF und Produkt-PWA | Ausstehend | Nach den jeweiligen Gates |
 | Cloudflare | Nicht eingerichtet | HTTPS-Testhosting erst nach G1a erforderlich |
 
@@ -55,7 +55,7 @@ Die Namen sind interne Aufgabenkennungen, keine separat zu verwaltenden Nutzerch
 |---|---|---|
 | `p01_requirements` | Luna / medium | P01/P07, S03/S04-Fixtures, Dependencyinventar, S02-CI und G1a-Gapcheck integriert; derzeit kein Limitblocker |
 | `technical_spec` | Sol / xhigh | Bedrohungsmodell, Architektur- und Daten-/Bridgeverträge; S11-Designvorbereitung in Commit `3bd0b37`, Implementierung und Offline-Nachweis offen |
-| `security_prototype` | Sol / high | Lokaler Viewer, drei Browserläufe mit je 28 Fällen; begrenzter S10-Chromiumlauf, Ressourcenmatrix-CI vorbereitet und nicht ausgeführt |
+| `security_prototype` | Sol / high | Standard-CI je 28 Fälle; S10-Matrix: WebKit-Loop mit UI-Stillstand, Chromium/Firefox wegen RSS-Baseline inconclusive; Follow-up offen |
 | `g0_review` | Sol / high | Unabhängiges G0-/Codereview und Abgleich der 28 Chromiumresultate |
 
 Die Koordination integriert die Commits, führt gemeinsame Prüfungen aus und veröffentlicht die Ergebnisse. Routinekoordination erhält kurze Zusammenfassungen; technische Eskalationen werden getrennt von normaler Implementierung behandelt. Die verbindlichen Regeln zur Aufwandsbegrenzung stehen in [AGENTS.md](../AGENTS.md).
