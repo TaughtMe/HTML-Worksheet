@@ -87,3 +87,20 @@ Ein ausschließlich vertrauenswürdiger Service Worker (SW) unter der festen Ori
 5. **Fehler schließen:** Cacheeintrag löschen/verfälschen, Installation abbrechen und Storage-/SW-Zugriff verweigern. Kein stiller Netz-/Policyfallback, keine falsche Bereitschaft, feste Fehleranzeige bzw. Browserfehler bei völlig fehlendem SW. Nach bewusster erneuter Onlinebereitstellung vollständigen Neustart erneut prüfen.
 
 Prüfung dieses Docs-Auftrags: lokale Quelllektüre und `git diff --check`; keine SW-/Offline-/Browserfälle ausgeführt. Falls eine Engine kontrollierten Kaltstart, frische Header-CSP oder die Childgrenzen nicht erfüllt, bleibt S11 dort blockiert; keine CSP-Lockerung als Ersatz.
+
+## Offene Auswahl: zusätzlicher strikter Modus oder zuerst Fremd-JS weiterprüfen
+
+Stand: 27. Oktober 2026, Basis `283b86c`. **Entscheidung ausstehend; Nutzerauswahl und unabhängiger Review vor abhängiger Umsetzung.** Dies ist eine prüfbare Versuchsvorlage, keine Änderung des Produktumfangs. Die bereits vorgesehenen zwei Unterstützungsebenen [allgemeines HTML und optimiertes Arbeitsblattformat](../ARCHITEKTUR.md#kompatibilitätsziel-für-den-ersten-versuch) bleiben Ausgangspunkt; JavaScript-Unterstützung wird nicht still entfernt.
+
+Der [S10-Befund](../reports/S10.md) zeigt beim gestarteten WebKit-Loop blockierten Host-JS-Roundtrip und Host-Schließen. Im [Tab-Folgeexperiment](../reports/S10-TAB-RECOVERY.md) wurde Playwright-Tabclose bestätigt; funktionierendes Wiederöffnen im selben Profil blieb nach 806,26 MiB summierter RSS über dem unveränderten 768-MiB-Budget unbelegt. Dies ist keine manuelle Browser-/iPad-Recovery oder App-Abbruchfunktion. Der [Baselineversuch](../reports/S10-BASELINE.md) blieb vor Browserstart blockiert; OIDC-Diagnose ist beendet. Keine Budgeterhöhung oder Freigabe aus fehlenden Resultaten.
+
+| Zur Auswahl | Begrenzter nächster Schritt und notwendige Grenze |
+|---|---|
+| A: zusätzlichen strikten Modus experimentell prüfen | Separater, ausdrücklich gewählter Importmodus: fremdes JS vollständig abweisen; ausschließlich festgelegte deklarative Eingaben/Interaktionen über vertrauenswürdige Adapter. Vorhandener Fremd-JS-Laborpfad bleibt gesondert bestehen. Kein Filter nur gegen bekannte Schleifen, keine automatische Umwandlung mit vorgetäuschter Kompatibilität. |
+| B: zunächst Fremd-JS-Pfad weiter untersuchen | Kritische G1-Lücken unter bestehenden Grenzen schließen. Ein möglicher Recoveryvertrag müsste Einfrieren, fehlende garantierte App-Abbruchzeit und Verlust unbestätigter Arbeit ausdrücklich benennen; später höchstens letzte tatsächlich bestätigte Revision restaurieren und problematische Vorlage nicht automatisch starten. Ein solcher Vertrag ist weder beschlossen noch belegt und ersetzt keine Sicherheitsanforderung. |
+
+**Kleinster vorgeschlagener A-Versuch, nur nach Auswahl:** eine synthetische deklarative Vorlage mit Standardfeldern und genau einer Interaktion eines festen vertrauenswürdigen Adapters sowie die vorhandene Schleifenvorlage als Gegenprobe. Noch keine Persistenz, PDF, Produktoberfläche oder allgemeine Custom-JS-Schnittstelle. Vor Umsetzung genaue erlaubte Syntax und Adapterkonfiguration festlegen/reviewen; Host-DOM-Grenze, CSP, Sandbox und Bridgeprivilegien keinesfalls lockern.
+
+Abnahme dieses Versuchs: deklarative Vorlage lässt sich bedienen und liefert erwarteten begrenzten RAM-State; Schleifenvorlage wird im strikten Modus **vor Frameerzeugung und Skriptausführung** sichtbar als inkompatibel abgewiesen, ohne Teilübernahme. Nur vertrauenswürdiger Adaptercode erhält Ausführungsberechtigung; keine importierten Script-/Handler-/JS-URL-Ausführungspfade. Die Ergebnisse begründen allein den zusätzlichen Versuchsumfang, keine vollständige Ressourcenisolation: DOM-/CSS-Last und echte Geräte bleiben eigene Grenzen.
+
+Bis zur Auswahl keine Implementierung beider Alternativen. Unabhängig dürfen laufende Engineprüfungen abgeschlossen, Evidenz konsolidiert und abgegrenzte kritische CSP-/Navigations-/Berechtigungsfälle bearbeitet werden. G1a/G1b/S13 bleiben offen. Prüfung dieses Ergänzungsauftrags ausschließlich `git diff --check`, keine neuen Tests.
