@@ -1,6 +1,6 @@
 # Begrenztes lokales Sicherheitslabor
 
-Stand: 25. Oktober 2026. Arbeitsauftrag S01/S05/S06/S07 und Teilmessungen S08/S09 nach G0 (`51c367f`). **Keine G1a-/G1b-, Produkt-, Offline-, Persistenz- oder PDF-Freigabe.** Nur synthetische HTML-Quellen und flüchtiger RAM-State.
+Stand: 27. Oktober 2026. Arbeitsauftrag S01/S05/S06/S07 und Teilmessungen S08/S09 nach G0 (`51c367f`). **Keine G1a-/G1b-, Produkt-, Offline-, Persistenz- oder PDF-Freigabe.** Nur synthetische HTML-Quellen und flüchtiger RAM-State.
 
 ## Ergebnis
 
@@ -60,3 +60,13 @@ Die Koordination hat alle drei Artefakte über GitHub geladen, ihre ZIP-SHA-256 
 Die Engineauswahl ist auf chromium/firefox/webkit begrenzt; ein ungültiger Wert wurde lokal als Abbruch vor Serverstart geprüft. CI verwendet minimale Leserechte, gepinnte Action-SHAs, getrennte Jobs und Artefakte, keinen Deployment- oder Secretzugriff. Der Browserjob hängt von erfolgreichen Basistests ab. Pushläufe sind auf main beschränkt; Pull Requests werden geprüft. Dokumentationsfilter vermeiden reine Dokumentationsläufe, wobei GitHub für Pull Requests deren gesamten Diff betrachtet. Ein absichtlich fehlschlagender kompletter CI-Lauf wurde noch nicht durchgeführt; lokale Negativtests und ihre Abbruchcodes sind belegt.
 
 84 erfolgreiche Einzelprüfungen über drei Engines bedeuten nicht 84 unterschiedliche Angriffsklassen. Playwright-WebKit auf Linux ersetzt weiterhin keinen realen iPad-/Safari-Test. Der Korpus bleibt der begrenzte Prototypnachweis; Ressourcenmissbrauch, Offline-Neustart, vollständige Variationsmatrix und Gerätefreigaben fehlen.
+
+## MSG01 – vier zusätzliche aktive Bridge-Protokollfälle
+
+Commit `b77ac4c` fügt dem 28-Fall-Korpus vier Fälle für Nachrichten auf einem bereits aktiven MessagePort hinzu. Der gezielte lokale Chromium-Lauf mit Node `v24.19.0` und Chromium `154.0.8037.57` bestand **4/4** (`/tmp/msg01-local.mjs`; kein eingecheckter Harnessstarter). Geprüft wurden `sequence-gap` (Sequenzsprung bei `STATE_CHANGED`), `duplicate-ready` (zweites `READY` in aktiver Phase), `unknown-payload-field` (zusätzliches Feld auf `STATE_CHANGED`) und `additional-port` (zusätzlicher übertragener Port bei `STATE_CHANGED`).
+
+Jeder Fall legt zunächst einen gültigen synthetischen Wert mit Revision 1 an, sendet dann die jeweilige ungültige Nachricht auf dem echten aktiven Hostport und prüft, dass der unzulässige Wert nicht übernommen wird, der Host `closed · PROTOCOL` meldet und den Runner entfernt. Eine neue synthetische Demo erhält Revision 0 ohne alten RAM-State. Der lokale Rohreport wurde nicht ins Repository kopiert; sein SHA-256 ist `edc0e459111cb960e1fd52c629a8e26ff5e14defd5d3bf5b808850e5dbf53917`.
+
+Der bisherige Standard-CI-Lauf [40403028340](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40403028340) bestand **28/28 Fälle je Chromium, Firefox und WebKit**; die vier MSG01-Fälle waren darin noch nicht enthalten. Der unabhängige Sol-Code-/Testreview für Implementierung und Harness ist erfolgt; er ersetzt die noch ausstehenden G1-Prüfungen.
+
+Der integrierte Lauf [40444302241](https://github.com/TaughtMe/HTML-Worksheet/actions/runs/40444302241) bestand Checks und **32/32 Browserfälle in jeder Engine**, einschließlich der vier neuen MSG01-Fälle. Getestete Versionen: Chromium **155.0.8059.0**, Firefox **144.0.2**, Playwright-WebKit **26.0**. Je Engine stimmen 20 Receiver-Treffer zwischen IPC-Erfassung und unabhängiger Receiverdatei überein (18 HTTP-Kontrollen, 2 WebSocket-Upgrades). [Archivierte Reports, Receiverlogs und Prüfsummenmanifest](evidence/msg01-ci-40444302241/manifest.json). Das belegt die konkret aufgeführten Varianten in diesen Engines, schließt weder X04 allgemein noch G1a und ersetzt keine realen Geräteprüfungen.
