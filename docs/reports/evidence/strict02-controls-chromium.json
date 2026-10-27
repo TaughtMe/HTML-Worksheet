@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-27T22:13:20.544Z",
+  "nodeVersion": "v24.19.0",
+  "browserVersion": "154.0.8037.57",
+  "configuredExecutablePath": "/usr/bin/chromium",
+  "detail": {
+    "popup": "closed",
+    "download": "synthetic-control.txt"
+  },
+  "result": "pass"
+}

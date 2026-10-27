@@ -9,16 +9,22 @@ import { checkNonemptyRestore, initSourceCases, checkInitSource } from './restor
 import { protocolCases, phaseCases, checkHostPortProtocol } from './bridge-protocol-harness.mjs';
 import { strictCases, checkStrictCase } from './strict-harness.mjs';
 import { strictLifecycleCases, checkStrictLifecycle } from './strict-lifecycle-harness.mjs';
+import { checkTrustedControls } from './trusted-controls.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
 if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
 const launchOptions = { headless: true };
+const launchSelection = { source: 'playwright-default', configuredExecutablePath: null, publicRegistryExecutablePath: browserTypes[engine].executablePath() };
 if (engine === 'chromium') {
   launchOptions.args = ['--no-sandbox'];
   if (process.env.CHROMIUM_PATH !== undefined) {
     if (!process.env.CHROMIUM_PATH) throw Error('CHROMIUM_PATH must be a nonempty executable path');
     launchOptions.executablePath = process.env.CHROMIUM_PATH;
-  } else if (existsSync('/usr/bin/chromium')) launchOptions.executablePath = '/usr/bin/chromium';
+    launchSelection.source = 'CHROMIUM_PATH'; launchSelection.configuredExecutablePath = launchOptions.executablePath;
+  } else if (existsSync('/usr/bin/chromium')) {
+    launchOptions.executablePath = '/usr/bin/chromium';
+    launchSelection.source = 'system-chromium'; launchSelection.configuredExecutablePath = launchOptions.executablePath;
+  }
 }
 const results = [], hits = [], fixtures = [], browserEvents = [], violations = [];
 const runId = randomUUID();
@@ -42,6 +48,8 @@ try {
   ({ server, origin, requests } = await startServer(0));
 
   browser = await browserTypes[engine].launch(launchOptions);
+  // The public registry path may differ from the managed headless-shell actually selected by Playwright.
+  console.log('BROWSER', JSON.stringify({ engine, ...launchSelection, browserVersion: browser.version() }));
   const context = await browser.newContext({ acceptDownloads: true });
   context.setDefaultTimeout(4000);
   const page = await context.newPage();
@@ -161,20 +169,7 @@ try {
     const f = page.frames()[1]; assert.equal(await f.locator('#result').textContent(), 'eval-blocked');
     assert.deepEqual(await f.evaluate(() => [globalThis.evalEscaped ?? null, globalThis.handlerEscaped ?? null]), [null, null]);
   });
-  await record('trusted popup and blob download instrumentation controls', async () => {
-    const p = await context.newPage();
-    try {
-      await p.setContent('<button id="popup">Popup</button><button id="download">Download</button>');
-      await p.evaluate(() => {
-        document.getElementById('popup').onclick = () => window.open('about:blank');
-        document.getElementById('download').onclick = () => {
-          const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['synthetic control'])); a.download = 'synthetic-control.txt'; a.click();
-        };
-      });
-      const popup = p.waitForEvent('popup'); await p.locator('#popup').click(); await (await popup).close();
-      const download = p.waitForEvent('download'); await p.locator('#download').click(); await (await download).delete();
-    } finally { await p.close(); }
-  });
+  await record('trusted popup and blob download instrumentation controls', () => checkTrustedControls(context));
   const sandboxActions = {
     popup: 'window.open(u)',
     'external-download-link': 'const a=document.createElement("a");a.href=u;a.download="synthetic.txt";a.click()',
@@ -244,6 +239,6 @@ try {
   const receiverFileHits = (await readFile(receiverLog, 'utf8')).split('\n').filter(Boolean).map(line => JSON.parse(line));
   if (JSON.stringify(receiverFileHits) !== JSON.stringify(hits)) results.push({ name: 'receiver file and IPC evidence agree', result: 'fail' });
   await mkdir('apps/security-lab/test-results', { recursive: true });
-  await writeFile(`apps/security-lab/test-results/${engine}.json`, JSON.stringify({ at: new Date().toISOString(), engine, browserVersion, policy: 'ADR0001-srcdoc', receiverLog, runId, fixtures, browserEvents, violations, results, hits, receiverFileHits, hostRequests: requests }, null, 2));
+  await writeFile(`apps/security-lab/test-results/${engine}.json`, JSON.stringify({ at: new Date().toISOString(), engine, browserVersion, launchSelection, policy: 'ADR0001-srcdoc', receiverLog, runId, fixtures, browserEvents, violations, results, hits, receiverFileHits, hostRequests: requests }, null, 2));
 }
 if (results.some(r => r.result === 'fail')) process.exitCode = 1;

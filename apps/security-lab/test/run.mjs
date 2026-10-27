@@ -2,3 +2,4 @@
 import './contract.test.ts';
 import './unit.test.ts';
 import './strict-import.test.ts';
+import './trusted-controls.test.mjs';
