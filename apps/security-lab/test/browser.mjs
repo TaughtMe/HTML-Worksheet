@@ -6,7 +6,7 @@ import { existsSync } from 'node:fs';
 import { chromium, firefox, webkit } from 'playwright';
 import { startServer } from '../server.mjs';
 import { checkNonemptyRestore } from './restore-harness.mjs';
-import { protocolCases, checkHostPortProtocol } from './bridge-protocol-harness.mjs';
+import { protocolCases, phaseCases, checkHostPortProtocol } from './bridge-protocol-harness.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
 if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
@@ -140,6 +140,7 @@ try {
     await page.waitForFunction(() => document.getElementById('status').textContent.includes('PROTOCOL'), null, { timeout: 4000 }); assert.equal(await page.locator('iframe').count(), 0);
   });
   for (const attack of protocolCases) await record(`active port rejects ${attack}`, () => checkHostPortProtocol({ page, load, active }, attack));
+  for (const attack of phaseCases) await record(`active port rejects ${attack}`, () => checkHostPortProtocol({ page, load, active }, attack));
   await record('dynamic network sinks produce no receiver request with positive script control', async () => {
     await control('network-before'); await websocketControl('network-before'); const start = hits.length;
     const target = `${receiverOrigin}/blocked?run=${runId}`;

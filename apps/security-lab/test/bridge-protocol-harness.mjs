@@ -1,7 +1,8 @@
-// G1-X04-MSG01: test fixtures only; real host, runner, session and active MessagePort.
+// G1-X04-MSG01/MSG02: real host/runner/session/port. Other phases, deadlines and sources remain untested here.
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 export const protocolCases = Object.freeze(['sequence-gap', 'duplicate-ready', 'unknown-payload-field', 'additional-port']);
+export const phaseCases = Object.freeze(['duplicate-restored', 'unsolicited-snapshot']);
 function fixtureRuntime(attack, hostileValue) {
   let port, sessionId, acknowledgement = null;
   globalThis.msg01Identity = () => ({ sessionId, acknowledgement });
@@ -20,6 +21,8 @@ function fixtureRuntime(attack, hostileValue) {
       const message = { v: 1, sessionId, seq: 4, type: 'STATE_CHANGED', payload };
       if (attack === 'sequence-gap') message.seq = 5;
       if (attack === 'duplicate-ready') { message.type = 'READY'; message.payload = { adapterId: 'standard-fields', adapterVersion: 1 }; }
+      if (attack === 'duplicate-restored') { message.type = 'RESTORED'; message.payload = { requestId: 1, revision: 0 }; }
+      if (attack === 'unsolicited-snapshot') { message.type = 'STATE_SNAPSHOT'; message.payload = { requestId: 2, baseRevision: 1, state: payload.state }; }
       if (attack === 'unknown-payload-field') message.payload.unexpected = true;
       const transfer = attack === 'additional-port' ? [extra.port2] : [], data = JSON.stringify(message);
       try {
@@ -54,12 +57,13 @@ function installOracle() {
   globalThis.msg01Stop = () => observers.forEach(observer => observer.disconnect());
 }
 export async function checkHostPortProtocol({ page, load, active }, attack) {
-  assert(protocolCases.includes(attack));
+  assert(protocolCases.includes(attack) || phaseCases.includes(attack));
+  const packageId = phaseCases.includes(attack) ? 'MSG02' : 'MSG01';
   const acceptedValue = `accepted-${attack}`, hostileValue = `rejected-${attack}`;
   const source = `<input id="answer"><script>(${fixtureRuntime.toString()})(${JSON.stringify(attack)},${JSON.stringify(hostileValue)})<\/script>`;
   let before, identity;
   try {
-    await load(source, `msg01-${attack}.html`); await active();
+    await load(source, `${packageId.toLowerCase()}-${attack}.html`); await active();
     const frame = page.frames().find(f => f.parentFrame() === page.mainFrame()); assert(frame);
     await page.evaluate(installOracle);
     await frame.locator('#answer').fill(acceptedValue);
@@ -88,8 +92,10 @@ export async function checkHostPortProtocol({ page, load, active }, attack) {
     assert.equal(sent.sessionId, identity.sessionId); assert.equal(sent.v, 1);
     assert.equal(sent.seq, attack === 'sequence-gap' ? 5 : 4);
     assert.deepEqual(Object.keys(sent).sort(), ['payload', 'seq', 'sessionId', 'type', 'v']);
-    assert.equal(sent.type, attack === 'duplicate-ready' ? 'READY' : 'STATE_CHANGED');
+    assert.equal(sent.type, attack === 'duplicate-ready' ? 'READY' : attack === 'duplicate-restored' ? 'RESTORED' : attack === 'unsolicited-snapshot' ? 'STATE_SNAPSHOT' : 'STATE_CHANGED');
     assert.deepEqual(sent.payload, attack === 'duplicate-ready' ? { adapterId: 'standard-fields', adapterVersion: 1 }
+      : attack === 'duplicate-restored' ? { requestId: 1, revision: 0 }
+      : attack === 'unsolicited-snapshot' ? { requestId: 2, baseRevision: 1, state: { schemaVersion: 1, fields: [{ id: 'answer', kind: 'text', value: hostileValue }] } }
       : { changeId: 2, baseRevision: 1, state: { schemaVersion: 1, fields: [{ id: 'answer', kind: 'text', value: hostileValue }] }, ...(attack === 'unknown-payload-field' ? { unexpected: true } : {}) });
     assert.equal(prepared.transferredPorts, attack === 'additional-port' ? 1 : 0);
     assert.deepEqual(prepared.acknowledgement, identity.acknowledgement);
@@ -100,7 +106,7 @@ export async function checkHostPortProtocol({ page, load, active }, attack) {
     await page.locator('#demo').click(); await active(); assert.equal(await page.locator('iframe').count(), 1);
     const fresh = JSON.parse(await page.locator('#state').textContent());
     assert.equal(fresh.revision, 0); assert(!JSON.stringify(fresh).includes(hostileValue)); assert(!JSON.stringify(fresh).includes(acceptedValue));
-    return { caseId: `G1-X04-MSG01/${attack}`, fixtureSha256: createHash('sha256').update(source).digest('hex'), before, ...evidence, freshRevision: fresh.revision };
+    return { caseId: `G1-X04-${packageId}/${attack}`, fixtureSha256: createHash('sha256').update(source).digest('hex'), before, ...evidence, freshRevision: fresh.revision };
   } catch (error) {
     error.detail = { attack, before, evidence: await page.evaluate(() => globalThis.msg01Evidence ?? null).catch(() => null) }; throw error;
   } finally {
