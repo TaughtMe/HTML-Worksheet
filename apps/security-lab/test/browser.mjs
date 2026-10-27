@@ -6,6 +6,7 @@ import { existsSync } from 'node:fs';
 import { chromium, firefox, webkit } from 'playwright';
 import { startServer } from '../server.mjs';
 import { checkNonemptyRestore } from './restore-harness.mjs';
+import { protocolCases, checkHostPortProtocol } from './bridge-protocol-harness.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
 if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
@@ -27,7 +28,7 @@ let requests = [];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 async function record(name, fn) {
   try { const detail = await fn(); results.push({ name, result: 'pass', detail }); console.log('PASS', name); }
-  catch (error) { results.push({ name, result: 'fail', error: String(error) }); console.log('FAIL', name, String(error)); }
+  catch (error) { results.push({ name, result: 'fail', error: String(error), ...(error.detail ? { detail: error.detail } : {}) }); console.log('FAIL', name, String(error)); }
 }
 try {
   receiver = fork(new URL('./receiver.mjs', import.meta.url), [receiverLog], { stdio: ['ignore', 'ignore', 'inherit', 'ipc'] });
@@ -138,6 +139,7 @@ try {
     await load(`<input id="x"><script>addEventListener("message",e=>{if(e.data.type==="INIT")setTimeout(()=>e.ports[0].postMessage(${data}),100)})</script>`);
     await page.waitForFunction(() => document.getElementById('status').textContent.includes('PROTOCOL'), null, { timeout: 4000 }); assert.equal(await page.locator('iframe').count(), 0);
   });
+  for (const attack of protocolCases) await record(`active port rejects ${attack}`, () => checkHostPortProtocol({ page, load, active }, attack));
   await record('dynamic network sinks produce no receiver request with positive script control', async () => {
     await control('network-before'); await websocketControl('network-before'); const start = hits.length;
     const target = `${receiverOrigin}/blocked?run=${runId}`;

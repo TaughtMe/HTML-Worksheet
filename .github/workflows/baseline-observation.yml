@@ -1,17 +1,8 @@
 name: Baseline Observation
 
 on:
-  pull_request:
-    paths:
-      - apps/security-lab/test/baseline*.mjs
-      - apps/security-lab/test/resource-process.mjs
-      - apps/security-lab/test/resource-config.mjs
-      - apps/security-lab/src/**
-      - apps/security-lab/server.mjs
-      - apps/security-lab/build.mjs
-      - package.json
-      - package-lock.json
-      - .github/workflows/baseline-observation.yml
+  # Automatic baseline PR runs are paused after three pre-browser OIDC refusals.
+  # Manual dispatch is available only after this workflow is on the default branch and still requires review.
   workflow_dispatch:
 
 permissions:
