@@ -8,7 +8,7 @@
     "firefox": "122040722144",
     "webkit": "122040722316"
   },
-  "status": "in progress; checks, Chromium, and WebKit successful; Firefox pending at archive preparation",
+  "status": "complete; checks and all three browser engines succeeded",
   "engines": {
     "chromium": {
       "artifact_id": "12713971683",
@@ -74,8 +74,36 @@
     },
     "firefox": {
       "job_id": "122040722144",
-      "status": "pending browser installation; no test result or artifact available at documentation time"
+      "artifact_id": "12713903400",
+      "artifact_zip_sha256": "a9a645e5101c43fc39974d59648ef0b332f511107f634fd9608c4761b903e07a",
+      "artifact_zip_size_bytes": 7823,
+      "browser_version": "144.0.2",
+      "results_passed": 34,
+      "results_failed": 0,
+      "phase_results": {
+        "duplicate-restored": "pass",
+        "unsolicited-snapshot": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "52fede9224951c6d312fbab1d19ca8d4baefc34f89ec88080d587a26ada5d858",
+          "raw_size_bytes": 72425,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "9338de01e399958acc16dd5a33502198e9b26658bd32db7f5b2a05d499ccd1e1",
+          "gzip_size_bytes": 6566
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "ad169203ceb83374ea5833d2374de0d2334cf275eb8eb9a164e73a7b1d4fe194",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "21ae096a63bbafabbb9d95f61cf3ecafadf2627b8dfb6fba79cdf660479bb4ad",
+          "gzip_size_bytes": 887
+        }
+      }
     }
   },
-  "overall": "checks succeeded; Chromium and WebKit succeeded with 34/34; Firefox job still installing and has no result at documentation time"
+  "overall": "checks succeeded; Chromium, Firefox, and WebKit each succeeded with 34/34"
 }
