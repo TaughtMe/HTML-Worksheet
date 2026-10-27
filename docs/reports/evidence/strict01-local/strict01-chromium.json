@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-27T16:53:25.132Z",
+  "engine": "chromium",
+  "browserVersion": "154.0.8037.57",
+  "kind": "STRICT01-C1-C5-only",
+  "C6": "not-executed-here-existing-CI-corpus",
+  "nodeVersion": "v24.19.0",
+  "bundleSha256": "01eea1f6107f2e614789a76e2e3f7d13f252534762cf3e6ba50ba59f41a9222d",
+  "results": [
+    {
+      "name": "C5",
+      "result": "fail",
+      "error": "TimeoutError: page.goto: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:38389/restore-harness\", waiting until \"load\"\u001b[22m\n",
+      "detail": null
+    }
+  ]
+}
