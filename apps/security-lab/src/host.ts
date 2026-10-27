@@ -2,6 +2,9 @@ import { importFile } from './import.ts';
 import { Budget, bytes, decode, emptyState, exact, jsonLimits, positive, validateState } from './contract.ts';
 import type { State } from './contract.ts';
 import type { Template } from './import.ts';
+import { importStrictFile } from './strict-import.ts';
+import type { StrictTemplate } from './strict-import.ts';
+import { childPolicy, strictChildPolicy } from './runner-policy.ts';
 declare const __RUNNER_SOURCE__: string;
 const nonce = (() => {
   const value = (document.currentScript as HTMLScriptElement | null)?.nonce;
@@ -10,7 +13,6 @@ const nonce = (() => {
 })();
 const get = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const status = get('status'), stateView = get('state'), container = get('runner');
-const childPolicy = "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'";
 const literal = (x: unknown) => JSON.stringify(x).replace(/</g, '\\u003c');
 let active: Session | null = null;
 let opening = 0;
@@ -21,14 +23,16 @@ class Session {
   instanceId = crypto.randomUUID(); templateVersionId = crypto.randomUUID();
   phase = 'await-load'; revision = 0; state: State; input = 0; output = 0; changes = 0; requests = 1; pendingRequest = 0; crossed = false;
   timer: ReturnType<typeof setTimeout> | undefined; inputBudget = new Budget(); outputBudget = new Budget();
-  constructor(readonly template: Template) {
+  constructor(readonly template: Template | StrictTemplate) {
     this.sessionId = [...crypto.getRandomValues(new Uint8Array(16))].map(x => x.toString(16).padStart(2, '0')).join('');
     this.state = emptyState(template.manifest);
     const channel = new MessageChannel(); this.port = channel.port1;
     this.port.onmessage = e => this.receive(e); this.port.onmessageerror = () => this.close('PROTOCOL'); this.port.start();
     this.frame.setAttribute('sandbox', 'allow-scripts'); this.frame.setAttribute('referrerpolicy', 'no-referrer'); this.frame.title = 'Synthetischer isolierter Runner';
-    const config = literal({ origin: location.origin, manifest: template.manifest });
-    this.frame.srcdoc = `<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="${childPolicy}"><script nonce="${nonce}">(()=>{const __LAB_CONFIG__=${config};${__RUNNER_SOURCE__}\n})();<\/script></head><body>${template.content}</body></html>`;
+    const strict = 'mode' in template ? { mode: template.mode, action: template.action } : {};
+    const config = literal({ origin: location.origin, manifest: template.manifest, ...strict });
+    const extraPolicy = 'mode' in template ? `<meta http-equiv="Content-Security-Policy" content="${strictChildPolicy(nonce)}">` : '';
+    this.frame.srcdoc = `<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="${childPolicy}">${extraPolicy}<script nonce="${nonce}">(()=>{const __LAB_CONFIG__=${config};${__RUNNER_SOURCE__}\n})();<\/script></head><body>${template.content}</body></html>`;
     this.frame.onload = () => {
       if (this.phase !== 'await-load') { this.close('NAVIGATION'); return; }
       this.phase = 'await-ready'; this.deadline(3000); this.frame.contentWindow!.postMessage({ v: 1, type: 'INIT', sessionId: this.sessionId }, '*', [channel.port2]);
@@ -84,12 +88,13 @@ class Session {
     if (active === this) active = null; show(`closed · ${code}`);
   }
 }
-async function open(file: Pick<File, 'size' | 'arrayBuffer'>, name: string) {
+async function open(file: Pick<File, 'size' | 'arrayBuffer'>, name: string, mode: 'legacy' | 'strict-v1' = 'legacy') {
   const ticket = ++opening; active?.close('REPLACED'); stateView.textContent = ''; get('filename').textContent = textLabel(name);
-  try { const template = await importFile(file, nonce); if (ticket !== opening) return; active = new Session(template); }
+  try { const template = mode === 'strict-v1' ? await importStrictFile(file) : await importFile(file, nonce); if (ticket !== opening) return; active = new Session(template); }
   catch { if (ticket === opening) show('IMPORT_REJECTED'); }
 }
 get('open').onclick = () => { const f = get<HTMLInputElement>('file').files?.[0]; if (f) void open(f, f.name); };
+get('open-strict').onclick = () => { const f = get<HTMLInputElement>('file').files?.[0]; if (f) void open(f, f.name, 'strict-v1'); };
 get('close').onclick = () => { opening++; active?.close('USER_CLOSE'); };
 get('checkpoint').onclick = () => active?.checkpoint();
 get('demo').onclick = () => {

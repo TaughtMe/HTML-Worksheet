@@ -1,19 +1,38 @@
 import { Budget, decode, exact, positive, revision, validateState } from './contract.ts';
 import type { Field, State } from './contract.ts';
-declare const __LAB_CONFIG__: { origin: string; manifest: Field[] };
+import type { StrictConfig } from './strict-import.ts';
+declare const __LAB_CONFIG__: { origin: string; manifest: Field[] } & Partial<StrictConfig>;
 const config = __LAB_CONFIG__;
 let port: MessagePort | null = null, sid = '', incoming = 0, outgoing = 0;
 let phase = 'init', rev = 0, changeId = 0, pending = 0, request = 0, dirty = false;
 let quiet: ReturnType<typeof setTimeout> | undefined, maxWait: ReturnType<typeof setTimeout> | undefined;
 let lastRequest = 1;
 const inputBudget = new Budget(), outputBudget = new Budget();
-function stop() { phase = 'closed'; clearTimeout(quiet); clearTimeout(maxWait); port?.close(); }
+let strictButton: HTMLButtonElement | null = null, strictTarget: HTMLInputElement | null = null;
+function stop() { phase = 'closed'; clearTimeout(quiet); clearTimeout(maxWait); strictButton?.removeEventListener('click', strictClick); port?.close(); }
 function send(type: string, payload: unknown) {
   if (!port || phase === 'closed') return;
   const data = JSON.stringify({ v: 1, sessionId: sid, seq: ++outgoing, type, payload });
   decode(data, [], outputBudget); port.postMessage(data);
 }
 function fail(code: string) { try { send('ADAPTER_ERROR', { code }); } finally { stop(); } }
+function strictBindings(ids: Map<string, HTMLElement>) {
+  if (config.mode === undefined && config.action === undefined) return null;
+  const action = config.action;
+  if (config.mode !== 'strict-v1' || !exact(action, ['kind', 'buttonId', 'targetId']) || action.kind !== 'toggle-checkbox') throw Error('UNSUPPORTED_FIELD');
+  const button = ids.get(action.buttonId), target = ids.get(action.targetId);
+  if (!(button instanceof HTMLButtonElement) || button.type !== 'button' || button.form || document.querySelectorAll('button').length !== 1
+    || button.getAttribute('data-ws-action') !== action.kind || button.getAttribute('data-ws-target') !== action.targetId
+    || !(target instanceof HTMLInputElement) || target.type !== 'checkbox' || target.form
+    || !config.manifest.some(field => field.id === action.targetId && field.kind === 'checkbox')
+    || (strictButton && button !== strictButton) || (strictTarget && target !== strictTarget)) throw Error('UNSUPPORTED_FIELD');
+  return { button, target };
+}
+function strictClick() {
+  if (phase !== 'active') return;
+  try { const binding = strictBindings(fieldElements())!; binding.target.checked = !binding.target.checked; changed(); }
+  catch { fail('UNSUPPORTED_FIELD'); }
+}
 function fieldElements(): Map<string, HTMLElement> {
   if ([...document.querySelectorAll('*')].some(e => e.shadowRoot)) throw Error('UNSUPPORTED_FIELD');
   const all = [...document.querySelectorAll<HTMLElement>('[id]')]; const ids = new Map<string, HTMLElement>();
@@ -37,6 +56,7 @@ function fieldElements(): Map<string, HTMLElement> {
   }
   inventory.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
   if (JSON.stringify(inventory) !== JSON.stringify(config.manifest)) throw Error('UNSUPPORTED_FIELD');
+  strictBindings(ids);
   return ids;
 }
 function capture(): State {
@@ -102,7 +122,11 @@ function init(event: MessageEvent) {
   if (phase !== 'init' || event.source !== parent || event.origin !== config.origin || event.ports.length !== 1 || !exact(p, ['v', 'type', 'sessionId']) || p.v !== 1 || p.type !== 'INIT' || typeof p.sessionId !== 'string' || !/^[a-f0-9]{32}$/.test(p.sessionId)) return;
   window.removeEventListener('message', init);
   sid = p.sessionId; port = event.ports[0]; port.onmessage = onPort; port.onmessageerror = stop; port.start(); phase = 'restore';
-  try { fieldElements(); send('READY', { adapterId: 'standard-fields', adapterVersion: 1 }); }
+  try {
+    const binding = strictBindings(fieldElements());
+    if (binding) { strictButton = binding.button; strictTarget = binding.target; strictButton.addEventListener('click', strictClick); }
+    send('READY', { adapterId: 'standard-fields', adapterVersion: 1 });
+  }
   catch { fail('UNSUPPORTED_FIELD'); }
 }
 window.addEventListener('message', init);
