@@ -5,7 +5,7 @@ import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { chromium, firefox, webkit } from 'playwright';
 import { startServer } from '../server.mjs';
-import { checkNonemptyRestore } from './restore-harness.mjs';
+import { checkNonemptyRestore, initSourceCases, checkInitSource } from './restore-harness.mjs';
 import { protocolCases, phaseCases, checkHostPortProtocol } from './bridge-protocol-harness.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
@@ -99,6 +99,7 @@ try {
     assert.equal(await page.locator('#state b').count(), 0); return state;
   });
   await record('nonempty restore sets every standard field without synthetic events', () => checkNonemptyRestore(context, origin));
+  for (const sourceCase of initSourceCases) await record(`runner INIT rejects ${sourceCase}`, () => checkInitSource(context, origin, sourceCase));
   await record('native form reset updates RAM after acknowledged input', async () => {
     await load('<form><input id="x"><button id="reset" type="reset">Reset</button></form>'); await active();
     await page.frameLocator('iframe').locator('#x').fill('synthetic before reset');
