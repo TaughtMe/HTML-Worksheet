@@ -1,0 +1,106 @@
+{
+  "actions_run_id": "40503126369",
+  "source_commit": "22a86e2703c42ed23d55677d9b9688ca027270f0",
+  "source_tree": "b20c52b01529ea24bfbcbf4a867398b5537e7e2d",
+  "scope": "SRC01: source-mismatch INIT delivery rejection variants in addition to the existing 34-case corpus",
+  "status": "complete; checks and all three browser engines succeeded",
+  "engines": {
+    "chromium": {
+      "job_id": "122185632644",
+      "artifact_id": "12732944586",
+      "artifact_zip_sha256": "c613c20d9c27864358e79eeb43eea7dc831480d6e3882bd6cf82e85c22d78591",
+      "artifact_zip_size_bytes": 8538,
+      "browser_version": "155.0.8059.0",
+      "results_passed": 36,
+      "results_failed": 0,
+      "src01_results": {
+        "same-origin-sibling": "pass",
+        "opaque-sibling": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "1fda6421d4622a1c8d4e2b74a2c95b8b3ba1ae445236b2c9ad45ee6859bb9fbd",
+          "raw_size_bytes": 69590,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "2555d4c65646bf55714b331af0f85e58f2cc4801c844a79438c7d33221868107",
+          "gzip_size_bytes": 7253
+        },
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "feb9af77741ea8998a0a3b4e22ba7f43110a8f6c12eca63a0efca5e5a8547d5c",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "dd3179cb848c7fae6f76477cc2dd7702132407ab5794b1d928277cd20ce122ad",
+          "gzip_size_bytes": 885
+        }
+      }
+    },
+    "webkit": {
+      "job_id": "122185632619",
+      "artifact_id": "12733652839",
+      "artifact_zip_sha256": "e3db6fa3dce42730af6b8e8c312d3a770774483f1ce6f7be57d8c4b5cc929d0d",
+      "artifact_zip_size_bytes": 7954,
+      "browser_version": "26.0",
+      "results_passed": 36,
+      "results_failed": 0,
+      "src01_results": {
+        "same-origin-sibling": "pass",
+        "opaque-sibling": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "b21c8d3a45fe2337f7789ec2854d5bc76d585090ecaea215a6b700d0f2f02933",
+          "raw_size_bytes": 66869,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "d7e2aee336b90ec8de2ba7ccaabb7d4bdc2db9c6d3f779fa6e842d62b63bc81b",
+          "gzip_size_bytes": 6676
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "9d66eb71dde2de23fa882a2e4559f368cec55daa8f29aa58f6be3e530b04e60c",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "32480a0fc50761a789aab077505de4530bcc3bd5a9be70e11c54f6950723a961",
+          "gzip_size_bytes": 889
+        }
+      }
+    },
+    "firefox": {
+      "job_id": "122185632670",
+      "artifact_id": "12734461517",
+      "artifact_zip_sha256": "cff5d20603c956c2c9667689487ac5b6853e1d46a3bdd5ad8118c4e7897f6a82",
+      "artifact_zip_size_bytes": 8445,
+      "browser_version": "144.0.2",
+      "results_passed": 36,
+      "results_failed": 0,
+      "src01_results": {
+        "same-origin-sibling": "pass",
+        "opaque-sibling": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "2b36022ce553205608affc133604208e59dabaa537fe5e88ef9e30fb488b5479",
+          "raw_size_bytes": 80865,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "5cda7c7b0adcda174e22592a4d7b2f5c37c5317f0ea5071088724fe5fb983eeb",
+          "gzip_size_bytes": 7142
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "a95099e1137be385c19be0abb9bf4ce5386628aa2bf3540c4f6479c24cf1ba31",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "29e3614d429daf56a6808360389d13ae33686877dd28b3e3f26e59e240fc629c",
+          "gzip_size_bytes": 889
+        }
+      }
+    }
+  },
+  "overall": "checks succeeded; Chromium, Firefox, and WebKit each succeeded with 36/36"
+}
