@@ -10,7 +10,7 @@ async function choose(page, name) {
   await page.locator('#file').setInputFiles({ name, mimeType: 'text/html', buffer: Buffer.from(source) });
   await page.locator('#open-strict').click();
 }
-function installObserver() {
+export function installObserver() {
   const evidence = globalThis.strict02 = { created: 0, mounted: 0, loads: 0, states: [], statuses: [], overflow: false };
   const append = (key, values) => {
     evidence[key].push(...values);
@@ -46,11 +46,19 @@ function installObserver() {
     collect(frames.takeRecords()); return structuredClone(evidence);
   };
 }
-function installRelay() {
+export function installRelay({ observeClose = false } = {}) {
   const Native = MessageChannel, channels = globalThis.strict02Channels = [];
   globalThis.MessageChannel = new Proxy(Native, { construct() {
     const host = new Native(), runner = new Native(), hostPeer = host.port2, runnerPeer = runner.port1;
-    const entry = { host: [], runner: [], held: null, arm: false, injections: [], overflow: false };
+    const entry = { host: [], runner: [], held: null, arm: false, injections: [], overflow: false, closeCalls: [] };
+    if (observeClose) {
+      const close = host.port1.close;
+      host.port1.close = function (...args) {
+        if (entry.closeCalls.length >= 64) entry.overflow = true;
+        else entry.closeCalls.push({ at: performance.now(), handlersCleared: this.onmessage === null && this.onmessageerror === null });
+        return Reflect.apply(close, this, args);
+      };
+    }
     const log = (key, data) => {
       if (entry[key].length >= 64) entry.overflow = true;
       else entry[key].push(JSON.parse(data));
@@ -65,7 +73,7 @@ function installRelay() {
       }
       hostPeer.postMessage(event.data, [...event.ports]);
     };
-    entry.inject = () => { if (!entry.held) throw Error('No held message'); hostPeer.postMessage(entry.held); entry.injections.push(entry.held); };
+    entry.inject = (raw = entry.held) => { if (!entry.held || typeof raw !== 'string') throw Error('No held message/string'); hostPeer.postMessage(raw); entry.injections.push(raw); };
     entry.close = () => { host.port1.close(); hostPeer.close(); runnerPeer.close(); runner.port2.close(); };
     channels.push(entry);
     Object.defineProperty(host, 'port2', { value: runner.port2 }); return host;
