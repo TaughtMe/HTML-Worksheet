@@ -1,14 +1,16 @@
 // Trusted positive controls only; failures propagate to the browser harness's record()/finalizer.
+export const trustedControlMarkup = '<button id="popup">Popup</button><button id="download">Download</button>';
+export function installTrustedControlHandlers() {
+  document.getElementById('popup').onclick = () => window.open('about:blank');
+  document.getElementById('download').onclick = () => {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['synthetic control'])); a.download = 'synthetic-control.txt'; a.click();
+  };
+}
 export async function checkTrustedControls(context) {
   const page = await context.newPage();
   try {
-    await page.setContent('<button id="popup">Popup</button><button id="download">Download</button>');
-    await page.evaluate(() => {
-      document.getElementById('popup').onclick = () => window.open('about:blank');
-      document.getElementById('download').onclick = () => {
-        const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob(['synthetic control'])); a.download = 'synthetic-control.txt'; a.click();
-      };
-    });
+    await page.setContent(trustedControlMarkup);
+    await page.evaluate(installTrustedControlHandlers);
     // Observe both promises immediately: an event timeout must also be caught while click is pending.
     const [popup] = await Promise.all([page.waitForEvent('popup'), page.locator('#popup').click()]);
     await popup.close();
