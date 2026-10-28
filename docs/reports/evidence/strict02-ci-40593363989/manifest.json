@@ -1,7 +1,7 @@
 {
   "actions_run_id": "40593363989",
   "source_commit": "d4c68c9b5709bbac0373b71eda60876b43522ed6",
-  "source_tree": "ceca69dfe6896001dc29463344488fe42732602",
+  "source_tree": "ceca69dfe6896001dc29463344488fe42732602b",
   "scope": "STRICT02 integrated 44-case browser corpus after harness control-failure reporting fix; includes prior 41 cases and lifecycle cases A/B/C",
   "status": "mixed; Firefox and WebKit 44/44; Chromium 43/44. All three STRICT02 cases pass in all engines, but Chromium trusted popup/download positive instrumentation control fails, so the full three-engine matrix is not green.",
   "checks_job": {
