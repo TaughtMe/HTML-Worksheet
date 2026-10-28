@@ -10,6 +10,7 @@ import { protocolCases, phaseCases, checkHostPortProtocol } from './bridge-proto
 import { strictCases, checkStrictCase } from './strict-harness.mjs';
 import { strictLifecycleCases, checkStrictLifecycle } from './strict-lifecycle-harness.mjs';
 import { checkTrustedControls } from './trusted-controls.mjs';
+import { deadlineCases, checkBridgeDeadline } from './bridge-deadlines-harness.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
 if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
@@ -112,6 +113,7 @@ try {
   for (const sourceCase of initSourceCases) await record(`runner INIT rejects ${sourceCase}`, () => checkInitSource(context, origin, sourceCase));
   for (const caseId of strictCases) await record(`STRICT01 ${caseId}`, () => checkStrictCase(context, origin, caseId));
   for (const caseId of strictLifecycleCases) await record(`STRICT02 ${caseId}`, () => checkStrictLifecycle(context, origin, caseId));
+  for (const type of deadlineCases) await record(`TIME01 ${type}`, () => checkBridgeDeadline(context, origin, type));
   await record('native form reset updates RAM after acknowledged input', async () => {
     await load('<form><input id="x"><button id="reset" type="reset">Reset</button></form>'); await active();
     await page.frameLocator('iframe').locator('#x').fill('synthetic before reset');
