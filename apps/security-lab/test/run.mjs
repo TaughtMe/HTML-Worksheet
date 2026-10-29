@@ -3,4 +3,5 @@ import './contract.test.ts';
 import './unit.test.ts';
 import './strict-import.test.ts';
 import './bridge-boundaries.test.mjs';
+import './bridge-rate.test.mjs';
 import './trusted-controls.test.mjs';

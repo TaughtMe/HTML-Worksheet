@@ -46,11 +46,33 @@ export function installObserver() {
     collect(frames.takeRecords()); return structuredClone(evidence);
   };
 }
-export function installRelay({ observeClose = false } = {}) {
+export function installRelay({ observeClose = false, rateProbe = false } = {}) {
   const Native = MessageChannel, channels = globalThis.strict02Channels = [];
   globalThis.MessageChannel = new Proxy(Native, { construct() {
     const host = new Native(), runner = new Native(), hostPeer = host.port2, runnerPeer = runner.port1;
     const entry = { host: [], runner: [], held: null, arm: false, injections: [], overflow: false, closeCalls: [] };
+    if (rateProbe) {
+      entry.received = []; entry.rateControl = false;
+      // Observe the same native handler invocation, without touching its clock, budget or result.
+      const descriptor = Object.getOwnPropertyDescriptor(MessagePort.prototype, 'onmessage');
+      let assigned = null;
+      Object.defineProperty(host.port1, 'onmessage', {
+        get() { return assigned; },
+        set(handler) {
+          assigned = handler;
+          descriptor.set.call(this, handler === null ? null : function (event) {
+            const record = { before: performance.now(), after: null, data: event.data, ports: event.ports.length };
+            if (entry.received.length >= 64) entry.overflow = true; else entry.received.push(record);
+            try { return Reflect.apply(handler, this, [event]); } finally { record.after = performance.now(); }
+          });
+        }
+      });
+      entry.batch = messages => {
+        if (!entry.rateControl || !Array.isArray(messages) || messages.length > 21 || entry.injections.length + messages.length > 64
+          || messages.some(data => typeof data !== 'string')) throw Error('Invalid bounded RATE01 batch');
+        for (const data of messages) { const before = performance.now(); hostPeer.postMessage(data); entry.injections.push({ before, after: performance.now(), data }); }
+      };
+    }
     if (observeClose) {
       const close = host.port1.close;
       host.port1.close = function (...args) {
@@ -64,7 +86,7 @@ export function installRelay({ observeClose = false } = {}) {
       else entry[key].push(JSON.parse(data));
     };
     // Both endpoints used by production remain native MessagePorts. All normal bytes and transfers are unchanged.
-    hostPeer.onmessage = event => { log('host', event.data); runnerPeer.postMessage(event.data, [...event.ports]); };
+    hostPeer.onmessage = event => { log('host', event.data); if (!entry.rateControl) runnerPeer.postMessage(event.data, [...event.ports]); };
     runnerPeer.onmessage = event => {
       log('runner', event.data);
       if (entry.arm && JSON.parse(event.data).type === 'STATE_CHANGED') {

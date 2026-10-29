@@ -12,6 +12,7 @@ import { strictLifecycleCases, checkStrictLifecycle } from './strict-lifecycle-h
 import { checkTrustedControls } from './trusted-controls.mjs';
 import { deadlineCases, checkBridgeDeadline } from './bridge-deadlines-harness.mjs';
 import { boundaryCases, checkBridgeBoundary } from './bridge-boundaries-harness.mjs';
+import { rateCases, checkBridgeRate } from './bridge-rate-harness.mjs';
 const browserTypes = Object.freeze({ chromium, firefox, webkit });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium';
 if (!Object.hasOwn(browserTypes, engine)) throw Error('BROWSER_ENGINE must be chromium, firefox or webkit');
@@ -115,6 +116,7 @@ try {
   for (const caseId of strictCases) await record(`STRICT01 ${caseId}`, () => checkStrictCase(context, origin, caseId));
   for (const caseId of strictLifecycleCases) await record(`STRICT02 ${caseId}`, () => checkStrictLifecycle(context, origin, caseId));
   for (const caseId of boundaryCases) await record(`BOUND01 ${caseId}`, () => checkBridgeBoundary(context, origin, caseId));
+  for (const caseId of rateCases) await record(`RATE01 ${caseId}`, () => checkBridgeRate(context, origin, caseId));
   for (const type of deadlineCases) await record(`TIME01 ${type}`, () => checkBridgeDeadline(context, origin, type));
   await record('native form reset updates RAM after acknowledged input', async () => {
     await load('<form><input id="x"><button id="reset" type="reset">Reset</button></form>'); await active();
