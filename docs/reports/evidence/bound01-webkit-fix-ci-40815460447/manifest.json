@@ -1,0 +1,112 @@
+{
+  "actions_run_id": "40815460447",
+  "job_id": "123255342038",
+  "artifact_id": "12872501479",
+  "artifact_zip_sha256": "0a8971dae37dbd9f85020d7606dbef767a0b1fdeda2780b5089d47392198f395",
+  "artifact_zip_size_bytes": 103246,
+  "source": {
+    "event": "push",
+    "branch": "test/bound01-webkit-fix",
+    "commit": "b4bba7f538451c6a6d5020f15a63eb84ae3cca3d",
+    "tree": "b58ebe83e1fff8a4eb22a17f26f851449d29137f",
+    "tracked_tree_clean": true,
+    "node_version": "v24.22.1",
+    "playwright_locked_version": "1.57.0",
+    "expected_browser_version": "26.0",
+    "file_sha256": {
+      ".github/workflows/bound01-webkit-fix.yml": "400aa83f9ed45b1d7b1238eb0d69332d105efce1dc9e7d4907fa3fe5e22f475e",
+      "apps/security-lab/test/bridge-boundaries.mjs": "449e753a36d2fd0fa3550b0e5cf447df3c06d9314b77b812ee2a4d3ce6f19ba2",
+      "apps/security-lab/test/bridge-boundaries-harness.mjs": "9a5c1664a83fa3ae59c7507fb8f07caa2f014fb85502e96b6c50f0e3ea311a08",
+      "apps/security-lab/test/bridge-boundary-fixtures.mjs": "08ec5154dc143b35ce3ddff64b469821d70a1f24607ff37970a3e0c712300da3",
+      "apps/security-lab/test/strict-lifecycle-harness.mjs": "d1701bbe594b39a320aea87c8947d87d95297c8c326476d7143999727b4aa734",
+      "package-lock.json": "b744736c521f7ab573471cc08de4e8b54042c93fff7dedc2ee7ec4311541cfbd"
+    }
+  },
+  "scope": "Focused WebKit validation of the five BOUND01 groups only; does not repeat Chromium, Firefox, or the prior 47 browser cases.",
+  "verdict": {
+    "classification": "focused-WebKit-fix-pass",
+    "complete": true,
+    "pass": true,
+    "engine": "webkit",
+    "browser_version": "26.0",
+    "selection": {
+      "source": "playwright-default",
+      "configuredExecutablePath": null,
+      "publicRegistryExecutablePath": "/home/runner/.cache/ms-playwright/webkit-2227/pw_run.sh"
+    },
+    "groups": [
+      {
+        "caseId": "message-ascii",
+        "result": "pass",
+        "pairs": 1,
+        "error": null
+      },
+      {
+        "caseId": "message-utf8",
+        "result": "pass",
+        "pairs": 1,
+        "error": null
+      },
+      {
+        "caseId": "state-bytes",
+        "result": "pass",
+        "pairs": 1,
+        "error": null
+      },
+      {
+        "caseId": "text-strings",
+        "result": "pass",
+        "pairs": 2,
+        "error": null
+      },
+      {
+        "caseId": "json-values",
+        "result": "pass",
+        "pairs": 1,
+        "error": null
+      }
+    ],
+    "bundle_sha256": "4183df50dc55a1c96af5a5e60d9dcd01de5bcf106cf9dc41cc9681466130d868"
+  },
+  "report": {
+    "engine": "webkit",
+    "browser_version": "26.0",
+    "node_version": "v24.22.1",
+    "results_total": 5,
+    "results_passed": 5,
+    "results_failed": 0
+  },
+  "files": {
+    "source": {
+      "file": "bound01-ci-source.json.gz",
+      "raw_size_bytes": 1095,
+      "raw_sha256": "43b9abf8fc5c897e431adbca46c69bf2a87fd91878d806bb00cc06f5d3a68645",
+      "gzip_size_bytes": 590,
+      "gzip_sha256": "71dd1cd8d1bcb3517f45e755dd632a79710d7a21a31c30e05005d850b7d7ef19"
+    },
+    "verdict": {
+      "file": "bound01-ci-verdict.json.gz",
+      "raw_size_bytes": 1064,
+      "raw_sha256": "8cd6a5b582a47f54df9dc31c4cee701d0924d5bfbd6bf9874b9f0b82e08b3be2",
+      "gzip_size_bytes": 442,
+      "gzip_sha256": "288543f8593dfa89e77b56efe3367d5a41e4c08b47d136b275be59fa82bc21e4"
+    },
+    "report": {
+      "file": "bound01-webkit.json.gz",
+      "raw_size_bytes": 13665337,
+      "raw_sha256": "3f30ec12cbe634456709fe10d2a56a519cf063fcce2be81db21dfd34f7ff3a14",
+      "gzip_size_bytes": 78776,
+      "gzip_sha256": "ff52e349891402218659c48c2f86614315cad8066d6a882b343259071c665292"
+    }
+  },
+  "limitations": "Focused WebKit fix run only. It is not a 52-case or three-engine green result. The earlier mixed matrix and Chromium 156 download-control failure remain unchanged.",
+  "independent_sol_raw_review": {
+    "status": "approved; no blocker",
+    "reviewed_engine": "WebKit 26.0 / revision 2227",
+    "reviewed_node": "24.22.1",
+    "playwright_locked_version": "1.57.0",
+    "source_commit_and_tree_verified": true,
+    "helper_and_workflow_hashes_verified": true,
+    "oracles": "All five groups/six pairs: boundary counters and positive ACK calibration, active/nonclosed negative precondition, native PROTOCOL close with cleared handlers, no transient rejected-state commit, fresh recovery SID with STATE_ACCEPTED and SNAPSHOT_ACCEPTED; no overflow."
+  }
+}

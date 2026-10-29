@@ -11,10 +11,15 @@ async function choose(page, source, name) {
   await page.locator('#file').setInputFiles({ name, mimeType: 'text/html', buffer: Buffer.from(source) });
   await page.locator('#open-strict').click(); await active(page);
 }
-async function checkpoint(page) {
+async function checkpoint(page, channelIndex, expectedACK) {
   const start = await page.evaluate(() => globalThis.strict02Read().statuses.length);
   await page.locator('#checkpoint').click();
-  await page.waitForFunction(index => globalThis.strict02Read().statuses.slice(index).some(text => text.includes('Snapshot bestätigt')), start, { timeout: 4000 });
+  // Status and the native peer callback are separate tasks. Both must arrive within the same original wait budget.
+  await page.waitForFunction(({ start, channelIndex, expectedACK }) =>
+    globalThis.strict02Read().statuses.slice(start).some(text => text.includes('Snapshot bestätigt'))
+    && globalThis.strict02Channels[channelIndex]?.host.some(message => message.type === 'SNAPSHOT_ACCEPTED'
+      && message.payload?.requestId === expectedACK.requestId && message.payload?.revision === expectedACK.revision
+      && message.payload?.durability === expectedACK.durability), { start, channelIndex, expectedACK }, { timeout: 4000 });
 }
 async function holdChange(page, state, triggerId) {
   await page.evaluate(() => { const entry = globalThis.strict02Channels[0]; entry.held = null; entry.arm = true; });
@@ -54,7 +59,7 @@ async function checkPair(context, origin, definition) {
     await page.waitForFunction(() => globalThis.strict02Channels[0].host.some(x => x.type === 'STATE_ACCEPTED'), null, { timeout: 4000 });
     calibrated = await readState(page);
     assert.deepEqual(calibrated, { revision: 1, durability: 'memory', state: definition.positive });
-    await checkpoint(page); assert.deepEqual(await readState(page), calibrated);
+    await checkpoint(page, 0, { requestId: 2, revision: 1, durability: 'memory' }); assert.deepEqual(await readState(page), calibrated);
     const positiveRelay = await page.evaluate(() => globalThis.strict02RelayRead()[0]);
     assert.deepEqual(positiveRelay.injections, [positiveRaw]);
     assert.deepEqual(positiveRelay.host.find(x => x.type === 'STATE_ACCEPTED').payload, { changeId: 1, revision: 1, durability: 'memory' });
@@ -91,7 +96,7 @@ async function checkPair(context, origin, definition) {
     const fresh = await readState(page); assert.equal(fresh.revision, 0); assert.deepEqual(fresh.state.fields.map(field => field.value), ['', false]);
     await page.frameLocator('iframe').locator('#toggle').click();
     await page.waitForFunction(() => JSON.parse(document.getElementById('state').textContent).revision === 1);
-    await checkpoint(page);
+    await checkpoint(page, 1, { requestId: 2, revision: 1, durability: 'memory' });
     const recovered = await readState(page);
     assert.deepEqual(recovered, { revision: 1, durability: 'memory', state: { schemaVersion: 1, fields: [{ id: 'answer', kind: 'text', value: '' }, { id: 'check', kind: 'checkbox', value: true }] } });
     const final = await page.evaluate(() => ({ observer: globalThis.strict02Read(), relay: globalThis.strict02RelayRead() }));
@@ -111,6 +116,7 @@ async function checkPair(context, origin, definition) {
 }
 export async function checkBridgeBoundary(context, origin, caseId) {
   assert(boundaryCases.includes(caseId)); const pairs = [];
-  for (const variant of variants(caseId)) pairs.push(await checkPair(context, origin, fixture(caseId, variant)));
+  try { for (const variant of variants(caseId)) pairs.push(await checkPair(context, origin, fixture(caseId, variant))); }
+  catch (error) { error.detail = { ...error.detail, completedPairs: pairs }; throw error; }
   return { caseId: `S07/BOUND01/${caseId}`, pairs, limits: 'unchanged', excluded: ['unreachable generic depth/array/object/key maxima', 'isolated UTF16-only guard', 'Host-output maxima'] };
 }

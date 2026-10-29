@@ -1,0 +1,265 @@
+{
+  "actions_run_id": "40740558936",
+  "source_commit": "b4c407049d41422af6fdea46eee72b741623475a",
+  "source_tree": "91edd6c90aa2517d70010b12f433c3294916fc96",
+  "local_content_equivalent_commits": [
+    "adb7fb1128131142f9773dbaf3d4d88846fd4788",
+    "e4411b442c49b87aac7bb48494d9fb680a2e7726"
+  ],
+  "scope": "BOUND01 integration in the 52-case browser corpus; raw artifact evidence retained per engine",
+  "status": "Historical mixed result: Firefox 52/52; Chromium 51/52 with the trusted download-control timeout after the BOUND01 cases; WebKit 51/52 with the BOUND01 text-strings UTF-8 harness race. The original run remains recorded as observed. The separately reviewed focused WebKit fix run 40815460447 later passed all five BOUND01 groups/six pairs; this does not turn the historical run into a 52-case or three-engine green result.",
+  "checks_job": {
+    "job_id": "123000679231",
+    "status": "success",
+    "unit_tests": {
+      "passed": 17,
+      "failed": 0
+    },
+    "typecheck": "success",
+    "build": "success",
+    "log": {
+      "raw_sha256": "a660a50f4d288b58bfb7e3ca75fc3bfbd195cd316cef0e58f517b94ed0dcbfca",
+      "raw_size_bytes": 18975,
+      "gzip": "checks-job.log.gz",
+      "gzip_sha256": "ae29d998d73b5ca7f8ae1bfecdd4ef8c348e744b30259c7ec7a8f46f52998e99",
+      "gzip_size_bytes": 5458
+    }
+  },
+  "engines": {
+    "chromium": {
+      "job_id": "123000826659",
+      "artifact_id": "12839012345",
+      "artifact_zip_sha256": "1aa35a46fc6f96fe5e4b902a8ab74fdea2174deb70d145fc85c6407431c4a0c2",
+      "artifact_zip_size_bytes": 122249,
+      "browser_version": "156.0.8078.0",
+      "run_id": "134ca761-fc34-4f4c-afd0-ab4fee88a0e8",
+      "results_total": 52,
+      "results": {
+        "pass": 51,
+        "fail": 1
+      },
+      "bound01_groups": [
+        {
+          "case": "message-ascii",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "message-utf8",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "state-bytes",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "text-strings",
+          "result": "pass",
+          "pairs": [
+            "ascii",
+            "utf8"
+          ]
+        },
+        {
+          "case": "json-values",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        }
+      ],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "d3c864263ba949ad15aaa69aeb96807203c1d02e14c3eaf4587c74ab1f426f45",
+          "raw_size_bytes": 13931913,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "4a503eafa45097c23b6db4190d177f270fb31c90b9b08a63645a1a48e27e4785",
+          "gzip_size_bytes": 94776
+        },
+        "receiver-chromium-134ca761-fc34-4f4c-afd0-ab4fee88a0e8.jsonl": {
+          "raw_sha256": "b97efa479bedb1323bf4b2b96c00a4bad53591c1460c8de96127f4ded70760a0",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "e547be89b286edce80b0e17d796ca0a5fe88f0f33e20ab5610838b3bc61e8778",
+          "gzip_size_bytes": 886
+        }
+      },
+      "failure_observed": {
+        "name": "trusted popup and blob download instrumentation controls",
+        "error": "TimeoutError: page.waitForEvent: Timeout 4000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+      }
+    },
+    "firefox": {
+      "job_id": "123000826365",
+      "artifact_id": "12838902377",
+      "artifact_zip_sha256": "8049feb4420d8f240092b46c48fbf090375948dc3521251f8840926718ecb4d5",
+      "artifact_zip_size_bytes": 121710,
+      "browser_version": "144.0.2",
+      "run_id": "00cfbd73-1f5c-4ec8-a404-41e0e83ffbf6",
+      "results_total": 52,
+      "results": {
+        "pass": 52,
+        "fail": 0
+      },
+      "bound01_groups": [
+        {
+          "case": "message-ascii",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "message-utf8",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "state-bytes",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "text-strings",
+          "result": "pass",
+          "pairs": [
+            "ascii",
+            "utf8"
+          ]
+        },
+        {
+          "case": "json-values",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        }
+      ],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "5311253ae6b44de0148b854748ba1c3368fd0f0ac68396240bed3ccbda29e860",
+          "raw_size_bytes": 13937560,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "0118d586dd73f95fb5b7c40f0195c6a51185f5af4f54c74b0ed8d366b0e7c91a",
+          "gzip_size_bytes": 94160
+        },
+        "receiver-firefox-00cfbd73-1f5c-4ec8-a404-41e0e83ffbf6.jsonl": {
+          "raw_sha256": "fc64f707a74408738e19223049349280ce9a548733e9b51666d29a03aef74da9",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "faf231cef7446d706fa243fd5c3a8c526ec7f97656d4b58e878eb1a5fbdce9da",
+          "gzip_size_bytes": 887
+        }
+      },
+      "failure_observed": null
+    },
+    "webkit": {
+      "job_id": "123000826579",
+      "artifact_id": "12839855641",
+      "artifact_zip_sha256": "2140252187bb43edfbbb0107136417332fed4e0750bb41256c441f24f2859f05",
+      "artifact_zip_size_bytes": 116026,
+      "browser_version": "26.0",
+      "run_id": "2a18a970-59ed-49d5-951f-33dc7d3da54f",
+      "results_total": 52,
+      "results": {
+        "pass": 51,
+        "fail": 1
+      },
+      "bound01_groups": [
+        {
+          "case": "message-ascii",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "message-utf8",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "state-bytes",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        },
+        {
+          "case": "text-strings",
+          "result": "fail",
+          "completed_variant": "utf8",
+          "error": "TypeError: Cannot read properties of undefined (reading 'payload')"
+        },
+        {
+          "case": "json-values",
+          "result": "pass",
+          "pairs": [
+            "default"
+          ]
+        }
+      ],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "78e293b5a57f4492ddfbc616217ae96552e6f162e8ad2a177bfb32f0a35eb995",
+          "raw_size_bytes": 13545110,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "6c2e36c263f14ed87893c3e33cbcd46be22e983925b352acb2a500e83330f8ec",
+          "gzip_size_bytes": 89693
+        },
+        "receiver-webkit-2a18a970-59ed-49d5-951f-33dc7d3da54f.jsonl": {
+          "raw_sha256": "3b03737ea34c46cee0aa913bdffa02f4e5364978be70f95950991e867ce8f185",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "5129553527155d4a14f6baf828a8e425d1547185f8a689723db8d0c621a0eac0",
+          "gzip_size_bytes": 883
+        }
+      },
+      "failure_observed": {
+        "name": "BOUND01 text-strings",
+        "error": "TypeError: Cannot read properties of undefined (reading 'payload')"
+      }
+    }
+  },
+  "other_workflows": {
+    "baseline_guard": {
+      "run_id": "40740559037",
+      "status": "success"
+    },
+    "resources": {
+      "run_id": "40740558583",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    },
+    "tab_recovery": {
+      "run_id": "40740559000",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    }
+  },
+  "review_note": "Sol diagnosed the WebKit BOUND01 UTF-8 string failure as a harness race: the ACK DOM status can appear before the relay callback. The targeted helper fix was independently reviewed and then passed the isolated WebKit run 40815460447 (5/5 groups, 6/6 pairs). The original mixed run remains archived unchanged; the focused pass does not upgrade it to a green 52-case or three-engine matrix.",
+  "limitations": "Chromium 156 download positive-control failure remains separate; its downstream download assertions are not calibrated. BOUND01 is bounded to its listed fixture pairs and does not cover unreachable generic depth/array/object/key maxima, host output maxima, real devices, resource ceilings, or product release."
+}

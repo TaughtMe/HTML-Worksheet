@@ -1,0 +1,85 @@
+{
+  "scope": "BOUND01 local WebKit helper-fix environment check; no browser cases executed",
+  "status": "not-executed-environment-blocker",
+  "fix_commit": "1e97520866f9cee73d0ca480b97e04025212bd54",
+  "playwright_version": "1.57.0",
+  "browser_revision": "2227",
+  "expected_browser_version": "26.0",
+  "actual_browser_version": null,
+  "browser_source": "https://cdn.playwright.dev/dbazure/download/playwright/builds/webkit/2227/webkit-debian-13.zip",
+  "installed_browser_binaries": [
+    {
+      "path": "/tmp/worksheet-bound01-browsers/webkit-2227/pw_run.sh",
+      "bytes": 3049,
+      "sha256": "a85baad3d8c07173ac387a59b41500c382b21ed692afe0964d29aac247ccc63b"
+    },
+    {
+      "path": "/tmp/worksheet-bound01-browsers/webkit-2227/minibrowser-gtk/MiniBrowser",
+      "bytes": 228,
+      "sha256": "98384046ffbca250cfb254be6849210749f6455b0a5f18ebae022daf6bd39382"
+    },
+    {
+      "path": "/tmp/worksheet-bound01-browsers/webkit-2227/minibrowser-wpe/MiniBrowser",
+      "bytes": 284,
+      "sha256": "990aafd77eb05fb166c0ab5ae9765d1e6ea728e1643f3d61773cb19be869e277"
+    },
+    {
+      "path": "/tmp/worksheet-bound01-browsers/webkit-2227/minibrowser-gtk/bin/MiniBrowser",
+      "bytes": 146224,
+      "sha256": "cdd08fcc4f00cc7047d34cc3991a97af52f898ab6872ba4b8f8e7f1a2b8387c2"
+    },
+    {
+      "path": "/tmp/worksheet-bound01-browsers/webkit-2227/minibrowser-wpe/bin/MiniBrowser",
+      "bytes": 2280168,
+      "sha256": "1f7fb6976daf383060210bd35bc105b0edd1054586fd2425b156c5d897f6f423"
+    }
+  ],
+  "host_missing_libraries": [
+    "libgtk-4.so.1",
+    "libgraphene-1.0.so.0",
+    "libwoff2dec.so.1.0.2",
+    "libharfbuzz-icu.so.0",
+    "libhyphen.so.0",
+    "libmanette-0.2.so.0",
+    "libGLESv2.so.2"
+  ],
+  "install_deps_command": "PLAYWRIGHT_BROWSERS_PATH=/tmp/worksheet-bound01-browsers node /workspace/HTML-Worksheet/node_modules/playwright/cli.js install-deps webkit",
+  "installation_attempts": [
+    {
+      "permissionMode": "with_additional_permissions",
+      "exitCode": 1,
+      "failure": "bwrap: Can't create file /usr/.git: Permission denied",
+      "packageInstallerStarted": false
+    },
+    {
+      "permissionMode": "require_escalated",
+      "exitCode": 1,
+      "failure": "su: Authentication failure",
+      "packageInstallerStarted": true
+    }
+  ],
+  "browser_cases_executed": 0,
+  "planned_boundary_groups": 5,
+  "checks": {
+    "syntax": "pass",
+    "whitespace": "pass",
+    "independentDeltaReview": "approved"
+  },
+  "files": {
+    "bound01-ack-webkit-environment.json": {
+      "raw_sha256": "c8d8c0f95f9e5a3fe9046464f5111dee8b2257ed2ebf38e694ff571e580014ac",
+      "raw_size_bytes": 2543,
+      "gzip": "bound01-ack-webkit-environment.json.gz",
+      "gzip_sha256": "674c51a834257ae54bc1cb969ab77c11f2855d24112e4cc855459609f4910517",
+      "gzip_size_bytes": 1124
+    },
+    "bound01-ack-webkit-install-deps.log": {
+      "raw_sha256": "7796ecac0c1d2de927d12b19b9eacd31ad1601ece504e92c292f26197009db9c",
+      "raw_size_bytes": 201,
+      "gzip": "bound01-ack-webkit-install-deps.log.gz",
+      "gzip_sha256": "e7a37bbfb24eddb353456ab6e82a30a591a3dd51faf7940f7ce5592469d8a27b",
+      "gzip_size_bytes": 149
+    }
+  },
+  "interpretation": "WebKit browser archive downloaded, but missing native host libraries prevented launch. The allowed install-deps escalation failed with su authentication failure. This is an environment blocker, not a browser test result; targeted CI remains the validation path."
+}
