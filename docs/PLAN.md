@@ -1,6 +1,6 @@
 # Entwicklungsplan in kleinen Arbeitspaketen
 
-Stand: 24. Oktober 2026. Dieser Plan setzt das vorgelegte Projektkonzept um. **Aktueller Lieferumfang: Repository und abgestimmter Arbeitsplan.** Technische Spezifikation, Viewer und alle Produkttests sind nachfolgende Aufgaben, nicht bereits erledigt.
+Stand: 24. Oktober 2026. Dieser Plan setzt das vorgelegte Projektkonzept um. **Ursprünglicher Planungsumfang: Repository und abgestimmter Arbeitsplan.** Den inzwischen umgesetzten technischen Kern und die tatsächlich ausgeführten Prüfungen dokumentiert [STATUS.md](STATUS.md). Die folgenden Aufgaben definieren den gesamten weiteren Entwicklungsweg.
 
 ## Modellverteilung
 
@@ -24,7 +24,7 @@ Jede Tabellenzeile ist ein eigener Auftrag nach [AUFTRAG.md](AUFTRAG.md). Meist 
 
 Maximal zwei ausführende Agenten zunächst. Nach akzeptierten Verträgen dürfen unabhängige Dokumentation und Fixtures parallel entstehen. Sicherheitsimplementierung und deren Review erfolgen sequenziell. Gemeinsame Dateien werden nicht gleichzeitig geändert.
 
-Status aller nachfolgenden Aufgaben: **offen**. Die Planungsprüfung durch Sol high und Luna medium ist erfolgt; sie ist noch keine technische Freigabe.
+Ursprünglicher Planungsstand: alle nachfolgenden Aufgaben offen. Den fortgeschriebenen Status und die tatsächlichen Nachweise führt [STATUS.md](STATUS.md); diese Aufgabenliste beschreibt weiterhin Reihenfolge und Abnahmekriterien, nicht automatisch abgeschlossene Arbeit. Ein bestandener Teiltest ersetzt kein Gate.
 
 ## Abschnitt 0: technische Spezifikation
 

@@ -9,3 +9,5 @@ test-results/
 .wrangler/
 .DS_Store
 *.log
+apps/security-lab/dist/
+apps/security-lab/test-results/

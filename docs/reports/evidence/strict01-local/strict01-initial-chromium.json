@@ -1,0 +1,131 @@
+{
+  "at": "2026-10-27T15:15:07.245Z",
+  "engine": "chromium",
+  "browserVersion": "154.0.8037.57",
+  "kind": "STRICT01-C1-C5-only",
+  "C6": "not-executed-here-existing-CI-corpus",
+  "nodeVersion": "v24.19.0",
+  "bundleSha256": "01eea1f6107f2e614789a76e2e3f7d13f252534762cf3e6ba50ba59f41a9222d",
+  "results": [
+    {
+      "name": "C1",
+      "result": "pass",
+      "detail": {
+        "caseId": "STRICT01/C1",
+        "attempts": [
+          {
+            "fixtureSha256": "fc261027a4bc0a30db46b24209bf95d35f3b9b6d3b82bf28973670515c21da76",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          }
+        ],
+        "noAttackClick": true
+      }
+    },
+    {
+      "name": "C2",
+      "result": "pass",
+      "detail": {
+        "caseId": "STRICT01/C2",
+        "attempts": [
+          {
+            "fixtureSha256": "19a43b69d97d146f687c14da774b4bca55c33fa89fe7af7c013f27e8d7302fc4",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "7baa4049600d5c7c549d673d6ab56945a529fd4984a395a1afeeb9584c0765e3",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "7bdc7709e3c27562f064473199a031cad526346b836b2820f772c64690acd8e4",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "e4dd8d5ee29c5a67e6c6bbdff69bee8931d9ab51861ab2f9536670fe8f7eaeb9",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          }
+        ],
+        "noAttackClick": true
+      }
+    },
+    {
+      "name": "C3",
+      "result": "pass",
+      "detail": {
+        "caseId": "STRICT01/C3",
+        "attempts": [
+          {
+            "fixtureSha256": "31d13db4bd28b5f02211554e6170a451c3206d3dc3bd5f814d20918df5378a51",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "8440518bd79fa530d0c8346d874288dca7ac42acbafde36fe92ca86bc4738cd7",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "3e4d14ed3103fbef2d982122e6926f5d35fe392b6d1d9374dfa39b99f16ae2e9",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "c2beb49531b2336b0b161e4dd97ef8da5874bfeff244c313c2030090b4613e3d",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          },
+          {
+            "fixtureSha256": "3492054d1e284d502b42a6ffad3e1238017c944327a007e01bfa0c53db8c9426",
+            "created": 0,
+            "mounted": 0,
+            "channels": 0,
+            "initReceipts": 0,
+            "status": "IMPORT_REJECTED"
+          }
+        ],
+        "noAttackClick": true
+      }
+    },
+    {
+      "name": "C4",
+      "result": "fail",
+      "error": "TimeoutError: locator.setInputFiles: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#file')\u001b[22m\n\u001b[2m    - locator resolved to <input id=\"file\" type=\"file\" accept=\"text/html,.html\"/>\u001b[22m\n",
+      "detail": {
+        "caseId": "C4",
+        "attempts": [],
+        "initReceipts": 0
+      }
+    }
+  ]
+}

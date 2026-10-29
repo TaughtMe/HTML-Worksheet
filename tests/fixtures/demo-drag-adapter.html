@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><title>Synthetische Drag-Demo</title></head>
+<body>
+  <main>
+    <h1>Ordne die Fantasieobjekte zu</h1>
+    <p id="status" aria-live="polite">Drag-Demo wird gestartet.</p>
+    <section aria-labelledby="pool-title"><h2 id="pool-title">Noch nicht zugeordnet</h2>
+      <ul id="zone-pool" data-ws-zone><li id="item-comet" draggable="true">Komet</li><li id="item-leaf" draggable="true">Blatt</li></ul>
+    </section>
+    <section aria-labelledby="orbit-a-title"><h2 id="orbit-a-title">Bahn A</h2>
+      <ul id="zone-orbit-a" data-ws-zone><li id="item-moon" draggable="true">Mond</li></ul>
+    </section>
+    <section aria-labelledby="orbit-b-title"><h2 id="orbit-b-title">Bahn B</h2><ul id="zone-orbit-b" data-ws-zone></ul></section>
+    <p>Alternativ kann jedes Objekt per Schaltfläche in die nächste Zone verschoben werden.</p>
+    <h2>Adapterzustand v1</h2><pre id="state" aria-live="polite"></pre>
+  </main>
+  <script>
+    (() => {
+      const zones = [...document.querySelectorAll("[data-ws-zone]")];
+      const status = document.getElementById("status");
+      const renderState = () => {
+        const placements = [];
+        zones.forEach((zone) => {
+          [...zone.querySelectorAll(":scope > [id^='item-']")].forEach((item, position) => {
+            placements.push({ itemId: item.id, zoneId: zone.id === "zone-pool" ? null : zone.id, position });
+          });
+        });
+        placements.sort((left, right) => left.itemId.localeCompare(right.itemId));
+        document.getElementById("state").textContent = JSON.stringify({ schemaVersion: 1, placements });
+      };
+      zones.forEach((zone) => {
+        zone.addEventListener("dragover", (event) => event.preventDefault());
+        zone.addEventListener("drop", (event) => {
+          event.preventDefault();
+          const item = document.getElementById(event.dataTransfer.getData("text/plain"));
+          if (item && item.matches("[draggable='true']")) zone.appendChild(item);
+          renderState();
+        });
+      });
+      document.querySelectorAll("[id^='item-']").forEach((item) => {
+        item.addEventListener("dragstart", (event) => event.dataTransfer.setData("text/plain", item.id));
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "Nächste Zone";
+        button.setAttribute("aria-label", `${item.textContent}: in die nächste Zone verschieben`);
+        button.addEventListener("click", () => {
+          const nextZone = zones[(zones.indexOf(item.parentElement) + 1) % zones.length];
+          nextZone.appendChild(item);
+          status.textContent = `${item.textContent} wurde verschoben.`;
+          renderState();
+        });
+        item.appendChild(button);
+      });
+      status.textContent = "Drag-Demo aktiv; drei feste itemIds und drei feste Zonen.";
+      renderState();
+    })();
+  </script>
+</body>
+</html>

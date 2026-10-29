@@ -1,0 +1,25 @@
+{
+  "name": "html-worksheet-security-lab",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node apps/security-lab/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "start": "node apps/security-lab/server.mjs",
+    "test": "node apps/security-lab/test/run.mjs",
+    "test:browser": "node apps/security-lab/test/browser.mjs",
+    "test:resources": "node apps/security-lab/test/resources.mjs"
+  },
+  "dependencies": {
+    "parse5": "7.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "typescript": "5.9.3",
+    "playwright": "1.57.0"
+  }
+}

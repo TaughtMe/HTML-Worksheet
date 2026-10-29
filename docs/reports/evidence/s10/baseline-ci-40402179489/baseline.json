@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-26T21:11:56.258Z",
+  "kind": "healthy-baseline-only",
+  "nodeVersion": "v24.21.0",
+  "context": null,
+  "bundleHash": null,
+  "noAttackFixtures": true,
+  "stages": [
+    "browser-start",
+    "host-loaded",
+    "demo-active"
+  ],
+  "repetitionsPerEngine": 3,
+  "limits": {
+    "calibrationRssCapBytes": 1342177280,
+    "admissionHeadroomBytes": 2415919104,
+    "runtimeReserveFloorBytes": 1073741824,
+    "stageMs": 10000,
+    "holdMs": 1000
+  },
+  "interrupted": null,
+  "refusal": {
+    "reason": "OIDC_REQUEST_PATH_UNRECOGNIZED"
+  },
+  "runs": [],
+  "automaticProtectionBudget": null
+}

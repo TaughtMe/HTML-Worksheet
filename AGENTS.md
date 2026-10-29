@@ -2,7 +2,7 @@
 
 ## Umfang und Reihenfolge
 
-- Ausgangspunkt sind README.md und docs/PLAN.md. Aktuell ist nur die Planung abgeschlossen; keine technische Sicherheitsabnahme behaupten.
+- Ausgangspunkt sind README.md und docs/PLAN.md; tatsächlicher Fortschritt steht in docs/STATUS.md und den Prüfberichten. Ein begrenzter lokaler RAM-Prototyp ist vorhanden. Keine vollständige technische Sicherheitsabnahme behaupten.
 - Kleine Aufträge mit eigener ID, Abhängigkeiten, Dateibereich und beobachtbaren Abnahmekriterien verwenden. Ein Auftrag ist kein ganzer Meilenstein.
 - Sicherheitsprototyp vor Persistenz; Persistenz vor PDF-Abnahme; PDF vor vollständiger Produktoberfläche.
 - Sicherheitsmechanismen niemals für Kompatibilität lockern. Fehlgeschlagene Sicherheitskriterien blockieren die betroffene Freigabe.
@@ -26,3 +26,16 @@
 - Abhängigkeiten und Lockfile gemeinsam ändern; CI-Aktionen auf überprüfte Commit-SHAs pinnen.
 - Keine pauschale Aussage „sicher“, „offline-fähig“ oder „iPad-kompatibel“ ohne konkret zugehörige Testevidenz.
 - Bei einer Eskalation unabhängige Arbeit fortsetzen; nur abhängige Aufgaben pausieren. Entscheidungen dokumentieren, keine zusätzliche Nutzerfreigabe für Routinearbeit erfinden.
+
+## Aufwand und Wiederholbarkeit
+
+- Neue Agenten erhalten standardmäßig nur Auftrag, relevante Dateipfade, Basiscommit und Abnahmekriterien (`fork_turns="none"`), nicht den gesamten Chat. Vorhandene Agenten für fachlich zusammenhängende Folgeaufträge wiederverwenden.
+- Rückmeldungen auf Ergebnis, Commit, ausgeführte Prüfungen und Blocker begrenzen. Rohlogs in Artefakten ablegen; im Chat nur relevante Ausschnitte. Keine zusätzlichen Berichte, wenn ein bestehender Status-/Prüfbericht genügt.
+- Zusammengehörige Fälle kohärent bündeln, statt Arbeit in vermeidbare Ein- oder Zwei-Testschritt-Pakete zu teilen. Evidenz und Status möglichst im Abschlusscommit festhalten; Zwischenberichte nur bei Blockern oder absehbar längeren Unterbrechungen.
+- Inkrementelle Reviews auf ungeprüfte Deltas und relevante Schnittstellen konzentrieren; verpflichtende Sicherheitsreviews bleiben bestehen. Routinechecks und Logausgaben nicht unnötig wiederholen. Vorhandene Agenten/Checkpoints wiederverwenden und höchstens zwei ausführende Agenten mit getrennten Dateibereichen einsetzen.
+- Bei einem Kontingentfehler denselben Agenten erneut prüfen und starten. Wird er erneut gesperrt, Auftrag pausieren; keine automatische Übernahme oder Modellersetzung ohne Nutzervorgabe.
+- Modell und Reasoning-Stufe nach Aufgabenrisiko wählen. Routinearbeit Luna low/medium, gewöhnliche Integration Sol medium; high/xhigh nur für entsprechend anspruchsvolle Aufgaben. Ein unabhängiger Review kritischen Codes bleibt verpflichtend.
+- Einmal erfolgreiche Checks für unveränderten Code nicht wiederholen. Nach Dokumentänderungen Links/Whitespace prüfen, nach Codeänderungen die betroffenen Regressionen; vollständigen Satz am Integrationsstand ausführen.
+- Netzwerkoperationen getrennt von lokalen Änderungen ausführen. Kurze Requesttimeouts, keine automatischen Wiederholungen bei Berechtigungsfehlern. Nach dem ersten Blocker Ursache melden; eine fehlende Freigabe ist kein langsamer Download.
+- Prozesssitzungen, Testharness und Installationscache wiederverwenden; keine parallelen Paketinstallationen. Tests automatisieren, statt Browserfälle wiederholt manuell abzuarbeiten.
+- Agentenaufträge und zuletzt belegte Ergebnisse kurz in docs/STATUS.md führen. Geplante Einsparungen nicht als gemessene Tokenersparnis ausgeben.

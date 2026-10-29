@@ -1,0 +1,12 @@
+{"kind":"http","at":"2026-10-25T06:21:06.313Z","method":"GET","url":"/control-before","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:14.863Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=network-before&control=d83a3214-9557-4368-85bc-79fb983667ca","referer":null}
+{"kind":"websocket-upgrade","at":"2026-10-25T06:21:15.040Z","method":"GET","url":"/ws-control?run=07917707-a214-49e0-9c9b-b5624608be43&case=network-before&control=7b03b7c1-f0bf-4e88-be80-3d3c9622f46c","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:18.658Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=network-after&control=f1b87428-8e1f-4b83-915b-7e29403fdfaf","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:18.703Z","method":"GET","url":"/favicon.ico","referer":"http://127.0.0.1:42891/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=network-after&control=f1b87428-8e1f-4b83-915b-7e29403fdfaf"}
+{"kind":"websocket-upgrade","at":"2026-10-25T06:21:18.932Z","method":"GET","url":"/ws-control?run=07917707-a214-49e0-9c9b-b5624608be43&case=network-after&control=c84f2847-21e3-4af2-953f-0ab2c9d97334","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:19.538Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=sandbox-before&control=93570441-29c0-4335-9d53-87abd19031d2","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:24.147Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=navigation-receiver-before&control=fb2fb0f8-6a9f-423c-bc0c-50dab4908f99","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:34.588Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=navigation-receiver-after&control=f4166b91-38b8-475e-bb63-1b017d254399","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:34.768Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=navigation-host-before&control=f2f06a54-c329-4a02-a4de-b17d124b2b55","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:45.202Z","method":"GET","url":"/control?run=07917707-a214-49e0-9c9b-b5624608be43&case=navigation-host-after&control=c345bcff-68db-44f2-98d0-8faf0942d225","referer":null}
+{"kind":"http","at":"2026-10-25T06:21:45.346Z","method":"GET","url":"/control-after","referer":null}

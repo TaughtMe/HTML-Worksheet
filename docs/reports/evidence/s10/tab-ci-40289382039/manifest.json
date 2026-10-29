@@ -1,0 +1,30 @@
+{
+  "actions_run_id": "40289382039",
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": "job deadline during WebKit/system dependency installation; browser test did not start"
+    },
+    {
+      "attempt": 2,
+      "job_id": "121679862642",
+      "result": "tab recovery job completed as inconclusive after RSS budget stop"
+    }
+  ],
+  "source_commit": "3e3599d",
+  "source_tree": "e4cbf5754d14f5fc913139462f0ef78b6d5327a9",
+  "checkout_commit": "fe590198cc7f816a3610b7f214534b1d6e9185fc",
+  "artifact_id": "12663987570",
+  "artifact_zip_sha256": "7e5936d41d5540122d018ed96545c8e0382ca073120fac13f80a3b1e89d05ff7",
+  "artifact_entry": "tab-recovery-webkit.json",
+  "raw_path": "/workspace/s10-tab-ci-40289382039/tab-recovery-webkit.json",
+  "raw_sha256": "4a2c6365815cff817297a4d07a6faf372770c7612ddf8c36ac317df8f3f619e7",
+  "raw_size_bytes": 91541,
+  "archive": "tab-recovery-webkit.json.gz",
+  "archive_sha256": "e21c051b83f1cf17a6f590098174b001244920e6c7e3535e4724eb5184aadfe3",
+  "archive_size_bytes": 3626,
+  "compression": "gzip, mtime=0, empty embedded filename; decompression byte-equal to artifact; deterministic recompression verified",
+  "browser": "Playwright WebKit 26.0",
+  "node": "Node 24 configured by workflow; exact runtime version not recorded in raw JSON",
+  "interpretation": "measurement only; inconclusive; no product or security gate evaluated"
+}

@@ -1,0 +1,139 @@
+{
+  "actions_run_id": "40592410951",
+  "source_commit": "b6f9d80345c9fa44476f9d819308f62369c60235",
+  "source_tree": "60c510c623f859a856c8cbed4bdfbb33fee3e4ba",
+  "local_integrated_commit": "6a0eb045af35d05e626b0f4efb7667701024ccbf",
+  "scope": "STRICT02 initial integration run: corpus 44; evidence preserved per engine; Chromium report missing after trusted download positive-control timeout",
+  "status": "partial and mixed; Firefox/WebKit complete 44/44; Chromium log records STRICT02 A/B/C passes followed by unhandled download-event timeout before report generation",
+  "engines": {
+    "firefox": {
+      "job_id": "122499822371",
+      "artifact_id": "12774382522",
+      "artifact_zip_sha256": "113539415a5c46527178c4bd335b8120c4cad4a4d81fb9ae8d9b1dd2e65f6b0b",
+      "artifact_zip_size_bytes": 12405,
+      "browser_version": "144.0.2",
+      "results_passed": 44,
+      "results_failed": 0,
+      "strict_cases": {
+        "retired-port": "pass",
+        "second-init": "pass",
+        "import-race": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "run_id": "63f01e02-44b5-405a-bddc-cea105587f48",
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "9531fe766619caf431096bf53d28edac49cc7d8ec92509cda09e61aae9b4494e",
+          "raw_size_bytes": 147515,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "2e29fb67bdd2dc6eb7a4a0d4dfaa808d1913ecc837ee687302036e6ccd5a4e9c",
+          "gzip_size_bytes": 11309
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "fcbd27d953ddb43868c55ff95e750b3d919d922202d06c856df74cf114c8804e",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "baaa808834357f03cb7f2bf62d95869973a1b228ab17c2f8fc165bb9a266fb0f",
+          "gzip_size_bytes": 912
+        }
+      }
+    },
+    "webkit": {
+      "job_id": "122499822383",
+      "artifact_id": "12774522375",
+      "artifact_zip_sha256": "addae473ead271cc8fafdb6bbdee9b4cf155e8db82c458b2a3bc5f6bea09b128",
+      "artifact_zip_size_bytes": 11939,
+      "browser_version": "26.0",
+      "results_passed": 44,
+      "results_failed": 0,
+      "strict_cases": {
+        "retired-port": "pass",
+        "second-init": "pass",
+        "import-race": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "run_id": "b9f37cc3-2bcb-4d12-b6fa-e38cb4ac23a7",
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "3c75cf3ab475edee3b0a5193ac371a17a7d67b01fddf8b317d3be21d12c843ce",
+          "raw_size_bytes": 133519,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "2d14302893b8eff6d1d9218a0072bdb2995fcf5eb88c9961a8a35f9c86f0afae",
+          "gzip_size_bytes": 10918
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "2667f09d2e9b0b1cecbf2d269fc985feae559380874b4a64eb36991ed64c2442",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "b7d30f9706563d26bfc53abd604a67409f0672d65d13f8d14fe356505ba7da71",
+          "gzip_size_bytes": 905
+        }
+      }
+    },
+    "chromium": {
+      "job_id": "122499822446",
+      "artifact_id": "12775490396",
+      "artifact_zip_sha256": "747042b9bf4a9f000a51cadf5ce802f2f1f2621d21f59b25af852836bb3ef4c5",
+      "artifact_zip_size_bytes": 570,
+      "status": "incomplete; no browser JSON report uploaded",
+      "strict_cases": {
+        "retired-port": "pass (log)",
+        "second-init": "pass (log)",
+        "import-race": "pass (log)"
+      },
+      "results_passed": null,
+      "results_failed": null,
+      "receiver_lines": 5,
+      "receiver_hits": null,
+      "receiver_ipc_matches_file": null,
+      "failure": {
+        "type": "unhandled Playwright TimeoutError",
+        "event": "download",
+        "timeout_ms": 4000,
+        "log_line": 438,
+        "browser_test_location": "apps/security-lab/test/browser.mjs:175",
+        "interpretation": "trusted positive-control event not observed; cause inconclusive"
+      },
+      "files": {
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "d3609ef9e73901e27f28f81589736b735001ade16bfe557505129145b5564515",
+          "raw_size_bytes": 1033,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "ea235bfae0ea21aa0fb96aa9d706877cb59c369282ea1ccb3c470fe1e2db6ecb",
+          "gzip_size_bytes": 355
+        },
+        "chromium-job.log": {
+          "raw_sha256": "4f92e88be5adf43a58524789c042d9bd7d21692d1755859aad84a533cff5edf7",
+          "raw_size_bytes": 43952,
+          "gzip": "chromium-job.log.gz",
+          "gzip_sha256": "50a996891fc388f94ab5181defe86efb0418d76957059fcdf90d8e7b0511a8dd",
+          "gzip_size_bytes": 10324
+        }
+      },
+      "playwright_download_log": "Chromium 143.0.7499.4 build v1200 downloaded before tests",
+      "actual_browser_version": "unavailable: no complete report or launch provenance",
+      "popup_control_stage": "The trusted popup event was awaited successfully before the subsequent waitForEvent(\"download\") timed out; execution then stopped before sandbox cases."
+    }
+  },
+  "other_jobs": {
+    "baseline_guard": {
+      "job_id": "40592411218",
+      "status": "success"
+    },
+    "resources": {
+      "job_id": "40592410943",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    },
+    "tab_recovery": {
+      "job_id": "40592410944",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    }
+  },
+  "limitations": "This initial run is not a green three-engine matrix: Chromium has no complete JSON report or 44-case result because the test process terminated waiting for the trusted download event. The log records the three STRICT02 cases passing before that point. The expected download event remains inconclusive. This evidence grants no G1/product release; offline, resource guarantees, and real-device validation remain open."
+}
