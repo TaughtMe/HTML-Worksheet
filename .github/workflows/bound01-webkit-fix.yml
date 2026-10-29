@@ -1,0 +1,100 @@
+name: BOUND01 WebKit ACK Fix
+
+on:
+  push:
+    branches:
+      - test/bound01-webkit-fix
+    paths:
+      - .github/workflows/bound01-webkit-fix.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bound01-webkit-fix-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  webkit:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/test/bound01-webkit-fix' && github.repository == 'TaughtMe/HTML-Worksheet'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      BOUND_EVENT: ${{ github.event_name }}
+      BOUND_EVENT_SHA: ${{ github.sha }}
+      BOUND_REF: ${{ github.ref }}
+    steps:
+      - name: Check out the exact pushed source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Record and verify the source before installation
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { execFileSync } from 'node:child_process';
+          import { createHash } from 'node:crypto';
+          import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
+          const files = ['.github/workflows/bound01-webkit-fix.yml', 'apps/security-lab/test/bridge-boundaries.mjs', 'apps/security-lab/test/bridge-boundaries-harness.mjs', 'apps/security-lab/test/bridge-boundary-fixtures.mjs', 'apps/security-lab/test/strict-lifecycle-harness.mjs', 'package-lock.json'];
+          const source = {
+            event: process.env.BOUND_EVENT, eventSha: process.env.BOUND_EVENT_SHA, ref: process.env.BOUND_REF,
+            head: git('rev-parse', 'HEAD'), tree: git('rev-parse', 'HEAD^{tree}'), trackedTreeClean: git('status', '--porcelain', '--untracked-files=no') === '',
+            nodeVersion: process.version, playwrightLockedVersion: JSON.parse(readFileSync('package-lock.json', 'utf8')).packages['node_modules/playwright'].version,
+            expectedBrowserVersion: '26.0', sha256: Object.fromEntries(files.map(file => [file, createHash('sha256').update(readFileSync(file)).digest('hex')]))
+          };
+          mkdirSync('apps/security-lab/test-results', { recursive: true });
+          writeFileSync('apps/security-lab/test-results/bound01-ci-source.json', JSON.stringify(source, null, 2));
+          assert.equal(source.event, 'push'); assert.equal(source.ref, 'refs/heads/test/bound01-webkit-fix');
+          assert.equal(source.head, source.eventSha); assert.equal(source.trackedTreeClean, true); assert.equal(source.playwrightLockedVersion, '1.57.0');
+          assert.equal(source.sha256['apps/security-lab/test/bridge-boundaries-harness.mjs'], '9a5c1664a83fa3ae59c7507fb8f07caa2f014fb85502e96b6c50f0e3ea311a08');
+          console.log(JSON.stringify(source));
+          NODE
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Verify the installed Playwright version
+        run: node -e "require('node:assert/strict').equal(require('./node_modules/playwright/package.json').version, '1.57.0')"
+      - name: Build the real host and runner bundle
+        run: node apps/security-lab/build.mjs
+      - name: Install only WebKit and its system dependencies
+        run: npx --no-install playwright install --with-deps webkit
+      - name: Run only the five BOUND01 groups
+        run: node apps/security-lab/test/bridge-boundaries.mjs
+        env:
+          BROWSER_ENGINE: webkit
+      - name: Record version and completeness even on failure
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import { createHash } from 'node:crypto';
+          import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          const expected = ['message-ascii', 'message-utf8', 'state-bytes', 'text-strings', 'json-values'];
+          const verdict = { sourceSha: process.env.BOUND_EVENT_SHA, expectedBrowserVersion: '26.0', actualBrowserVersion: null, classification: 'environment-blocker', complete: false, pass: false };
+          try {
+            const report = JSON.parse(readFileSync('apps/security-lab/test-results/bound01-webkit.json', 'utf8'));
+            verdict.actualBrowserVersion = report.browserVersion; verdict.engine = report.engine; verdict.selection = report.selection;
+            verdict.groups = report.results.map(result => ({ caseId: result.caseId, result: result.result, pairs: result.detail?.pairs?.length ?? 0, error: result.error ?? null }));
+            verdict.complete = verdict.groups.length === 5 && expected.every(caseId => verdict.groups.filter(group => group.caseId === caseId && group.pairs === (caseId === 'text-strings' ? 2 : 1)).length === 1);
+            verdict.pass = verdict.engine === 'webkit' && verdict.actualBrowserVersion === '26.0' && verdict.complete && verdict.groups.every(group => group.result === 'pass');
+            verdict.classification = verdict.engine !== 'webkit' || verdict.actualBrowserVersion !== '26.0' ? 'environment-blocker' : verdict.pass ? 'focused-WebKit-fix-pass' : 'focused-failure-or-incomplete';
+          } catch (error) { verdict.error = String(error); }
+          if (existsSync('apps/security-lab/dist/host.js')) verdict.bundleSha256 = createHash('sha256').update(readFileSync('apps/security-lab/dist/host.js')).digest('hex');
+          mkdirSync('apps/security-lab/test-results', { recursive: true });
+          writeFileSync('apps/security-lab/test-results/bound01-ci-verdict.json', JSON.stringify(verdict, null, 2));
+          console.log(JSON.stringify(verdict));
+          if (!verdict.pass) process.exitCode = 1;
+          NODE
+      - name: Always upload focused raw evidence and source identity
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bound01-webkit-fix
+          path: apps/security-lab/test-results/bound01-*.json
+          if-no-files-found: error
+          retention-days: 7
