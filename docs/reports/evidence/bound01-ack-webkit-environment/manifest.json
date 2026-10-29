@@ -81,5 +81,5 @@
       "gzip_size_bytes": 149
     }
   },
-  "interpretation": "WebKit browser archive downloaded, but missing native host libraries prevented launch. The allowed install-deps escalation failed with su authentication failure. This is an environment blocker, not a browser test result; targeted CI remains the validation path."
+  "interpretation": "WebKit browser archive downloaded, but missing native host libraries prevented launch. The allowed install-deps escalation failed with su authentication failure. This is an environment blocker, not a browser test result. The subsequent focused CI run 40815460447 passed all five BOUND01 WebKit groups/six pairs and was independently reviewed."
 }
