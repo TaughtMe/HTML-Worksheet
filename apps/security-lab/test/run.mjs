@@ -4,4 +4,5 @@ import './unit.test.ts';
 import './strict-import.test.ts';
 import './bridge-boundaries.test.mjs';
 import './bridge-rate.test.mjs';
+import './policy.test.mjs';
 import './trusted-controls.test.mjs';

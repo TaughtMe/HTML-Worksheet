@@ -5,7 +5,7 @@ import { childPolicy, strictChildPolicy } from '../src/runner-policy.ts';
 import { checkStrictRestore } from './restore-harness.mjs';
 export const strictCases = Object.freeze(['C1', 'C2', 'C3', 'C4', 'C5']); // C6 reuses the unchanged legacy corpus.
 const valid = '<input id="check" type="checkbox"><button id="toggle" type="button" data-ws-action="toggle-checkbox" data-ws-target="check">Toggle</button>';
-function installFrameProbe() {
+export function installFrameProbe() {
   const counts = globalThis.strictProbe = { created: 0, mounted: 0, channels: 0 };
   for (const method of ['createElement', 'createElementNS']) {
     const original = Document.prototype[method];
