@@ -1,5 +1,7 @@
 # Entwicklungsplan in kleinen Arbeitspaketen
 
+> **Aktuelle Entwicklungspriorität (Nutzerauftrag vom 5. November 2026):** den funktionalen MVP-Durchstich aus geprüfter lokaler Persistenz, Wiederöffnen, PDF-/Offlinepfad und Arbeitsheft-UI umsetzen und gemeinsam integrieren. Diese Reihenfolge ersetzt die vorherige Entwicklungsblockierung durch die vollständige G1-/G3-Reihenfolge. G1-/G3-Nachweise, reale Geräte und Freigaben bleiben trotzdem offen und dürfen nicht als abgeschlossen dargestellt werden. Siehe [Funktionsinventur und Grenzen](FUNCTIONAL-MVP-INVENTORY.md).
+
 Stand: 24. Oktober 2026. Dieser Plan setzt das vorgelegte Projektkonzept um. **Ursprünglicher Planungsumfang: Repository und abgestimmter Arbeitsplan.** Den inzwischen umgesetzten technischen Kern und die tatsächlich ausgeführten Prüfungen dokumentiert [STATUS.md](STATUS.md). Die folgenden Aufgaben definieren den gesamten weiteren Entwicklungsweg.
 
 ## Modellverteilung

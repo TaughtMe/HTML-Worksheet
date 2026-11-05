@@ -8,18 +8,28 @@
   },
   "scripts": {
     "build": "node apps/security-lab/build.mjs",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.worker.json",
     "start": "node apps/security-lab/server.mjs",
-    "test": "node apps/security-lab/test/run.mjs",
+    "test": "node apps/security-lab/test/run.mjs && node apps/worksheet/test/model.test.ts && node apps/worksheet/test/pdf.test.ts",
     "test:browser": "node apps/security-lab/test/browser.mjs",
-    "test:resources": "node apps/security-lab/test/resources.mjs"
+    "test:resources": "node apps/security-lab/test/resources.mjs",
+    "build:app": "node apps/worksheet/build.mjs",
+    "start:app": "node apps/worksheet/server.mjs",
+    "test:app:model": "node apps/worksheet/test/model.test.ts && node apps/worksheet/test/pdf.test.ts",
+    "test:app:repository": "node apps/worksheet/test/repository.mjs",
+    "test:app": "node apps/worksheet/test/functional.mjs",
+    "test:app:workflow": "node apps/worksheet/test/workflow.mjs",
+    "test:app:smoke": "node apps/worksheet/test/smoke.mjs",
+    "test:app:offline-state": "node apps/worksheet/test/offline-state.mjs"
   },
   "dependencies": {
-    "parse5": "7.3.0"
+    "@pdf-lib/fontkit": "1.1.1",
+    "parse5": "7.3.0",
+    "pdf-lib": "1.17.1"
   },
   "devDependencies": {
     "esbuild": "0.25.12",
-    "typescript": "5.9.3",
-    "playwright": "1.57.0"
+    "playwright": "1.57.0",
+    "typescript": "5.9.3"
   }
 }

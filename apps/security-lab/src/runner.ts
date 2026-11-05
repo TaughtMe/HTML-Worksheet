@@ -1,14 +1,34 @@
 import { Budget, decode, exact, positive, revision, validateState } from './contract.ts';
 import type { Field, State } from './contract.ts';
 import type { StrictConfig } from './strict-import.ts';
-declare const __LAB_CONFIG__: { origin: string; manifest: Field[] } & Partial<StrictConfig>;
+declare const __LAB_CONFIG__: { origin: string; manifest: Field[]; durability?: 'memory' | 'committed'; readOnly?: boolean } & Partial<StrictConfig>;
 const config = __LAB_CONFIG__;
+const durability = config.durability === 'committed' ? 'committed' : 'memory';
 let port: MessagePort | null = null, sid = '', incoming = 0, outgoing = 0;
 let phase = 'init', rev = 0, changeId = 0, pending = 0, request = 0, dirty = false;
 let quiet: ReturnType<typeof setTimeout> | undefined, maxWait: ReturnType<typeof setTimeout> | undefined;
 let lastRequest = 1;
 const inputBudget = new Budget(), outputBudget = new Budget();
 let strictButton: HTMLButtonElement | null = null, strictTarget: HTMLInputElement | null = null;
+let editingLocked = false;
+let focusBeforeLock: { element: HTMLElement; start: number | null; end: number | null } | null = null;
+function lockEditing(lock: boolean) {
+  if (durability !== 'committed') return;
+  const next = lock || !!config.readOnly;
+  if (next && !editingLocked) {
+    const element = document.activeElement;
+    if (element instanceof HTMLElement && element.id) {
+      const text = element instanceof HTMLTextAreaElement || element instanceof HTMLInputElement && element.type === 'text';
+      focusBeforeLock = { element, start: text ? (element as HTMLInputElement).selectionStart : null, end: text ? (element as HTMLInputElement).selectionEnd : null };
+    }
+  }
+  editingLocked = next;
+  for (const element of document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | HTMLButtonElement>('input,textarea,select,button')) element.disabled = next;
+  if (!next && focusBeforeLock) {
+    const saved = focusBeforeLock; focusBeforeLock = null; saved.element.focus({ preventScroll: true });
+    if (saved.start !== null && saved.end !== null) (saved.element as HTMLInputElement).setSelectionRange(saved.start, saved.end);
+  }
+}
 function stop() { phase = 'closed'; clearTimeout(quiet); clearTimeout(maxWait); strictButton?.removeEventListener('click', strictClick); port?.close(); }
 function send(type: string, payload: unknown) {
   if (!port || phase === 'closed') return;
@@ -29,7 +49,7 @@ function strictBindings(ids: Map<string, HTMLElement>) {
   return { button, target };
 }
 function strictClick() {
-  if (phase !== 'active') return;
+  if (phase !== 'active' || config.readOnly || durability === 'committed' && (pending || request)) return;
   try { const binding = strictBindings(fieldElements())!; binding.target.checked = !binding.target.checked; changed(); }
   catch { fail('UNSUPPORTED_FIELD'); }
 }
@@ -84,15 +104,16 @@ function restore(state: State) {
       if (f.kind === 'select-one' && f.value === null) select.selectedIndex = -1;
     }
   }
+  lockEditing(false);
 }
-function snapshot() { if (request && !pending) { dirty = false; send('STATE_SNAPSHOT', { requestId: request, baseRevision: rev, state: capture() }); } }
+function snapshot() { if (request && !pending) { dirty = false; lockEditing(true); send('STATE_SNAPSHOT', { requestId: request, baseRevision: rev, state: capture() }); } }
 function flush() {
   clearTimeout(quiet); clearTimeout(maxWait); quiet = maxWait = undefined;
   if (phase !== 'active' || pending || request || !dirty) return;
-  dirty = false; pending = ++changeId; send('STATE_CHANGED', { changeId: pending, baseRevision: rev, state: capture() });
+  dirty = false; pending = ++changeId; lockEditing(true); send('STATE_CHANGED', { changeId: pending, baseRevision: rev, state: capture() });
 }
 function changed() {
-  if (phase !== 'active') return;
+  if (phase !== 'active' || config.readOnly || durability === 'committed' && (pending || request)) return;
   dirty = true; clearTimeout(quiet);
   quiet = setTimeout(() => { try { flush(); } catch { fail('SERIALIZE_FAILED'); } }, 500);
   maxWait ??= setTimeout(() => { try { flush(); } catch { fail('SERIALIZE_FAILED'); } }, 2000);
@@ -105,15 +126,18 @@ function onPort(event: MessageEvent) {
     if (x.type === 'RESTORE_STATE' && phase === 'restore' && exact(p, ['requestId', 'revision', 'adapterId', 'adapterVersion', 'state']) && p.requestId === 1 && revision(p.revision) && p.adapterId === 'standard-fields' && p.adapterVersion === 1) {
       restore(validateState(p.state, config.manifest)); rev = p.revision; phase = 'active'; send('RESTORED', { requestId: 1, revision: rev }); return;
     }
-    if (x.type === 'STATE_ACCEPTED' && phase === 'active' && pending && exact(p, ['changeId', 'revision', 'durability']) && p.changeId === pending && revision(p.revision) && p.revision >= rev && p.revision <= rev + 1 && p.durability === 'memory') {
-      rev = p.revision; pending = 0; if (request) snapshot(); else if (dirty) changed(); return;
+    if (x.type === 'STATE_ACCEPTED' && phase === 'active' && pending && exact(p, ['changeId', 'revision', 'durability']) && p.changeId === pending && revision(p.revision) && p.revision >= rev && p.revision <= rev + 1 && p.durability === durability) {
+      rev = p.revision; pending = 0; if (request) snapshot(); else { lockEditing(false); if (dirty) changed(); } return;
     }
     if (x.type === 'REQUEST_STATE' && phase === 'active' && !request && exact(p, ['requestId', 'reason']) && positive(p.requestId) && p.requestId === lastRequest + 1 && ['checkpoint', 'close', 'export'].includes(p.reason)) {
       request = p.requestId; lastRequest = request; clearTimeout(quiet); clearTimeout(maxWait); quiet = maxWait = undefined; snapshot(); return;
     }
-    if (x.type === 'SNAPSHOT_ACCEPTED' && request && exact(p, ['requestId', 'revision', 'durability']) && p.requestId === request && revision(p.revision) && p.revision >= rev && p.revision <= rev + 1 && p.durability === 'memory') {
-      rev = p.revision; request = 0; if (dirty) changed(); return;
+    if (x.type === 'SNAPSHOT_ACCEPTED' && request && exact(p, ['requestId', 'revision', 'durability']) && p.requestId === request && revision(p.revision) && p.revision >= rev && p.revision <= rev + 1 && p.durability === durability) {
+      rev = p.revision; request = 0; lockEditing(false); if (dirty) changed(); return;
     }
+    if ((x.type === 'STATE_REJECTED' && pending && exact(p, ['changeId', 'code']) && p.changeId === pending
+      || x.type === 'SNAPSHOT_REJECTED' && request && exact(p, ['requestId', 'code']) && p.requestId === request)
+      && ['CONFLICT', 'STORAGE_ERROR', 'READ_ONLY'].includes(p.code)) { stop(); return; }
     throw Error('PROTOCOL');
   } catch { fail('RESTORE_FAILED'); }
 }

@@ -1,0 +1,31 @@
+{
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "results": [
+    {
+      "name": "native IDB commit, CAS, stale delete and metadata conflict",
+      "result": "pass",
+      "elapsedMs": 275.29999999981374
+    },
+    {
+      "name": "native quota exception and aborted transaction preserve committed head and usage",
+      "result": "pass",
+      "elapsedMs": 128.9000000001397
+    },
+    {
+      "name": "35 import/delete cycles reclaim templates and backup accounting",
+      "result": "pass",
+      "elapsedMs": 456.30000000004657
+    },
+    {
+      "name": "source capacity refuses the ninth import atomically and exports every admitted record",
+      "result": "pass",
+      "elapsedMs": 5846
+    },
+    {
+      "name": "backup merge remaps identities and malformed backup makes no partial writes",
+      "result": "pass",
+      "elapsedMs": 70.79999999981374
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 ## Umfang und Reihenfolge
 
+- **Aktuelle Nutzerpriorität (5. November 2026):** den funktionalen MVP-Durchstich vom lokalen Speichern über Wiederöffnen bis zu PDF/offline und der Arbeitsheft-UI vorantreiben. Diese Priorität ersetzt die frühere Blockierung „erst vollständiges G1/G3, dann UI“ für die Entwicklungsreihenfolge. Sie erteilt keine Sicherheits-, Realgeräte- oder Produktfreigabe; deren Schutzregeln und Nachweise bleiben bestehen. Siehe [MVP-Inventur und Abnahmegrenzen](docs/FUNCTIONAL-MVP-INVENTORY.md) sowie den aktuellen Plan.
+
 - Ausgangspunkt sind README.md und docs/PLAN.md; tatsächlicher Fortschritt steht in docs/STATUS.md und den Prüfberichten. Ein begrenzter lokaler RAM-Prototyp ist vorhanden. Keine vollständige technische Sicherheitsabnahme behaupten.
 - Kleine Aufträge mit eigener ID, Abhängigkeiten, Dateibereich und beobachtbaren Abnahmekriterien verwenden. Ein Auftrag ist kein ganzer Meilenstein.
 - Sicherheitsprototyp vor Persistenz; Persistenz vor PDF-Abnahme; PDF vor vollständiger Produktoberfläche.

@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","compilerOptions":{"lib":["ES2022","WebWorker"]},"include":["apps/worksheet/src/sw.ts","apps/worksheet/src/shell.ts"],"exclude":[]}

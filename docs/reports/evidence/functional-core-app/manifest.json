@@ -1,0 +1,128 @@
+{
+  "component": "functional-app-mvp",
+  "nodeVersion": "24.19.0",
+  "playwrightVersion": "1.57.0",
+  "browserVersion": "154.0.8037.57",
+  "sourceSha256": {
+    "apps/security-lab/src/runner.ts": "3793992f8852ba2ada443fe00144fec32ac31c2ded6d25f30d67c98a2233aecf",
+    "apps/worksheet/src/model.ts": "a84f89db1ce8d176b381dff042f379fa3b5e19348cc15abca7bb9f0cef94f55c",
+    "apps/worksheet/src/repository.ts": "81efdd78e6772289eaae1369a88979bdbd7662e1784abab904923f151f450a24",
+    "apps/worksheet/src/session.ts": "5264ec5dad5003e3f4c56cada8a2ef0090b45ad5b40009e048c03595b66d48ba",
+    "apps/worksheet/src/app.ts": "9ad9ebad7c5c30d0b99e3d542376aedc638f5e3a8274902c3109f53c7b0cac0d",
+    "apps/worksheet/src/pdf.ts": "48ae5cfe199cd879e383219bf77b0628665b85ab310c42101cadc554c26d3ae3",
+    "apps/worksheet/src/shell.ts": "dd6f1f37867a3f4c64201a5e670178298c235e61ba3c3baeeed6f81b279897b8",
+    "apps/worksheet/src/sw.ts": "387a422520621a16df8a25bec86a7f67c6731f0071a0f674493b110753243f04",
+    "apps/worksheet/ui.ts": "f553d716a21c1bb8efbccaba9fccfee2a509bd26a8a1c61fe865dcbeee894546",
+    "apps/worksheet/types.ts": "351e46f22a4f8c4065cf23f97969f87517bfc6c5c1197cb6041f11bc159553d7",
+    "apps/worksheet/build.mjs": "45fa798bb4deb6bc87393f5a881775b82e8d8616642b320054a8cbe2b97dadbc",
+    "apps/worksheet/server.mjs": "e063ed861d28fc53c184933fc9b03896d020e530188cf422dfc6938ca19450cb",
+    "package.json": "66cee60c1e20afdddb04a3c0f31e578cf59decd9f0f1776d2b90c6290d2a121c",
+    "package-lock.json": "74940acb6f4fc264595d896ba21be5c469315438f7420fb368c85f5659e13167",
+    "apps/worksheet/ui.html": "2b2218c23272f023acdb4edccbf4cd089a4b1c538c05659719c005f2f860f820",
+    "apps/worksheet/ui.css": "f3cae69c6b78843cb37caa8248fbb4ef4c761255a82bced300a38876c9fa8934",
+    "apps/worksheet/test/functional.mjs": "6a9cadad07784a80ab5ae5aa2e7556c557b10b11d98878a46beade305a4d61a9",
+    "apps/worksheet/test/workflow.mjs": "c73c2ec1e08d44048c8c00b47892b591965a2f27ba1608be2dc97ccb8f8c8abc",
+    "apps/worksheet/test/smoke.mjs": "8be3eb43852382741ac04c2c5845eca095f7cf9942056d166cf2175336587c3a",
+    "apps/worksheet/test/offline-state.mjs": "43ed0da09e0ed66211a11e06f9a54833685433e6871198a74d12926bc5f1cde2",
+    "apps/worksheet/test/model.test.ts": "cbd5e201c739b5e5cb10972b3297fc036fbdfd24c33d3a97c42e3d9ced3b9190",
+    "apps/worksheet/test/pdf.test.ts": "635e1089138136201c87bff9d1fff2422e7d9e4e9c8576e1b5ffd55769dedbb2"
+  },
+  "artifacts": {
+    "functional-chromium.json": {
+      "bytes": 1465,
+      "sha256": "2275ac390d1333a3f959e1cbdb0ec4cae53d3e446ecd6fbbfe9034ef8cc8bc21"
+    },
+    "workflow.json": {
+      "bytes": 966,
+      "sha256": "59563fe3a6abd6ca74fc2fbaf30165f5e60d28583127a643b483e68d3a3c9fb8"
+    },
+    "smoke.json": {
+      "bytes": 1366,
+      "sha256": "688d52b97485b76b942d8f658575307e4d29fcb1e8896bd6f8751e2435743770"
+    },
+    "offline-state.json": {
+      "bytes": 1602,
+      "sha256": "b0d76114d23bd8474b47ac9098cc141ca75cc5bc311d64099cc1f1dfc9a1a875"
+    },
+    "ui-backup.json": {
+      "bytes": 1569,
+      "sha256": "022ca739b07b2e41c3b985c7479b59d92fdfa14aa8c9dc48255496518d089e63"
+    },
+    "online-answers.pdf": {
+      "bytes": 16334,
+      "sha256": "97a7a977618475c8387c7d1e30b6ce64b8b0b133e249e7139d9ee286ff08fa84"
+    },
+    "online-answers.pdf.txt": {
+      "bytes": 8255,
+      "sha256": "290d8e1175d82882e6887265fce78e679594698c2c785535f21981154b1b6a5b"
+    },
+    "snapshot-bound.pdf": {
+      "bytes": 7799,
+      "sha256": "e761a048c0cca698c8927af7b84d9dd5773eaf2eaed99f2f4494881bb3234cb5"
+    },
+    "initial/offline-debug.log.gz": {
+      "bytes": 2266,
+      "sha256": "54e0942929d2f277f216c87a90f935016993b556a622342d0f6b081260a6bc86",
+      "availability": "local-only; upload withheld by automatic approval review"
+    },
+    "initial/offline-debug-stable.log.gz": {
+      "bytes": 2217,
+      "sha256": "07059aaea6c6a1f90e2164c3c9270153b863f2f8ffdaad58b827ba0bf5b3ae9f"
+    },
+    "initial/offline-plain-control.log.gz": {
+      "bytes": 2226,
+      "sha256": "519268211032af535169e89c9560f11ed6c7298e86193d54e80efe0f93b89049",
+      "availability": "local-only; upload withheld by automatic approval review"
+    },
+    "initial/functional-cdp-offline.json": {
+      "bytes": 649,
+      "sha256": "cec6a49e6d473df43bac90b9489aafd68582b2118bd44f1a03f36ea9406121ab"
+    }
+  },
+  "results": {
+    "nativeIdbCases": {
+      "pass": 5,
+      "path": "../functional-core-data/repository.json"
+    },
+    "modelUnits": {
+      "pass": 3
+    },
+    "pdfUnits": {
+      "pass": 2
+    },
+    "newOnlineWorkflowRegressions": {
+      "pass": 4,
+      "path": "workflow.json"
+    },
+    "backupUiAndLegacyDefault": {
+      "pass": 2,
+      "path": "smoke.json"
+    },
+    "offlineDataOnly": {
+      "result": "pass",
+      "path": "offline-state.json"
+    },
+    "fullFunctionalOfflinePdf": {
+      "result": "blocked/incomplete",
+      "path": "functional-chromium.json",
+      "note": "Online field workflow and real 6-page PDF pass; later offline download context closes. Remaining full-sequence stages were not reached. Historical persistentProfileRestarted field was derived from completion of the whole failed stage; final harness now records actual lifecycle flags independently."
+    }
+  },
+  "browserTestScope": "Workflow/smoke/offline-state used bundle cache ID331a8f9c5fa061f279ce2f6e. Subsequent small deltas add a static prototype note, keep controls disabled after initial DB-open failure, and replace technical UUID move prompts by numbered folder/notebook choices with plain deletion text; these deltas were typechecked/built, no extra browser rerun is claimed. Historical full-flow runs preceded the four reviewed reliability fixes.",
+  "offlineEvidence": "Server physically stopped; independent Node fetch failed ECONNREFUSED; actual persistent profile restart; observed app navigation/bundle responses only from SW; HTTP routing is supplemental, not a SW-wide or OS-flight-mode proof.",
+  "openLimits": [
+    "Full offline PDF sequence not completed locally",
+    "Some complete initial Chromium logs are retained locally only after automatic approval review withheld their upload; hashes and byte sizes are recorded above. Published stable diagnostic log remains in initial/. Observed SIGTRAP/SIGSEGV/Crashpad diagnostics do not establish a root cause.",
+    "Firefox/WebKit functional app not run locally",
+    "Native Web Share and real devices not practically verified",
+    "G1/product/data release remains open"
+  ],
+  "review": "Independent Sol strict_review completed final code/raw-data/hash review of the functional app at 36a3117, including data freeze f7e6919, PDF dependencies a453f59, Session 19c0628 and App 36a3117; no code blocker remained. This is not an integrated Firefox/WebKit CI, device, full offline-PDF, G1 or product approval.",
+  "finalChecks": {
+    "typecheck": "pass (main DOM and separate Service Worker configurations)",
+    "build": "pass",
+    "finalBundleCacheId": "b64c4ff3669c8f409e55538a",
+    "whitespace": "pass",
+    "browserRerunForLastSmallUiStartupDeltas": false
+  }
+}

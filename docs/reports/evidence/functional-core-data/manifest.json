@@ -1,0 +1,15 @@
+{
+  "component": "functional-data-kernel",
+  "baseCommit": "26922ec21a62ce2be7ce21647d15d130560f0342",
+  "browser": "154.0.8037.57",
+  "node": "v24.19.0",
+  "repositoryBrowserCases": 5,
+  "repositoryBrowserResult": "pass",
+  "modelUnitCases": 3,
+  "modelUnitResult": "pass",
+  "typecheck": "pass",
+  "browserCommand": "node apps/worksheet/test/repository.mjs",
+  "unitCommand": "node apps/worksheet/test/model.test.ts",
+  "rawSha256": "5aebb9cc3126542cc60a4aaa86b98c9d5714009dcb8b01305fdd8906541784f8",
+  "note": "The native-IDB run completed before the byte-aware copy-title correction; that small subsequent pure metadata change was checked by the third model unit. No browser rerun is claimed. This is a data-kernel checkpoint; App/session/offline/PDF end-to-end is not implemented yet."
+}

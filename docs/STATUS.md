@@ -1,4 +1,4 @@
-Stand: 29. Oktober 2026 (Europe/Berlin)
+Stand: 5. November 2026 (Europe/Berlin)
 
 # Entwicklungsstand
 
@@ -6,6 +6,7 @@ Dieser Status beschreibt belegte Ergebnisse; der Entwicklungsplan beschreibt Zie
 
 | Abschnitt | Status | Evidenz / nächster Schritt |
 |---|---|---|
+| Funktionaler Worksheet-MVP | Lokale App mit IDB, Wiederöffnen, Backup, semantischem PDF und App-Dateicache implementiert; integrierte Firefox/WebKit-CI und vollständiger Offline-PDF-E2E offen | [Startanleitung](../apps/worksheet/README.md). Manifest `reports/evidence/functional-core-app/manifest.json`: IDB 5/5, Modell 3/3, PDF-Modell 2/2, Workflow 4/4, Smoke 2/2, Offline-State 1/1; echter mehrseitiger Online-PDF-Download belegt. Voller Offline-PDF-Lauf lokal blockiert, nicht bestanden; Chromium 154 schloss beim PDF-/Blobdownload auch mit Textblob-Kontrolle. Keine Ursache festgestellt. Unabhängiger textueller CI-Review ohne Blocker, Browserläufe noch nicht gestartet. Firefox/WebKit und reale Geräte nicht belegt. G1/POLICY01 bleibt offen und ist eine getrennte Sicherheitsfreigabe. |
 | Repository und Entwicklungsplan | Erledigt | `main`, ursprünglicher Plancommit `72807f9` |
 | P01 Anforderungen | Erledigt | [Anforderungen](spec/ANFORDERUNGEN.md), [Abdeckungsprüfung](reports/P01.md) |
 | P02 Experimente | Reviewt | [Browserexperimente](spec/EXPERIMENTE.md), Ergebnisse noch offen |
@@ -23,7 +24,7 @@ Dieser Status beschreibt belegte Ergebnisse; der Entwicklungsplan beschreibt Zie
 | S11 | Designvorbereitung abgeschlossen | ADR-Entwurf [0001](adr/0001-RUNNER-EXPERIMENT.md), Commit `3bd0b37`; keine Implementierung und kein Offline-Nachweis |
 | S12–S13 | Ausstehend | Evidenzbericht und unabhängiger Sicherheitsreview bleiben erforderlich |
 | G1a / G1b | Nicht freigegeben | S10 meldet WebKit-Verfügbarkeitsrisiko; Chromium/Firefox-RSS-Kalibrierung, übrige Versuchsmatrix, Offline und reale Geräte fehlen |
-| Speicherung, PDF und Produkt-PWA | Ausstehend | Nach den jeweiligen Gates. Die [UI-Referenz](ui/REFERENZEN.md) ist ein statisches Mockuparchiv, keine Produktoberfläche oder Laufzeitabhängigkeit; Produkt-UI bleibt Abschnitt 4 nach G3. |
+| Speicherung, PDF und Produkt-PWA | Funktionaler lokaler MVP implementiert; umfassende Freigabe ausstehend | Siehe obige MVP-Zeile und deren Teilbelege. G1/G3-Lücken, vollständiger Offline-PDF-E2E, Firefox/WebKit-CI und reale Geräte bleiben offen. Die [UI-Referenz](ui/REFERENZEN.md) bleibt ein statisches Mockuparchiv, keine Laufzeitabhängigkeit. |
 | Cloudflare | Nicht eingerichtet | HTTPS-Testhosting erst nach G1a erforderlich |
 
 Es gibt noch keine Sicherheitsfreigabe, keine Garantie für beliebiges fremdes JavaScript und keine Freigabe zur Verarbeitung echter Schülerdaten.

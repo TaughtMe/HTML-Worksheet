@@ -1,0 +1,45 @@
+{
+  "at": "2026-11-05T16:25:05.150Z",
+  "engine": "chromium",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "origin": "http://127.0.0.1:38535",
+  "profile": "/tmp/worksheet-functional-5O1U5o",
+  "persistentProfileRestarted": false,
+  "serverStoppedBeforeOfflineRestart": true,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": true,
+    "serverFailure": "ECONNREFUSED",
+    "routedHttpRequestsAborted": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:38535/",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:38535/app.js",
+        "fromServiceWorker": true,
+        "status": 200
+      }
+    ]
+  },
+  "results": [
+    {
+      "name": "UI hierarchy, strict import, every field kind, real snapshot and PDF download",
+      "result": "pass",
+      "elapsedMs": 1950.0089679999996
+    },
+    {
+      "name": "functional flow",
+      "result": "fail",
+      "error": "Error: page.waitForEvent: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    }
+  ],
+  "pdf": {
+    "path": "apps/worksheet/test-results/online-answers.pdf",
+    "bytes": 16334,
+    "pages": 6
+  }
+}
