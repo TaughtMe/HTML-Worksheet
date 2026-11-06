@@ -1,0 +1,7 @@
+{
+  "engine": "firefox",
+  "result": "pass",
+  "expectedVersion": "144.0.2",
+  "actualVersion": "144.0.2",
+  "error": null
+}

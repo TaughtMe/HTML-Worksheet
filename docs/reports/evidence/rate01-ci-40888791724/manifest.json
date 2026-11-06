@@ -1,0 +1,231 @@
+{
+  "actions_run_id": "40888791724",
+  "source_commit": "707a329aa73d2e1aa54f489788adfc0e092eaaf0",
+  "source_tree": "fd93157666875c351d318877891692b09cb69dd7",
+  "local_content_equivalent_commit": "1c2d8bd5bbf74330baca51b43a41864b117030b3",
+  "local_tree": "fd93157666875c351d318877891692b09cb69dd7",
+  "scope": "RATE01 integrated 56-case browser corpus; four rate groups and five trials added",
+  "status": "Mixed overall: Firefox and WebKit passed 56/56; Chromium passed 55/56 and failed only the known trusted popup/blob-download positive control after a 4-second wait. All four RATE01 groups and all five trials passed in each engine; independent Sol raw review found no RATE01 regression.",
+  "checks_job": {
+    "job_id": "123499611581",
+    "status": "success",
+    "unit_tests": {
+      "passed": 19,
+      "failed": 0
+    },
+    "typecheck": "success",
+    "build": "success",
+    "log": {
+      "file": "checks-job.log.gz",
+      "raw_sha256": "11278f3dbd05dfa8a8b366577638238364feb5f25f2a5d5a09598e5b580ffb79",
+      "raw_size_bytes": 19109,
+      "gzip_sha256": "34a66b60aa700f49fd27965b4e9df25fdbb13a2f2e07382eab061a6f1a182848",
+      "gzip_size_bytes": 5548
+    }
+  },
+  "engines": {
+    "chromium": {
+      "job_id": "123499732669",
+      "artifact_id": "12904621974",
+      "artifact_zip_sha256": "ca78e9e0d021bfa28c50cdf0542e02bb3b44860ebc872c1f56e78e33c8b90b30",
+      "artifact_zip_size_bytes": 170258,
+      "browser_version": "156.0.8078.0",
+      "run_id": "5e8fd30c-1ad8-44f5-8160-e94534e76a93",
+      "report_at": "2026-10-29T14:13:45.266Z",
+      "results_total": 56,
+      "results_passed": 55,
+      "results_failed": 1,
+      "rate01_groups": [
+        {
+          "case": "burst",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "refill",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "byte-limit",
+          "result": "pass",
+          "trials": 2
+        },
+        {
+          "case": "rolling-window",
+          "result": "pass",
+          "trials": 1
+        }
+      ],
+      "failures": [
+        {
+          "name": "trusted popup and blob download instrumentation controls",
+          "error": "TimeoutError: page.waitForEvent: Timeout 4000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+        }
+      ],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "file": "chromium.json.gz",
+          "raw_sha256": "28d30fb7dd01884f55238f7bbbefffb7594619de9725d2a83204a602a8c84e28",
+          "raw_size_bytes": 14910964,
+          "gzip_sha256": "534e8f400ffa70f2a7f9cc36ae81607883fff6e79b6ea31c3f9d88cf9b642f8e",
+          "gzip_size_bytes": 138968
+        },
+        "receiver-chromium-5e8fd30c-1ad8-44f5-8160-e94534e76a93.jsonl": {
+          "file": "receiver-chromium-5e8fd30c-1ad8-44f5-8160-e94534e76a93.jsonl.gz",
+          "raw_sha256": "6f95deb5e5ef1ec57fabcc74f568b566e789bac0de9b3f6efa2d5fdd75e378c9",
+          "raw_size_bytes": 4182,
+          "gzip_sha256": "090267a419571d7ab57205ea2396583b69e750ced93094d7986e64011bd1895a",
+          "gzip_size_bytes": 891
+        }
+      }
+    },
+    "firefox": {
+      "job_id": "123499732477",
+      "artifact_id": "12903688440",
+      "artifact_zip_sha256": "cf90dc49b0c282c17c26335f4a7ec4e48e2aee43ab9a952f6829c04016e5692e",
+      "artifact_zip_size_bytes": 167919,
+      "browser_version": "144.0.2",
+      "run_id": "25f5294a-984f-42af-a8bf-46a4f516f756",
+      "report_at": "2026-10-29T14:13:25.918Z",
+      "results_total": 56,
+      "results_passed": 56,
+      "results_failed": 0,
+      "rate01_groups": [
+        {
+          "case": "burst",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "refill",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "byte-limit",
+          "result": "pass",
+          "trials": 2
+        },
+        {
+          "case": "rolling-window",
+          "result": "pass",
+          "trials": 1
+        }
+      ],
+      "failures": [],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "file": "firefox.json.gz",
+          "raw_sha256": "702b377f7662d7e74eaf793e596c435c0bc49d6e79920b74e04d90c81f557ea1",
+          "raw_size_bytes": 14904743,
+          "gzip_sha256": "e2c9271dfc16643dd048f055bfdfacb956cb093c9ca8cd9576f53ce3d23e5db7",
+          "gzip_size_bytes": 136390
+        },
+        "receiver-firefox-25f5294a-984f-42af-a8bf-46a4f516f756.jsonl": {
+          "file": "receiver-firefox-25f5294a-984f-42af-a8bf-46a4f516f756.jsonl.gz",
+          "raw_sha256": "d873391ce502b7058909b410b7df2468ccb5f33256843470bc522263c777ddb2",
+          "raw_size_bytes": 4182,
+          "gzip_sha256": "4ce955fbbd9363c76799fe4677bdd13e47b5347a010d5bf3437fd77a14b06eff",
+          "gzip_size_bytes": 893
+        }
+      }
+    },
+    "webkit": {
+      "job_id": "123499732536",
+      "artifact_id": "12903537951",
+      "artifact_zip_sha256": "ffb2d8d69b4f98d4f89a0e63e662ae456aa449b6eb005df321bbb89ef1a1ca71",
+      "artifact_zip_size_bytes": 167690,
+      "browser_version": "26.0",
+      "run_id": "bc8f6d75-190d-4b68-a35f-e001e2bd0c00",
+      "report_at": "2026-10-29T14:13:38.585Z",
+      "results_total": 56,
+      "results_passed": 56,
+      "results_failed": 0,
+      "rate01_groups": [
+        {
+          "case": "burst",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "refill",
+          "result": "pass",
+          "trials": 1
+        },
+        {
+          "case": "byte-limit",
+          "result": "pass",
+          "trials": 2
+        },
+        {
+          "case": "rolling-window",
+          "result": "pass",
+          "trials": 1
+        }
+      ],
+      "failures": [],
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "file": "webkit.json.gz",
+          "raw_sha256": "520514ed5068251415e2504b3e0fb646245fedb1776f04458a610c5da571945b",
+          "raw_size_bytes": 14894053,
+          "gzip_sha256": "8bf6e9814fc4f91805fa147ee9d16b22d3681d0b6677bb0056f0c693277fd620",
+          "gzip_size_bytes": 136418
+        },
+        "receiver-webkit-bc8f6d75-190d-4b68-a35f-e001e2bd0c00.jsonl": {
+          "file": "receiver-webkit-bc8f6d75-190d-4b68-a35f-e001e2bd0c00.jsonl.gz",
+          "raw_sha256": "480ca50d5f793cce7280b4bf8c1f1c1ce66619657fb62ec76886d03607845ef0",
+          "raw_size_bytes": 4182,
+          "gzip_sha256": "4ece088bce02dd4853accc7c43b66a5b279b41cd9604539334873c256ab3cf39",
+          "gzip_size_bytes": 889
+        }
+      }
+    }
+  },
+  "other_workflows": {
+    "baseline_guard": {
+      "run_id": "40888791735",
+      "status": "success"
+    },
+    "resources": {
+      "run_id": "40888791765",
+      "status": "failure",
+      "interpretation": "no new cause finding; no resource release"
+    },
+    "tab_recovery": {
+      "run_id": "40888791641",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    }
+  },
+  "review": {
+    "reviewer": "Sol (independent raw review)",
+    "status": "approved; no method/oracle blocker",
+    "trials_reviewed": 15,
+    "versions": {
+      "chromium": "156.0.8078.0",
+      "firefox": "144.0.2",
+      "webkit": "26.0"
+    },
+    "verified": "Full native receipts and reconstructed wire SHA-256; exact accepted render state and no transient rejected state; acknowledgements, native close/cleared handlers, fresh recovery session ID with acknowledgements. Twenty receiver hits per engine matched embedded/file data (18 HTTP, 2 WebSocket upgrades).",
+    "timing_ranges_from_ci_ms": {
+      "burst_rejection_upper": "5–6.5",
+      "refill_lower": "656–663",
+      "refill_upper": "658–665",
+      "rolling_old_cohort_minimum_age": "10223–10263.6",
+      "rolling_young_cohort_maximum_age": "5153–5190.7"
+    },
+    "chromium_failure": "Only the existing trusted popup/blob-download positive-control event timed out after 4 seconds; no RATE01 regression was found."
+  },
+  "limitations": "Four input-side RATE01 groups/five trials only. The overall three-engine run remains mixed because of the separate Chromium positive-control timeout. Isolated Host-output rate, continued invalid-message budget reset, queue/DoS resilience, G1, and resource approval remain open."
+}

@@ -1,0 +1,138 @@
+{
+  "scope": "BOUND01 reachable browser bridge validation boundaries; local final report",
+  "status": "5 groups / 6 boundary pairs passed in Chromium; these bounded cases do not establish unreachable generic maxima or a G1/product release.",
+  "source": {
+    "remote_integrated_commit": "b4c407049d41422af6fdea46eee72b741623475a",
+    "tree": "91edd6c90aa2517d70010b12f433c3294916fc96",
+    "local_content_equivalent_commit": "e4411b442c49b87aac7bb48494d9fb680a2e7726",
+    "boundary_fixture_commit": "adb7fb1128131142f9773dbaf3d4d88846fd4788"
+  },
+  "environment": {
+    "engine": "chromium",
+    "browser_version": "154.0.8037.57",
+    "node_version": "v24.19.0",
+    "selection": {
+      "source": "system-chromium",
+      "configuredExecutablePath": "/usr/bin/chromium",
+      "publicRegistryExecutablePath": "/home/agent/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome"
+    },
+    "report_at": "2026-10-28T13:23:51.792Z"
+  },
+  "results_total": 5,
+  "results_passed": 5,
+  "groups": [
+    "B1 message-ascii",
+    "B2 message-utf8",
+    "B3 state-bytes",
+    "B4 text-strings (ASCII and UTF-8)",
+    "B5 json-values"
+  ],
+  "pairs": [
+    {
+      "group": "message-ascii",
+      "variant": "default",
+      "limit": 393216,
+      "expected_first_failure": "MESSAGE_SIZE_TYPE",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    },
+    {
+      "group": "message-utf8",
+      "variant": "default",
+      "limit": 393216,
+      "expected_first_failure": "MESSAGE_SIZE",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    },
+    {
+      "group": "state-bytes",
+      "variant": "default",
+      "limit": 262144,
+      "expected_first_failure": "STATE",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    },
+    {
+      "group": "text-strings",
+      "variant": "ascii",
+      "limit": 16384,
+      "expected_first_failure": "JSON_TYPE",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    },
+    {
+      "group": "text-strings",
+      "variant": "utf8",
+      "limit": 16384,
+      "expected_first_failure": "JSON_TYPE",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    },
+    {
+      "group": "json-values",
+      "variant": "default",
+      "limit": 20000,
+      "expected_first_failure": "JSON_LIMIT",
+      "accepted_pair": true,
+      "precondition_active_with_frame_and_no_close": true,
+      "protocol_close_after_negative_with_handlers_cleared": true,
+      "fresh_recovery_session": true,
+      "recovery_acks": [
+        "STATE_ACCEPTED(revision=1)",
+        "SNAPSHOT_ACCEPTED(revision=1)"
+      ]
+    }
+  ],
+  "case_limits": {
+    "B1": "393216 / 393217 bytes; ASCII makes UTF-16 code units and UTF-8 bytes coincide; first rejection MESSAGE_SIZE_TYPE",
+    "B2": "393216 / 393217 UTF-8 bytes with multibyte text; first rejection MESSAGE_SIZE",
+    "B3": "262144 / 262145 state bytes; first rejection STATE",
+    "B4": "16384 / 16385 UTF-8 string bytes, tested with ASCII and multibyte strings; first rejection JSON_TYPE",
+    "B5": "20000 / 20001 envelope values; first rejection JSON_LIMIT"
+  },
+  "excluded": [
+    "generic maximum depth 16",
+    "generic maximum array length 2048",
+    "generic maximum object properties 1024",
+    "generic maximum key length 64",
+    "host-output maxima",
+    "product/G1/iPad/resources/Chromium-156 release"
+  ],
+  "report": {
+    "file": "bound01-chromium.json.gz",
+    "compressed_size_bytes": 78822,
+    "compressed_sha256": "d6a8da530e04801595a2f02f8b50f8d20eee100e02db13c4e45d20ecbe127b0b",
+    "uncompressed_size_bytes": 13665377,
+    "uncompressed_sha256": "ae7999dbb16eec640e559a0ec72f6c1c3b363d6dabf59555af06281bffcdbb57"
+  }
+}

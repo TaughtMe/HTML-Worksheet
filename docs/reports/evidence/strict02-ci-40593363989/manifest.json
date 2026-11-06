@@ -1,0 +1,266 @@
+{
+  "actions_run_id": "40593363989",
+  "source_commit": "d4c68c9b5709bbac0373b71eda60876b43522ed6",
+  "source_tree": "ceca69dfe6896001dc29463344488fe42732602b",
+  "scope": "STRICT02 integrated 44-case browser corpus after harness control-failure reporting fix; includes prior 41 cases and lifecycle cases A/B/C",
+  "status": "mixed; Firefox and WebKit 44/44; Chromium 43/44. All three STRICT02 cases pass in all engines, but Chromium trusted popup/download positive instrumentation control fails, so the full three-engine matrix is not green.",
+  "checks_job": {
+    "job_id": "122502964330",
+    "status": "success",
+    "unit_tests": {
+      "passed": 16,
+      "failed": 0,
+      "source_log": "checks-job.log.gz",
+      "observed_summary": "tests 16; pass 16; fail 0; cancelled/skipped/todo 0"
+    },
+    "typecheck": "success",
+    "build": "success",
+    "log": {
+      "raw_sha256": "0cbfb2d32d8e1a6b32dce021ccd60c26cc536e96bff9e0d62ec6b0d90364d891",
+      "raw_size_bytes": 18763,
+      "gzip": "checks-job.log.gz",
+      "gzip_sha256": "d61ce96f60143ada6771b9ac57f687764f7f72d2b70cbb3d2f74de9ee26f70c4",
+      "gzip_size_bytes": 5498
+    }
+  },
+  "engines": {
+    "chromium": {
+      "job_id": "122503075142",
+      "artifact_id": "12774612959",
+      "artifact_zip_sha256": "942242106a672914e536ace60e748402d33f425e25a08e2aa5356e902d6c2b82",
+      "artifact_zip_size_bytes": 12719,
+      "browser_version": "156.0.8078.0",
+      "run_id": "1dccefba-9674-4e52-9d78-c6963b37b129",
+      "results_total": 44,
+      "results_passed": 43,
+      "results_failed": 1,
+      "strict_cases": {
+        "retired-port": "pass",
+        "second-init": "pass",
+        "import-race": "pass"
+      },
+      "trusted_popup_download_control": {
+        "result": "fail",
+        "error": "TimeoutError: page.waitForEvent: Timeout 4000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================",
+        "popup_stage": "passed before the test timed out awaiting download; the error names only event \"download\"",
+        "download_positive_control_calibrated": false
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "b3761cee65b5d814d8b6da3fe900aebbe0f171498df4994bbd1ec0be4beb5913",
+          "raw_size_bytes": 136730,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "8e7967c60776255d965a85e4b398dd4a8f49ac5eb7d2ef0992733f22490bea45",
+          "gzip_size_bytes": 11634
+        },
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "7db53da744759ee529c63ddf5dc40a3ade512ad9773975a964518e1fc54272cc",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "9514459988060c8f0a835d2a3abb8dffd3165a09b4fe0bd27a1e89355a5ace58",
+          "gzip_size_bytes": 911
+        }
+      },
+      "launch_provenance": {
+        "source": "system-chromium",
+        "configured_executable_path": "/usr/bin/chromium",
+        "playwright_registry_executable_path": "/home/runner/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome",
+        "actual_browser_version": "156.0.8078.0"
+      },
+      "download_positive_control_calibrated": false,
+      "download_negative_cases": "inconclusive for security claims because trusted positive download control failed",
+      "popup_negative_case_interpretation": "Popup counts have a completed trusted popup positive-control stage; evaluate per-case popup results. Download counts are uncalibrated and do not prove blocking."
+    },
+    "firefox": {
+      "job_id": "122503075203",
+      "artifact_id": "12774632918",
+      "artifact_zip_sha256": "79e7849326e03eb7a84ff77d73a4284503b6ac1ce047b7643e50aa247eeb2600",
+      "artifact_zip_size_bytes": 12554,
+      "browser_version": "144.0.2",
+      "run_id": "dcf4fc36-e83b-4b33-9845-65a076d70b25",
+      "results_total": 44,
+      "results_passed": 44,
+      "results_failed": 0,
+      "strict_cases": {
+        "retired-port": "pass",
+        "second-init": "pass",
+        "import-race": "pass"
+      },
+      "trusted_popup_download_control": {
+        "result": "pass",
+        "error": null
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "3d46651dbb68b8c031436765f068b55aa324ec0aed2f7c6947c1e8d91fa4dc2d",
+          "raw_size_bytes": 147816,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "38a4ba66aae971810874a2809f100457d00143abae981926bb56e9e68756425d",
+          "gzip_size_bytes": 11451
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "476c8d4f722c7dcb582da98e34fb94881094181928dcbef84739e2f43dfd2a03",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "08d47e0a20c8f3a2c65e705f4674234975cda926dc6c1a83e102e165ed44faf7",
+          "gzip_size_bytes": 909
+        }
+      }
+    },
+    "webkit": {
+      "job_id": "122503075122",
+      "artifact_id": "12775516777",
+      "artifact_zip_sha256": "e4ada3c5e1ff5a1a30d7f59b20e9332b02fa1ca19565c50c09b3fbabcf060b91",
+      "artifact_zip_size_bytes": 12100,
+      "browser_version": "26.0",
+      "run_id": "b2a640bd-4569-4532-aa5e-28f9a3065693",
+      "results_total": 44,
+      "results_passed": 44,
+      "results_failed": 0,
+      "strict_cases": {
+        "retired-port": "pass",
+        "second-init": "pass",
+        "import-race": "pass"
+      },
+      "trusted_popup_download_control": {
+        "result": "pass",
+        "error": null
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "cfd5a0d2d286fac3c9104fa3d4210ddc13322dea4e7b8bdd156d4091e170dedb",
+          "raw_size_bytes": 133813,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "029dd08b677bdc01b0638fb7f9713ca4c2f91f00d129587fcbfd7e3187285e46",
+          "gzip_size_bytes": 11032
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "4fde0976f070328d24aa85257523935e348f1f2f15060018de0606996e0de047",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "adf8986f0c25a1520ec6cc1510edaff35b1cfad576e097480d5917bf9889a32b",
+          "gzip_size_bytes": 906
+        }
+      }
+    }
+  },
+  "limitations": "The Chromium report now preserves the failed trusted download-control event instead of aborting without a report. Since the positive download calibration failed, Chromium negative sandbox popup/download cases that follow it are inconclusive as security evidence even where the raw harness result says pass. The separate receiver positive control after attacks passed, but it does not calibrate download delivery. No G1/product release; broader X04/G1a/G1b, offline, resource guarantees and real-device validation remain open.",
+  "other_jobs": {
+    "baseline_guard": {
+      "job_id": "40593364082",
+      "status": "success"
+    },
+    "resources": {
+      "job_id": "40593363876",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    },
+    "tab_recovery": {
+      "job_id": "40593363904",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    }
+  },
+  "local_diagnostic": {
+    "task_id": "DIAG-DOWNLOAD01",
+    "status": "bounded A/B comparison passed in both variants; independent review approved; does not diagnose Chromium 156",
+    "browser_version": "154.0.8037.57",
+    "node_version": "v24.19.0",
+    "variants": {
+      "about:blank": "pass",
+      "loopback-http": "pass"
+    },
+    "variant_summary": {
+      "about:blank": {
+        "origin": "null",
+        "trusted_popup_event": true,
+        "trusted_download_event": true,
+        "filename": "synthetic-control.txt",
+        "download_bytes": [
+          115,
+          121,
+          110,
+          116,
+          104,
+          101,
+          116,
+          105,
+          99,
+          32,
+          99,
+          111,
+          110,
+          116,
+          114,
+          111,
+          108
+        ],
+        "overflow": false
+      },
+      "loopback-http": {
+        "origin": "http://127.0.0.1:45977",
+        "trusted_popup_event": true,
+        "trusted_download_event": true,
+        "filename": "synthetic-control.txt",
+        "download_bytes": [
+          115,
+          121,
+          110,
+          116,
+          104,
+          101,
+          116,
+          105,
+          99,
+          32,
+          99,
+          111,
+          110,
+          116,
+          114,
+          111,
+          108
+        ],
+        "overflow": false
+      }
+    },
+    "raw_sha256": "ff161c9727bb4ee3e193802b8b29005a61604f7ff3136918ac87aaf6838b969b",
+    "raw_size_bytes": 10608,
+    "gzip": "download-comparison-chromium154-local.json.gz",
+    "gzip_sha256": "fe946948f5a68e55cd5cc14f6dbc5f1fb79a17bb081299a37547c2ef48ca514f",
+    "gzip_size_bytes": 1280,
+    "interpretation": "about:blank and true loopback HTTP each delivered the trusted popup and the exact 17-byte synthetic download. This is comparison evidence for Chromium 154.0.8037.57 only; Chromium 156.0.8078.0 remains unexplained.",
+    "script": "apps/security-lab/test/diagnose-download.mjs",
+    "script_sha256": "ba6f9763861d258d4a7caa7f124b61f49bab7e341126b6a33ec3c772b9ad642b",
+    "review_status": "separate review approved"
+  },
+  "source_history": {
+    "ci_source_parent": "b6f9d80345c9fa44476f9d819308f62369c60235",
+    "local_content_equivalent_commit": "044e31c06cdc0c0a4442337d0f0293517650a2b8",
+    "local_content_equivalent_tree": "ceca69dfe6896001dc29463344488fe42732602b",
+    "local_cherry_pick": "ae27bd3cc1f872d954f0d93daf87355efe36976f",
+    "local_parent": "6a0eb045af35d05e626b0f4efb7667701024ccbf",
+    "note": "CI commit d4c68c9 and local review commit 044e31c have intentionally different histories; their tree IDs match."
+  }
+}

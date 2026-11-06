@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><title>Synthetisches Standardfelder-Demo</title></head>
+<body>
+  <main>
+    <h1>Synthetisches Arbeitsblatt</h1>
+    <p id="status" aria-live="polite">Demo-Script wird gestartet.</p>
+    <label for="student-name">Fantasiename</label>
+    <input id="student-name" type="text" value="Ada Beispiel">
+    <label for="short-answer">Kurze Antwort</label>
+    <textarea id="short-answer">Drei blaue Monde.</textarea>
+    <label for="likes-math">Mathe ist interessant</label>
+    <input id="likes-math" type="checkbox" checked>
+    <fieldset id="sky-group" data-ws-radio-group="sky-group">
+      <legend>Farbe des Fantasiehimmels</legend>
+      <label><input id="sky-violet" type="radio" name="sky-group" checked> Violett</label>
+      <label><input id="sky-green" type="radio" name="sky-group"> Grün</label>
+    </fieldset>
+    <label for="planet">Fantasieplanet</label>
+    <select id="planet"><option value="mora" selected>Mora</option><option value="tavi">Tavi</option></select>
+    <label for="symbols">Lieblingssymbole</label>
+    <select id="symbols" multiple>
+      <option value="star" selected>Stern</option><option value="comet">Komet</option><option value="leaf" selected>Blatt</option>
+    </select>
+    <p id="reaction">Noch keine Textänderung.</p>
+  </main>
+  <script>
+    (() => {
+      const status = document.getElementById("status");
+      const name = document.getElementById("student-name");
+      const answer = document.getElementById("short-answer");
+      const reaction = document.getElementById("reaction");
+      const update = () => {
+        reaction.textContent = `Lokale Reaktion: ${name.value} schrieb ${answer.value.length} Zeichen.`;
+      };
+      name.addEventListener("input", update);
+      answer.addEventListener("input", update);
+      status.textContent = "Demo-Script aktiv; alle Daten sind synthetisch.";
+      update();
+    })();
+  </script>
+</body>
+</html>

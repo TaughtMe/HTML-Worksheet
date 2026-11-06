@@ -1,0 +1,177 @@
+{
+  "actions_run_id": "40546344966",
+  "source_commit": "3562eb063a1177757d77fa8f07a1179244ce75fd",
+  "source_tree": "f613d4293b90ef9ce996bb1e9c6efa172b926e52",
+  "local_integrated_commit": "2eb7d5aed79dfbb0e37299636bf38f01edc85a27",
+  "scope": "STRICT01 T5: 36 existing browser cases plus five strict-v1 cases C1-C5; no product or G1 release",
+  "status": "complete; checks and all three browser engines succeeded",
+  "engines": {
+    "chromium": {
+      "job_id": "122337994865",
+      "artifact_id": "12753765170",
+      "artifact_zip_sha256": "f1f5eb574a7b26937bfa281832d5c38e755b98fd38948c0214fb9aa37928d7ac",
+      "artifact_zip_size_bytes": 9997,
+      "browser_version": "155.0.8059.0",
+      "results_passed": 41,
+      "results_failed": 0,
+      "strict_cases": {
+        "C1": "pass",
+        "C2": "pass",
+        "C3": "pass",
+        "C4": "pass",
+        "C5": "pass"
+      },
+      "c4_positive_frame_probe": {
+        "created": 1,
+        "mounted": 1,
+        "channels": 1,
+        "initReceipts": 1
+      },
+      "c4_checkbox_changed_only": true,
+      "c4_checkpoint_durability": "memory",
+      "c5_revision": 7,
+      "c5_nonempty_field_count": 6,
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "06e96565d9ee48efda584e5ee606c8072dd50ab2e56ee80416db180267768af5",
+          "raw_size_bytes": 86969,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "446fa6a3e7a5cd815d6b122226cda022e500c37384d85112804976be446a396a",
+          "gzip_size_bytes": 8672
+        },
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "a1a9c06acb4357692cbfdddb8e8b3f2ed3ab6309abfc6e9201bce8d85ab471e5",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "d6f1d4f0cbed348de83a727f6b58831872c5cc6557692603b26689cba6d292e5",
+          "gzip_size_bytes": 889
+        }
+      },
+      "c5_protocol_types": [
+        "READY",
+        "RESTORED",
+        "STATE_SNAPSHOT",
+        "STATE_CHANGED",
+        "STATE_SNAPSHOT"
+      ],
+      "c5_change_base_revision": 7,
+      "c5_snapshot_base_revision": 8,
+      "c5_unexpected_message": false
+    },
+    "webkit": {
+      "job_id": "122337995092",
+      "artifact_id": "12753106900",
+      "artifact_zip_sha256": "28b94b2c1364e20b67a1fe511d799f1666daddc47f1eadbe04aac8888080d10c",
+      "artifact_zip_size_bytes": 9509,
+      "browser_version": "26.0",
+      "results_passed": 41,
+      "results_failed": 0,
+      "strict_cases": {
+        "C1": "pass",
+        "C2": "pass",
+        "C3": "pass",
+        "C4": "pass",
+        "C5": "pass"
+      },
+      "c4_positive_frame_probe": {
+        "created": 1,
+        "mounted": 1,
+        "channels": 1,
+        "initReceipts": 1
+      },
+      "c4_checkbox_changed_only": true,
+      "c4_checkpoint_durability": "memory",
+      "c5_revision": 7,
+      "c5_nonempty_field_count": 6,
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "e2dac997d3b52c6329e7314e47ef7ebf88b0de97ec4e6521761c476e6d43abf2",
+          "raw_size_bytes": 85100,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "87eb04938e0da9ea216f4a2a06322a5d693e9d8acefe9a6ab9c7d2aee8df6647",
+          "gzip_size_bytes": 8179
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "a0110feb691d9ef63c9b3deeacda4e5beffcfb3dbc311734e3807ab440296e5d",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "a23c192aed6bc785def7f576ef03f084390cce0762323631264d4adfb4807c77",
+          "gzip_size_bytes": 884
+        }
+      },
+      "c5_protocol_types": [
+        "READY",
+        "RESTORED",
+        "STATE_SNAPSHOT",
+        "STATE_CHANGED",
+        "STATE_SNAPSHOT"
+      ],
+      "c5_change_base_revision": 7,
+      "c5_snapshot_base_revision": 8,
+      "c5_unexpected_message": false
+    },
+    "firefox": {
+      "job_id": "122337995516",
+      "artifact_id": "12754200652",
+      "artifact_zip_sha256": "d970009f1b65129f7af75aafc84bc107759d8e609160090199d34e8a7c3e710a",
+      "artifact_zip_size_bytes": 9942,
+      "browser_version": "144.0.2",
+      "results_passed": 41,
+      "results_failed": 0,
+      "strict_cases": {
+        "C1": "pass",
+        "C2": "pass",
+        "C3": "pass",
+        "C4": "pass",
+        "C5": "pass"
+      },
+      "c4_positive_frame_probe": {
+        "created": 1,
+        "mounted": 1,
+        "channels": 1,
+        "initReceipts": 1
+      },
+      "c4_checkbox_changed_only": true,
+      "c4_checkpoint_durability": "memory",
+      "c5_revision": 7,
+      "c5_nonempty_field_count": 6,
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "85f1a3cdf01981e7fdda569fae34f0aac29f19fb287002d5a786d98cdb18831d",
+          "raw_size_bytes": 99096,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "c9507773bf7f823d2627bb324cc1d3c717e1ea37428552bc6df045e92d5ad9b8",
+          "gzip_size_bytes": 8583
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "6963dce834e4ff1650f234c44da0e7b32a8a14403247259154822e15c2d88a48",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "554d86da73e7511cd69ffce4ef06d23e94c82274bfa255bcaf623e4c2e8269df",
+          "gzip_size_bytes": 887
+        }
+      },
+      "c5_protocol_types": [
+        "READY",
+        "RESTORED",
+        "STATE_SNAPSHOT",
+        "STATE_CHANGED",
+        "STATE_SNAPSHOT"
+      ],
+      "c5_change_base_revision": 7,
+      "c5_snapshot_base_revision": 8,
+      "c5_unexpected_message": false
+    }
+  },
+  "limitations": "All three browser engines passed this bounded 41-case corpus. This is not full G1, a DoS/resource guarantee, general HTML support, product readiness, or real-device validation. Earlier local C4/C5 setup-blocked reports remain preserved as inconclusive local attempts.",
+  "overall": "checks succeeded; Chromium, Firefox, and WebKit each succeeded with 41/41"
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Popup- und Download-Probe</title></head>
+<body>
+  <h1>Popup- und Download-Probe</h1>
+  <button id="popup" type="button">Popupversuch</button>
+  <button id="download" type="button">Downloadversuch</button>
+  <p id="status" aria-live="polite">Noch kein Versuch ausgelöst.</p>
+  <script>
+    (() => {
+      const status = document.getElementById("status");
+      document.getElementById("popup").addEventListener("click", () => {
+        window.open("__RECEIVER__/__CASE__?kind=popup", "synthetic-popup");
+        status.textContent = "Popupversuch ausgelöst.";
+      });
+      document.getElementById("download").addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.href = "data:text/plain,synthetic-fixture";
+        link.download = "synthetic-probe.txt";
+        link.textContent = "synthetischer Download";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        status.textContent = "Downloadversuch ausgelöst.";
+      });
+    })();
+  </script>
+</body></html>

@@ -1,0 +1,54 @@
+{
+  "ciRun": 42116489219,
+  "baseCommit": "eda06c1f4a210637c8757f17b6c58137d0f58508",
+  "chromiumFailure": "Direct setInputFiles bypassed the disabled import action while native container IDB work was pending. No import was queued. Driver now uses the enabled user-facing button/filechooser.",
+  "webkitFailure": "Cache status returned false. ready may resolve during activating; cache queries now wait for activated within the original preparation deadline. Actual WebKit success is not claimed; on-failure cache/controller diagnostics added.",
+  "uiCssUpstreamCommits": [
+    "df9d145",
+    "c8b9084"
+  ],
+  "checks": {
+    "newActivationUnit": "1/1 pass",
+    "updatedCiOracleUnit": "1/1 pass",
+    "typecheck": "pass",
+    "appBuild": "pass",
+    "focusedNativeBusyImport": "pass",
+    "browserVersion": "154.0.8037.57",
+    "screenshotsAndBounds": "pass at 1440/820/390; horizontal viewport and card/runner bounds, vertical scrolling allowed",
+    "fullFlowRerun": "not performed locally",
+    "firefoxRerun": "not performed",
+    "webkitLocalBrowser": "not installed; browser fix effectiveness pending CI"
+  },
+  "sourceSha256": {
+    "apps/worksheet/src/app.ts": "c3f0d7358784c0fb1fe3aa4ab3c9e7e014277eecb833cc46b57839ef54bb407c",
+    "apps/worksheet/src/offline.ts": "97be5063fb4658d67db89e4e7676101c41d126ecbeefe40f343230802974ef74",
+    "apps/worksheet/test/offline.test.ts": "29ae8b2bd522f94dcb3cc5c4cc78243bbade1c353866f2e765eb3c2792191fec",
+    "apps/worksheet/test/functional.mjs": "2dd64049091c9dbd9cbd1de115af0087cde63b984b1d122d02a8d619efc44897",
+    "apps/worksheet/test/functional-ui.mjs": "3a7f9dce4346926181bb53fbca9ab5929c4ce6efea1593dd2269e0e773c29e41",
+    "apps/worksheet/test/functional-ci.mjs": "b01f8992805a93d5eb3873fb819e1257504851f74c8a56c11c0583e11f66a137",
+    "apps/worksheet/test/functional-ci.test.mjs": "ae96a20bb06b09a9f5ce23d325ca80f16fce65eef6d429b3c5860d94bd49b030",
+    "apps/worksheet/test/import-busy.mjs": "d105301c06057603129e989882cfc6d4ccc5d79663b086f947562809e017b70a",
+    ".github/workflows/functional-mvp.yml": "98268de12369e1452406962f7f06cbc112d029a3d322c214a0cf0ed4dcbfac6d",
+    "apps/worksheet/ui.css": "80b0d349287abde3ed4df697483c4357d65179af356e6a9986285957a59349b6",
+    "apps/worksheet/test/smoke.mjs": "916dae083ac970c0a1da5935368d1ba7511c219d7e3e84d76c749dd6ffbde740"
+  },
+  "artifacts": {
+    "import-busy.json": {
+      "sha256": "1cb94088aac2fbeabf11ce2ae6bd8f05c9dcf85d0f430db195e2344f8e627f53",
+      "bytes": 13247
+    },
+    "app-desktop.png": {
+      "sha256": "c27f88c9a4c78788322fbd42dc2391df4952f940f1f708aa73e2132a5ecd3cf9",
+      "bytes": 96422
+    },
+    "app-tablet-width.png": {
+      "sha256": "e4b8638beed50225d1b7720c53c63a690874d6089d9b196be621469a5c5bfbda",
+      "bytes": 91174
+    },
+    "app-phone-width.png": {
+      "sha256": "810a6de4bada4c971660c4bc6c4cd4471338db172721bfbfe7cf7917cfe336a7",
+      "bytes": 69658
+    }
+  },
+  "pickerFollowup": "Backup import after download now uses the same enabled-button/filechooser boundary in functional and smoke harnesses. Default HTML picker behavior unchanged; syntax checked, no additional browser rerun claimed."
+}

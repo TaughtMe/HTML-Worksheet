@@ -1,0 +1,69 @@
+name: Tab Recovery Observation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/security-lab/src/**
+      - apps/security-lab/server.mjs
+      - apps/security-lab/test/resource*.mjs
+      - apps/security-lab/test/tab-recovery*.mjs
+      - apps/security-lab/build.mjs
+      - package.json
+      - package-lock.json
+      - .github/workflows/tab-recovery.yml
+  pull_request:
+    paths:
+      - apps/security-lab/src/**
+      - apps/security-lab/server.mjs
+      - apps/security-lab/test/resource*.mjs
+      - apps/security-lab/test/tab-recovery*.mjs
+      - apps/security-lab/build.mjs
+      - package.json
+      - package-lock.json
+      - .github/workflows/tab-recovery.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tab-recovery-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  webkit:
+    name: Tab recovery observation (WebKit)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Set up Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Build browser test bundle
+        run: npm run build
+      - name: Run tab recovery controller regression tests
+        run: node apps/security-lab/test/tab-recovery-control.test.mjs
+      - name: Install WebKit and system dependencies
+        run: npx playwright install --with-deps webkit
+      - name: Run tab recovery observation
+        run: node apps/security-lab/test/tab-recovery.mjs
+        env:
+          BROWSER_ENGINE: webkit
+      - name: Upload WebKit tab recovery report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tab-recovery-webkit
+          path: apps/security-lab/test-results/tab-recovery-webkit.json
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,0 +1,46 @@
+{
+  "scope": "TIME01 local Chromium host-deadline and late-message evidence",
+  "at": "2026-10-28T07:33:29.934Z",
+  "engine": "chromium",
+  "browser_version": "154.0.8037.57",
+  "node_version": "v24.19.0",
+  "selection": {
+    "source": "system-chromium",
+    "configuredExecutablePath": "/usr/bin/chromium",
+    "publicRegistryExecutablePath": "/home/agent/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome"
+  },
+  "results_total": 3,
+  "results_passed": 3,
+  "results_failed": 0,
+  "cases": {
+    "READY": {
+      "result": "pass",
+      "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+      "close_elapsed_from_bracket_ms": 3011.3,
+      "timeout_ms": 3000
+    },
+    "RESTORED": {
+      "result": "pass",
+      "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+      "close_elapsed_from_bracket_ms": 3001.8,
+      "timeout_ms": 3000
+    },
+    "STATE_SNAPSHOT": {
+      "result": "pass",
+      "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+      "close_elapsed_from_bracket_ms": 2000.6,
+      "timeout_ms": 2000
+    }
+  },
+  "review": "Separate Sol code/method review found no blockers (per task record).",
+  "files": {
+    "time01-chromium.json": {
+      "raw_sha256": "1862eeb999d4271aead727d9a6ceb43cc43d9f3f36f4a1b7845cbab618267e4f",
+      "raw_size_bytes": 129579,
+      "gzip": "time01-chromium.json.gz",
+      "gzip_sha256": "a96622e00e9f15bb50fee2340829cad133859e27aacc10cf5439258978ce708d",
+      "gzip_size_bytes": 5558
+    }
+  },
+  "limitations": "Local, bounded Chromium-only evidence. Does not cover Firefox/WebKit or the integrated 47-case CI matrix; no production code, timeout policy, budgets, G1, persistence, or resource release follows."
+}

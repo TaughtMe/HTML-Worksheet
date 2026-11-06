@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-05T21:53:13.510Z",
+  "engine": "webkit",
+  "browserVersion": "26.0",
+  "selection": {
+    "source": "playwright-managed-default",
+    "executablePath": null
+  },
+  "nodeVersion": "v24.22.2",
+  "origin": "http://127.0.0.1:44543",
+  "profile": "/tmp/worksheet-functional-h2mlBJ",
+  "persistentProfileRestarted": false,
+  "serverStoppedBeforeOfflineRestart": false,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": false,
+    "serverFailure": null,
+    "routedHttpRequestsAborted": [],
+    "responses": []
+  },
+  "screenshots": [],
+  "observations": {},
+  "results": [
+    {
+      "name": "functional flow",
+      "result": "fail",
+      "error": "TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('.storage-card[data-ready=\"true\"]') to be visible\n"
+    }
+  ]
+}

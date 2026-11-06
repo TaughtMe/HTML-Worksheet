@@ -1,0 +1,80 @@
+{
+  "package": "POLICY01",
+  "baseCommit": "3f3252c5cf6e2dd2860580aa43c03abd2783365f",
+  "at": "2026-11-04T10:03:13.927Z",
+  "command": "BROWSER_ENGINE=chromium CHROMIUM_PATH=/usr/bin/chromium node apps/security-lab/test/policy.mjs",
+  "engine": "chromium",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "playwrightVersion": "1.57.0",
+  "groups": 4,
+  "admissionVariants": 14,
+  "runtimeSinkPairs": 19,
+  "result": "pass",
+  "rawBytes": 122263,
+  "rawSha256": "1977d994c7e7f44be540d8ebde173649eafae610170157498b8cd9fd05113b2f",
+  "gzipSha256": "ab25f2c8281d1097055b8cb46cba91892286ac22dedfb86b0f30f97bf471e3ce",
+  "receiverLogs": [
+    {
+      "caseId": "loaders",
+      "artifact": "policy01-loaders.receiver.jsonl.gz",
+      "hits": 7,
+      "rawSha256": "6c51e3f323b39a34e5e513e78e7a53793ba15f9b0f0732378f3dee85b222612f",
+      "gzipSha256": "1db2c6afa29f31637d301d8b1b2e27dfcce1b123c69316d3b15634d821419a92"
+    },
+    {
+      "caseId": "resources",
+      "artifact": "policy01-resources.receiver.jsonl.gz",
+      "hits": 7,
+      "rawSha256": "eb3cfa53296095f66279f4625ff927356938c55daeb924e81c0b581ddb037960",
+      "gzipSha256": "4454f635ed06fdbdf203fbeebe62484e591a847ea626df8912ca6c866c84570b"
+    }
+  ],
+  "testedSourceSha256": {
+    "apps/security-lab/test/policy-fixtures.mjs": "35b418024eff068281a048e099508fc83e3d43cd80f58b0cd2ac113353dccc9d",
+    "apps/security-lab/test/policy-harness.mjs": "7e7ce4bf2f29a2d7e7b92a247be14796a91fd5f06cb24719695e66b5c704abbf",
+    "apps/security-lab/test/policy-receiver.mjs": "241cac991f629e58dc8e53a8e38bcc809e433938c028f861085011ede2e7de20",
+    "apps/security-lab/test/policy.mjs": "0d7a7a84f573668404abe4c6a6069532f8eba3893c91f4a89d9aaf6dc86c968d",
+    "apps/security-lab/test/policy.test.mjs": "f7173420dd340ecf0aed91c03277c5d5ee90e55b7b21eac2dc247c607cdeb08f",
+    "apps/security-lab/test/strict-harness.mjs": "253c92e9a520113a1cf7be903ea27baf00cab4ce86533e680357b7495dedc01b",
+    "apps/security-lab/test/browser.mjs": "6edd626ef610f8351bb8004eeea25c74113d5590783f53ac437277eb0c69f93e",
+    "apps/security-lab/test/run.mjs": "569c131ef8f61d4e678e85438c9034adaec1afa368c079aafc9df3c3cc3a9b48"
+  },
+  "checks": [
+    "new strict fixture unit 1/1",
+    "syntax checks",
+    "necessary app build",
+    "four focused Chromium groups; original 56 cases not repeated",
+    "independent receiver files equal IPC histories"
+  ],
+  "limits": [
+    "Rejected imports prove admission only; no runtime claim for rejected content",
+    "Runtime sinks use trusted nonce-bearing controller injection and are not admitted through strict source",
+    "Font URL gated by style-src; positive font request is not successful font rendering",
+    "Only HTTP loopback and selected script/resource classes, no X02 navigation or HTTPS/WSS",
+    "Focused raw records CSP violations and independent receiver requests, no separate browser request-event inventory",
+    "Firefox/WebKit not run locally; no product/G1 approval"
+  ],
+  "assertionOnlyFollowup": {
+    "originalBrowserCommit": "0737ee7b322f9a7cf467bb19b9c2cd7c0e08ff8e",
+    "browserRerun": false,
+    "command": "node apps/security-lab/test/policy.test.mjs",
+    "result": "pass",
+    "targetedUnitCases": 3,
+    "archivedSinkExpectations": 19,
+    "archivedCompleteReceiverHistories": 2,
+    "negativeControls": [
+      "wrong directive on all events rejected",
+      "wrong blocked target on all events rejected",
+      "wrong original policy on all events rejected",
+      "report-only disposition rejected",
+      "late negative asset hit after previous snapshot rejected",
+      "late unexpected non-asset path rejected"
+    ],
+    "verificationSourceSha256": {
+      "apps/security-lab/test/policy-harness.mjs": "d146022edfad185505d1536d4952d703b3b3af5c466579f6aa6dcb546a7bc181",
+      "apps/security-lab/test/policy.test.mjs": "46d56ccc43dc7f5d42baa378770da12020d160509f4ead1f0962f5ef855a84b3"
+    },
+    "note": "Original testedSourceSha256 and raw archives remain unchanged. Only stricter assertions were verified offline against the original browser evidence; no new browser execution is claimed."
+  }
+}

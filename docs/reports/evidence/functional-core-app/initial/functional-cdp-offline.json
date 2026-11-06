@@ -1,0 +1,24 @@
+{
+  "at": "2026-11-05T16:07:32.934Z",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "persistentProfileRestarted": false,
+  "serverStoppedBeforeOfflineRestart": true,
+  "results": [
+    {
+      "name": "UI hierarchy, strict import, every field kind, real snapshot and PDF download",
+      "result": "pass",
+      "elapsedMs": 2445.5699210000002
+    },
+    {
+      "name": "functional flow",
+      "result": "fail",
+      "error": "Error: download.saveAs: Target page, context or browser has been closed"
+    }
+  ],
+  "pdf": {
+    "path": "apps/worksheet/test-results/online-answers.pdf",
+    "bytes": 16334,
+    "pages": 6
+  }
+}

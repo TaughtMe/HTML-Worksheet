@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Hostzugriff-Probe</title></head>
+<body>
+  <h1>Hostzugriff-Probe</h1><pre id="results">Probe wird ausgeführt.</pre>
+  <script>
+    (() => {
+      const results = [];
+      const record = (name, action) => {
+        try { action(); results.push(`${name}: Zugriff war möglich`); }
+        catch (error) { results.push(`${name}: verweigert (${error.name})`); }
+      };
+      record("parent.document", () => void parent.document.body);
+      record("parent.localStorage", () => void parent.localStorage.getItem("synthetic-probe"));
+      record("parent.indexedDB", () => void parent.indexedDB);
+      document.getElementById("results").textContent = results.join("\n");
+    })();
+  </script>
+</body></html>
