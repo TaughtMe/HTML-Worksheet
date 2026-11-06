@@ -1,0 +1,233 @@
+{
+  "at": "2026-11-05T21:52:50.701Z",
+  "engine": "firefox",
+  "browserVersion": "144.0.2",
+  "selection": {
+    "source": "playwright-managed-default",
+    "executablePath": null
+  },
+  "nodeVersion": "v24.22.2",
+  "origin": "http://127.0.0.1:41917",
+  "profile": "removed after success",
+  "persistentProfileRestarted": true,
+  "serverStoppedBeforeOfflineRestart": true,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": true,
+    "serverFailure": "ECONNREFUSED",
+    "routedHttpRequestsAborted": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:41917/",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:41917/app.js",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:41917/",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:41917/app.js",
+        "fromServiceWorker": true,
+        "status": 200
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "apps/worksheet/test-results/app-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "bytes": 176975,
+      "sha256": "53a2912dc788c7ef82d96b82b7e580dc70bc07ee56b969950cdaa057230d456d",
+      "note": "Viewport only; no physical device emulation claim"
+    },
+    {
+      "path": "apps/worksheet/test-results/app-tablet-width.png",
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "bytes": 156462,
+      "sha256": "c2d375a921cee35f0d9a8dd70f51bf30667c5c8a9b66e60a126e78fb473bc1f3",
+      "note": "Viewport only; no physical device emulation claim"
+    }
+  ],
+  "observations": {
+    "online": {
+      "instanceId": "8f86afa9-41f6-4ad9-b333-c24825e8f888",
+      "revision": 1,
+      "state": {
+        "schemaVersion": 1,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "Antwortzeile 0: vollständig gespeichert.\nAntwortzeile 1: vollständig gespeichert.\nAntwortzeile 2: vollständig gespeichert.\nAntwortzeile 3: vollständig gespeichert.\nAntwortzeile 4: vollständig gespeichert.\nAntwortzeile 5: vollständig gespeichert.\nAntwortzeile 6: vollständig gespeichert.\nAntwortzeile 7: vollständig gespeichert.\nAntwortzeile 8: vollständig gespeichert.\nAntwortzeile 9: vollständig gespeichert.\nAntwortzeile 10: vollständig gespeichert.\nAntwortzeile 11: vollständig gespeichert.\nAntwortzeile 12: vollständig gespeichert.\nAntwortzeile 13: vollständig gespeichert.\nAntwortzeile 14: vollständig gespeichert.\nAntwortzeile 15: vollständig gespeichert.\nAntwortzeile 16: vollständig gespeichert.\nAntwortzeile 17: vollständig gespeichert.\nAntwortzeile 18: vollständig gespeichert.\nAntwortzeile 19: vollständig gespeichert.\nAntwortzeile 20: vollständig gespeichert.\nAntwortzeile 21: vollständig gespeichert.\nAntwortzeile 22: vollständig gespeichert.\nAntwortzeile 23: vollständig gespeichert.\nAntwortzeile 24: vollständig gespeichert.\nAntwortzeile 25: vollständig gespeichert.\nAntwortzeile 26: vollständig gespeichert.\nAntwortzeile 27: vollständig gespeichert.\nAntwortzeile 28: vollständig gespeichert.\nAntwortzeile 29: vollständig gespeichert.\nAntwortzeile 30: vollständig gespeichert.\nAntwortzeile 31: vollständig gespeichert.\nAntwortzeile 32: vollständig gespeichert.\nAntwortzeile 33: vollständig gespeichert.\nAntwortzeile 34: vollständig gespeichert.\nAntwortzeile 35: vollständig gespeichert.\nAntwortzeile 36: vollständig gespeichert.\nAntwortzeile 37: vollständig gespeichert.\nAntwortzeile 38: vollständig gespeichert.\nAntwortzeile 39: vollständig gespeichert.\nAntwortzeile 40: vollständig gespeichert.\nAntwortzeile 41: vollständig gespeichert.\nAntwortzeile 42: vollständig gespeichert.\nAntwortzeile 43: vollständig gespeichert.\nAntwortzeile 44: vollständig gespeichert.\nAntwortzeile 45: vollständig gespeichert.\nAntwortzeile 46: vollständig gespeichert.\nAntwortzeile 47: vollständig gespeichert.\nAntwortzeile 48: vollständig gespeichert.\nAntwortzeile 49: vollständig gespeichert.\nAntwortzeile 50: vollständig gespeichert.\nAntwortzeile 51: vollständig gespeichert.\nAntwortzeile 52: vollständig gespeichert.\nAntwortzeile 53: vollständig gespeichert.\nAntwortzeile 54: vollständig gespeichert.\nAntwortzeile 55: vollständig gespeichert.\nAntwortzeile 56: vollständig gespeichert.\nAntwortzeile 57: vollständig gespeichert.\nAntwortzeile 58: vollständig gespeichert.\nAntwortzeile 59: vollständig gespeichert.\nAntwortzeile 60: vollständig gespeichert.\nAntwortzeile 61: vollständig gespeichert.\nAntwortzeile 62: vollständig gespeichert.\nAntwortzeile 63: vollständig gespeichert.\nAntwortzeile 64: vollständig gespeichert.\nAntwortzeile 65: vollständig gespeichert.\nAntwortzeile 66: vollständig gespeichert.\nAntwortzeile 67: vollständig gespeichert.\nAntwortzeile 68: vollständig gespeichert.\nAntwortzeile 69: vollständig gespeichert.\nAntwortzeile 70: vollständig gespeichert.\nAntwortzeile 71: vollständig gespeichert.\nAntwortzeile 72: vollständig gespeichert.\nAntwortzeile 73: vollständig gespeichert.\nAntwortzeile 74: vollständig gespeichert.\nAntwortzeile 75: vollständig gespeichert.\nAntwortzeile 76: vollständig gespeichert.\nAntwortzeile 77: vollständig gespeichert.\nAntwortzeile 78: vollständig gespeichert.\nAntwortzeile 79: vollständig gespeichert.\nAntwortzeile 80: vollständig gespeichert.\nAntwortzeile 81: vollständig gespeichert.\nAntwortzeile 82: vollständig gespeichert.\nAntwortzeile 83: vollständig gespeichert.\nAntwortzeile 84: vollständig gespeichert.\nAntwortzeile 85: vollständig gespeichert.\nAntwortzeile 86: vollständig gespeichert.\nAntwortzeile 87: vollständig gespeichert.\nAntwortzeile 88: vollständig gespeichert.\nAntwortzeile 89: vollständig gespeichert.\nAntwortzeile 90: vollständig gespeichert.\nAntwortzeile 91: vollständig gespeichert.\nAntwortzeile 92: vollständig gespeichert.\nAntwortzeile 93: vollständig gespeichert.\nAntwortzeile 94: vollständig gespeichert.\nAntwortzeile 95: vollständig gespeichert.\nAntwortzeile 96: vollständig gespeichert.\nAntwortzeile 97: vollständig gespeichert.\nAntwortzeile 98: vollständig gespeichert.\nAntwortzeile 99: vollständig gespeichert.\nAntwortzeile 100: vollständig gespeichert.\nAntwortzeile 101: vollständig gespeichert.\nAntwortzeile 102: vollständig gespeichert.\nAntwortzeile 103: vollständig gespeichert.\nAntwortzeile 104: vollständig gespeichert.\nAntwortzeile 105: vollständig gespeichert.\nAntwortzeile 106: vollständig gespeichert.\nAntwortzeile 107: vollständig gespeichert.\nAntwortzeile 108: vollständig gespeichert.\nAntwortzeile 109: vollständig gespeichert.\nAntwortzeile 110: vollständig gespeichert.\nAntwortzeile 111: vollständig gespeichert.\nAntwortzeile 112: vollständig gespeichert.\nAntwortzeile 113: vollständig gespeichert.\nAntwortzeile 114: vollständig gespeichert.\nAntwortzeile 115: vollständig gespeichert.\nAntwortzeile 116: vollständig gespeichert.\nAntwortzeile 117: vollständig gespeichert.\nAntwortzeile 118: vollständig gespeichert.\nAntwortzeile 119: vollständig gespeichert.\nAntwortzeile 120: vollständig gespeichert.\nAntwortzeile 121: vollständig gespeichert.\nAntwortzeile 122: vollständig gespeichert.\nAntwortzeile 123: vollständig gespeichert.\nAntwortzeile 124: vollständig gespeichert.\nAntwortzeile 125: vollständig gespeichert.\nAntwortzeile 126: vollständig gespeichert.\nAntwortzeile 127: vollständig gespeichert.\nAntwortzeile 128: vollständig gespeichert.\nAntwortzeile 129: vollständig gespeichert.\nAntwortzeile 130: vollständig gespeichert.\nAntwortzeile 131: vollständig gespeichert.\nAntwortzeile 132: vollständig gespeichert.\nAntwortzeile 133: vollständig gespeichert.\nAntwortzeile 134: vollständig gespeichert.\nAntwortzeile 135: vollständig gespeichert.\nAntwortzeile 136: vollständig gespeichert.\nAntwortzeile 137: vollständig gespeichert.\nAntwortzeile 138: vollständig gespeichert.\nAntwortzeile 139: vollständig gespeichert.\nAntwortzeile 140: vollständig gespeichert.\nAntwortzeile 141: vollständig gespeichert.\nAntwortzeile 142: vollständig gespeichert.\nAntwortzeile 143: vollständig gespeichert.\nAntwortzeile 144: vollständig gespeichert.\nAntwortzeile 145: vollständig gespeichert.\nAntwortzeile 146: vollständig gespeichert.\nAntwortzeile 147: vollständig gespeichert.\nAntwortzeile 148: vollständig gespeichert.\nAntwortzeile 149: vollständig gespeichert.\nAntwortzeile 150: vollständig gespeichert.\nAntwortzeile 151: vollständig gespeichert.\nAntwortzeile 152: vollständig gespeichert.\nAntwortzeile 153: vollständig gespeichert.\nAntwortzeile 154: vollständig gespeichert.\nAntwortzeile 155: vollständig gespeichert.\nAntwortzeile 156: vollständig gespeichert.\nAntwortzeile 157: vollständig gespeichert.\nAntwortzeile 158: vollständig gespeichert.\nAntwortzeile 159: vollständig gespeichert.\nAntwortzeile 160: vollständig gespeichert.\nAntwortzeile 161: vollständig gespeichert.\nAntwortzeile 162: vollständig gespeichert.\nAntwortzeile 163: vollständig gespeichert.\nAntwortzeile 164: vollständig gespeichert.\nAntwortzeile 165: vollständig gespeichert.\nAntwortzeile 166: vollständig gespeichert.\nAntwortzeile 167: vollständig gespeichert.\nAntwortzeile 168: vollständig gespeichert.\nAntwortzeile 169: vollständig gespeichert.\nAntwortzeile 170: vollständig gespeichert.\nAntwortzeile 171: vollständig gespeichert.\nAntwortzeile 172: vollständig gespeichert.\nAntwortzeile 173: vollständig gespeichert.\nAntwortzeile 174: vollständig gespeichert.\nAntwortzeile 175: vollständig gespeichert.\nAntwortzeile 176: vollständig gespeichert.\nAntwortzeile 177: vollständig gespeichert.\nAntwortzeile 178: vollständig gespeichert.\nAntwortzeile 179: vollständig gespeichert."
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "Antwort fürs PDF <b>keine Ausführung</b>"
+          }
+        ]
+      },
+      "ack": {
+        "at": 1260,
+        "v": 1,
+        "sessionId": "56cf382c3a15b415e894d4007d26589b",
+        "seq": 3,
+        "type": "SNAPSHOT_ACCEPTED",
+        "payload": {
+          "requestId": 2,
+          "revision": 1,
+          "durability": "committed"
+        }
+      },
+      "committedTransactions": [
+        {
+          "at": 650,
+          "mode": "readwrite",
+          "writes": [
+            {
+              "instanceId": "8f86afa9-41f6-4ad9-b333-c24825e8f888",
+              "revision": 0
+            }
+          ],
+          "complete": 655,
+          "aborted": false
+        },
+        {
+          "at": 1257,
+          "mode": "readwrite",
+          "writes": [
+            {
+              "instanceId": "8f86afa9-41f6-4ad9-b333-c24825e8f888",
+              "revision": 1
+            }
+          ],
+          "complete": 1260,
+          "aborted": false
+        }
+      ],
+      "pdf": {
+        "path": "apps/worksheet/test-results/online-answers.pdf",
+        "bytes": 16333,
+        "pages": 6,
+        "sha256": "7750c8a6967a37d2cd93964f5a8f11569c1d0b8d4093b5115e314a712659da3f"
+      }
+    },
+    "offline": {
+      "instanceId": "8f86afa9-41f6-4ad9-b333-c24825e8f888",
+      "revision": 2,
+      "state": {
+        "schemaVersion": 1,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "Antwortzeile 0: vollständig gespeichert.\nAntwortzeile 1: vollständig gespeichert.\nAntwortzeile 2: vollständig gespeichert.\nAntwortzeile 3: vollständig gespeichert.\nAntwortzeile 4: vollständig gespeichert.\nAntwortzeile 5: vollständig gespeichert.\nAntwortzeile 6: vollständig gespeichert.\nAntwortzeile 7: vollständig gespeichert.\nAntwortzeile 8: vollständig gespeichert.\nAntwortzeile 9: vollständig gespeichert.\nAntwortzeile 10: vollständig gespeichert.\nAntwortzeile 11: vollständig gespeichert.\nAntwortzeile 12: vollständig gespeichert.\nAntwortzeile 13: vollständig gespeichert.\nAntwortzeile 14: vollständig gespeichert.\nAntwortzeile 15: vollständig gespeichert.\nAntwortzeile 16: vollständig gespeichert.\nAntwortzeile 17: vollständig gespeichert.\nAntwortzeile 18: vollständig gespeichert.\nAntwortzeile 19: vollständig gespeichert.\nAntwortzeile 20: vollständig gespeichert.\nAntwortzeile 21: vollständig gespeichert.\nAntwortzeile 22: vollständig gespeichert.\nAntwortzeile 23: vollständig gespeichert.\nAntwortzeile 24: vollständig gespeichert.\nAntwortzeile 25: vollständig gespeichert.\nAntwortzeile 26: vollständig gespeichert.\nAntwortzeile 27: vollständig gespeichert.\nAntwortzeile 28: vollständig gespeichert.\nAntwortzeile 29: vollständig gespeichert.\nAntwortzeile 30: vollständig gespeichert.\nAntwortzeile 31: vollständig gespeichert.\nAntwortzeile 32: vollständig gespeichert.\nAntwortzeile 33: vollständig gespeichert.\nAntwortzeile 34: vollständig gespeichert.\nAntwortzeile 35: vollständig gespeichert.\nAntwortzeile 36: vollständig gespeichert.\nAntwortzeile 37: vollständig gespeichert.\nAntwortzeile 38: vollständig gespeichert.\nAntwortzeile 39: vollständig gespeichert.\nAntwortzeile 40: vollständig gespeichert.\nAntwortzeile 41: vollständig gespeichert.\nAntwortzeile 42: vollständig gespeichert.\nAntwortzeile 43: vollständig gespeichert.\nAntwortzeile 44: vollständig gespeichert.\nAntwortzeile 45: vollständig gespeichert.\nAntwortzeile 46: vollständig gespeichert.\nAntwortzeile 47: vollständig gespeichert.\nAntwortzeile 48: vollständig gespeichert.\nAntwortzeile 49: vollständig gespeichert.\nAntwortzeile 50: vollständig gespeichert.\nAntwortzeile 51: vollständig gespeichert.\nAntwortzeile 52: vollständig gespeichert.\nAntwortzeile 53: vollständig gespeichert.\nAntwortzeile 54: vollständig gespeichert.\nAntwortzeile 55: vollständig gespeichert.\nAntwortzeile 56: vollständig gespeichert.\nAntwortzeile 57: vollständig gespeichert.\nAntwortzeile 58: vollständig gespeichert.\nAntwortzeile 59: vollständig gespeichert.\nAntwortzeile 60: vollständig gespeichert.\nAntwortzeile 61: vollständig gespeichert.\nAntwortzeile 62: vollständig gespeichert.\nAntwortzeile 63: vollständig gespeichert.\nAntwortzeile 64: vollständig gespeichert.\nAntwortzeile 65: vollständig gespeichert.\nAntwortzeile 66: vollständig gespeichert.\nAntwortzeile 67: vollständig gespeichert.\nAntwortzeile 68: vollständig gespeichert.\nAntwortzeile 69: vollständig gespeichert.\nAntwortzeile 70: vollständig gespeichert.\nAntwortzeile 71: vollständig gespeichert.\nAntwortzeile 72: vollständig gespeichert.\nAntwortzeile 73: vollständig gespeichert.\nAntwortzeile 74: vollständig gespeichert.\nAntwortzeile 75: vollständig gespeichert.\nAntwortzeile 76: vollständig gespeichert.\nAntwortzeile 77: vollständig gespeichert.\nAntwortzeile 78: vollständig gespeichert.\nAntwortzeile 79: vollständig gespeichert.\nAntwortzeile 80: vollständig gespeichert.\nAntwortzeile 81: vollständig gespeichert.\nAntwortzeile 82: vollständig gespeichert.\nAntwortzeile 83: vollständig gespeichert.\nAntwortzeile 84: vollständig gespeichert.\nAntwortzeile 85: vollständig gespeichert.\nAntwortzeile 86: vollständig gespeichert.\nAntwortzeile 87: vollständig gespeichert.\nAntwortzeile 88: vollständig gespeichert.\nAntwortzeile 89: vollständig gespeichert.\nAntwortzeile 90: vollständig gespeichert.\nAntwortzeile 91: vollständig gespeichert.\nAntwortzeile 92: vollständig gespeichert.\nAntwortzeile 93: vollständig gespeichert.\nAntwortzeile 94: vollständig gespeichert.\nAntwortzeile 95: vollständig gespeichert.\nAntwortzeile 96: vollständig gespeichert.\nAntwortzeile 97: vollständig gespeichert.\nAntwortzeile 98: vollständig gespeichert.\nAntwortzeile 99: vollständig gespeichert.\nAntwortzeile 100: vollständig gespeichert.\nAntwortzeile 101: vollständig gespeichert.\nAntwortzeile 102: vollständig gespeichert.\nAntwortzeile 103: vollständig gespeichert.\nAntwortzeile 104: vollständig gespeichert.\nAntwortzeile 105: vollständig gespeichert.\nAntwortzeile 106: vollständig gespeichert.\nAntwortzeile 107: vollständig gespeichert.\nAntwortzeile 108: vollständig gespeichert.\nAntwortzeile 109: vollständig gespeichert.\nAntwortzeile 110: vollständig gespeichert.\nAntwortzeile 111: vollständig gespeichert.\nAntwortzeile 112: vollständig gespeichert.\nAntwortzeile 113: vollständig gespeichert.\nAntwortzeile 114: vollständig gespeichert.\nAntwortzeile 115: vollständig gespeichert.\nAntwortzeile 116: vollständig gespeichert.\nAntwortzeile 117: vollständig gespeichert.\nAntwortzeile 118: vollständig gespeichert.\nAntwortzeile 119: vollständig gespeichert.\nAntwortzeile 120: vollständig gespeichert.\nAntwortzeile 121: vollständig gespeichert.\nAntwortzeile 122: vollständig gespeichert.\nAntwortzeile 123: vollständig gespeichert.\nAntwortzeile 124: vollständig gespeichert.\nAntwortzeile 125: vollständig gespeichert.\nAntwortzeile 126: vollständig gespeichert.\nAntwortzeile 127: vollständig gespeichert.\nAntwortzeile 128: vollständig gespeichert.\nAntwortzeile 129: vollständig gespeichert.\nAntwortzeile 130: vollständig gespeichert.\nAntwortzeile 131: vollständig gespeichert.\nAntwortzeile 132: vollständig gespeichert.\nAntwortzeile 133: vollständig gespeichert.\nAntwortzeile 134: vollständig gespeichert.\nAntwortzeile 135: vollständig gespeichert.\nAntwortzeile 136: vollständig gespeichert.\nAntwortzeile 137: vollständig gespeichert.\nAntwortzeile 138: vollständig gespeichert.\nAntwortzeile 139: vollständig gespeichert.\nAntwortzeile 140: vollständig gespeichert.\nAntwortzeile 141: vollständig gespeichert.\nAntwortzeile 142: vollständig gespeichert.\nAntwortzeile 143: vollständig gespeichert.\nAntwortzeile 144: vollständig gespeichert.\nAntwortzeile 145: vollständig gespeichert.\nAntwortzeile 146: vollständig gespeichert.\nAntwortzeile 147: vollständig gespeichert.\nAntwortzeile 148: vollständig gespeichert.\nAntwortzeile 149: vollständig gespeichert.\nAntwortzeile 150: vollständig gespeichert.\nAntwortzeile 151: vollständig gespeichert.\nAntwortzeile 152: vollständig gespeichert.\nAntwortzeile 153: vollständig gespeichert.\nAntwortzeile 154: vollständig gespeichert.\nAntwortzeile 155: vollständig gespeichert.\nAntwortzeile 156: vollständig gespeichert.\nAntwortzeile 157: vollständig gespeichert.\nAntwortzeile 158: vollständig gespeichert.\nAntwortzeile 159: vollständig gespeichert.\nAntwortzeile 160: vollständig gespeichert.\nAntwortzeile 161: vollständig gespeichert.\nAntwortzeile 162: vollständig gespeichert.\nAntwortzeile 163: vollständig gespeichert.\nAntwortzeile 164: vollständig gespeichert.\nAntwortzeile 165: vollständig gespeichert.\nAntwortzeile 166: vollständig gespeichert.\nAntwortzeile 167: vollständig gespeichert.\nAntwortzeile 168: vollständig gespeichert.\nAntwortzeile 169: vollständig gespeichert.\nAntwortzeile 170: vollständig gespeichert.\nAntwortzeile 171: vollständig gespeichert.\nAntwortzeile 172: vollständig gespeichert.\nAntwortzeile 173: vollständig gespeichert.\nAntwortzeile 174: vollständig gespeichert.\nAntwortzeile 175: vollständig gespeichert.\nAntwortzeile 176: vollständig gespeichert.\nAntwortzeile 177: vollständig gespeichert.\nAntwortzeile 178: vollständig gespeichert.\nAntwortzeile 179: vollständig gespeichert."
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "Nach Neustart offline"
+          }
+        ]
+      },
+      "pdf": {
+        "path": "apps/worksheet/test-results/offline-answers.pdf",
+        "bytes": 16075,
+        "pages": 6,
+        "sha256": "07a3fbcaa75a3223586c52591f4bbcfd8bd1a6de776b1ee3ce9ff4c40b897da3"
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "UI hierarchy, strict import, every field kind, real snapshot and PDF download",
+      "result": "pass",
+      "elapsedMs": 1458.079796
+    },
+    {
+      "name": "persistent browser profile restarts offline, restores all fields and continues with real PDF",
+      "result": "pass",
+      "elapsedMs": 1846.7207010000002
+    },
+    {
+      "name": "real second tab conflicts without overwrite and preserves candidate as independent working copy",
+      "result": "pass",
+      "elapsedMs": 1803.1673779999992
+    },
+    {
+      "name": "real UI storage failure keeps confirmed state and recovers bounded RAM candidate",
+      "result": "pass",
+      "elapsedMs": 1007.6411380000009
+    },
+    {
+      "name": "actual backup download and merge as new copies retains structure and confirmed answers",
+      "result": "pass",
+      "elapsedMs": 125.68440200000077
+    }
+  ],
+  "pdf": {
+    "path": "apps/worksheet/test-results/offline-answers.pdf",
+    "bytes": 16075,
+    "pages": 6,
+    "sha256": "07a3fbcaa75a3223586c52591f4bbcfd8bd1a6de776b1ee3ce9ff4c40b897da3"
+  }
+}

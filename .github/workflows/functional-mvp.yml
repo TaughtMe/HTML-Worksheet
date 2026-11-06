@@ -60,6 +60,9 @@ jobs:
         run: node apps/worksheet/test/functional-ci.test.mjs
       - name: Install exact locked dependencies
         run: npm ci --ignore-scripts
+      - name: Check service worker activation ordering once
+        if: matrix.browser == 'webkit'
+        run: node apps/worksheet/test/offline.test.ts
       - name: Build the app shell and trusted runner
         run: npm run build:app
       - name: Install selected Playwright browser and system dependencies

@@ -5,6 +5,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { startAppServer } from '../server.mjs';
 import { startServer } from '../../security-lab/server.mjs';
 import { checkNonemptyRestore } from '../../security-lab/test/restore-harness.mjs';
+import { importWorksheet } from './functional-ui.mjs';
 const output = 'apps/worksheet/test-results'; await mkdir(output, { recursive: true }); const results = [];
 let browser, app, lab, error;
 try {
@@ -14,7 +15,7 @@ try {
   await page.getByLabel('HTML-Arbeitsblatt auswählen').setInputFiles({ name: 'Sicherung.html', mimeType: 'text/html', buffer: Buffer.from(source) }); await page.locator('.status-line').filter({ hasText: 'Revision 0' }).waitFor(); await page.frameLocator('iframe').locator('#answer').fill('Bestätigte Sicherungsantwort'); await page.frameLocator('iframe').locator('#toggle').click();
   const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Sicherung exportieren', exact: true }).click()]); const path = output + '/ui-backup.json'; await download.saveAs(path); const backup = JSON.parse(await readFile(path, 'utf8'));
   assert.equal(backup.format, 'html-worksheet-backup'); assert.equal(backup.instances.length, 1); assert.deepEqual(backup.revisions[0].state.fields.map(x => x.value), ['Bestätigte Sicherungsantwort', true]);
-  await page.getByLabel('Sicherungsdatei auswählen').setInputFiles(path); await page.waitForFunction(() => document.querySelectorAll('article.card').length === 2);
+  await importWorksheet(page, path, 'Sicherung importieren'); await page.waitForFunction(() => document.querySelectorAll('article.card').length === 2);
   const stored = await page.evaluate(() => new Promise(resolve => { const q = indexedDB.open('html-worksheet-v1'); q.onsuccess = () => { const db = q.result, tx = db.transaction(['instances', 'revisions'], 'readonly'), data = {}; for (const key of ['instances', 'revisions']) { const r = tx.objectStore(key).getAll(); r.onsuccess = () => { data[key] = r.result; }; } tx.oncomplete = () => { db.close(); resolve(data); }; }; }));
   assert.equal(stored.instances.length, 2); assert.equal(new Set(stored.instances.map(x => x.id)).size, 2); assert(stored.instances.some(x => x.id === backup.instances[0].id));
   const copied = stored.instances.find(x => x.id !== backup.instances[0].id); assert.equal(copied.headRevision, 0); assert.deepEqual(stored.revisions.find(x => x.instanceId === copied.id).state, backup.revisions[0].state);

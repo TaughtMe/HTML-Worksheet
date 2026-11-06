@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-05T21:52:41.645Z",
+  "engine": "chromium",
+  "browserVersion": "143.0.7499.4",
+  "selection": {
+    "source": "explicit-executable",
+    "executablePath": "/home/runner/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome"
+  },
+  "nodeVersion": "v24.22.2",
+  "origin": "http://127.0.0.1:44361",
+  "profile": "/tmp/worksheet-functional-BhaY2V",
+  "persistentProfileRestarted": false,
+  "serverStoppedBeforeOfflineRestart": false,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": false,
+    "serverFailure": null,
+    "routedHttpRequestsAborted": [],
+    "responses": []
+  },
+  "screenshots": [],
+  "observations": {},
+  "results": [
+    {
+      "name": "functional flow",
+      "result": "fail",
+      "error": "TimeoutError: locator.waitFor: Timeout 7000ms exceeded.\nCall log:\n  - waiting for locator('.status-line').filter({ hasText: 'Revision 0' }) to be visible\n"
+    }
+  ]
+}

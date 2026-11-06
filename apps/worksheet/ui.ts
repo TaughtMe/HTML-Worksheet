@@ -53,7 +53,7 @@ export function mountUi(root: HTMLElement, actions: AppActions): MountedUi {
   const storageDot = el('span', 'icon', icon('offline')); storageDot.setAttribute('aria-hidden', 'true');
   storageTitle.append(storageDot, document.createTextNode('Dieses Gerät'));
   storage.append(storageTitle, storageMessage);
-  sidebar.append(brand, navSection, tree, spacer, storage);
+  sidebar.append(brand, navSection, tree, mobileNav, spacer, storage);
 
   const main = el('main', 'main');
   const toolbar = el('div', 'toolbar');

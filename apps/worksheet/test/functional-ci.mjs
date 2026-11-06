@@ -19,7 +19,8 @@ export function checkCompleteFlow(report, engine, expectedVersion) {
   assert.equal(report.persistentProfileRestarted, true); assert.equal(report.serverStoppedBeforeOfflineRestart, true);
   assert.equal(report.offlineProof.directServerRequestFailed, true);
   assert.equal(report.offlineProof.serverFailure, 'ECONNREFUSED');
-  assert.equal(report.screenshots.length, 2); assert.deepEqual(report.screenshots.map(item => item.viewport), [{ width: 1440, height: 1000 }, { width: 820, height: 1180 }]);
+  assert.equal(report.screenshots.length, 3); assert.deepEqual(report.screenshots.map(item => item.viewport), [{ width: 1440, height: 1000 }, { width: 820, height: 1180 }, { width: 390, height: 844 }]);
+  for (const screenshot of report.screenshots) { assert(screenshot.actions.length > 0); assert(screenshot.actions.every(action => action.visible && action.horizontalViewport && action.insideContainer)); }
   assert(report.pdf.pages >= 3); assert.equal(report.pdf.path.endsWith('offline-answers.pdf'), true);
 }
 const output = 'apps/worksheet/test-results';
@@ -32,7 +33,7 @@ async function main(mode) {
   const engine = process.env.BROWSER_ENGINE; assert(['chromium', 'firefox', 'webkit'].includes(engine)); mkdirSync(output, { recursive: true });
   if (mode === 'source') {
     const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
-    const files = ['.github/workflows/functional-mvp.yml', 'package-lock.json', 'apps/worksheet/test/functional.mjs', 'apps/worksheet/test/functional-ci.mjs', 'apps/worksheet/build.mjs', 'apps/worksheet/ui.ts', 'apps/worksheet/ui.html', 'apps/worksheet/ui.css', 'apps/worksheet/src/app.ts', 'apps/worksheet/src/session.ts', 'apps/worksheet/src/repository.ts', 'apps/worksheet/src/model.ts', 'apps/worksheet/src/pdf.ts', 'apps/worksheet/src/sw.ts', 'apps/worksheet/src/shell.ts', 'apps/security-lab/src/runner.ts', 'apps/security-lab/src/runner-policy.ts', 'apps/security-lab/src/strict-import.ts', 'apps/security-lab/src/contract.ts', 'apps/worksheet/assets/OpenSans-Regular.ttf'];
+    const files = ['.github/workflows/functional-mvp.yml', 'package-lock.json', 'apps/worksheet/test/functional.mjs', 'apps/worksheet/test/functional-ui.mjs', 'apps/worksheet/test/functional-ci.mjs', 'apps/worksheet/build.mjs', 'apps/worksheet/ui.ts', 'apps/worksheet/ui.html', 'apps/worksheet/ui.css', 'apps/worksheet/src/app.ts', 'apps/worksheet/src/offline.ts', 'apps/worksheet/src/session.ts', 'apps/worksheet/src/repository.ts', 'apps/worksheet/src/model.ts', 'apps/worksheet/src/pdf.ts', 'apps/worksheet/src/sw.ts', 'apps/worksheet/src/shell.ts', 'apps/security-lab/src/runner.ts', 'apps/security-lab/src/runner-policy.ts', 'apps/security-lab/src/strict-import.ts', 'apps/security-lab/src/contract.ts', 'apps/worksheet/assets/OpenSans-Regular.ttf'];
     const source = { engine, event: process.env.FUNCTIONAL_EVENT, eventSha: process.env.FUNCTIONAL_EVENT_SHA, head: git('rev-parse', 'HEAD'), tree: git('rev-parse', 'HEAD^{tree}'), trackedClean: git('status', '--porcelain', '--untracked-files=no') === '', nodeVersion: process.version, lockedPlaywright: JSON.parse(readFileSync('package-lock.json', 'utf8')).packages['node_modules/playwright'].version, sha256: Object.fromEntries(files.map(path => [path, hash(path)])) };
     writeFileSync(join(output, 'ci-source.json'), JSON.stringify(source, null, 2)); assert.equal(source.head, source.eventSha); assert.equal(source.trackedClean, true); assert.equal(source.lockedPlaywright, '1.57.0');
   } else if (mode === 'chromium-path') {

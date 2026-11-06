@@ -10,6 +10,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { startAppServer } from '../server.mjs';
 import { functionalStages } from './functional-ci.mjs';
+import { captureApp, importWorksheet } from './functional-ui.mjs';
 const output = 'apps/worksheet/test-results'; await mkdir(output, { recursive: true });
 const engine = process.env.BROWSER_ENGINE ?? 'chromium', engines = { chromium, firefox, webkit };
 if (!Object.hasOwn(engines, engine)) throw Error('Unknown BROWSER_ENGINE');
@@ -45,14 +46,22 @@ async function pdf(page, name, expected) {
   assert(parsed.getPageCount() >= 3); for (const value of expected) assert(text.includes(value), `PDF missing ${value}`);
   await writeFile(path + '.txt', text); return { path, bytes: data.length, pages: parsed.getPageCount(), sha256: createHash('sha256').update(data).digest('hex') };
 }
-async function captureApp(page) {
-  const original = page.viewportSize();
-  try { for (const [name, viewport] of [['desktop', { width: 1440, height: 1000 }], ['tablet-width', { width: 820, height: 1180 }]]) {
-    await page.setViewportSize(viewport); const path = join(output, `app-${name}.png`); const data = await page.screenshot({ path, fullPage: true });
-    screenshots.push({ path, viewport, bytes: data.length, sha256: createHash('sha256').update(data).digest('hex'), note: 'Viewport only; no physical device emulation claim' });
-  } } finally { if (original) await page.setViewportSize(original); }
-}
 async function stage(name, work) { const start = performance.now(); await work(); results.push({ name, result: 'pass', elapsedMs: performance.now() - start }); console.log('PASS', name); }
+async function startupDiagnostics(page) {
+  return Promise.race([page.evaluate(async () => {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    const cacheEntries = [];
+    for (const name of (await caches.keys()).filter(name => name.startsWith('worksheet-shell-')).slice(0, 8)) {
+      const cache = await caches.open(name), requests = await cache.keys();
+      const entries = [];
+      for (const request of requests.slice(0, 8)) { const response = await cache.match(request); entries.push({ url: request.url, status: response?.status, cacheControl: response?.headers.get('cache-control'), vary: response?.headers.get('vary') }); }
+      cacheEntries.push({ name, entries, shellRelative: !!await cache.match('/shell-template'), shellAbsolute: !!await cache.match(new URL('/shell-template', location.origin).href), bundleRelative: !!await cache.match('/app.js'), bundleAbsolute: !!await cache.match(new URL('/app.js', location.origin).href) });
+    }
+    const controller = navigator.serviceWorker.controller;
+    const reply = controller ? await new Promise(resolve => { const channel = new MessageChannel(), timer = setTimeout(() => { channel.port1.close(); resolve({ timeout: true }); }, 750); channel.port1.onmessage = event => { clearTimeout(timer); channel.port1.close(); resolve(event.data); }; controller.postMessage({ type: 'CACHE_STATUS' }, [channel.port2]); }) : null;
+    return { url: location.href, controller: controller && { scriptURL: controller.scriptURL, state: controller.state }, registrations: registrations.map(reg => ({ scope: reg.scope, active: reg.active?.state, waiting: reg.waiting?.state, installing: reg.installing?.state })), cacheEntries, cacheStatusReply: reply };
+  }), new Promise(resolve => setTimeout(() => resolve({ timeout: true }), 2000))]);
+}
 try {
   const app = await startAppServer(0); server = app.server; origin = app.origin;
   context = await launch(false); browserVersion = context.browser().version(); context.setDefaultTimeout(7000);
@@ -68,10 +77,10 @@ try {
   let page = context.pages()[0]; await page.goto(origin); await ready(page); initialNonce = await page.locator('script[nonce]').evaluate(x => x.nonce);
   await stage(functionalStages[0], async () => {
     await prompt(page, 'Arbeitsheft hinzufügen', 'Mein Heft'); await prompt(page, 'Kapitel hinzufügen', 'Kapitel 1');
-    await page.getByLabel('HTML-Arbeitsblatt auswählen').setInputFiles({ name: 'Fixture A.html', mimeType: 'text/html', buffer: Buffer.from(source) });
+    await importWorksheet(page, { name: 'Fixture A.html', mimeType: 'text/html', buffer: Buffer.from(source) });
     await page.locator('.status-line').filter({ hasText: 'Revision 0' }).waitFor(); const frame = page.frameLocator('iframe');
     await frame.locator('#text').fill('Antwort fürs PDF <b>keine Ausführung</b>'); await frame.locator('#area').fill(notes); await frame.locator('#r2').check(); await frame.locator('#one').selectOption('b'); await frame.locator('#many').selectOption(['a', 'b']); await frame.locator('#toggle').click();
-    await captureApp(page);
+    screenshots.push(...await captureApp(page, output));
     lastPdf = await pdf(page, 'online-answers.pdf', ['Übung: Antworten erhalten', 'Frage: Was wurde bearbeitet?', 'Antwort fürs PDF', 'Antwortzeile 179:', 'Ja (true)', 'r2', 'a, b']);
     const data = await library(page), sheet = data.instances.find(x => x.title === 'Fixture A'); firstId = sheet.id; initialState = data.revisions.find(x => x.instanceId === firstId && x.revision === sheet.headRevision).state;
     assert.deepEqual(initialState.fields.map(x => x.value), [notes, true, 'r2', ['a', 'b'], 'b', 'Antwort fürs PDF <b>keine Ausführung</b>']);
@@ -80,7 +89,7 @@ try {
     assert(ack && trace.transactions.some(tx => tx.complete !== null && tx.complete <= ack.at && tx.writes.some(w => w.instanceId === firstId && w.revision === sheet.headRevision)));
     observations.online = { instanceId: firstId, revision: sheet.headRevision, state: initialState, ack, committedTransactions: trace.transactions.filter(tx => tx.complete !== null && tx.writes.some(w => w.instanceId === firstId)), pdf: lastPdf };
     await close(page);
-    await page.getByLabel('HTML-Arbeitsblatt auswählen').setInputFiles({ name: 'Fixture B.html', mimeType: 'text/html', buffer: Buffer.from(sourceB) }); await page.locator('.status-line').filter({ hasText: 'Revision 0' }).waitFor();
+    await importWorksheet(page, { name: 'Fixture B.html', mimeType: 'text/html', buffer: Buffer.from(sourceB) }); await page.locator('.status-line').filter({ hasText: 'Revision 0' }).waitFor();
     await page.frameLocator('iframe').locator('#answer').fill('Zweites Blatt'); await page.frameLocator('iframe').locator('#toggle').click(); await save(page); await close(page);
     assert.equal((await library(page)).instances.length, 2);
   });
@@ -123,9 +132,9 @@ try {
   await stage(functionalStages[4], async () => {
     const [backup] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Sicherung exportieren', exact: true }).click()]); const path = join(output, 'backup.json'); await backup.saveAs(path);
     const data = JSON.parse(await readFile(path, 'utf8')); assert.equal(data.format, 'html-worksheet-backup'); const previous = await library(page);
-    await page.getByLabel('Sicherungsdatei auswählen').setInputFiles(path); await page.waitForFunction(count => document.querySelectorAll('nav.tree button').length >= count, previous.containers.length * 2 + 1);
+    await importWorksheet(page, path, 'Sicherung importieren'); await page.waitForFunction(count => document.querySelectorAll('nav.tree button').length >= count, previous.containers.length * 2 + 1);
     const after = await library(page); assert.equal(after.instances.length, previous.instances.length * 2); assert.equal(after.containers.length, previous.containers.length * 2); assert(previous.instances.every(x => after.instances.some(y => y.id === x.id && y.headRevision === x.headRevision)));
   });
-} catch (error) { failure = String(error); results.push({ name: 'functional flow', result: 'fail', error: failure }); console.log('FAIL', failure); if (context) { const p = context.pages()[0]; if (p) { await p.screenshot({ path: join(output, 'failure.png'), fullPage: true }).catch(() => {}); await writeFile(join(output, 'failure-dom.html'), await p.content().catch(() => 'unavailable')); } } }
+} catch (error) { failure = String(error); results.push({ name: 'functional flow', result: 'fail', error: failure }); console.log('FAIL', failure); if (context) { const p = context.pages()[0]; if (p) { observations.failureStartup = await startupDiagnostics(p).catch(error => ({ error: String(error) })); await p.screenshot({ path: join(output, 'failure.png'), fullPage: true }).catch(() => {}); await writeFile(join(output, 'failure-dom.html'), await p.content().catch(() => 'unavailable')); } } }
 finally { await context?.close(); if (server) { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); } await writeFile(join(output, `functional-${engine}.json`), JSON.stringify({ at: new Date().toISOString(), engine, browserVersion, selection, nodeVersion: process.version, origin, profile: failure ? profile : 'removed after success', persistentProfileRestarted: profileRestarted, serverStoppedBeforeOfflineRestart: serverStopped, offlineMethod: 'server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)', offlineProof, screenshots, observations, results, pdf: lastPdf }, null, 2)); if (!failure) await rm(profile, { recursive: true, force: true }); }
 if (failure) process.exitCode = 1;

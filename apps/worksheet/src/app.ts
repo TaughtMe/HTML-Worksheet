@@ -3,6 +3,7 @@ import type { AppActions, AppView } from '../types.ts';
 import { Repository } from './repository.ts';
 import { DurableSession } from './session.ts';
 import { createPdf } from './pdf.ts';
+import { waitForActivated } from './offline.ts';
 const scriptNonce = (document.currentScript as HTMLScriptElement | null)?.nonce;
 if (!scriptNonce) throw Error('APP_NONCE_MISSING');
 const nonce = scriptNonce;
@@ -107,10 +108,13 @@ addEventListener('beforeunload', event => {
 });
 async function offline() {
   try {
+    const preparationDeadline = performance.now() + 10000;
     if (!('serviceWorker' in navigator)) throw Error('Service Worker nicht verfügbar.');
     const existing = await navigator.serviceWorker.getRegistration('/');
     if (!existing?.active) await navigator.serviceWorker.register('/sw.js', { scope: '/' });
-    await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => setTimeout(() => reject(Error('Offline-Vorbereitung noch nicht bestätigt.')), 10000))]);
+    const registration = await Promise.race([navigator.serviceWorker.ready, new Promise<never>((_, reject) => setTimeout(() => reject(Error('Offline-Vorbereitung noch nicht bestätigt.')), Math.max(0, preparationDeadline - performance.now())))]);
+    if (!registration.active) throw Error('Offline-Worker ist nicht aktiv.');
+    await waitForActivated(registration.active, preparationDeadline - performance.now());
     if (!navigator.serviceWorker.controller) await new Promise<void>((resolve, reject) => {
       const timer = setTimeout(() => reject(Error('Offline-Steuerung noch nicht aktiv.')), 5000);
       navigator.serviceWorker.addEventListener('controllerchange', () => { clearTimeout(timer); resolve(); }, { once: true });

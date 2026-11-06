@@ -1,0 +1,32 @@
+{
+  "engine": "firefox",
+  "event": "pull_request",
+  "eventSha": "19608a80ebb5b08a0c6600b32f6fb74a911366d5",
+  "head": "19608a80ebb5b08a0c6600b32f6fb74a911366d5",
+  "tree": "89d4b3844650c73095c8ef9f1aa109223674ad02",
+  "trackedClean": true,
+  "nodeVersion": "v24.22.2",
+  "lockedPlaywright": "1.57.0",
+  "sha256": {
+    ".github/workflows/functional-mvp.yml": "61110429061287c9e474fe58f6b52b4e47f40b025a005008aadc891d2b42c917",
+    "package-lock.json": "74940acb6f4fc264595d896ba21be5c469315438f7420fb368c85f5659e13167",
+    "apps/worksheet/test/functional.mjs": "bfa73c11da8ec8e2619b08f01ca9fb37a6ff524e743ff93157ff6cdfb5c8335a",
+    "apps/worksheet/test/functional-ci.mjs": "d47fe0039db671044e92ef58ab6999e400f2abdeb94c92d0088beb4b377fd08c",
+    "apps/worksheet/build.mjs": "45fa798bb4deb6bc87393f5a881775b82e8d8616642b320054a8cbe2b97dadbc",
+    "apps/worksheet/ui.ts": "f553d716a21c1bb8efbccaba9fccfee2a509bd26a8a1c61fe865dcbeee894546",
+    "apps/worksheet/ui.html": "2b2218c23272f023acdb4edccbf4cd089a4b1c538c05659719c005f2f860f820",
+    "apps/worksheet/ui.css": "f3cae69c6b78843cb37caa8248fbb4ef4c761255a82bced300a38876c9fa8934",
+    "apps/worksheet/src/app.ts": "9ad9ebad7c5c30d0b99e3d542376aedc638f5e3a8274902c3109f53c7b0cac0d",
+    "apps/worksheet/src/session.ts": "5264ec5dad5003e3f4c56cada8a2ef0090b45ad5b40009e048c03595b66d48ba",
+    "apps/worksheet/src/repository.ts": "81efdd78e6772289eaae1369a88979bdbd7662e1784abab904923f151f450a24",
+    "apps/worksheet/src/model.ts": "a84f89db1ce8d176b381dff042f379fa3b5e19348cc15abca7bb9f0cef94f55c",
+    "apps/worksheet/src/pdf.ts": "48ae5cfe199cd879e383219bf77b0628665b85ab310c42101cadc554c26d3ae3",
+    "apps/worksheet/src/sw.ts": "387a422520621a16df8a25bec86a7f67c6731f0071a0f674493b110753243f04",
+    "apps/worksheet/src/shell.ts": "dd6f1f37867a3f4c64201a5e670178298c235e61ba3c3baeeed6f81b279897b8",
+    "apps/security-lab/src/runner.ts": "3793992f8852ba2ada443fe00144fec32ac31c2ded6d25f30d67c98a2233aecf",
+    "apps/security-lab/src/runner-policy.ts": "477cbcc92b0d320589920c163e497724ed256a589d4c95c632ab58ca19a7824c",
+    "apps/security-lab/src/strict-import.ts": "ca2ebe693063a2644608fb962cc5a873703f8c8b6204e613a681881706987d8a",
+    "apps/security-lab/src/contract.ts": "7ec5fe6598e6aeb43203e9b4a2dd63bfdc44d15139c5d3b090fd643af7f1d6e2",
+    "apps/worksheet/assets/OpenSans-Regular.ttf": "e64e508b2aa2880f907e470c4550980ec4c0694d103a43f36150ac3f93189bee"
+  }
+}

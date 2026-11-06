@@ -3,3 +3,22 @@
 @media(max-width:760px){.shell{grid-template-columns:1fr}.sidebar{min-height:0;padding:14px;display:grid;grid-template-columns:1fr auto;gap:6px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:4px}.sidebar .side-label,.sidebar .tree,.sidebar-spacer,.storage-card{display:none}.mobile-nav{display:flex;gap:6px;overflow:auto;grid-column:1/-1}.mobile-nav .nav{white-space:nowrap;min-height:36px;padding:6px 10px}.main{padding:21px 16px 36px}.toolbar{margin-bottom:23px}.heading-row{align-items:flex-start;flex-wrap:wrap}.heading-row .primary,.heading-row .secondary{min-height:40px}.card-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}}
 @media(max-width:420px){.card-grid{grid-template-columns:1fr}.toolbar .primary{padding:0 10px}.heading-row{gap:10px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Narrow tablet and card-action overflow corrections based on Firefox review. */
+.toolbar{flex-wrap:wrap;justify-content:flex-start}
+.toolbar .grow{flex:1 1 100%;height:0}
+.mobile-nav{display:none}
+.card-top{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px}
+.card-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;flex:1 1 100%;min-width:0;margin:0}
+.card-actions .mini{min-width:0;width:100%;min-height:36px;padding:6px 8px;display:flex;align-items:center;justify-content:center;gap:4px;font-size:13px;line-height:1.2;white-space:normal;overflow-wrap:normal;word-break:normal;text-align:center}
+.card{min-width:0;overflow:hidden}
+.runner-wrap{min-width:0;overflow:hidden}
+.runner-mount{min-width:0;overflow:auto}
+.runner-mount iframe{min-width:0;max-width:100%}
+.runner-wrap>.toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;align-items:stretch;padding:10px;background:#f1ede4;border-bottom:1px solid var(--line);margin:0}
+.runner-wrap>.toolbar>button{min-width:0;width:100%;min-height:42px;padding:7px 9px;white-space:normal;line-height:1.2;text-align:center;overflow-wrap:anywhere}
+.runner-wrap>.toolbar .grow{display:none}
+@media(max-width:900px){.shell{grid-template-columns:230px minmax(0,1fr)}.main{padding:22px 20px 36px}.toolbar{gap:7px;margin-bottom:24px}.toolbar>button{min-height:40px;padding-inline:11px;font-size:14px}.heading-row{align-items:flex-start;flex-wrap:wrap}.heading-row>div:first-child{flex:1 1 100%}}
+@media(max-width:760px){.shell{grid-template-columns:minmax(0,1fr)}.sidebar{grid-template-columns:minmax(0,1fr);}.brand{font-size:21px}.toolbar .grow{display:none}.toolbar{justify-content:flex-start}.toolbar>button{flex:1 1 calc(50% - 8px)}.heading-row .primary,.heading-row .secondary{flex:1 1 calc(50% - 8px)}.card-grid{grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr))}.mobile-nav{display:flex;gap:6px;overflow:auto;grid-column:1/-1}.sidebar .tree{display:none}}
+@media(max-width:420px){.main{padding:16px 12px 28px}.toolbar>button{flex:1 1 100%;justify-content:flex-start}.heading-row .primary,.heading-row .secondary{flex:1 1 100%}.card-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.runner-mount iframe{min-height:480px}}
+@media(max-width:420px){.runner-wrap>.toolbar{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:8px}.runner-wrap>.toolbar>button{min-height:44px;padding:6px 5px;font-size:13px}.runner-wrap>.toolbar>button:last-child{grid-column:1/-1}}
