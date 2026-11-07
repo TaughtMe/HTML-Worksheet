@@ -1,0 +1,57 @@
+{
+  "at": "2026-11-06T14:39:00.375Z",
+  "engine": "webkit",
+  "browserVersion": "26.0",
+  "selection": {
+    "source": "playwright-managed-default",
+    "executablePath": null
+  },
+  "nodeVersion": "v24.22.2",
+  "origin": "http://127.0.0.1:36865",
+  "profile": "/tmp/worksheet-functional-jtcgLN",
+  "persistentProfileRestarted": false,
+  "serverStoppedBeforeOfflineRestart": false,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": false,
+    "serverFailure": null,
+    "routedHttpRequestsAborted": [],
+    "responses": []
+  },
+  "screenshots": [],
+  "observations": {
+    "failureStartup": {
+      "url": "http://127.0.0.1:36865/",
+      "controller": {
+        "scriptURL": "http://127.0.0.1:36865/sw.js",
+        "state": "activated"
+      },
+      "registrations": [
+        {
+          "scope": "http://127.0.0.1:36865/",
+          "active": "activated"
+        }
+      ],
+      "cacheEntries": [
+        {
+          "name": "worksheet-shell-b92827c55f33d6204040ba47",
+          "entries": [],
+          "shellRelative": false,
+          "shellAbsolute": false,
+          "bundleRelative": false,
+          "bundleAbsolute": false
+        }
+      ],
+      "cacheStatusReply": {
+        "ready": false
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "functional flow",
+      "result": "fail",
+      "error": "TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('.storage-card[data-ready=\"true\"]') to be visible\n"
+    }
+  ]
+}

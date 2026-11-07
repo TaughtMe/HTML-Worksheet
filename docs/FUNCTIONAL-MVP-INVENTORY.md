@@ -26,7 +26,9 @@ Implementiert sind die `strict-v1`-Arbeitsblatt-App mit Bibliothek, IDB-v1 für 
 | Semantische PDF-Datei | Implementiert | PDF-Modell/Fehlerfälle 2/2 | Echter mehrseitiger Online-PDF-Download und Textextraktion belegt |
 | App-Shell offline und persistente Antworten | Implementiert | Offline-State 1/1 | Server aus, ECONNREFUSED, Appnavigation nur via Service Worker, State nach Profilneustart wiederhergestellt |
 | Voller Offlineablauf bis zum PDF-Download | Implementiert, E2E nicht abgeschlossen | Lokal blockiert: Chromium 154 schloss beim Blobdownload auch mit Textblob-Kontrolle | Kein Pass; Ursache nicht festgestellt |
-| Firefox/WebKit und reale Geräte | Integrierte CI ausstehend; Geräte offen | Keine C/F/W-Integration hier beansprucht | Kein iPad-/Android-Nachweis, native Share nicht praktisch geprüft |
+| Browsermatrix und reale Geräte | Chromium/Firefox Full-Flow in CI; WebKit vor Stage 1 blockiert; Geräte offen | CI 42235649475 unabhängiger Rohreview: C/F je 5/5; WebKit wegen leerem aktivierten Worker-Cache blockiert, Diagnose offen | Kein WebKit-/iPad-/Android-Nachweis, native Share nicht praktisch geprüft |
+
+Die spätere gezielte UI-Review-Prüfung bestätigt nun Layout auf 390/820/1440 px: alle 13 Aktionen je Ansicht innerhalb der Viewportgrenzen, echte Arbeitsblattfelder sichtbar, und mobile Navigation zu „Alle“, Arbeitsheft und Kapitel funktionsfähig. Details und kanonische Worksheet-Viewportbilder liegen im [UI-Reviewarchiv](reports/evidence/functional-ui-review-42116489219/manifest.json). Der integrierte CI-Lauf 42235649475 bestätigt den Full-Flow in Chromium und Firefox samt unabhängiger Rohprüfung. WebKit 26.0 blockierte vor Stage 1 wegen leerem aktivierten Worker-Cache; Ursache offen. Das ist kein Drei-Engine- oder Gerätepass.
 
 ## Umsetzungsschnittstelle
 
