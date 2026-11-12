@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Self-Link-Probe</title></head>
+<body>
+  <p>Die Probe erzeugt dynamisch einen Link mit Ziel im selben Frame.</p>
+  <script>
+    (() => {
+      const link = document.createElement("a");
+      link.href = "__RECEIVER__/__CASE__?kind=self-link";
+      link.target = "_self";
+      link.textContent = "Synthetischer Selbstlink";
+      document.body.appendChild(link);
+      setTimeout(() => link.click(), 250);
+    })();
+  </script>
+</body></html>

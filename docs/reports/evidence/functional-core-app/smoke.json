@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-05T16:40:27.264Z",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "results": [
+    {
+      "name": "actual UI backup download and merge preserve confirmed answers as fresh identities",
+      "result": "pass"
+    },
+    {
+      "name": "shared runner retains legacy memory-default nonempty restore and checkpoint",
+      "result": "pass",
+      "detail": {
+        "revision": 7,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "restored textarea"
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "<b>synthetic restore</b>"
+          }
+        ],
+        "fixtureSha256": "1a03ec6078939e58c7cd8a34a75b4a8b62ffe2dae4f7395e21b6d98b494acf22",
+        "runnerSha256": "ab3af849821ead95fd8c839de25b9eea07fdc20b6c7ee778d2f14fbedd8164ba"
+      }
+    }
+  ]
+}

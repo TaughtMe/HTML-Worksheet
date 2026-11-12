@@ -1,0 +1,51 @@
+{
+  "purpose": "Preserve three targeted STRICT01 local Chromium reports, including setup-blocked cases; these are not successful C4/C5 evidence.",
+  "integrated_source_commit": "2eb7d5aed79dfbb0e37299636bf38f01edc85a27",
+  "source_commits": {
+    "I": "56d78e23459fc1d144111fc49abb3d7be35dbb9d",
+    "R": "fc488445e7e1a536626b3bbf0f35c4081b384898",
+    "T": "e45a08a266003420f6ab139b0ade9def1e5d136b"
+  },
+  "environment": {
+    "node": "24.19.0",
+    "browser": "Chromium 154.0.8037.57"
+  },
+  "calibration_and_limits": "The C4 positive-counter calibration was not reached in either initial or retry setup. C5 did not reach its restore oracle. Four-second setup timeouts are inconclusive setup blocks, neither passes nor product-failure findings. No further retries were run. C1-C3 local assertions passed, but their counters are not calibrated in these runs because C4 did not pass.",
+  "cases": [
+    {
+      "file": "strict01-initial-chromium.json",
+      "sha256": "26159bd4dacbcaff2f760b60a762315ca2220e3211624ce2bdfd64b6305dfe64",
+      "size_bytes": 3979,
+      "kind": "STRICT01-C1-C5-only",
+      "results": {
+        "C1": "pass",
+        "C2": "pass",
+        "C3": "pass",
+        "C4": "setup timeout; no INIT"
+      },
+      "interpretation": "Initial targeted run; C1-C3 assertions pass, C4 setup did not reach a positive counter calibration."
+    },
+    {
+      "file": "strict01-retry-chromium.json",
+      "sha256": "61647993a84adcf2db362fac7329b0924af070db366c77960a57e431224f1ecd",
+      "size_bytes": 642,
+      "kind": "STRICT01-C1-C5-only",
+      "results": {
+        "C4": "setup timeout; no INIT"
+      },
+      "interpretation": "Single retry stopped at 4-second page.goto setup timeout; no test oracle reached."
+    },
+    {
+      "file": "strict01-chromium.json",
+      "sha256": "b46326756e959ea15e86d269e448a0557229370e92356ce513f1894b57e4278b",
+      "size_bytes": 578,
+      "kind": "STRICT01-C1-C5-only",
+      "results": {
+        "C5": "setup timeout; no test evidence"
+      },
+      "interpretation": "Restore harness stopped at 4-second page.goto setup timeout; no C5 result."
+    }
+  ],
+  "current_review_status": "I/R independent Sol code/method review found no blockers. T-method review approved the central CI with no critical blockers. CI 40546344966 passed 41/41 in Chromium, Firefox, and WebKit. No product/G1 release.",
+  "central_ci_followup": "The local setup-blocked C4/C5 reports remain inconclusive historical attempts. Separate central CI artifacts verify calibrated C4 and C5 in all three engines; local timeouts are not product-failure findings."
+}

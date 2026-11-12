@@ -1,0 +1,1486 @@
+{
+  "at": "2026-10-25T11:30:02.862Z",
+  "engine": "firefox",
+  "browserVersion": "144.0.2",
+  "policy": "ADR0001-srcdoc",
+  "receiverLog": "apps/security-lab/test-results/receiver-firefox-ed14d667-359a-4b5f-8fb8-d3e90e400616.jsonl",
+  "runId": "ed14d667-359a-4b5f-8fb8-d3e90e400616",
+  "fixtures": [
+    {
+      "filename": "synthetic.html",
+      "sha256": "9d448c9824ac4851d5ff5e81dc5d15655febc4a863c2ac77ed2bf75ae98c5856"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "796068a9fc360430fedbf362e0c2d43351616fb6bc1c0d7693cf62104e378007"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "9128c92a7b826cb8de815c8731cdc13c120c05f130a5790cf641b607186d1737"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "c57608b985501e36c9d656d5d169c2955f9e757a18e4555f3550339077a1ec02"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "eddf68639913a3cb8331cdfe7f87559e0beccf2c289c0d90ac4d89b3204004f8"
+    },
+    {
+      "filename": "<img src=x onerror=globalThis.hostXss=1>.html",
+      "sha256": "3b7444ae946322351c525df956a5ab13fb88546479310effe2614059cf0ff076"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "04b04ef2ea12ece84736c380279d20d0a84a3be2816e3488ff675a192a6cdd83"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "5b045e42ff3a12aa979c71be2ae13323f04d7cabbcfd1b876a5e245df14e80a8"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "ae9d4b9371a5e47eda107940af302146f58029d81279e1e835f69256adc2713f"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "6b32b29a3e84c4cfa0988afff6f03269e9284297f8e7759b0278b97e1669044d"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "b17ea995386fce273752c0119fdf1c27fc26788bd7b7b064ced1d00d652ba216"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "47868b68485ea40622de5731a2118291a94369992e6a560cc983b1f1441edacb"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "a1cd3ea2a6f212115bc5de51ff03d799a8d3e77c5fd6d5e3416b63f071390542"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "e4bfb2ab18f8c6a4fe774ecf6550df488c24586deb48a97eeab51dab99ae01db"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "d65ba22c36db8e6df676e07bdb969006f86bbfb954129bdd14930b14184fd643"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "099e4099499c86ff34a2b20a54ca698e5e62161a6350eba87d3557bbfb8f8105"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "5d2beafa298fa37e8d418124a7fac5198e9c0ef203181d8fedd9cbf896ca5e11"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "c14efb6caa1b88f4315dac4cb1350c78b2865ca790f7474ec78dc10e1daa4d62"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "223fa82829001ff13729165fb590e3ffeb651ac7fb18a91245a9df12e00463bd"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "cb4873fa7528b0ea8b435709def97c1e5b4cb842953edb097d20e0497e9dbae9"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "5264f2a7adfbee84b28a36fa9a22cf2cf9fac598b6bd4ca76673eec89140c04b"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "9dd227f7c0047c05c0dc2339f53e93232fe3db8537f91d67d680782cfdcdc23d"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "999751a135039c305cab210bf828be865ba2a03826440274d10e73b41388d5d1"
+    },
+    {
+      "filename": "synthetic.html",
+      "sha256": "3b7444ae946322351c525df956a5ab13fb88546479310effe2614059cf0ff076"
+    }
+  ],
+  "browserEvents": [
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "http://127.0.0.1:40761/"
+    },
+    {
+      "type": "request",
+      "url": "http://127.0.0.1:40761/host.js",
+      "method": "GET"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    },
+    {
+      "type": "navigation",
+      "url": "about:srcdoc"
+    }
+  ],
+  "violations": [
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Firefox can’t establish a connection to the server at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?eventsource.\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616 because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616 because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?xhr because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?xhr because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?beacon because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?beacon because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a script (script-src-elem) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?script from being executed because it violates the following directive: “script-src 'unsafe-inline'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?iframe because it violates the following directive: “frame-src 'none'”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?iframe because it violates the following directive: “frame-src 'none'”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (object-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?object because it violates the following directive: “object-src 'none'”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (object-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?object because it violates the following directive: “object-src 'none'”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (default-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?link because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (default-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?link because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a style (style-src-elem) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?css from being applied because it violates the following directive: “style-src 'nonce-GNdPMSX/qVZWG2mgEceZiCfdyMo51xCW'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a style (style-src-elem) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?css from being applied because it violates the following directive: “style-src 'unsafe-inline'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at ws://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616 because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at ws://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616 because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?eventsource because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (connect-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?eventsource because it violates the following directive: “connect-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?image because it violates the following directive: “img-src data:”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?image because it violates the following directive: “img-src data:”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?background because it violates the following directive: “img-src data:”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?background because it violates the following directive: “img-src data:”\" {file: \"about:srcdoc\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (media-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?video because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (media-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?video because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (media-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?audio because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (media-src) at http://127.0.0.1:40659/blocked?run=ed14d667-359a-4b5f-8fb8-d3e90e400616?audio because it violates the following directive: “default-src 'none'”\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a JavaScript eval (script-src) from being executed because it violates the following directive: “script-src 'nonce-aXVEpgQaVxRss93cKWS6eYPqfQJyqRun'” (Missing 'unsafe-eval')\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked a JavaScript eval (script-src) from being executed because it violates the following directive: “script-src 'unsafe-inline'” (Missing 'unsafe-eval')\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked an event handler (script-src-attr) from being executed because it violates the following directive: “script-src 'nonce-aXVEpgQaVxRss93cKWS6eYPqfQJyqRun'”. Consider using a hash ('sha256-OSY0tDJvaGhJusiA1iVg6PUuiMP3yaKC87ssTyMhnn8=') together with 'unsafe-hashes'.\" {file: \"about:srcdoc\" line: 268}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at http://127.0.0.1:40659/sandbox?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&action=external-download-link because it violates the following directive: “frame-src 'none'”\" {file: \"http://127.0.0.1:40761/\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at blob:null/18e41f2e-e9d6-44c4-8e17-88c8acd97165 because it violates the following directive: “frame-src 'none'”\" {file: \"http://127.0.0.1:40761/\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at http://127.0.0.1:40659/self-navigation?synthetic=1 because it violates the following directive: “frame-src 'none'”\" {file: \"http://127.0.0.1:40761/\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (frame-src) at http://127.0.0.1:40761/self-navigation?synthetic=1 because it violates the following directive: “frame-src 'none'”\" {file: \"http://127.0.0.1:40761/\" line: 0}]",
+    "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://127.0.0.1:40761/favicon.ico because it violates the following directive: “img-src data:”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 175}]"
+  ],
+  "results": [
+    {
+      "name": "independent receiver positive control",
+      "result": "pass",
+      "detail": {
+        "receiverOrigin": "http://127.0.0.1:40659"
+      }
+    },
+    {
+      "name": "host CSP header fresh nonce and strict sources",
+      "result": "pass",
+      "detail": "default-src 'none'; script-src 'nonce-X64xdLgyaXtOBl3dcqAJzrimN5mPTiu9'; style-src 'nonce-X64xdLgyaXtOBl3dcqAJzrimN5mPTiu9'; img-src data:; connect-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+    },
+    {
+      "name": "allowed JS and five standard field kinds capture and checkpoint",
+      "result": "pass",
+      "detail": {
+        "revision": 1,
+        "durability": "memory",
+        "state": {
+          "schemaVersion": 1,
+          "fields": [
+            {
+              "id": "area",
+              "kind": "text",
+              "value": "synthetic"
+            },
+            {
+              "id": "check",
+              "kind": "checkbox",
+              "value": true
+            },
+            {
+              "id": "group",
+              "kind": "radio",
+              "value": "r2"
+            },
+            {
+              "id": "many",
+              "kind": "select-many",
+              "value": [
+                "a",
+                "b"
+              ]
+            },
+            {
+              "id": "one",
+              "kind": "select-one",
+              "value": "b"
+            },
+            {
+              "id": "text",
+              "kind": "text",
+              "value": "<b>Antwort</b>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "nonempty restore sets every standard field without synthetic events",
+      "result": "pass",
+      "detail": {
+        "revision": 7,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "restored textarea"
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "<b>synthetic restore</b>"
+          }
+        ],
+        "fixtureSha256": "1a03ec6078939e58c7cd8a34a75b4a8b62ffe2dae4f7395e21b6d98b494acf22",
+        "runnerSha256": "961055ac117a8817e663a4426d84596915a9e732051d394c96c3c2707bfe7fba"
+      }
+    },
+    {
+      "name": "native form reset updates RAM after acknowledged input",
+      "result": "pass"
+    },
+    {
+      "name": "dynamic split radio form ownership becomes incompatible",
+      "result": "pass"
+    },
+    {
+      "name": "import size and invalid UTF8 reject in browser",
+      "result": "pass"
+    },
+    {
+      "name": "host filename XSS remains text",
+      "result": "pass"
+    },
+    {
+      "name": "malformed HTML cannot displace fixed policy bootstrap",
+      "result": "pass"
+    },
+    {
+      "name": "opaque parent DOM and storage isolation; privileged host control",
+      "result": "pass",
+      "detail": "SecurityError,SecurityError,SecurityError"
+    },
+    {
+      "name": "window message spoof cannot change state",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects wrong-version",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects wrong-session",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects oversized",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects object",
+      "result": "pass"
+    },
+    {
+      "name": "port rejects replay",
+      "result": "pass"
+    },
+    {
+      "name": "dynamic network sinks produce no receiver request with positive script control",
+      "result": "pass",
+      "detail": {
+        "cspErrors": 45
+      }
+    },
+    {
+      "name": "eval and inline handlers remain denied with allowed classic script",
+      "result": "pass"
+    },
+    {
+      "name": "trusted popup and blob download instrumentation controls",
+      "result": "pass"
+    },
+    {
+      "name": "sandbox popup blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "popup",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          "about:srcdoc"
+        ]
+      }
+    },
+    {
+      "name": "sandbox external-download-link blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "external-download-link",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          "about:srcdoc"
+        ]
+      }
+    },
+    {
+      "name": "sandbox blob-download blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "blob-download",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          "about:srcdoc"
+        ]
+      }
+    },
+    {
+      "name": "sandbox form blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "form",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          "about:srcdoc"
+        ]
+      }
+    },
+    {
+      "name": "sandbox top blocks network popup and download effects with click",
+      "result": "pass",
+      "detail": {
+        "action": "top",
+        "receiverHits": [],
+        "downloads": 0,
+        "popups": 0,
+        "status": "active · synthetischer RAM-State",
+        "frameUrls": [
+          "about:srcdoc"
+        ]
+      }
+    },
+    {
+      "name": "self navigation blocked before request to receiver",
+      "result": "pass",
+      "detail": {
+        "receiverHits": [],
+        "hostHits": []
+      }
+    },
+    {
+      "name": "self navigation blocked before request to host",
+      "result": "pass",
+      "detail": {
+        "receiverHits": [],
+        "hostHits": []
+      }
+    },
+    {
+      "name": "receiver positive control after attacks",
+      "result": "pass"
+    },
+    {
+      "name": "new session cannot inherit prior RAM state",
+      "result": "pass"
+    }
+  ],
+  "hits": [
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:11.098Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=suite-before&control=21777e8c-d066-471f-b197-ea84c8b5c448",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:17.471Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-before&control=c5089d0b-cc09-4d52-a7a2-1694a813b35b",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:17.654Z",
+      "method": "GET",
+      "url": "/ws-control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-before&control=995922aa-7cdc-4a1d-8f60-fb52a49b57e4",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:21.047Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-after&control=238437c5-063a-48b2-9a5a-f38187fa78b5",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:21.238Z",
+      "method": "GET",
+      "url": "/ws-control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-after&control=80daafcb-ce18-4544-9de5-93cb21fd0fd9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:22.058Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-popup-before&control=c65eb774-30b2-40e4-a335-385963da1e29",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.506Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-popup-after&control=afaef920-a409-419c-aaaf-8d2483edb0e9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.691Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-external-download-link-before&control=3c8c38a1-bf24-4087-9fb0-70b3529b12ec",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.122Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-external-download-link-after&control=313b3252-7326-4e9c-b069-51e7deef25d4",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.313Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-blob-download-before&control=2e6902ae-1f02-4cca-8c4b-981fa8aa9641",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.756Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-blob-download-after&control=7f8bb817-a0e8-42c7-b8ff-eb5c24b64b1c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.941Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-form-before&control=0ab08e5b-dbbc-4c35-872d-2a4a21cb3cc9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.368Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-form-after&control=7c52cf75-59e6-424c-91ad-bc56502c107a",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.560Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-top-before&control=96de0dd5-3740-4b79-b4d0-6563562fc0dd",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.998Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-top-after&control=42af003f-5dac-4e1e-9fd1-383405610448",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:40.282Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-receiver-before&control=a926da62-ac40-4a27-b94a-c8e576acf2bc",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:50.723Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-receiver-after&control=c7275c94-c933-4510-97ad-8725542dc060",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:50.918Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-host-before&control=23430c46-2dd6-4367-bc9b-5a1fe0834334",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:01.314Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-host-after&control=7454d096-0963-4915-834c-59de6f1d0fc0",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:01.509Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=suite-after&control=b57498fe-ffd9-4b58-8222-e4a5880ce346",
+      "referer": null
+    }
+  ],
+  "receiverFileHits": [
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:11.098Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=suite-before&control=21777e8c-d066-471f-b197-ea84c8b5c448",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:17.471Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-before&control=c5089d0b-cc09-4d52-a7a2-1694a813b35b",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:17.654Z",
+      "method": "GET",
+      "url": "/ws-control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-before&control=995922aa-7cdc-4a1d-8f60-fb52a49b57e4",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:21.047Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-after&control=238437c5-063a-48b2-9a5a-f38187fa78b5",
+      "referer": null
+    },
+    {
+      "kind": "websocket-upgrade",
+      "at": "2026-10-25T11:29:21.238Z",
+      "method": "GET",
+      "url": "/ws-control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=network-after&control=80daafcb-ce18-4544-9de5-93cb21fd0fd9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:22.058Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-popup-before&control=c65eb774-30b2-40e4-a335-385963da1e29",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.506Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-popup-after&control=afaef920-a409-419c-aaaf-8d2483edb0e9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:25.691Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-external-download-link-before&control=3c8c38a1-bf24-4087-9fb0-70b3529b12ec",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.122Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-external-download-link-after&control=313b3252-7326-4e9c-b069-51e7deef25d4",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:29.313Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-blob-download-before&control=2e6902ae-1f02-4cca-8c4b-981fa8aa9641",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.756Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-blob-download-after&control=7f8bb817-a0e8-42c7-b8ff-eb5c24b64b1c",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:32.941Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-form-before&control=0ab08e5b-dbbc-4c35-872d-2a4a21cb3cc9",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.368Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-form-after&control=7c52cf75-59e6-424c-91ad-bc56502c107a",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:36.560Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-top-before&control=96de0dd5-3740-4b79-b4d0-6563562fc0dd",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:39.998Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=sandbox-top-after&control=42af003f-5dac-4e1e-9fd1-383405610448",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:40.282Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-receiver-before&control=a926da62-ac40-4a27-b94a-c8e576acf2bc",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:50.723Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-receiver-after&control=c7275c94-c933-4510-97ad-8725542dc060",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:29:50.918Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-host-before&control=23430c46-2dd6-4367-bc9b-5a1fe0834334",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:01.314Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=navigation-host-after&control=7454d096-0963-4915-834c-59de6f1d0fc0",
+      "referer": null
+    },
+    {
+      "kind": "http",
+      "at": "2026-10-25T11:30:01.509Z",
+      "method": "GET",
+      "url": "/control?run=ed14d667-359a-4b5f-8fb8-d3e90e400616&case=suite-after&control=b57498fe-ffd9-4b58-8222-e4a5880ce346",
+      "referer": null
+    }
+  ],
+  "hostRequests": [
+    {
+      "at": "2026-10-25T11:29:11.171Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:11.219Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:11.259Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:11.277Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:11.319Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:11.338Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:13.062Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:13.081Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:14.320Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:14.337Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.071Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.086Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.244Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.259Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.378Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.392Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.538Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.552Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.689Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.705Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.880Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:15.895Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.038Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.056Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.304Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.314Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.555Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.571Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.804Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:16.815Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:17.054Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:17.072Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:17.701Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:17.715Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:21.290Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:21.322Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.105Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:22.127Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.738Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:25.758Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:29.361Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:29.381Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:32.988Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:33.010Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:36.606Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:36.629Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:40.344Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:40.376Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:50.966Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:29:50.992Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:30:01.558Z",
+      "method": "GET",
+      "url": "/",
+      "referer": null
+    },
+    {
+      "at": "2026-10-25T11:30:01.577Z",
+      "method": "GET",
+      "url": "/host.js",
+      "referer": null
+    }
+  ]
+}

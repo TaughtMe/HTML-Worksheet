@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-05T16:36:55.130Z",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "scope": "new online reliability regressions only; full offline PDF E2E remains separately blocked",
+  "results": [
+    {
+      "name": "beforeunload warns during the quiet debounce before a host candidate exists",
+      "result": "pass",
+      "elapsedMs": 239.39648899999975
+    },
+    {
+      "name": "pending native IDB commit locks editing; abort preserves the last possible input for working copy",
+      "result": "pass",
+      "elapsedMs": 995.189089
+    },
+    {
+      "name": "foreign deletion including template GC still permits atomic rescue from bound source and candidate",
+      "result": "pass",
+      "elapsedMs": 3701.1338720000003
+    },
+    {
+      "name": "PDF remains bound to its own confirmed snapshot when a competing transaction commits before any repo reread",
+      "result": "pass",
+      "elapsedMs": 498.5667490000005
+    }
+  ]
+}

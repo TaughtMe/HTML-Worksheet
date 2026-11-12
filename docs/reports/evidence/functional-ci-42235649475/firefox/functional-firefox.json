@@ -1,0 +1,804 @@
+{
+  "at": "2026-11-06T14:38:41.926Z",
+  "engine": "firefox",
+  "browserVersion": "144.0.2",
+  "selection": {
+    "source": "playwright-managed-default",
+    "executablePath": null
+  },
+  "nodeVersion": "v24.22.2",
+  "origin": "http://127.0.0.1:37595",
+  "profile": "removed after success",
+  "persistentProfileRestarted": true,
+  "serverStoppedBeforeOfflineRestart": true,
+  "offlineMethod": "server physically stopped; direct HTTP failure; SW-served app; supplementary browser HTTP routing abort (not OS flight mode)",
+  "offlineProof": {
+    "directServerRequestFailed": true,
+    "serverFailure": "ECONNREFUSED",
+    "routedHttpRequestsAborted": [],
+    "responses": [
+      {
+        "url": "http://127.0.0.1:37595/",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:37595/app.js",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:37595/",
+        "fromServiceWorker": true,
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:37595/app.js",
+        "fromServiceWorker": true,
+        "status": 200
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "apps/worksheet/test-results/app-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 326,
+            "right": 496.93333435058594,
+            "top": -329,
+            "bottom": -287
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 506.933349609375,
+            "right": 773.9000244140625,
+            "top": -329,
+            "bottom": -287
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 783.9000244140625,
+            "right": 1049.8833618164062,
+            "top": -329,
+            "bottom": -287
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 1059.88330078125,
+            "right": 1157.4999694824219,
+            "top": -329,
+            "bottom": -287
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 344,
+            "right": 451,
+            "top": 35.899993896484375,
+            "bottom": 71.89999389648438
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 455,
+            "right": 562,
+            "top": 35.899993896484375,
+            "bottom": 71.89999389648438
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 344,
+            "right": 451,
+            "top": 75.89999389648438,
+            "bottom": 119.10000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 455,
+            "right": 562,
+            "top": 75.89999389648438,
+            "bottom": 119.10000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 337,
+            "right": 537.8000030517578,
+            "top": 345.6000061035156,
+            "bottom": 400
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 545.7999877929688,
+            "right": 746.5999908447266,
+            "top": 345.6000061035156,
+            "bottom": 400
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 754.5999755859375,
+            "right": 955.3999633789062,
+            "top": 345.6000061035156,
+            "bottom": 400
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 963.4000244140625,
+            "right": 1164.2000274658203,
+            "top": 345.6000061035156,
+            "bottom": 400
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 1172.199951171875,
+            "right": 1372.9999542236328,
+            "top": 345.6000061035156,
+            "bottom": 400
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 180488,
+      "sha256": "6e6e607ec2b3821a715ccc39154668b8e8342e4ed6ff717fcca5fe40df485810",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-desktop-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 864.0333251953125,
+              "y": 550.8666381835938,
+              "width": 14,
+              "height": 14
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 492.75,
+              "y": 697.4666748046875,
+              "width": 143.51666259765625,
+              "height": 23
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 114891,
+        "sha256": "ca02826a16b7f699ab5a0922eff8bda97313ce934d96c142fe6a7c27122572c6"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    },
+    {
+      "path": "apps/worksheet/test-results/app-tablet-width.png",
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 250,
+            "right": 399.56666564941406,
+            "top": -280,
+            "bottom": -240
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 406.566650390625,
+            "right": 640.2166442871094,
+            "top": -280,
+            "bottom": -240
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 250,
+            "right": 482.8000030517578,
+            "top": -233,
+            "bottom": -193
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 489.79998779296875,
+            "right": 574.9833221435547,
+            "top": -233,
+            "bottom": -193
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 268,
+            "right": 382,
+            "top": 183.10000610351562,
+            "bottom": 219.10000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 386,
+            "right": 500,
+            "top": 183.10000610351562,
+            "bottom": 219.10000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 268,
+            "right": 382,
+            "top": 223.10000610351562,
+            "bottom": 266.3000030517578
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 386,
+            "right": 500,
+            "top": 223.10000610351562,
+            "bottom": 266.3000030517578
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 261,
+            "right": 431.6666717529297,
+            "top": 492.79998779296875,
+            "bottom": 542.3999786376953
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 439.66668701171875,
+            "right": 610.3333435058594,
+            "top": 492.79998779296875,
+            "bottom": 542.3999786376953
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 618.3333129882812,
+            "right": 788.9999847412109,
+            "top": 492.79998779296875,
+            "bottom": 542.3999786376953
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 261,
+            "right": 431.6666717529297,
+            "top": 550.4000244140625,
+            "bottom": 592.4000244140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 439.66668701171875,
+            "right": 610.3333435058594,
+            "top": 550.4000244140625,
+            "bottom": 592.4000244140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 162814,
+      "sha256": "f285fe141886e22ec1a17fb3f54f3ffca29a01793b6c28c65467c1ed9452c709",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-tablet-width-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 263,
+              "y": 766.2666625976562,
+              "width": 14,
+              "height": 14
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 416.75,
+              "y": 909.8666381835938,
+              "width": 143.51666259765625,
+              "height": 23
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 115724,
+        "sha256": "e605f600ae92e71e1a95ea7cb1eabc7d684f060f56f67c2212a473db2f640089"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    },
+    {
+      "path": "apps/worksheet/test-results/app-phone-width.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -702,
+            "bottom": -662
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -655,
+            "bottom": -615
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -608,
+            "bottom": -568
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -561,
+            "bottom": -521
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 30,
+            "right": 193,
+            "top": -102.89999389648438,
+            "bottom": -66.89999389648438
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 197,
+            "right": 360,
+            "top": -102.89999389648438,
+            "bottom": -66.89999389648438
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 30,
+            "right": 193,
+            "top": -62.899993896484375,
+            "bottom": -26.899993896484375
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 197,
+            "right": 360,
+            "top": -62.899993896484375,
+            "bottom": -26.899993896484375
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 21,
+            "right": 192,
+            "top": 179.39999389648438,
+            "bottom": 224.60000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 198,
+            "right": 369,
+            "top": 179.39999389648438,
+            "bottom": 224.60000610351562
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 21,
+            "right": 192,
+            "top": 230.60000610351562,
+            "bottom": 275.8000030517578
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 198,
+            "right": 369,
+            "top": 230.60000610351562,
+            "bottom": 275.8000030517578
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 21,
+            "right": 369,
+            "top": 281.79998779296875,
+            "bottom": 325.79998779296875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 125894,
+      "sha256": "f7b5adb6fe3fb0f33295abd0d82c81c4cbc406cf514b3e7116ae3b291bae7d9b",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-phone-width-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 251.46665954589844,
+              "y": 536.6666870117188,
+              "width": 14.000015258789062,
+              "height": 14
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 178.75,
+              "y": 680.2666625976562,
+              "width": 143.51666259765625,
+              "height": 23
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 59530,
+        "sha256": "db2f0c553b9ca837531efc29d02ec481b67f69fb54ffdfa3218993c7a7d58d2a"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    }
+  ],
+  "observations": {
+    "online": {
+      "instanceId": "a3612dec-0c20-483b-9cfd-39a40d928c26",
+      "revision": 1,
+      "state": {
+        "schemaVersion": 1,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "Antwortzeile 0: vollständig gespeichert.\nAntwortzeile 1: vollständig gespeichert.\nAntwortzeile 2: vollständig gespeichert.\nAntwortzeile 3: vollständig gespeichert.\nAntwortzeile 4: vollständig gespeichert.\nAntwortzeile 5: vollständig gespeichert.\nAntwortzeile 6: vollständig gespeichert.\nAntwortzeile 7: vollständig gespeichert.\nAntwortzeile 8: vollständig gespeichert.\nAntwortzeile 9: vollständig gespeichert.\nAntwortzeile 10: vollständig gespeichert.\nAntwortzeile 11: vollständig gespeichert.\nAntwortzeile 12: vollständig gespeichert.\nAntwortzeile 13: vollständig gespeichert.\nAntwortzeile 14: vollständig gespeichert.\nAntwortzeile 15: vollständig gespeichert.\nAntwortzeile 16: vollständig gespeichert.\nAntwortzeile 17: vollständig gespeichert.\nAntwortzeile 18: vollständig gespeichert.\nAntwortzeile 19: vollständig gespeichert.\nAntwortzeile 20: vollständig gespeichert.\nAntwortzeile 21: vollständig gespeichert.\nAntwortzeile 22: vollständig gespeichert.\nAntwortzeile 23: vollständig gespeichert.\nAntwortzeile 24: vollständig gespeichert.\nAntwortzeile 25: vollständig gespeichert.\nAntwortzeile 26: vollständig gespeichert.\nAntwortzeile 27: vollständig gespeichert.\nAntwortzeile 28: vollständig gespeichert.\nAntwortzeile 29: vollständig gespeichert.\nAntwortzeile 30: vollständig gespeichert.\nAntwortzeile 31: vollständig gespeichert.\nAntwortzeile 32: vollständig gespeichert.\nAntwortzeile 33: vollständig gespeichert.\nAntwortzeile 34: vollständig gespeichert.\nAntwortzeile 35: vollständig gespeichert.\nAntwortzeile 36: vollständig gespeichert.\nAntwortzeile 37: vollständig gespeichert.\nAntwortzeile 38: vollständig gespeichert.\nAntwortzeile 39: vollständig gespeichert.\nAntwortzeile 40: vollständig gespeichert.\nAntwortzeile 41: vollständig gespeichert.\nAntwortzeile 42: vollständig gespeichert.\nAntwortzeile 43: vollständig gespeichert.\nAntwortzeile 44: vollständig gespeichert.\nAntwortzeile 45: vollständig gespeichert.\nAntwortzeile 46: vollständig gespeichert.\nAntwortzeile 47: vollständig gespeichert.\nAntwortzeile 48: vollständig gespeichert.\nAntwortzeile 49: vollständig gespeichert.\nAntwortzeile 50: vollständig gespeichert.\nAntwortzeile 51: vollständig gespeichert.\nAntwortzeile 52: vollständig gespeichert.\nAntwortzeile 53: vollständig gespeichert.\nAntwortzeile 54: vollständig gespeichert.\nAntwortzeile 55: vollständig gespeichert.\nAntwortzeile 56: vollständig gespeichert.\nAntwortzeile 57: vollständig gespeichert.\nAntwortzeile 58: vollständig gespeichert.\nAntwortzeile 59: vollständig gespeichert.\nAntwortzeile 60: vollständig gespeichert.\nAntwortzeile 61: vollständig gespeichert.\nAntwortzeile 62: vollständig gespeichert.\nAntwortzeile 63: vollständig gespeichert.\nAntwortzeile 64: vollständig gespeichert.\nAntwortzeile 65: vollständig gespeichert.\nAntwortzeile 66: vollständig gespeichert.\nAntwortzeile 67: vollständig gespeichert.\nAntwortzeile 68: vollständig gespeichert.\nAntwortzeile 69: vollständig gespeichert.\nAntwortzeile 70: vollständig gespeichert.\nAntwortzeile 71: vollständig gespeichert.\nAntwortzeile 72: vollständig gespeichert.\nAntwortzeile 73: vollständig gespeichert.\nAntwortzeile 74: vollständig gespeichert.\nAntwortzeile 75: vollständig gespeichert.\nAntwortzeile 76: vollständig gespeichert.\nAntwortzeile 77: vollständig gespeichert.\nAntwortzeile 78: vollständig gespeichert.\nAntwortzeile 79: vollständig gespeichert.\nAntwortzeile 80: vollständig gespeichert.\nAntwortzeile 81: vollständig gespeichert.\nAntwortzeile 82: vollständig gespeichert.\nAntwortzeile 83: vollständig gespeichert.\nAntwortzeile 84: vollständig gespeichert.\nAntwortzeile 85: vollständig gespeichert.\nAntwortzeile 86: vollständig gespeichert.\nAntwortzeile 87: vollständig gespeichert.\nAntwortzeile 88: vollständig gespeichert.\nAntwortzeile 89: vollständig gespeichert.\nAntwortzeile 90: vollständig gespeichert.\nAntwortzeile 91: vollständig gespeichert.\nAntwortzeile 92: vollständig gespeichert.\nAntwortzeile 93: vollständig gespeichert.\nAntwortzeile 94: vollständig gespeichert.\nAntwortzeile 95: vollständig gespeichert.\nAntwortzeile 96: vollständig gespeichert.\nAntwortzeile 97: vollständig gespeichert.\nAntwortzeile 98: vollständig gespeichert.\nAntwortzeile 99: vollständig gespeichert.\nAntwortzeile 100: vollständig gespeichert.\nAntwortzeile 101: vollständig gespeichert.\nAntwortzeile 102: vollständig gespeichert.\nAntwortzeile 103: vollständig gespeichert.\nAntwortzeile 104: vollständig gespeichert.\nAntwortzeile 105: vollständig gespeichert.\nAntwortzeile 106: vollständig gespeichert.\nAntwortzeile 107: vollständig gespeichert.\nAntwortzeile 108: vollständig gespeichert.\nAntwortzeile 109: vollständig gespeichert.\nAntwortzeile 110: vollständig gespeichert.\nAntwortzeile 111: vollständig gespeichert.\nAntwortzeile 112: vollständig gespeichert.\nAntwortzeile 113: vollständig gespeichert.\nAntwortzeile 114: vollständig gespeichert.\nAntwortzeile 115: vollständig gespeichert.\nAntwortzeile 116: vollständig gespeichert.\nAntwortzeile 117: vollständig gespeichert.\nAntwortzeile 118: vollständig gespeichert.\nAntwortzeile 119: vollständig gespeichert.\nAntwortzeile 120: vollständig gespeichert.\nAntwortzeile 121: vollständig gespeichert.\nAntwortzeile 122: vollständig gespeichert.\nAntwortzeile 123: vollständig gespeichert.\nAntwortzeile 124: vollständig gespeichert.\nAntwortzeile 125: vollständig gespeichert.\nAntwortzeile 126: vollständig gespeichert.\nAntwortzeile 127: vollständig gespeichert.\nAntwortzeile 128: vollständig gespeichert.\nAntwortzeile 129: vollständig gespeichert.\nAntwortzeile 130: vollständig gespeichert.\nAntwortzeile 131: vollständig gespeichert.\nAntwortzeile 132: vollständig gespeichert.\nAntwortzeile 133: vollständig gespeichert.\nAntwortzeile 134: vollständig gespeichert.\nAntwortzeile 135: vollständig gespeichert.\nAntwortzeile 136: vollständig gespeichert.\nAntwortzeile 137: vollständig gespeichert.\nAntwortzeile 138: vollständig gespeichert.\nAntwortzeile 139: vollständig gespeichert.\nAntwortzeile 140: vollständig gespeichert.\nAntwortzeile 141: vollständig gespeichert.\nAntwortzeile 142: vollständig gespeichert.\nAntwortzeile 143: vollständig gespeichert.\nAntwortzeile 144: vollständig gespeichert.\nAntwortzeile 145: vollständig gespeichert.\nAntwortzeile 146: vollständig gespeichert.\nAntwortzeile 147: vollständig gespeichert.\nAntwortzeile 148: vollständig gespeichert.\nAntwortzeile 149: vollständig gespeichert.\nAntwortzeile 150: vollständig gespeichert.\nAntwortzeile 151: vollständig gespeichert.\nAntwortzeile 152: vollständig gespeichert.\nAntwortzeile 153: vollständig gespeichert.\nAntwortzeile 154: vollständig gespeichert.\nAntwortzeile 155: vollständig gespeichert.\nAntwortzeile 156: vollständig gespeichert.\nAntwortzeile 157: vollständig gespeichert.\nAntwortzeile 158: vollständig gespeichert.\nAntwortzeile 159: vollständig gespeichert.\nAntwortzeile 160: vollständig gespeichert.\nAntwortzeile 161: vollständig gespeichert.\nAntwortzeile 162: vollständig gespeichert.\nAntwortzeile 163: vollständig gespeichert.\nAntwortzeile 164: vollständig gespeichert.\nAntwortzeile 165: vollständig gespeichert.\nAntwortzeile 166: vollständig gespeichert.\nAntwortzeile 167: vollständig gespeichert.\nAntwortzeile 168: vollständig gespeichert.\nAntwortzeile 169: vollständig gespeichert.\nAntwortzeile 170: vollständig gespeichert.\nAntwortzeile 171: vollständig gespeichert.\nAntwortzeile 172: vollständig gespeichert.\nAntwortzeile 173: vollständig gespeichert.\nAntwortzeile 174: vollständig gespeichert.\nAntwortzeile 175: vollständig gespeichert.\nAntwortzeile 176: vollständig gespeichert.\nAntwortzeile 177: vollständig gespeichert.\nAntwortzeile 178: vollständig gespeichert.\nAntwortzeile 179: vollständig gespeichert."
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "Antwort fürs PDF <b>keine Ausführung</b>"
+          }
+        ]
+      },
+      "ack": {
+        "at": 2016,
+        "v": 1,
+        "sessionId": "0dd851f7cad5c0022cef39de7b7542f5",
+        "seq": 4,
+        "type": "SNAPSHOT_ACCEPTED",
+        "payload": {
+          "requestId": 2,
+          "revision": 1,
+          "durability": "committed"
+        }
+      },
+      "committedTransactions": [
+        {
+          "at": 764,
+          "mode": "readwrite",
+          "writes": [
+            {
+              "instanceId": "a3612dec-0c20-483b-9cfd-39a40d928c26",
+              "revision": 0
+            }
+          ],
+          "complete": 769,
+          "aborted": false
+        },
+        {
+          "at": 1633,
+          "mode": "readwrite",
+          "writes": [
+            {
+              "instanceId": "a3612dec-0c20-483b-9cfd-39a40d928c26",
+              "revision": 1
+            }
+          ],
+          "complete": 1637,
+          "aborted": false
+        }
+      ],
+      "pdf": {
+        "path": "apps/worksheet/test-results/online-answers.pdf",
+        "bytes": 16334,
+        "pages": 6,
+        "sha256": "bdbf37fd513b4e2a9e501c2d1da34ea848c13105308debb42f9d372fd812ada9"
+      }
+    },
+    "offline": {
+      "instanceId": "a3612dec-0c20-483b-9cfd-39a40d928c26",
+      "revision": 2,
+      "state": {
+        "schemaVersion": 1,
+        "fields": [
+          {
+            "id": "area",
+            "kind": "text",
+            "value": "Antwortzeile 0: vollständig gespeichert.\nAntwortzeile 1: vollständig gespeichert.\nAntwortzeile 2: vollständig gespeichert.\nAntwortzeile 3: vollständig gespeichert.\nAntwortzeile 4: vollständig gespeichert.\nAntwortzeile 5: vollständig gespeichert.\nAntwortzeile 6: vollständig gespeichert.\nAntwortzeile 7: vollständig gespeichert.\nAntwortzeile 8: vollständig gespeichert.\nAntwortzeile 9: vollständig gespeichert.\nAntwortzeile 10: vollständig gespeichert.\nAntwortzeile 11: vollständig gespeichert.\nAntwortzeile 12: vollständig gespeichert.\nAntwortzeile 13: vollständig gespeichert.\nAntwortzeile 14: vollständig gespeichert.\nAntwortzeile 15: vollständig gespeichert.\nAntwortzeile 16: vollständig gespeichert.\nAntwortzeile 17: vollständig gespeichert.\nAntwortzeile 18: vollständig gespeichert.\nAntwortzeile 19: vollständig gespeichert.\nAntwortzeile 20: vollständig gespeichert.\nAntwortzeile 21: vollständig gespeichert.\nAntwortzeile 22: vollständig gespeichert.\nAntwortzeile 23: vollständig gespeichert.\nAntwortzeile 24: vollständig gespeichert.\nAntwortzeile 25: vollständig gespeichert.\nAntwortzeile 26: vollständig gespeichert.\nAntwortzeile 27: vollständig gespeichert.\nAntwortzeile 28: vollständig gespeichert.\nAntwortzeile 29: vollständig gespeichert.\nAntwortzeile 30: vollständig gespeichert.\nAntwortzeile 31: vollständig gespeichert.\nAntwortzeile 32: vollständig gespeichert.\nAntwortzeile 33: vollständig gespeichert.\nAntwortzeile 34: vollständig gespeichert.\nAntwortzeile 35: vollständig gespeichert.\nAntwortzeile 36: vollständig gespeichert.\nAntwortzeile 37: vollständig gespeichert.\nAntwortzeile 38: vollständig gespeichert.\nAntwortzeile 39: vollständig gespeichert.\nAntwortzeile 40: vollständig gespeichert.\nAntwortzeile 41: vollständig gespeichert.\nAntwortzeile 42: vollständig gespeichert.\nAntwortzeile 43: vollständig gespeichert.\nAntwortzeile 44: vollständig gespeichert.\nAntwortzeile 45: vollständig gespeichert.\nAntwortzeile 46: vollständig gespeichert.\nAntwortzeile 47: vollständig gespeichert.\nAntwortzeile 48: vollständig gespeichert.\nAntwortzeile 49: vollständig gespeichert.\nAntwortzeile 50: vollständig gespeichert.\nAntwortzeile 51: vollständig gespeichert.\nAntwortzeile 52: vollständig gespeichert.\nAntwortzeile 53: vollständig gespeichert.\nAntwortzeile 54: vollständig gespeichert.\nAntwortzeile 55: vollständig gespeichert.\nAntwortzeile 56: vollständig gespeichert.\nAntwortzeile 57: vollständig gespeichert.\nAntwortzeile 58: vollständig gespeichert.\nAntwortzeile 59: vollständig gespeichert.\nAntwortzeile 60: vollständig gespeichert.\nAntwortzeile 61: vollständig gespeichert.\nAntwortzeile 62: vollständig gespeichert.\nAntwortzeile 63: vollständig gespeichert.\nAntwortzeile 64: vollständig gespeichert.\nAntwortzeile 65: vollständig gespeichert.\nAntwortzeile 66: vollständig gespeichert.\nAntwortzeile 67: vollständig gespeichert.\nAntwortzeile 68: vollständig gespeichert.\nAntwortzeile 69: vollständig gespeichert.\nAntwortzeile 70: vollständig gespeichert.\nAntwortzeile 71: vollständig gespeichert.\nAntwortzeile 72: vollständig gespeichert.\nAntwortzeile 73: vollständig gespeichert.\nAntwortzeile 74: vollständig gespeichert.\nAntwortzeile 75: vollständig gespeichert.\nAntwortzeile 76: vollständig gespeichert.\nAntwortzeile 77: vollständig gespeichert.\nAntwortzeile 78: vollständig gespeichert.\nAntwortzeile 79: vollständig gespeichert.\nAntwortzeile 80: vollständig gespeichert.\nAntwortzeile 81: vollständig gespeichert.\nAntwortzeile 82: vollständig gespeichert.\nAntwortzeile 83: vollständig gespeichert.\nAntwortzeile 84: vollständig gespeichert.\nAntwortzeile 85: vollständig gespeichert.\nAntwortzeile 86: vollständig gespeichert.\nAntwortzeile 87: vollständig gespeichert.\nAntwortzeile 88: vollständig gespeichert.\nAntwortzeile 89: vollständig gespeichert.\nAntwortzeile 90: vollständig gespeichert.\nAntwortzeile 91: vollständig gespeichert.\nAntwortzeile 92: vollständig gespeichert.\nAntwortzeile 93: vollständig gespeichert.\nAntwortzeile 94: vollständig gespeichert.\nAntwortzeile 95: vollständig gespeichert.\nAntwortzeile 96: vollständig gespeichert.\nAntwortzeile 97: vollständig gespeichert.\nAntwortzeile 98: vollständig gespeichert.\nAntwortzeile 99: vollständig gespeichert.\nAntwortzeile 100: vollständig gespeichert.\nAntwortzeile 101: vollständig gespeichert.\nAntwortzeile 102: vollständig gespeichert.\nAntwortzeile 103: vollständig gespeichert.\nAntwortzeile 104: vollständig gespeichert.\nAntwortzeile 105: vollständig gespeichert.\nAntwortzeile 106: vollständig gespeichert.\nAntwortzeile 107: vollständig gespeichert.\nAntwortzeile 108: vollständig gespeichert.\nAntwortzeile 109: vollständig gespeichert.\nAntwortzeile 110: vollständig gespeichert.\nAntwortzeile 111: vollständig gespeichert.\nAntwortzeile 112: vollständig gespeichert.\nAntwortzeile 113: vollständig gespeichert.\nAntwortzeile 114: vollständig gespeichert.\nAntwortzeile 115: vollständig gespeichert.\nAntwortzeile 116: vollständig gespeichert.\nAntwortzeile 117: vollständig gespeichert.\nAntwortzeile 118: vollständig gespeichert.\nAntwortzeile 119: vollständig gespeichert.\nAntwortzeile 120: vollständig gespeichert.\nAntwortzeile 121: vollständig gespeichert.\nAntwortzeile 122: vollständig gespeichert.\nAntwortzeile 123: vollständig gespeichert.\nAntwortzeile 124: vollständig gespeichert.\nAntwortzeile 125: vollständig gespeichert.\nAntwortzeile 126: vollständig gespeichert.\nAntwortzeile 127: vollständig gespeichert.\nAntwortzeile 128: vollständig gespeichert.\nAntwortzeile 129: vollständig gespeichert.\nAntwortzeile 130: vollständig gespeichert.\nAntwortzeile 131: vollständig gespeichert.\nAntwortzeile 132: vollständig gespeichert.\nAntwortzeile 133: vollständig gespeichert.\nAntwortzeile 134: vollständig gespeichert.\nAntwortzeile 135: vollständig gespeichert.\nAntwortzeile 136: vollständig gespeichert.\nAntwortzeile 137: vollständig gespeichert.\nAntwortzeile 138: vollständig gespeichert.\nAntwortzeile 139: vollständig gespeichert.\nAntwortzeile 140: vollständig gespeichert.\nAntwortzeile 141: vollständig gespeichert.\nAntwortzeile 142: vollständig gespeichert.\nAntwortzeile 143: vollständig gespeichert.\nAntwortzeile 144: vollständig gespeichert.\nAntwortzeile 145: vollständig gespeichert.\nAntwortzeile 146: vollständig gespeichert.\nAntwortzeile 147: vollständig gespeichert.\nAntwortzeile 148: vollständig gespeichert.\nAntwortzeile 149: vollständig gespeichert.\nAntwortzeile 150: vollständig gespeichert.\nAntwortzeile 151: vollständig gespeichert.\nAntwortzeile 152: vollständig gespeichert.\nAntwortzeile 153: vollständig gespeichert.\nAntwortzeile 154: vollständig gespeichert.\nAntwortzeile 155: vollständig gespeichert.\nAntwortzeile 156: vollständig gespeichert.\nAntwortzeile 157: vollständig gespeichert.\nAntwortzeile 158: vollständig gespeichert.\nAntwortzeile 159: vollständig gespeichert.\nAntwortzeile 160: vollständig gespeichert.\nAntwortzeile 161: vollständig gespeichert.\nAntwortzeile 162: vollständig gespeichert.\nAntwortzeile 163: vollständig gespeichert.\nAntwortzeile 164: vollständig gespeichert.\nAntwortzeile 165: vollständig gespeichert.\nAntwortzeile 166: vollständig gespeichert.\nAntwortzeile 167: vollständig gespeichert.\nAntwortzeile 168: vollständig gespeichert.\nAntwortzeile 169: vollständig gespeichert.\nAntwortzeile 170: vollständig gespeichert.\nAntwortzeile 171: vollständig gespeichert.\nAntwortzeile 172: vollständig gespeichert.\nAntwortzeile 173: vollständig gespeichert.\nAntwortzeile 174: vollständig gespeichert.\nAntwortzeile 175: vollständig gespeichert.\nAntwortzeile 176: vollständig gespeichert.\nAntwortzeile 177: vollständig gespeichert.\nAntwortzeile 178: vollständig gespeichert.\nAntwortzeile 179: vollständig gespeichert."
+          },
+          {
+            "id": "check",
+            "kind": "checkbox",
+            "value": true
+          },
+          {
+            "id": "group",
+            "kind": "radio",
+            "value": "r2"
+          },
+          {
+            "id": "many",
+            "kind": "select-many",
+            "value": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "id": "one",
+            "kind": "select-one",
+            "value": "b"
+          },
+          {
+            "id": "text",
+            "kind": "text",
+            "value": "Nach Neustart offline"
+          }
+        ]
+      },
+      "pdf": {
+        "path": "apps/worksheet/test-results/offline-answers.pdf",
+        "bytes": 16076,
+        "pages": 6,
+        "sha256": "783dcfdc8861e0545ffb3662e95f8cd258b7af0d2bf53d87e15dfaf1825f7cfa"
+      }
+    }
+  },
+  "results": [
+    {
+      "name": "UI hierarchy, strict import, every field kind, real snapshot and PDF download",
+      "result": "pass",
+      "elapsedMs": 2331.245179
+    },
+    {
+      "name": "persistent browser profile restarts offline, restores all fields and continues with real PDF",
+      "result": "pass",
+      "elapsedMs": 1876.8880039999995
+    },
+    {
+      "name": "real second tab conflicts without overwrite and preserves candidate as independent working copy",
+      "result": "pass",
+      "elapsedMs": 1843.5339800000002
+    },
+    {
+      "name": "real UI storage failure keeps confirmed state and recovers bounded RAM candidate",
+      "result": "pass",
+      "elapsedMs": 1044.6713550000004
+    },
+    {
+      "name": "actual backup download and merge as new copies retains structure and confirmed answers",
+      "result": "pass",
+      "elapsedMs": 187.2459060000001
+    }
+  ],
+  "pdf": {
+    "path": "apps/worksheet/test-results/offline-answers.pdf",
+    "bytes": 16076,
+    "pages": 6,
+    "sha256": "783dcfdc8861e0545ffb3662e95f8cd258b7af0d2bf53d87e15dfaf1825f7cfa"
+  }
+}

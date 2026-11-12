@@ -1,0 +1,39 @@
+{
+  "run_id": 40188997045,
+  "commit": "55214c6317e313e6fad6025b050665dd235667c5",
+  "engines": {
+    "chromium": {
+      "version": "155.0.8059.0",
+      "passed": 28,
+      "receiver_records": 20,
+      "artifact_sha256": "d8b1b4fe7b096359bd3cfa69699d3c182d5bddbbeb976a9799b2d821de8b3d88",
+      "report_sha256": "336f2b306f57dabf3ecca49d69131acf3b9aac6edd838f9996adf023320dd36c",
+      "kinds": {
+        "websocket-upgrade": 2,
+        "http": 18
+      }
+    },
+    "firefox": {
+      "version": "144.0.2",
+      "passed": 28,
+      "receiver_records": 20,
+      "artifact_sha256": "4207e9de6a16fb7d715fcf1696e8f862c9da9aeabcf725127198b7b1a2eb200c",
+      "report_sha256": "e1e1d5acead7b0e944933c28fe13c9e2410741c3b1061a5d5207a9b9f206fa24",
+      "kinds": {
+        "websocket-upgrade": 2,
+        "http": 18
+      }
+    },
+    "webkit": {
+      "version": "26.0",
+      "passed": 28,
+      "receiver_records": 20,
+      "artifact_sha256": "5a5a2c77320f0d45efe86d9058396e77d86eddede39aafab2fd4efdbea697455",
+      "report_sha256": "622f43dc41c27cd3eb2cef7b28c855b6bf4cedb404aec007af26892368487783",
+      "kinds": {
+        "websocket-upgrade": 2,
+        "http": 18
+      }
+    }
+  }
+}

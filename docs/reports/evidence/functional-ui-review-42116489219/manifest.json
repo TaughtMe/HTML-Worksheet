@@ -1,0 +1,67 @@
+{
+  "uiCommit": "eac7fc1cf19126bfd9ea42cbfadbb0703d46d4a3",
+  "rootUiCherryPick": "2edf7a3",
+  "testedReviewHead": "17afe0a6c24ad3cfa90b4c5cfdfa70dcdfdd3042",
+  "testCommits": [
+    "02baba5",
+    "a8ebe80eb40c33772911c49bcb9554b5298ff5c5"
+  ],
+  "nodeVersion": "v24.19.0",
+  "browserVersion": "154.0.8037.57",
+  "typecheck": "pass",
+  "build": "pass",
+  "bundleCacheId": "b92827c55f33d6204040ba47",
+  "initialImportBusy": "pass; one executed browser run after initial listen-EPERM occurred before browser startup",
+  "mobileNavigation": "pass; one new runner execution; exact selected title/card assertions for All, notebook, chapter",
+  "screenshots": "All 3 widths have 13 passing action bounds and fully visible check/toggle controls. Actual worksheet viewport images visually reviewed. Narrow Chromium full-page images still show blank offscreen iframe; paired viewport images prove actual rendered content.",
+  "initialBusyScreenshotNote": "Initial import-busy raw report retained unchanged. Its screenshot filenames were overwritten by the subsequent navigation capture; initial screenshot binaries are not archived here. Canonical current screenshot hashes are in mobile-navigation.json.",
+  "sourceSha256": {
+    "apps/worksheet/ui.ts": "c3051109dc6b51d3c11a6fb2669e3e1f4a338106c555559250bdd89d366fd463",
+    "apps/worksheet/ui.css": "2b58fad1e0830dc344456510cf52195b08b5bfc14b3c65b3f4bed65745c66639",
+    "apps/worksheet/test/functional-ui.mjs": "7cc5d77cd4283aad968deabf06cbcc474cc2f75ebdca4618d26b41cd2cb55641",
+    "apps/worksheet/test/mobile-navigation.mjs": "c17e65b49428ef8693ceadae5b213665470b302d5dd84111b2c5d3431cba82c7",
+    "apps/worksheet/test/import-busy.mjs": "d105301c06057603129e989882cfc6d4ccc5d79663b086f947562809e017b70a"
+  },
+  "artifacts": {
+    "app-desktop-worksheet-viewport.png": {
+      "bytes": 50105,
+      "sha256": "63ec3809db6114b971eacf732b2cda3dae5518086362c4f7dceb4d015dbe3a0f"
+    },
+    "app-desktop.png": {
+      "bytes": 104083,
+      "sha256": "30363ded5146ce2cbef1d51405d1ca1559f42e66a352d2488f54376f3bb1923a"
+    },
+    "app-phone-width-worksheet-viewport.png": {
+      "bytes": 26105,
+      "sha256": "c205b4180a7af06b045e66cc18e12159be21fe58a901549106e4648de1a7a2a2"
+    },
+    "app-phone-width.png": {
+      "bytes": 75837,
+      "sha256": "a165f7e6591e35574f7a0327ea0a557cf332b69f24468ffdeb8ed183ab982050"
+    },
+    "app-tablet-width-worksheet-viewport.png": {
+      "bytes": 60538,
+      "sha256": "e89a75c4de3eecf416bd33bcf36cf7061297071804dd374a016a8dfb97d2c9b2"
+    },
+    "app-tablet-width.png": {
+      "bytes": 99295,
+      "sha256": "6d7e7aebf56351285a3c2584dbc1fbd04053d5f9c465f1168ea2293e6bcae3f3"
+    },
+    "initial-import-busy.json": {
+      "bytes": 13221,
+      "sha256": "711807e1abef75e757a482048e0cc12843586bf4d3c0c215cc3ec3f39487c457"
+    },
+    "mobile-navigation-390.png": {
+      "bytes": 54083,
+      "sha256": "4ee44cbbce2bdd12c2bdc33cde49c1530c3f9ecd9d24715dd6ba1325e907e2f8"
+    },
+    "mobile-navigation.json": {
+      "bytes": 16464,
+      "sha256": "0ef106597ef886cb9ba3c697e540e8cb95f6386b9b621abbcd5cbcea0f7771dd"
+    }
+  },
+  "limits": [
+    "No unchanged full-flow or security suite repeated",
+    "No physical-device or browser-matrix claim"
+  ]
+}

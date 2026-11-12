@@ -1,0 +1,226 @@
+Fixture A
+Arbeitsblatt
+Übung: Antworten erhalten
+Frage: Was wurde bearbeitet?
+Text
+Notizen
+Auswahl
+Radioauswahl
+A
+B
+Option A
+Option B
+Option A
+Option B
+Antworten
+area [text]
+Antwortzeile 0: vollständig gespeichert.
+Antwortzeile 1: vollständig gespeichert.
+Antwortzeile 2: vollständig gespeichert.
+Antwortzeile 3: vollständig gespeichert.
+Antwortzeile 4: vollständig gespeichert.
+Antwortzeile 5: vollständig gespeichert.
+Antwortzeile 6: vollständig gespeichert.
+Antwortzeile 7: vollständig gespeichert.
+Antwortzeile 8: vollständig gespeichert.
+Antwortzeile 9: vollständig gespeichert.
+Antwortzeile 10: vollständig gespeichert.
+Antwortzeile 11: vollständig gespeichert.
+Antwortzeile 12: vollständig gespeichert.
+Antwortzeile 13: vollständig gespeichert.
+Antwortzeile 14: vollständig gespeichert.
+Antwortzeile 15: vollständig gespeichert.
+
+Seite 1
+
+Antwortzeile 16: vollständig gespeichert.
+Antwortzeile 17: vollständig gespeichert.
+Antwortzeile 18: vollständig gespeichert.
+Antwortzeile 19: vollständig gespeichert.
+Antwortzeile 20: vollständig gespeichert.
+Antwortzeile 21: vollständig gespeichert.
+Antwortzeile 22: vollständig gespeichert.
+Antwortzeile 23: vollständig gespeichert.
+Antwortzeile 24: vollständig gespeichert.
+Antwortzeile 25: vollständig gespeichert.
+Antwortzeile 26: vollständig gespeichert.
+Antwortzeile 27: vollständig gespeichert.
+Antwortzeile 28: vollständig gespeichert.
+Antwortzeile 29: vollständig gespeichert.
+Antwortzeile 30: vollständig gespeichert.
+Antwortzeile 31: vollständig gespeichert.
+Antwortzeile 32: vollständig gespeichert.
+Antwortzeile 33: vollständig gespeichert.
+Antwortzeile 34: vollständig gespeichert.
+Antwortzeile 35: vollständig gespeichert.
+Antwortzeile 36: vollständig gespeichert.
+Antwortzeile 37: vollständig gespeichert.
+Antwortzeile 38: vollständig gespeichert.
+Antwortzeile 39: vollständig gespeichert.
+Antwortzeile 40: vollständig gespeichert.
+Antwortzeile 41: vollständig gespeichert.
+Antwortzeile 42: vollständig gespeichert.
+Antwortzeile 43: vollständig gespeichert.
+Antwortzeile 44: vollständig gespeichert.
+Antwortzeile 45: vollständig gespeichert.
+Antwortzeile 46: vollständig gespeichert.
+Antwortzeile 47: vollständig gespeichert.
+Antwortzeile 48: vollständig gespeichert.
+Antwortzeile 49: vollständig gespeichert.
+Antwortzeile 50: vollständig gespeichert.
+Antwortzeile 51: vollständig gespeichert.
+Antwortzeile 52: vollständig gespeichert.
+Antwortzeile 53: vollständig gespeichert.
+Antwortzeile 54: vollständig gespeichert.
+Antwortzeile 55: vollständig gespeichert.
+Antwortzeile 56: vollständig gespeichert.
+Antwortzeile 57: vollständig gespeichert.
+Antwortzeile 58: vollständig gespeichert.
+Antwortzeile 59: vollständig gespeichert.
+Antwortzeile 60: vollständig gespeichert.
+
+Seite 2
+
+Antwortzeile 61: vollständig gespeichert.
+Antwortzeile 62: vollständig gespeichert.
+Antwortzeile 63: vollständig gespeichert.
+Antwortzeile 64: vollständig gespeichert.
+Antwortzeile 65: vollständig gespeichert.
+Antwortzeile 66: vollständig gespeichert.
+Antwortzeile 67: vollständig gespeichert.
+Antwortzeile 68: vollständig gespeichert.
+Antwortzeile 69: vollständig gespeichert.
+Antwortzeile 70: vollständig gespeichert.
+Antwortzeile 71: vollständig gespeichert.
+Antwortzeile 72: vollständig gespeichert.
+Antwortzeile 73: vollständig gespeichert.
+Antwortzeile 74: vollständig gespeichert.
+Antwortzeile 75: vollständig gespeichert.
+Antwortzeile 76: vollständig gespeichert.
+Antwortzeile 77: vollständig gespeichert.
+Antwortzeile 78: vollständig gespeichert.
+Antwortzeile 79: vollständig gespeichert.
+Antwortzeile 80: vollständig gespeichert.
+Antwortzeile 81: vollständig gespeichert.
+Antwortzeile 82: vollständig gespeichert.
+Antwortzeile 83: vollständig gespeichert.
+Antwortzeile 84: vollständig gespeichert.
+Antwortzeile 85: vollständig gespeichert.
+Antwortzeile 86: vollständig gespeichert.
+Antwortzeile 87: vollständig gespeichert.
+Antwortzeile 88: vollständig gespeichert.
+Antwortzeile 89: vollständig gespeichert.
+Antwortzeile 90: vollständig gespeichert.
+Antwortzeile 91: vollständig gespeichert.
+Antwortzeile 92: vollständig gespeichert.
+Antwortzeile 93: vollständig gespeichert.
+Antwortzeile 94: vollständig gespeichert.
+Antwortzeile 95: vollständig gespeichert.
+Antwortzeile 96: vollständig gespeichert.
+Antwortzeile 97: vollständig gespeichert.
+Antwortzeile 98: vollständig gespeichert.
+Antwortzeile 99: vollständig gespeichert.
+Antwortzeile 100: vollständig gespeichert.
+Antwortzeile 101: vollständig gespeichert.
+Antwortzeile 102: vollständig gespeichert.
+Antwortzeile 103: vollständig gespeichert.
+Antwortzeile 104: vollständig gespeichert.
+Antwortzeile 105: vollständig gespeichert.
+
+Seite 3
+
+Antwortzeile 106: vollständig gespeichert.
+Antwortzeile 107: vollständig gespeichert.
+Antwortzeile 108: vollständig gespeichert.
+Antwortzeile 109: vollständig gespeichert.
+Antwortzeile 110: vollständig gespeichert.
+Antwortzeile 111: vollständig gespeichert.
+Antwortzeile 112: vollständig gespeichert.
+Antwortzeile 113: vollständig gespeichert.
+Antwortzeile 114: vollständig gespeichert.
+Antwortzeile 115: vollständig gespeichert.
+Antwortzeile 116: vollständig gespeichert.
+Antwortzeile 117: vollständig gespeichert.
+Antwortzeile 118: vollständig gespeichert.
+Antwortzeile 119: vollständig gespeichert.
+Antwortzeile 120: vollständig gespeichert.
+Antwortzeile 121: vollständig gespeichert.
+Antwortzeile 122: vollständig gespeichert.
+Antwortzeile 123: vollständig gespeichert.
+Antwortzeile 124: vollständig gespeichert.
+Antwortzeile 125: vollständig gespeichert.
+Antwortzeile 126: vollständig gespeichert.
+Antwortzeile 127: vollständig gespeichert.
+Antwortzeile 128: vollständig gespeichert.
+Antwortzeile 129: vollständig gespeichert.
+Antwortzeile 130: vollständig gespeichert.
+Antwortzeile 131: vollständig gespeichert.
+Antwortzeile 132: vollständig gespeichert.
+Antwortzeile 133: vollständig gespeichert.
+Antwortzeile 134: vollständig gespeichert.
+Antwortzeile 135: vollständig gespeichert.
+Antwortzeile 136: vollständig gespeichert.
+Antwortzeile 137: vollständig gespeichert.
+Antwortzeile 138: vollständig gespeichert.
+Antwortzeile 139: vollständig gespeichert.
+Antwortzeile 140: vollständig gespeichert.
+Antwortzeile 141: vollständig gespeichert.
+Antwortzeile 142: vollständig gespeichert.
+Antwortzeile 143: vollständig gespeichert.
+Antwortzeile 144: vollständig gespeichert.
+Antwortzeile 145: vollständig gespeichert.
+Antwortzeile 146: vollständig gespeichert.
+Antwortzeile 147: vollständig gespeichert.
+Antwortzeile 148: vollständig gespeichert.
+Antwortzeile 149: vollständig gespeichert.
+Antwortzeile 150: vollständig gespeichert.
+
+Seite 4
+
+Antwortzeile 151: vollständig gespeichert.
+Antwortzeile 152: vollständig gespeichert.
+Antwortzeile 153: vollständig gespeichert.
+Antwortzeile 154: vollständig gespeichert.
+Antwortzeile 155: vollständig gespeichert.
+Antwortzeile 156: vollständig gespeichert.
+Antwortzeile 157: vollständig gespeichert.
+Antwortzeile 158: vollständig gespeichert.
+Antwortzeile 159: vollständig gespeichert.
+Antwortzeile 160: vollständig gespeichert.
+Antwortzeile 161: vollständig gespeichert.
+Antwortzeile 162: vollständig gespeichert.
+Antwortzeile 163: vollständig gespeichert.
+Antwortzeile 164: vollständig gespeichert.
+Antwortzeile 165: vollständig gespeichert.
+Antwortzeile 166: vollständig gespeichert.
+Antwortzeile 167: vollständig gespeichert.
+Antwortzeile 168: vollständig gespeichert.
+Antwortzeile 169: vollständig gespeichert.
+Antwortzeile 170: vollständig gespeichert.
+Antwortzeile 171: vollständig gespeichert.
+Antwortzeile 172: vollständig gespeichert.
+Antwortzeile 173: vollständig gespeichert.
+Antwortzeile 174: vollständig gespeichert.
+Antwortzeile 175: vollständig gespeichert.
+Antwortzeile 176: vollständig gespeichert.
+Antwortzeile 177: vollständig gespeichert.
+Antwortzeile 178: vollständig gespeichert.
+Antwortzeile 179: vollständig gespeichert.
+check [checkbox]
+Ja (true)
+group [radio]
+r2
+many [select-many]
+a, b
+one [select-one]
+b
+text [text]
+Nach Neustart offline
+
+Seite 5
+
+Semantischer Datenbericht; kein originalgetreues Drucklayout.
+
+Seite 6
+
+

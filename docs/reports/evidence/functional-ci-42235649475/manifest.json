@@ -1,0 +1,24 @@
+{
+  "run": 42235649475,
+  "testedRemoteHead": "9ed21f3",
+  "actualMergeHead": "857df965",
+  "tree": "53bfdd5713c42a5723c757ff77cc5148976ab807",
+  "artifacts": {
+    "chromium": {"id": 13511830542, "zipSha256": "6f0fe02c558b747756035abe007795e6d79928fe45e4498a16abe76a17080167"},
+    "firefox": {"id": 13511682005, "zipSha256": "e07ed004af6b6a79d17365c5ba6da56b9a3cc5eda108492ba889776dcc930776"},
+    "webkit": {"id": 13511024912, "zipSha256": "bf6f67ddc54fd939ddb4f2fb0369b474b1247681b1abf3c6f777de90b88f49e1"}
+  },
+  "included": "Per-engine ci-source, ci-verdict and functional report. Chromium/Firefox online+offline six-page PDF binaries and extracted text plus backup JSON. No logs, screenshots or ZIPs.",
+  "independentSolRawReview": {
+    "chromium": "143.0.7499.4",
+    "firefox": "144.0.2",
+    "webkit": "26.0",
+    "node": "24.22.2",
+    "playwright": "1.57.0",
+    "sourceHashes": "All 22 source hashes per engine matched.",
+    "chromiumFirefox": "Both 5/5 full-flow stages. IndexedDB complete precedes committed ACK; correct revision transition 1→2; all fields including 7,629-character textarea; persistent-profile restart, stopped server with ECONNREFUSED, four service-worker responses; online and offline PDFs each six pages with matching extracted text, bytes and hashes; backup includes 2 templates, 4 instances, 2 containers and correct winner/recovery copy/merge.",
+    "responsiveUI": "Three viewports, 13 action bounds each, rendered fields visible; independently reviewed.",
+    "webkit": "Failed before stage 1 because activated worker cache was empty. Diagnosis open; no WebKit or iPad pass claimed."
+  },
+  "limits": ["This is not a three-engine full-flow pass", "WebKit cache-start diagnosis remains open", "No physical-device/native-share proof", "G1/POLICY01 and product release remain open"]
+}

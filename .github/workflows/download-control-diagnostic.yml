@@ -1,0 +1,89 @@
+name: Download Control Diagnostic
+
+on:
+  push:
+    branches:
+      - test/download-control-diag01
+    paths:
+      - .github/workflows/download-control-diagnostic.yml
+
+permissions:
+  contents: read
+
+jobs:
+  comparison:
+    name: Exact Chromium 156 download comparison
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out the pushed commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node.js 24
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Record and verify diagnostic source
+        env:
+          DIAG_EVENT: ${{ github.event_name }}
+          DIAG_EVENT_SHA: ${{ github.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { execFileSync } from 'node:child_process';
+          import { createHash } from 'node:crypto';
+          import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
+          const files = ['.github/workflows/download-control-diagnostic.yml', 'apps/security-lab/test/diagnose-download.mjs', 'apps/security-lab/test/trusted-controls.mjs', 'package-lock.json'];
+          const source = {
+            event: process.env.DIAG_EVENT, eventSha: process.env.DIAG_EVENT_SHA, head: git('rev-parse', 'HEAD'), tree: git('rev-parse', 'HEAD^{tree}'),
+            trackedTreeClean: git('status', '--porcelain', '--untracked-files=no') === '', nodeVersion: process.version,
+            playwrightLockedVersion: JSON.parse(readFileSync('package-lock.json', 'utf8')).packages['node_modules/playwright'].version,
+            systemChromiumPresent: existsSync('/usr/bin/chromium'),
+            configuredChromiumPath: process.env.CHROMIUM_PATH ?? null,
+            expectedBrowserVersion: '156.0.8078.0',
+            sha256: Object.fromEntries(files.map(file => [file, createHash('sha256').update(readFileSync(file)).digest('hex')]))
+          };
+          mkdirSync('apps/security-lab/test-results', { recursive: true });
+          writeFileSync('apps/security-lab/test-results/download-ci-source.json', JSON.stringify(source, null, 2));
+          console.log(JSON.stringify(source));
+          assert.equal(source.event, 'push'); assert.equal(source.head, source.eventSha); assert.equal(source.trackedTreeClean, true);
+          NODE
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Install Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Run the bounded about-blank and loopback comparison
+        run: node apps/security-lab/test/diagnose-download.mjs
+      - name: Verify the actual Chromium version
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          const verdict = { expectedBrowserVersion: '156.0.8078.0', actualBrowserVersion: null, exactVersionMatch: false, classification: 'environment-blocker' };
+          try {
+            const report = JSON.parse(readFileSync('apps/security-lab/test-results/download-comparison-chromium.json', 'utf8'));
+            verdict.actualBrowserVersion = report.browserVersion ?? null;
+            verdict.exactVersionMatch = verdict.actualBrowserVersion === verdict.expectedBrowserVersion;
+            verdict.launchSelection = report.launchSelection;
+            verdict.variants = report.variants.map(({ variant, result, error }) => ({ variant, result, error }));
+            if (verdict.exactVersionMatch) verdict.classification = 'exact-target-version-observed';
+          } catch (error) {
+            verdict.exactVersionMatch = false; verdict.classification = 'environment-blocker'; verdict.error = String(error);
+          }
+          mkdirSync('apps/security-lab/test-results', { recursive: true });
+          writeFileSync('apps/security-lab/test-results/download-ci-version.json', JSON.stringify(verdict, null, 2));
+          console.log(JSON.stringify(verdict));
+          if (!verdict.exactVersionMatch) process.exitCode = 1;
+          NODE
+      - name: Upload comparison, source, and version evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: download-control-diagnostic
+          path: apps/security-lab/test-results/download-*.json
+          if-no-files-found: error
+          retention-days: 7

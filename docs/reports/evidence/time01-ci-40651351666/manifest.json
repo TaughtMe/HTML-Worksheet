@@ -1,0 +1,462 @@
+{
+  "actions_run_id": "40651351666",
+  "source_commit": "cc886ecbc433a301b50eb2f5db3a0cb725b12926",
+  "source_tree": "2d4249b2a4d0faa2a6e075cd4898cb3938466c4d",
+  "local_content_equivalent_commit": "3a5d6d1af64ff72aaad3f582e8e130c53df9ac15",
+  "local_tree": "2d4249b2a4d0faa2a6e075cd4898cb3938466c4d",
+  "scope": "Integrated 47-case browser corpus with TIME01 READY, RESTORED, and STATE_SNAPSHOT deadline/late-message cases",
+  "status": "Checks and all three browser jobs succeeded; each engine passed all 47 cases, including all three TIME01 cases. Chromium actually ran 155.0.8059.0, so this run does not alter the separate Chromium 156 environment-blocker evidence.",
+  "checks_job": {
+    "job_id": "122691907494",
+    "status": "success",
+    "unit_tests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "typecheck": "success",
+    "build": "success",
+    "log": {
+      "raw_sha256": "dc3e1a79ff910ee581ea2abd361dbf34915083b497fb4c0069cdacd87935c003",
+      "raw_size_bytes": 18697,
+      "gzip": "checks-job.log.gz",
+      "gzip_sha256": "404cb846e09d8e5370775c3dba0e6c1e381e749254ec133876ddf6eb5097a4f1",
+      "gzip_size_bytes": 5434
+    }
+  },
+  "engines": {
+    "chromium": {
+      "job_id": "122691974377",
+      "artifact_id": "12799771102",
+      "artifact_zip_sha256": "e8bd7431915b4a0ebd3a064bb6ee5e9bb7b6aef6b356142e054c37218849587c",
+      "artifact_zip_size_bytes": 17335,
+      "browser_version": "155.0.8059.0",
+      "launch_selection": {
+        "source": "system-chromium",
+        "configuredExecutablePath": "/usr/bin/chromium",
+        "publicRegistryExecutablePath": "/home/runner/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome"
+      },
+      "run_id": "cd14e0ad-ae59-4801-ba2a-85741b449db6",
+      "results_total": 47,
+      "results_passed": 47,
+      "results_failed": 0,
+      "time01_cases": {
+        "READY": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3000.6,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "RESTORED": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3000.6,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "STATE_SNAPSHOT": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 2000,
+          "observed_close_from_bracket_ms": 2000.6,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        }
+      },
+      "trusted_popup_download_control": {
+        "result": "pass",
+        "detail": {
+          "popup": "closed",
+          "download": "synthetic-control.txt"
+        }
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "003b3f76a276435b457f28ca27a15413c189a13b1175642efe30c6eb3443b386",
+          "raw_size_bytes": 265514,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "ebdb1e95645c5a356ae14b7b06458f0b41058d2307aefb212f475eb6de27bdfb",
+          "gzip_size_bytes": 16260
+        },
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "2c36d2c089341126cdf5f33f29a751643b52f364ba454b994a17c40bb9d4cc6a",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "507b3847103c1a811c21a79c904d8b55b9715826a5e5c33d2c966a1777e3ce4b",
+          "gzip_size_bytes": 905
+        }
+      }
+    },
+    "firefox": {
+      "job_id": "122691974420",
+      "artifact_id": "12799579390",
+      "artifact_zip_sha256": "e51e1738a04d60e40d70b0830c7ec51d5ecf1b1a7c95b92cea30ad8d891d121f",
+      "artifact_zip_size_bytes": 16918,
+      "browser_version": "144.0.2",
+      "launch_selection": {
+        "source": "playwright-default",
+        "configuredExecutablePath": null,
+        "publicRegistryExecutablePath": "/home/runner/.cache/ms-playwright/firefox-1497/firefox/firefox"
+      },
+      "run_id": "f45e997c-877b-44f6-8dfd-e237d39a7b0a",
+      "results_total": 47,
+      "results_passed": 47,
+      "results_failed": 0,
+      "time01_cases": {
+        "READY": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3000,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "RESTORED": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3001,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "STATE_SNAPSHOT": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 2000,
+          "observed_close_from_bracket_ms": 2000,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        }
+      },
+      "trusted_popup_download_control": {
+        "result": "pass",
+        "detail": {
+          "popup": "closed",
+          "download": "synthetic-control.txt"
+        }
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "d6b0ce64bfc0d148cfa0263b798210cafb26f0025100a6bbecbaeb8aad3f56cf",
+          "raw_size_bytes": 271123,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "5033efd2e5c817be32cb9c248a8f1b3902cf99ea42eccf04732f15d36e88559e",
+          "gzip_size_bytes": 15880
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "640cc9ae6a273e6a371ae385ae35d30260fe70c702773e3b5a965d9eb6d48c47",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "1cbcefddc493ca63960cc5373b507929285c1bd6a5b009a0da6b76dee89e2e90",
+          "gzip_size_bytes": 908
+        }
+      }
+    },
+    "webkit": {
+      "job_id": "122691974490",
+      "artifact_id": "12800355180",
+      "artifact_zip_sha256": "f2aeb18817e8cb2868862d06469644f812cc455459454b19c6db223d8cfb6da4",
+      "artifact_zip_size_bytes": 16465,
+      "browser_version": "26.0",
+      "launch_selection": {
+        "source": "playwright-default",
+        "configuredExecutablePath": null,
+        "publicRegistryExecutablePath": "/home/runner/.cache/ms-playwright/webkit-2227/pw_run.sh"
+      },
+      "run_id": "a6a3f32e-80c3-4ef8-8021-445415d0748b",
+      "results_total": 47,
+      "results_passed": 47,
+      "results_failed": 0,
+      "time01_cases": {
+        "READY": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3001,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "RESTORED": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 3000,
+          "observed_close_from_bracket_ms": 3001.0,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        },
+        "STATE_SNAPSHOT": {
+          "result": "pass",
+          "fixture_sha256": "f96a58c613e1f280c8c03cb893622557b84f57aad4aaaa63d11182f165de9c66",
+          "timeout_ms": 2000,
+          "observed_close_from_bracket_ms": 2001.0,
+          "before_after_calibration": true,
+          "timeout_status_observed": true,
+          "final_checkpoint": {
+            "revision": 1,
+            "durability": "memory",
+            "state": {
+              "schemaVersion": 1,
+              "fields": [
+                {
+                  "id": "answer",
+                  "kind": "text",
+                  "value": ""
+                },
+                {
+                  "id": "check",
+                  "kind": "checkbox",
+                  "value": true
+                }
+              ]
+            }
+          },
+          "after_close_state_texts_match": true,
+          "after_close_status_texts_match": true
+        }
+      },
+      "trusted_popup_download_control": {
+        "result": "pass",
+        "detail": {
+          "popup": "closed",
+          "download": "synthetic-control.txt"
+        }
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_hit_types": {
+        "http": 18,
+        "websocket-upgrade": 2
+      },
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "fa7270a622a60a715f23d4fb92099ecc0a618bbc27cfa40517fa80c043e7d853",
+          "raw_size_bytes": 258370,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "d72ae60b0ce0bd5389017da5b5e11f5333154c00b84c39b4512d1134e31e166a",
+          "gzip_size_bytes": 15458
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "4ba3fa1cc7d66a54f47c116d53d468a08d25e71299f6726ca9b02854ea82c10a",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "dcfcf70d29100a2ba54353d4f79a40f4ccf18c489ea61a4870d00a7bc8a3b417",
+          "gzip_size_bytes": 905
+        }
+      }
+    }
+  },
+  "other_workflows": {
+    "baseline_guard": {
+      "run_id": "40651351515",
+      "status": "success"
+    },
+    "resources": {
+      "run_id": "40651351518",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    },
+    "tab_recovery": {
+      "run_id": "40651351370",
+      "status": "failure",
+      "interpretation": "no new cause finding"
+    }
+  },
+  "limitations": "TIME01 is bounded evidence for the described READY/RESTORED/SNAPSHOT lifecycle and these browser versions only. Chromium 155 success does not resolve or overwrite the earlier observed Chromium 156 download-control failure. No product/G1, persistence, resource, or real-device release follows.",
+  "local_chromium_prior": {
+    "browser_version": "154.0.8037.57",
+    "results": "3/3",
+    "report_gzip": "../time01-local/time01-chromium.json.gz",
+    "raw_sha256": "1862eeb999d4271aead727d9a6ceb43cc43d9f3f36f4a1b7845cbab618267e4f",
+    "gzip_sha256": "a96622e00e9f15bb50fee2340829cad133859e27aacc10cf5439258978ce708d",
+    "measured_close_intervals_ms": {
+      "READY": 3011.3,
+      "RESTORED": 3001.8,
+      "STATE_SNAPSHOT": 2000.6
+    }
+  }
+}

@@ -1,0 +1,633 @@
+{
+  "result": "pass",
+  "browserVersion": "154.0.8037.57",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "visits": [
+    {
+      "clicked": "Alle Arbeitsblätter",
+      "title": "Alle Arbeitsblätter",
+      "cards": [
+        "Navigation Heft"
+      ],
+      "selected": true,
+      "horizontalNavScroll": 0
+    },
+    {
+      "clicked": "Navigation Heft",
+      "title": "Navigation Heft",
+      "cards": [
+        "Heftblatt",
+        "Navigation Kapitel"
+      ],
+      "selected": true,
+      "horizontalNavScroll": 212
+    },
+    {
+      "clicked": "Navigation Kapitel",
+      "title": "Navigation Kapitel",
+      "cards": [
+        "Kapitelblatt"
+      ],
+      "selected": true,
+      "horizontalNavScroll": 195
+    }
+  ],
+  "screenshot": "apps/worksheet/test-results/mobile-navigation-390.png",
+  "screenshots": [
+    {
+      "path": "apps/worksheet/test-results/app-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 326,
+            "right": 486.125,
+            "top": -288,
+            "bottom": -246
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 496.125,
+            "right": 740.671875,
+            "top": -288,
+            "bottom": -246
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 750.671875,
+            "right": 993.015625,
+            "top": -288,
+            "bottom": -246
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 1003.015625,
+            "right": 1098,
+            "top": -288,
+            "bottom": -246
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 344,
+            "right": 451,
+            "top": 82.875,
+            "bottom": 118.875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 455,
+            "right": 562,
+            "top": 82.875,
+            "bottom": 118.875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 344,
+            "right": 451,
+            "top": 122.875,
+            "bottom": 166.0625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 455,
+            "right": 562,
+            "top": 122.875,
+            "bottom": 166.0625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 337,
+            "right": 537.796875,
+            "top": 394.53125,
+            "bottom": 448.90625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 545.796875,
+            "right": 746.59375,
+            "top": 394.53125,
+            "bottom": 448.90625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 754.59375,
+            "right": 955.390625,
+            "top": 394.53125,
+            "bottom": 448.90625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 963.390625,
+            "right": 1164.1875,
+            "top": 394.53125,
+            "bottom": 448.90625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 1172.1875,
+            "right": 1373,
+            "top": 394.53125,
+            "bottom": 448.90625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 104083,
+      "sha256": "30363ded5146ce2cbef1d51405d1ca1559f42e66a352d2488f54376f3bb1923a",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-desktop-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 524,
+              "y": 529.71875,
+              "width": 13,
+              "height": 13
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 540,
+              "y": 527.71875,
+              "width": 55.28125,
+              "height": 21
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 50105,
+        "sha256": "63ec3809db6114b971eacf732b2cda3dae5518086362c4f7dceb4d015dbe3a0f"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    },
+    {
+      "path": "apps/worksheet/test-results/app-tablet-width.png",
+      "viewport": {
+        "width": 820,
+        "height": 1180
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 250,
+            "right": 390.109375,
+            "top": -272,
+            "bottom": -232
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 397.109375,
+            "right": 611.09375,
+            "top": -272,
+            "bottom": -232
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 250,
+            "right": 462.046875,
+            "top": -225,
+            "bottom": -185
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 469.046875,
+            "right": 551.90625,
+            "top": -225,
+            "bottom": -185
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 268,
+            "right": 382,
+            "top": 199.078125,
+            "bottom": 235.078125
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 386,
+            "right": 500,
+            "top": 199.078125,
+            "bottom": 235.078125
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 268,
+            "right": 382,
+            "top": 239.078125,
+            "bottom": 282.265625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 386,
+            "right": 500,
+            "top": 239.078125,
+            "bottom": 282.265625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 261,
+            "right": 431.65625,
+            "top": 492.546875,
+            "bottom": 542.140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 439.65625,
+            "right": 610.328125,
+            "top": 492.546875,
+            "bottom": 542.140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 618.328125,
+            "right": 789,
+            "top": 492.546875,
+            "bottom": 542.140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 261,
+            "right": 431.65625,
+            "top": 550.140625,
+            "bottom": 592.140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 439.65625,
+            "right": 610.328125,
+            "top": 550.140625,
+            "bottom": 592.140625
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 99295,
+      "sha256": "6d7e7aebf56351285a3c2584dbc1fbd04053d5f9c465f1168ea2293e6bcae3f3",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-tablet-width-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 448,
+              "y": 672.953125,
+              "width": 13,
+              "height": 13
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 464,
+              "y": 670.953125,
+              "width": 55.28125,
+              "height": 21
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 60538,
+        "sha256": "e89a75c4de3eecf416bd33bcf36cf7061297071804dd374a016a8dfb97d2c9b2"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    },
+    {
+      "path": "apps/worksheet/test-results/app-phone-width.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "actions": [
+        {
+          "label": "Blatt öffnen",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -711,
+            "bottom": -671
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung importieren",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -664,
+            "bottom": -624
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Sicherung exportieren",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -617,
+            "bottom": -577
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Neu",
+          "rect": {
+            "left": 12,
+            "right": 378,
+            "top": -570,
+            "bottom": -530
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Umbenennen",
+          "rect": {
+            "left": 30,
+            "right": 193,
+            "top": -103.921875,
+            "bottom": -67.921875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Verschieben",
+          "rect": {
+            "left": 197,
+            "right": 360,
+            "top": -103.921875,
+            "bottom": -67.921875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Kopie erstellen",
+          "rect": {
+            "left": 30,
+            "right": 193,
+            "top": -63.921875,
+            "bottom": -27.921875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Löschen",
+          "rect": {
+            "left": 197,
+            "right": 360,
+            "top": -63.921875,
+            "bottom": -27.921875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Jetzt speichern",
+          "rect": {
+            "left": 21,
+            "right": 192,
+            "top": 180.359375,
+            "bottom": 225.546875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Arbeitskopie anlegen",
+          "rect": {
+            "left": 198,
+            "right": 369,
+            "top": 180.359375,
+            "bottom": 225.546875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF herunterladen",
+          "rect": {
+            "left": 21,
+            "right": 192,
+            "top": 231.546875,
+            "bottom": 275.546875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "PDF teilen",
+          "rect": {
+            "left": 198,
+            "right": 369,
+            "top": 231.546875,
+            "bottom": 275.546875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        },
+        {
+          "label": "Blatt schließen",
+          "rect": {
+            "left": 21,
+            "right": 369,
+            "top": 281.546875,
+            "bottom": 325.546875
+          },
+          "visible": true,
+          "horizontalViewport": true,
+          "insideContainer": true
+        }
+      ],
+      "bytes": 75837,
+      "sha256": "a165f7e6591e35574f7a0327ea0a557cf332b69f24468ffdeb8ed183ab982050",
+      "worksheetViewport": {
+        "path": "apps/worksheet/test-results/app-phone-width-worksheet-viewport.png",
+        "controls": [
+          {
+            "id": "check",
+            "rect": {
+              "x": 210,
+              "y": 404.359375,
+              "width": 13,
+              "height": 13
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          },
+          {
+            "id": "toggle",
+            "rect": {
+              "x": 226,
+              "y": 402.359375,
+              "width": 55.28125,
+              "height": 21
+            },
+            "visible": true,
+            "insideViewportAndFrame": true
+          }
+        ],
+        "bytes": 26105,
+        "sha256": "c205b4180a7af06b045e66cc18e12159be21fe58a901549106e4648de1a7a2a2"
+      },
+      "note": "Viewport only, no physical device claim; vertical page scrolling is allowed, horizontal clipping is not"
+    }
+  ],
+  "scope": "New mobile navigation and rendered worksheet captures only; no physical device claim"
+}

@@ -1,0 +1,13 @@
+import { build } from 'esbuild';
+import { createHash } from 'node:crypto';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+const runner = await build({ entryPoints: ['apps/security-lab/src/runner.ts'], bundle: true, format: 'iife', platform: 'browser', target: 'es2022', write: false });
+const runnerSource = runner.outputFiles[0].text; if (/<\/script/i.test(runnerSource)) throw Error('Runner raw-text boundary');
+const font = await readFile('apps/worksheet/assets/OpenSans-Regular.ttf');
+await mkdir('apps/worksheet/dist', { recursive: true });
+await build({ entryPoints: ['apps/worksheet/src/app.ts'], bundle: true, format: 'iife', platform: 'browser', target: 'es2022', minify: true, define: { __RUNNER_SOURCE__: JSON.stringify(runnerSource), __PDF_FONT_BASE64__: JSON.stringify(font.toString('base64')) }, outfile: 'apps/worksheet/dist/app.js' });
+const html = await readFile('apps/worksheet/ui.html', 'utf8'), css = await readFile('apps/worksheet/ui.css', 'utf8'); if (/<\/style/i.test(css)) throw Error('Style raw-text boundary');
+const shell = html.replace('__APP_STYLE__', css); await writeFile('apps/worksheet/dist/shell-template', shell);
+const hash = createHash('sha256').update(shell).update(await readFile('apps/worksheet/dist/app.js')).digest('hex').slice(0, 24);
+await build({ entryPoints: ['apps/worksheet/src/sw.ts'], bundle: true, format: 'iife', platform: 'browser', target: 'es2022', minify: true, define: { __SHELL_CACHE_ID__: JSON.stringify(hash) }, outfile: 'apps/worksheet/dist/sw.js' });
+console.log('worksheet app build complete', hash);

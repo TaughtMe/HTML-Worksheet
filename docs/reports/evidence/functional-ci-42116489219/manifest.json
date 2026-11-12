@@ -1,0 +1,22 @@
+{
+  "run": 42116489219,
+  "sourceBranchHead": "fba6831",
+  "actualMergeHead": "19608a80ebb5b08a0c6600b32f6fb74a911366d5",
+  "tree": "89d4b3844650c73095c8ef9f1aa109223674ad02",
+  "artifactZips": {
+    "firefox": {"id": 13455893484, "sha256": "9cbcb81b42d3b165847c2c1977604612f2f53ec1d802d56afe41df19566f2e78"},
+    "chromium": {"id": 13456991180, "sha256": "ca40c8a7a1fb08b4c4c4365f5c940899fa675c1ab2e6ff422809f22611c953d2"},
+    "webkit": {"id": 13457281393, "sha256": "d3b072b07abc7436a46419b44bf353bf5075cb1e361f8df06e810c976aa03385"}
+  },
+  "included": ["per-engine ci-source/verdict/report JSON", "Firefox online/offline PDFs and extracted text", "Firefox backup JSON"],
+  "omitted": ["logs", "screenshots", "ZIPs"],
+  "results": {
+    "firefox": {"version": "144.0.2", "workflow": "5/5 stages pass", "review": "Independent Sol raw review complete: persistent-profile restart, stopped server and ECONNREFUSED, four service-worker app responses, IDB completion before ACK (1260 <= 1260), correct instance transition 1→2, all fields including 7,629-character textarea, two six-page PDFs with matching extracted text, offline PDF uses current state, backup has 2 templates/4 instances/2 containers and correct state hashes/winner/recovered candidate."},
+    "chromium": {"version": "143.0.7499.4", "result": "revision 0 timeout before first stage; not a product pass"},
+    "webkit": {"version": "26.0", "result": "cacheReady=false before start; not a product pass"},
+    "legacyRun": {"run": 42116489130, "checks": "27 units, build and typecheck pass", "browser": "Firefox 60/60; Chromium and WebKit have known control failures, not newly causally analyzed"}
+  },
+  "otherRun": "No new root cause is asserted for Chromium or WebKit.",
+  "limits": ["No C/W functional product pass", "Offline-PDF pass is Firefox only", "No real iPad/Android or native share test", "G1/POLICY01 and full product approval remain open"],
+  "uiLayout": "Firefox screenshots revealed overflowing card actions, toolbar/sidebar collision at tablet width, and clipped runner actions. CSS layout correction commits df9d145 and c8b9084 are present in this docs branch; no fresh screenshot/browser validation is claimed yet."
+}

@@ -1,0 +1,57 @@
+{
+  "package": "RATE01",
+  "baseCommit": "88d65391e847e36b165be573babfdf2d077d8f64",
+  "at": "2026-10-29T14:00:45.358Z",
+  "command": "BROWSER_ENGINE=chromium CHROMIUM_PATH=/usr/bin/chromium node apps/security-lab/test/bridge-rate.mjs",
+  "engine": "chromium",
+  "browserVersion": "154.0.8037.57",
+  "nodeVersion": "v24.19.0",
+  "playwrightVersion": "1.57.0",
+  "groups": 4,
+  "trials": 5,
+  "result": "pass",
+  "rawBytes": 976795,
+  "rawSha256": "94f918dd63cbff7b30432fb59d2ce09b557321b0c2c761f6589c09aec70d5f03",
+  "gzipSha256": "e0a25c5a3609239df9e0c208fee26199163d677daf5f6728cfe0229ca3a71891",
+  "testedSourceSha256": {
+    "apps/security-lab/test/bridge-rate-fixtures.mjs": "afbd01b8a24e68d6ebd21898211079655d8423b0da76043ad866fe4ad39eadf1",
+    "apps/security-lab/test/bridge-rate-harness.mjs": "7296eb25dc8714e08bcf5753306a4896ea5bcfe84d0300820f9caa6c81c9810d",
+    "apps/security-lab/test/bridge-rate.mjs": "86997d470843965306076491b67dcad24bf52f5714a903a52ecf33a33df690b9",
+    "apps/security-lab/test/bridge-rate.test.mjs": "0b3f9ab5264fe0b774bf8ae5c796d1f70486033af99acc15d65bccc9eebf1ec8",
+    "apps/security-lab/test/strict-lifecycle-harness.mjs": "6f3944bf03315b76a0569bdd00ad5774ba617c69d26c0a962f561a456a03457b",
+    "apps/security-lab/test/browser.mjs": "b510014b2edbc5fe06af4228687b669f25a99227572078d7688205b88d248851",
+    "apps/security-lab/test/run.mjs": "4eb96737ec0bfaad9a59627aa347ee67bf9634d99da5affb066b5017ccbdf7d3"
+  },
+  "checks": [
+    "new fixture/offline-model unit 1/1",
+    "syntax checks",
+    "necessary app build",
+    "four focused browser groups/five trials; no old cases repeated"
+  ],
+  "limits": [
+    "Input-side rates only; Host output exercised but not independently isolated",
+    "Native receipt before/after timestamps bracket untouched real Host decode; scheduling failures fail calibration",
+    "First invalid input closes, so continued invalid-message budget reset untested",
+    "No queue/DoS resilience or G1a approval",
+    "Firefox/WebKit not run locally"
+  ],
+  "assertionOnlyFollowup": {
+    "originalBrowserCommit": "991514e34c01454d94c435ef1dc2cb7f953b7b5d",
+    "browserRerun": false,
+    "command": "node apps/security-lab/test/bridge-rate.test.mjs",
+    "result": "pass",
+    "unitCases": 2,
+    "archivedOutcomes": 5,
+    "archivedIntermediateSnapshots": 2,
+    "exactWireHashesAndByteSizesVerified": true,
+    "negativeControls": [
+      "candidate state rendered under calibration revision rejected",
+      "additional unexpected native receipt rejected"
+    ],
+    "verificationSourceSha256": {
+      "apps/security-lab/test/bridge-rate-harness.mjs": "1645afbdf779edad4e282ee638ca1a76b2393034c22c8097d9a8dbd907bf30ae",
+      "apps/security-lab/test/bridge-rate.test.mjs": "4f6214222d4dd482e8d7ada93bb68218eaa097e7aecbe537e2d8973f402c6bed"
+    },
+    "note": "Original testedSourceSha256 identifies the actual browser run. Only stricter assertions were checked offline against the unchanged archived evidence."
+  }
+}

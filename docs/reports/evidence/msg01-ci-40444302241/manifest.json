@@ -1,0 +1,123 @@
+{
+  "actions_run_id": "40444302241",
+  "source_commit": "70e9cf8f03ac7e800ca9f18660d08421e1dea99d",
+  "source_tree": "0cf223f7d1d980668f572439bdd07eda9f2b81fb",
+  "checkout_tree_matches_source_tree": true,
+  "node_version": "Node 24 configured by CI; exact patch version not in browser report JSON",
+  "scope": "MSG01 only: four active-port protocol rejection cases added to the previous 28-case corpus",
+  "overall": "success; each engine 32/32, including all four MSG01 cases",
+  "engines": {
+    "chromium": {
+      "artifact_id": "12707529265",
+      "artifact_zip_sha256": "148edad0b47169073579b05588c6bdf01c12ba0bc98b840e6d141a2e8f2d8584",
+      "artifact_zip_size_bytes": 7355,
+      "engine": "chromium",
+      "browser_version": "155.0.8059.0",
+      "results_passed": 32,
+      "results_failed": 0,
+      "msg01_results": {
+        "sequence-gap": "pass",
+        "duplicate-ready": "pass",
+        "unknown-payload-field": "pass",
+        "additional-port": "pass"
+      },
+      "receiver_hits": 20,
+      "receiver_http": 18,
+      "receiver_websocket_upgrade": 2,
+      "receiver_ipc_matches_file": true,
+      "files": [
+        {
+          "artifact_entry": "chromium.json",
+          "archive": "chromium.json.gz",
+          "raw_sha256": "7a7a4becc1fa82ea335f5bf73e59af4cb58428d9a382fc5cc25edff0354fdd9f",
+          "raw_size_bytes": 55989,
+          "archive_sha256": "2da3e57e38775810733f8b4b1cd0e92a29590aa687cfc866c7b08a7f8ae796d2",
+          "archive_size_bytes": 6119
+        },
+        {
+          "artifact_entry": "receiver-chromium-78272a2e-2378-40bb-9496-53f1cb4b20f8.jsonl",
+          "archive": "chromium-receiver.jsonl.gz",
+          "raw_sha256": "12e3de10cd16b84f2e80d823721a332ae76d01d5f0ef1418dd5ae1cf847f4e80",
+          "raw_size_bytes": 4182,
+          "archive_sha256": "77a7046c0122b484187a4e55329d78c9f8e8e24e3352328d5e287c16a6fd6325",
+          "archive_size_bytes": 890
+        }
+      ]
+    },
+    "firefox": {
+      "artifact_id": "12707168474",
+      "artifact_zip_sha256": "0f8af2e3b8bf9ec696e192e3898faab7a8782119c8afe890f5d41e6d2ebea84d",
+      "artifact_zip_size_bytes": 7425,
+      "engine": "firefox",
+      "browser_version": "144.0.2",
+      "results_passed": 32,
+      "results_failed": 0,
+      "msg01_results": {
+        "sequence-gap": "pass",
+        "duplicate-ready": "pass",
+        "unknown-payload-field": "pass",
+        "additional-port": "pass"
+      },
+      "receiver_hits": 20,
+      "receiver_http": 18,
+      "receiver_websocket_upgrade": 2,
+      "receiver_ipc_matches_file": true,
+      "files": [
+        {
+          "artifact_entry": "firefox.json",
+          "archive": "firefox.json.gz",
+          "raw_sha256": "7d86f868679f7526f12502baf36107d0b3d96d6b20ff0d9222f2a7c68655cfd4",
+          "raw_size_bytes": 66410,
+          "archive_sha256": "3575eb193dd4a165f33a88892305206483edefd275342624160c4b8c1c3e20d3",
+          "archive_size_bytes": 6178
+        },
+        {
+          "artifact_entry": "receiver-firefox-8e5ef85d-95d3-4d35-b47c-9d976f7b1ae7.jsonl",
+          "archive": "firefox-receiver.jsonl.gz",
+          "raw_sha256": "0afc813a471517bc1aa5229c4c48debfc167b56b3dd51e5114c9c1ce59e100e6",
+          "raw_size_bytes": 4182,
+          "archive_sha256": "ecc6b28a731814cb08d3dda4f893952f63b2579d05a3a05d7b2ca416184d7a0e",
+          "archive_size_bytes": 884
+        }
+      ]
+    },
+    "webkit": {
+      "artifact_id": "12707741800",
+      "artifact_zip_sha256": "3c02bac60f59c6b409eb7a5e146e26e53afbe0fe4b6e356931ae756315a249ef",
+      "artifact_zip_size_bytes": 6818,
+      "engine": "webkit",
+      "browser_version": "26.0",
+      "results_passed": 32,
+      "results_failed": 0,
+      "msg01_results": {
+        "sequence-gap": "pass",
+        "duplicate-ready": "pass",
+        "unknown-payload-field": "pass",
+        "additional-port": "pass"
+      },
+      "receiver_hits": 20,
+      "receiver_http": 18,
+      "receiver_websocket_upgrade": 2,
+      "receiver_ipc_matches_file": true,
+      "files": [
+        {
+          "artifact_entry": "webkit.json",
+          "archive": "webkit.json.gz",
+          "raw_sha256": "ab74a1f3fb89e0392a980817102a4a9743b87036f3cbd401f46bf0862eb8599f",
+          "raw_size_bytes": 52992,
+          "archive_sha256": "9729524a1b9b1d2330f14019c2e3043dc983ae2013140ede66fd92feaa84d992",
+          "archive_size_bytes": 5575
+        },
+        {
+          "artifact_entry": "receiver-webkit-d920563e-d1ed-438d-890f-33186d97bb86.jsonl",
+          "archive": "webkit-receiver.jsonl.gz",
+          "raw_sha256": "d289a8503b00627b40d688317946402b01ae6a4a27c1930b949a032c5df9794b",
+          "raw_size_bytes": 4182,
+          "archive_sha256": "88164f2c0a5722b62fe64b90944a72841d86d0eb1fe2d9a881ac0fcabc6f5738",
+          "archive_size_bytes": 883
+        }
+      ]
+    }
+  },
+  "compression": "Each archived report/receiver file is gzip with mtime=0 and empty embedded filename; decompression and deterministic recompression verified byte-for-byte."
+}

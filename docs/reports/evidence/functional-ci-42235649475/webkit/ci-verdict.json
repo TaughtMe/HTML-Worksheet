@@ -1,0 +1,7 @@
+{
+  "engine": "webkit",
+  "result": "fail",
+  "expectedVersion": "26.0",
+  "actualVersion": "26.0",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   'functional flow'\n-   'UI hierarchy, strict import, every field kind, real snapshot and PDF download',\n-   'persistent browser profile restarts offline, restores all fields and continues with real PDF',\n-   'real second tab conflicts without overwrite and preserves candidate as independent working copy',\n-   'real UI storage failure keeps confirmed state and recovers bounded RAM candidate',\n-   'actual backup download and merge as new copies retains structure and confirmed answers'\n  ]\n"
+}

@@ -1,0 +1,61 @@
+{
+  "resource_run_id": 40219223102,
+  "standard_ci_run": {
+    "run_id": 40219223224,
+    "result": "success",
+    "unit_tests": "12/12",
+    "existing_browser_cases": "28/28 per engine (Chromium, Firefox, Playwright-WebKit)"
+  },
+  "reports": {
+    "chromium": {
+      "browser_version": "155.0.8059.0",
+      "run_id": 40219223102,
+      "artifact_id": "12609246082",
+      "raw_source": "/workspace/s10-ci-40219223102/resources-chromium.json",
+      "raw_bytes": 168850,
+      "raw_sha256": "00ff78e9ca24c0c22d6263372a4a3c47de1bfb1b48742ac2a0541817d405d438",
+      "gzip_file": "resources-chromium.json.gz",
+      "gzip_sha256": "03d780dadf92c79e1bca540d4d931164f14d223d374f802fa8cc3b6db5e45359",
+      "github_zip": "github-actions-artifact-12609246082.zip",
+      "github_zip_sha256": "b4e2d0fa327684723ad9d182545f780c1f84f00e40ebfffbb8639b7a4bb4f045",
+      "verdict_counts": {
+        "inconclusive": 2
+      }
+    },
+    "firefox": {
+      "browser_version": "144.0.2",
+      "run_id": 40219223102,
+      "artifact_id": "12608681827",
+      "raw_source": "/workspace/s10-ci-40219223102/resources-firefox.json",
+      "raw_bytes": 68859,
+      "raw_sha256": "51953931ac0a414b56f43fb42bec0770717ce618bafed9f1d09eaee74865cccc",
+      "gzip_file": "resources-firefox.json.gz",
+      "gzip_sha256": "89d56913ba727b9fa4347d7bcaa40653948b64372eb1506fc80f11592f9f240d",
+      "github_zip": "github-actions-artifact-12608681827.zip",
+      "github_zip_sha256": "9ac443fdcf91d7b87825defd1c46addadaaf395063dfe61319ae7502d7ca4fe4",
+      "verdict_counts": {
+        "inconclusive": 2
+      }
+    },
+    "webkit": {
+      "browser_version": "26.0",
+      "run_id": 40219223102,
+      "artifact_id": "12609296035",
+      "raw_source": "/workspace/s10-ci-40219223102/resources-webkit.json",
+      "raw_bytes": 499636,
+      "raw_sha256": "84330df3cc0084d49280caa663de3609f37840443ba50eaf9ccf8b58bd77ddc4",
+      "gzip_file": "resources-webkit.json.gz",
+      "gzip_sha256": "7ae89713ee8cc6f5698e25ffbe43ce45796beb9af5f13ee85307036359f42ff0",
+      "github_zip": "github-actions-artifact-12609296035.zip",
+      "github_zip_sha256": "b7b768c20a76805910036c9c73f640a41c1f6814af8776e9e6386d6785f4c2bb",
+      "verdict_counts": {
+        "pass": 8,
+        "observed-risk": 1,
+        "observation": 1
+      }
+    }
+  },
+  "local_source_commit": "7de7fc6435569bf3f0a318d767bf7e0e078d57aa",
+  "source_tree": "43c7a0edfde7e4e8ba6e8daf9e47be8906144f46",
+  "ci_source_commit": "7a8ee4c"
+}

@@ -1,0 +1,78 @@
+{
+  "scope": "offline state only; full offline PDF export remains blocked separately",
+  "at": "2026-11-05T16:43:22.283Z",
+  "browserVersion": "154.0.8037.57",
+  "serverStopped": true,
+  "directHttpFailure": "ECONNREFUSED",
+  "responses": [
+    {
+      "url": "http://127.0.0.1:44149/",
+      "status": 200,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "http://127.0.0.1:44149/app.js",
+      "status": 200,
+      "fromServiceWorker": true
+    },
+    {
+      "url": "http://127.0.0.1:44149/app.js",
+      "status": 200,
+      "fromServiceWorker": true
+    }
+  ],
+  "routedRequests": [],
+  "restored": {
+    "text": "Gespeicherte Antwort",
+    "area": "Mehrzeilig\nvor Neustart",
+    "check": true,
+    "group": "r2",
+    "one": "b",
+    "many": [
+      "a",
+      "b"
+    ]
+  },
+  "continued": {
+    "headRevision": 2,
+    "state": {
+      "schemaVersion": 1,
+      "fields": [
+        {
+          "id": "area",
+          "kind": "text",
+          "value": "Mehrzeilig\nvor Neustart"
+        },
+        {
+          "id": "check",
+          "kind": "checkbox",
+          "value": true
+        },
+        {
+          "id": "group",
+          "kind": "radio",
+          "value": "r2"
+        },
+        {
+          "id": "many",
+          "kind": "select-many",
+          "value": [
+            "a",
+            "b"
+          ]
+        },
+        {
+          "id": "one",
+          "kind": "select-one",
+          "value": "b"
+        },
+        {
+          "id": "text",
+          "kind": "text",
+          "value": "Offline weiterbearbeitet"
+        }
+      ]
+    }
+  },
+  "result": "pass"
+}

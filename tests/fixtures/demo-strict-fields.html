@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head></head>
+<body>
+  <h1>Synthetisches Arbeitsblatt</h1>
+  <p>Erfundene Übung zu einer Fantasiewelt.</p>
+
+  <label for="text">Name der Fantasiefigur</label>
+  <input id="text" type="text">
+
+  <label for="area">Beschreibe den Fantasieort</label>
+  <textarea id="area"></textarea>
+
+  <label for="check">Die Figur findet einen blauen Kristall</label>
+  <input id="check" type="checkbox">
+
+  <fieldset id="group" data-ws-radio-group="">
+    <legend>Welche Farbe hat der Fantasiehimmel?</legend>
+    <input id="r1" type="radio" name="group">
+    <label for="r1">Violett</label>
+    <input id="r2" type="radio" name="group">
+    <label for="r2">Türkis</label>
+  </fieldset>
+
+  <label for="one">Wähle einen Fantasieplaneten</label>
+  <select id="one">
+    <option value="a">Mora</option>
+    <option value="b">Tavi</option>
+  </select>
+
+  <label for="many">Wähle passende Fantasiesymbole</label>
+  <select id="many" multiple="">
+    <option value="a">Stern</option>
+    <option value="b">Blatt</option>
+  </select>
+
+  <button id="toggle" type="button" data-ws-action="toggle-checkbox" data-ws-target="check">Kristallfund umschalten</button>
+</body>
+</html>

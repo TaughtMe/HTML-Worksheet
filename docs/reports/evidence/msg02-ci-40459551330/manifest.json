@@ -1,0 +1,109 @@
+{
+  "actions_run_id": "40459551330",
+  "source_commit": "5dddd1211c444a28fb01be8a4d052102a5801bf5",
+  "source_tree": "d806e90aa7687cbbe44c937b504ba5a7d42c3b90",
+  "scope": "MSG02: two additional Bridge phase rejection cases on top of the 32-case MSG01 corpus",
+  "jobs": {
+    "chromium": "122040722197",
+    "firefox": "122040722144",
+    "webkit": "122040722316"
+  },
+  "status": "complete; checks and all three browser engines succeeded",
+  "engines": {
+    "chromium": {
+      "artifact_id": "12713971683",
+      "artifact_zip_sha256": "0b06be41ea69138e5adc59f7e27f499f453dca3e054878d9aa2958b4c40ba2b5",
+      "artifact_zip_size_bytes": 7753,
+      "browser_version": "155.0.8059.0",
+      "results_passed": 34,
+      "results_failed": 0,
+      "phase_results": {
+        "duplicate-restored": "pass",
+        "unsolicited-snapshot": "pass"
+      },
+      "receiver_lines": 20,
+      "files": {
+        "chromium.json": {
+          "raw_sha256": "b9dfe46a6996737b18ec1b61552e442efab850ecfccfc094c18c070af8a9bf22",
+          "raw_size_bytes": 61150,
+          "gzip": "chromium.json.gz",
+          "gzip_sha256": "2e30739454d829e25caef211044116173c50139408313cb43492c1a284215ca7",
+          "gzip_size_bytes": 6499
+        },
+        "chromium-receiver.jsonl": {
+          "raw_sha256": "d221a31dfcf70e989436b5a3b8492b7bfdda73095c0d3500ce1010b2a4a30abd",
+          "raw_size_bytes": 4182,
+          "gzip": "chromium-receiver.jsonl.gz",
+          "gzip_sha256": "326a701339b4d4f84b26cc629744c746c853cc36fe82b4f15a3922371666404a",
+          "gzip_size_bytes": 890
+        }
+      },
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true
+    },
+    "webkit": {
+      "artifact_id": "12713219495",
+      "artifact_zip_sha256": "822cb480ca54da66788e3c68d4adddb522439b58924fde48049ff780c7478549",
+      "artifact_zip_size_bytes": 7173,
+      "browser_version": "26.0",
+      "results_passed": 34,
+      "results_failed": 0,
+      "phase_results": {
+        "duplicate-restored": "pass",
+        "unsolicited-snapshot": "pass"
+      },
+      "receiver_lines": 20,
+      "files": {
+        "webkit.json": {
+          "raw_sha256": "5cabb2e31b01773cf73a23fcf2d15f849091ee72ae49b3791bb446328f9a22e4",
+          "raw_size_bytes": 58429,
+          "gzip": "webkit.json.gz",
+          "gzip_sha256": "529923008bfc2bcb17b80d9ccd37d2005d90382bbdd16f9d03ca078cf3cba6ec",
+          "gzip_size_bytes": 5925
+        },
+        "webkit-receiver.jsonl": {
+          "raw_sha256": "67315cf7947fd25847aa86454f6dd076e27a453f0191220f50123b2cb07a551b",
+          "raw_size_bytes": 4182,
+          "gzip": "webkit-receiver.jsonl.gz",
+          "gzip_sha256": "0fd7906085a6b168e461e24e896cd30d4434170f20ecd81d410a8eff535b284b",
+          "gzip_size_bytes": 887
+        }
+      },
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true
+    },
+    "firefox": {
+      "job_id": "122040722144",
+      "artifact_id": "12713903400",
+      "artifact_zip_sha256": "a9a645e5101c43fc39974d59648ef0b332f511107f634fd9608c4761b903e07a",
+      "artifact_zip_size_bytes": 7823,
+      "browser_version": "144.0.2",
+      "results_passed": 34,
+      "results_failed": 0,
+      "phase_results": {
+        "duplicate-restored": "pass",
+        "unsolicited-snapshot": "pass"
+      },
+      "receiver_lines": 20,
+      "receiver_hits": 20,
+      "receiver_ipc_matches_file": true,
+      "files": {
+        "firefox.json": {
+          "raw_sha256": "52fede9224951c6d312fbab1d19ca8d4baefc34f89ec88080d587a26ada5d858",
+          "raw_size_bytes": 72425,
+          "gzip": "firefox.json.gz",
+          "gzip_sha256": "9338de01e399958acc16dd5a33502198e9b26658bd32db7f5b2a05d499ccd1e1",
+          "gzip_size_bytes": 6566
+        },
+        "firefox-receiver.jsonl": {
+          "raw_sha256": "ad169203ceb83374ea5833d2374de0d2334cf275eb8eb9a164e73a7b1d4fe194",
+          "raw_size_bytes": 4182,
+          "gzip": "firefox-receiver.jsonl.gz",
+          "gzip_sha256": "21ae096a63bbafabbb9d95f61cf3ecafadf2627b8dfb6fba79cdf660479bb4ad",
+          "gzip_size_bytes": 887
+        }
+      }
+    }
+  },
+  "overall": "checks succeeded; Chromium, Firefox, and WebKit each succeeded with 34/34"
+}

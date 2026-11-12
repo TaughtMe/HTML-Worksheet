@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Dynamische Egress-Probe</title></head>
+<body>
+  <h1>Dynamische Egress-Probe</h1><p id="status">Versuche werden gestartet.</p>
+  <script>
+    (() => {
+      const base = "__RECEIVER__/__CASE__";
+      const image = document.createElement("img");
+      image.alt = "synthetischer Netzwerkversuch";
+      image.src = `${base}?kind=image`;
+      document.body.appendChild(image);
+      fetch(`${base}?kind=fetch`, { mode: "no-cors" }).catch(() => {});
+      try { navigator.sendBeacon(`${base}?kind=beacon`, "synthetic-fixture"); } catch (_) {}
+      document.getElementById("status").textContent = "Drei synthetische Egress-Versuche ausgelöst.";
+    })();
+  </script>
+</body></html>

@@ -1,0 +1,111 @@
+{
+  "actions_run_id": "40634849171",
+  "job_id": "122639335863",
+  "artifact_id": "12793625109",
+  "artifact_zip_sha256": "2000588b8d3aff8aa1cff29ea876a1a6cb8603bd6577154a84e9277dc442312f",
+  "artifact_zip_size_bytes": 2530,
+  "source": {
+    "event": "push",
+    "commit": "e56329326f53eef1a8b60b0017d80e6b1aa87c95",
+    "tree": "b3f98d0a53368c15f82837cda4a07a62974322ed",
+    "tracked_tree_clean": true,
+    "node_version": "v24.21.0",
+    "playwright_locked_version": "1.57.0",
+    "expected_chromium": "156.0.8078.0",
+    "local_review_commit": "419238fd7901d6e7ecf39bebca2bd46640b9e640",
+    "local_workflow_integrated_commit": "e7b9105b8aa889016167480e80079257e5484968",
+    "local_tree": "b3f98d0a53368c15f82837cda4a07a62974322ed",
+    "source_history_note": "Remote diagnostic source and local workflow integration use different commits but the same verified tree."
+  },
+  "actual_browser": {
+    "version": "155.0.8059.0",
+    "launch_source": "system-chromium",
+    "configured_executable_path": "/usr/bin/chromium",
+    "playwright_registry_executable_path": "/home/runner/.cache/ms-playwright/chromium-1200/chrome-linux64/chrome"
+  },
+  "verdict": {
+    "classification": "environment-blocker",
+    "exact_version_match": false,
+    "expected": "156.0.8078.0",
+    "actual": "155.0.8059.0",
+    "workflow_result": "failed by its exact-version environment guard",
+    "interpretation": "environment blocker; the intended Chromium 156 reproduction did not occur. Do not infer cause or treat Chromium 155 success as resolving the Chromium 156 failure."
+  },
+  "variants": [
+    {
+      "variant": "about:blank",
+      "origin": "null",
+      "result": "pass",
+      "popup_event": {
+        "kind": "popup",
+        "url": ""
+      },
+      "download_event": {
+        "kind": "download",
+        "filename": "synthetic-control.txt",
+        "url": "blob:null/154c277d-7cf7-4415-a62b-a5099ec1f16c"
+      },
+      "filename": "synthetic-control.txt",
+      "download_bytes": 17,
+      "download_failure": null
+    },
+    {
+      "variant": "loopback-http",
+      "origin": "http://127.0.0.1:37293",
+      "result": "pass",
+      "popup_event": {
+        "kind": "popup",
+        "url": ""
+      },
+      "download_event": {
+        "kind": "download",
+        "filename": "synthetic-control.txt",
+        "url": "blob:http://127.0.0.1:37293/0796a716-b5f6-4390-843d-f5c206badea9"
+      },
+      "filename": "synthetic-control.txt",
+      "download_bytes": 17,
+      "download_failure": null
+    }
+  ],
+  "limitations": "Both controls passed under the actual system Chromium 155.0.8059.0, including trusted popup and exact 17-byte blob download in about:blank and loopback HTTP. Since 156.0.8078.0 was not launched, this is not a reproduction of the open failure. Earlier Chromium download-negative cases remain uncalibrated; no product, G1, or root-cause conclusion follows.",
+  "files": {
+    "source_manifest": {
+      "raw_file": "download-ci-source.json",
+      "raw_sha256": "9310fa036d50a3da1a35d7dc826b9beef02d458804888711b2e073802f92bc54",
+      "raw_size_bytes": 869,
+      "gzip": "download-ci-source.json.gz",
+      "gzip_sha256": "3aee1c7dd344bd3c48667f255d667bbb81dce9e7c9b81700ff1929037baaab44",
+      "gzip_size_bytes": 515
+    },
+    "version_verdict": {
+      "raw_file": "download-ci-version.json",
+      "raw_sha256": "6753f9c999c31ec1d6d8cbd8a4278f12f8d180fa7fe9a6ce0364be18951d57e5",
+      "raw_size_bytes": 541,
+      "gzip": "download-ci-version.json.gz",
+      "gzip_sha256": "969743838f3a66adf692bd05c3da9f0d1528794c851a5d2773bdb6600723390c",
+      "gzip_size_bytes": 313
+    },
+    "comparison_report": {
+      "raw_file": "download-comparison-chromium.json",
+      "raw_sha256": "d27caae4ee11e30cb2179b8e3905e346a50d396ff268284fa8a47799cbadcec5",
+      "raw_size_bytes": 10608,
+      "gzip": "download-comparison-chromium.json.gz",
+      "gzip_sha256": "1b096f45010067ff0b4f0c32611af4911386a3ddfd027ad454f293a02a4b3079",
+      "gzip_size_bytes": 1307
+    },
+    "job_log": {
+      "raw_file": "job.log",
+      "raw_sha256": "7f9ff01142434dcd17731c1cb54da81074a9811893496302a271fdbbcdc683f3",
+      "raw_size_bytes": 49692,
+      "gzip": "job.log.gz",
+      "gzip_sha256": "0f18dd0b8a690a448072557832b0327098b683bce1dabfa6e25c69f5bc8d15ae",
+      "gzip_size_bytes": 11592
+    }
+  },
+  "source_file_sha256": {
+    ".github/workflows/download-control-diagnostic.yml": "3bcc617356723f9d0307490ff9f7be3f01771ae58079cc110dc6bb9a291a5413",
+    "apps/security-lab/test/diagnose-download.mjs": "ba6f9763861d258d4a7caa7f124b61f49bab7e341126b6a33ec3c772b9ad642b",
+    "apps/security-lab/test/trusted-controls.mjs": "fbef1ed49fa90ef8305098eb3822df56ac58c86b2d6d56627e6efced1c6744da",
+    "package-lock.json": "b744736c521f7ab573471cc08de4e8b54042c93fff7dedc2ee7ec4311541cfbd"
+  }
+}
