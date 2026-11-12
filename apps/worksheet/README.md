@@ -10,6 +10,14 @@ npm run start:app
 
 Die App öffnet auf `http://127.0.0.1:4174`. Service Worker benötigen HTTPS oder localhost. Es gibt keine CDN-Abhängigkeit und kein Serverkonto. Für einen ersten Versuch eignet sich [demo-strict-fields.html](../../tests/fixtures/demo-strict-fields.html).
 
+## Hosting und Versionswechsel
+
+Cloudflare Pages verwendet `npm run build:app` und das Ausgabeverzeichnis `apps/worksheet/dist/pages`. Der Pages-Worker liefert die Startseite mit frischer CSP-Nonce aus. Jeder Build erhält eine sichtbare Versionsnummer aus der UTC-Bauzeit. Der Service Worker prüft beim Installieren die Prüfsummen von Oberfläche und Programmdatei.
+
+Beim erneuten Öffnen oder Zurückkehren in die App sucht der Browser online nach Updates. Unten in der Bibliothek ist die Prüfung über **Nach Updates suchen** auch manuell möglich. Ein geöffnetes Blatt zuerst speichern und schließen, dann **Neue Version öffnen** wählen. Für den Zugriff auf dieselben lokalen Arbeitshefte immer dieselbe Produktionsadresse und dasselbe Browserprofil verwenden.
+
+Der Regressionstest `node apps/worksheet/test/pages-update.mjs` baut zwei Versionen, wechselt bei geöffnetem Blatt zwischen den Releases und prüft die gespeicherte Antwort bei abgeschaltetem Server. Er verwendet Playwright Chromium oder, mit `BROWSER_ENGINE=webkit`, WebKit.
+
 1. Ein Arbeitsheft und darin ein Kapitel anlegen. Kapitel werden als Ordner im gemeinsamen Containerbaum gespeichert.
 2. **Blatt öffnen** importiert eine neue unveränderliche Vorlage und eine unabhängige Bearbeitung. Später aus der Bibliothek öffnen, um dieselbe Bearbeitung fortzusetzen.
 3. Text, Checkbox, Radiogruppe und Auswahlfelder bearbeiten. Die fest deklarierte Checkboxaktion funktioniert über den vertrauenswürdigen Adapter. Während eine Änderung bestätigt wird, sperrt dieser kurz die Felder und stellt den Fokus danach wieder her.

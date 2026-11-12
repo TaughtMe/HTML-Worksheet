@@ -94,7 +94,15 @@ export function mountUi(root: HTMLElement, actions: AppActions): MountedUi {
   editorActions.append(saveNow, workingCopy, pdf, sharePdf, close);
   const runnerMount = el('div', 'runner-mount');
   runnerWrap.append(runnerLabel, editorActions, runnerMount);
-  main.append(toolbar, prototypeNote, errorBox, heading, saveStatus, sectionHead, containersGrid, worksheetsGrid, empty, runnerWrap);
+  const release = el('footer', 'release');
+  const version = el('span', 'card-meta', 'Version ' + document.documentElement.dataset.appVersion);
+  const updateMessage = el('span', 'card-meta'); updateMessage.setAttribute('role', 'status');
+  const checkUpdate = button('Nach Updates suchen', 'search', actions.checkUpdate, 'quiet');
+  const reload = button('Neue Version öffnen', 'open', () => {
+    if (!latest?.busy && !latest?.openedId) location.reload();
+  }, 'secondary');
+  release.append(version, checkUpdate, reload, updateMessage);
+  main.append(toolbar, prototypeNote, errorBox, heading, saveStatus, sectionHead, containersGrid, worksheetsGrid, empty, runnerWrap, release);
   shell.append(sidebar, main); root.append(shell);
   let latest: AppView | null = null;
 
@@ -139,6 +147,10 @@ export function mountUi(root: HTMLElement, actions: AppActions): MountedUi {
     void invoke(() => work);
   }
   function render(view: AppView): void {
+    updateMessage.textContent = (view.update?.message ?? '') + (view.update?.available && view.openedId ? ' Bitte zuerst das Blatt speichern und schließen.' : '');
+    checkUpdate.disabled = !!view.update?.checking;
+    reload.hidden = !view.update?.available;
+    reload.disabled = view.busy || !!view.openedId;
     latest = view; errorBox.hidden = !view.error; errorBox.textContent = view.error ?? '';
     const saving = saveText(view); saveStatus.textContent = saving.text; saveStatus.dataset.kind = saving.kind;
     saveStatus.hidden = !view.openedId && view.save.state === 'idle' && !view.save.message;

@@ -61,6 +61,7 @@ async function pdfFile(): Promise<File> {
   return new File([new Uint8Array(data).buffer], `arbeitsblatt-${current.loaded.instance.id}.pdf`, { type: 'application/pdf' });
 }
 const actions: AppActions = {
+  checkUpdate: () => checkUpdate(true),
   selectContainer: id => operation(async () => { if (session) { await checkpoint('close'); session.close(); session = null; view.openedId = null; view.openedTitle = ''; view.save = { state: 'idle', message: '' }; } view.selectedContainerId = id; }),
   openWorksheet: id => operation(() => open(id)),
   importWorksheet: file => operation(async () => { const id = await repo.create(file, view.selectedContainerId); await open(id); }),
@@ -106,12 +107,49 @@ addEventListener('beforeunload', event => {
   // The runner may still be in its quiet debounce, before the host has seen a candidate.
   if (session?.unsaved || session && session.phase !== 'closed' && session.loaded.instance.status !== 'completed') { event.preventDefault(); (event as BeforeUnloadEvent).returnValue = ''; }
 });
+let checking = false;
+async function checkUpdate(manual: boolean) {
+  if (checking) return;
+  checking = true;
+  if (manual) { view.update = { ...view.update, checking: true, message: 'Updates werden geprüft …' }; render(); }
+  try {
+    const registration = await navigator.serviceWorker.getRegistration('/');
+    if (!registration) throw Error();
+    await registration.update();
+    const pending = registration.installing ?? registration.waiting;
+    if (pending) await waitForActivated(pending, 30000);
+    if (!registration.active) throw Error();
+    const status = await cacheStatus(registration.active);
+    if (!status.ready) throw Error();
+    showVersion(status.version, manual);
+  } catch {
+    if (manual) view.update = { ...view.update, message: 'Updateprüfung fehlgeschlagen. Bitte online erneut versuchen.' };
+  } finally {
+    checking = false;
+    if (view.update) view.update.checking = false;
+    render();
+  }
+}
+function showVersion(version: string, manual: boolean) {
+  const available = version !== document.documentElement.dataset.appVersion;
+  view.update = { available, message: available ? 'Version ' + version + ' ist bereit.' : manual ? 'Diese Version ist aktuell.' : '' };
+}
+function cacheStatus(worker: ServiceWorker): Promise<{ ready: boolean; version: string }> {
+  return new Promise((resolve, reject) => {
+    const channel = new MessageChannel();
+    const timer = setTimeout(() => { channel.port1.close(); reject(Error('Offline-Cache nicht bestätigt.')); }, 3000);
+    channel.port1.onmessage = event => {
+      clearTimeout(timer); channel.port1.close(); resolve(event.data);
+    };
+    worker.postMessage({ type: 'CACHE_STATUS' }, [channel.port2]);
+  });
+}
 async function offline() {
   try {
     const preparationDeadline = performance.now() + 10000;
     if (!('serviceWorker' in navigator)) throw Error('Service Worker nicht verfügbar.');
     const existing = await navigator.serviceWorker.getRegistration('/');
-    if (!existing?.active) await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+    if (!existing?.active) await navigator.serviceWorker.register('/sw.js', { scope: '/', updateViaCache: 'none' });
     const registration = await Promise.race([navigator.serviceWorker.ready, new Promise<never>((_, reject) => setTimeout(() => reject(Error('Offline-Vorbereitung noch nicht bestätigt.')), Math.max(0, preparationDeadline - performance.now())))]);
     if (!registration.active) throw Error('Offline-Worker ist nicht aktiv.');
     await waitForActivated(registration.active, preparationDeadline - performance.now());
@@ -119,12 +157,19 @@ async function offline() {
       const timer = setTimeout(() => reject(Error('Offline-Steuerung noch nicht aktiv.')), 5000);
       navigator.serviceWorker.addEventListener('controllerchange', () => { clearTimeout(timer); resolve(); }, { once: true });
     });
-    await new Promise<void>((resolve, reject) => {
-      const channel = new MessageChannel(), timer = setTimeout(() => { channel.port1.close(); reject(Error('Offline-Cache nicht bestätigt.')); }, 3000);
-      channel.port1.onmessage = event => { clearTimeout(timer); channel.port1.close(); event.data?.ready === true ? resolve() : reject(Error('Offline-Dateien fehlen. Bitte einmal online neu laden.')); };
-      navigator.serviceWorker.controller!.postMessage({ type: 'CACHE_STATUS' }, [channel.port2]);
-    });
+    const readController = async () => {
+      const controller = navigator.serviceWorker.controller;
+      if (!controller) return;
+      const status = await cacheStatus(controller);
+      if (!status.ready) throw Error('Offline-Dateien fehlen. Bitte einmal online neu laden.');
+      if (status.version) showVersion(status.version, false);
+      render();
+    };
+    navigator.serviceWorker.addEventListener('controllerchange', () => { void readController().catch(() => {}); });
+    await readController();
     view.offline = { ready: true, message: 'App-Dateien lokal verfügbar. Antworten werden separat auf diesem Gerät gespeichert.' };
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && navigator.onLine) void checkUpdate(false); });
+    if (existing?.active && navigator.onLine) void checkUpdate(false);
   } catch (error) { view.offline = { ready: false, message: message(error) }; } render();
 }
 void (async () => {

@@ -26,10 +26,12 @@ export interface AppView {
   openedTitle: string;
   save: { state: 'idle' | 'saving' | 'saved' | 'conflict' | 'error'; message: string };
   offline: { ready: boolean; message: string };
+  update?: { message: string; available?: boolean; checking?: boolean };
   busy: boolean;
   error: string | null;
 }
 export interface AppActions {
+  checkUpdate(): Promise<void>;
   selectContainer(id: string | null): Promise<void>;
   openWorksheet(id: string): Promise<void>;
   importWorksheet(file: File): Promise<void>;
